@@ -29,6 +29,7 @@ class FreqAmpOctEventReg{
 		void updateBB(const CEGUI::EventArgs &e);
 		void updateT(const CEGUI::EventArgs &e);
 		void updateTD(const CEGUI::EventArgs &e);
+		void updateW(const CEGUI::EventArgs &e);
 	private:
 		CEGUI::Window *cnewWindow;
 		CEGUI::Window *Frequencyslider;
@@ -40,6 +41,8 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *UpdateButton;
 		CEGUI::Window *UpdateButton2;
 		CEGUI::Window *Terrainbox;
+		CEGUI::Window *FilterTypebox;
+		CEGUI::Window *Weightslider;
 		Ogre::Terrain* cterrain;
 		Ogre::Camera* mCamera;
 		map<int,CEGUI::String> csel;
@@ -63,8 +66,10 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	Gainslider = cnewWindow ->getChild("GainSlider");
 	Scaleslider = cnewWindow ->getChild("ScaleSlider");
 	Maxheightslider = cnewWindow ->getChild("MaxHeightSlider");
+	Weightslider = cnewWindow ->getChild("WeightSlider");
 	UpdateButton2 = cnewWindow ->getChild("UpdateButton2");
 	Terrainbox = cnewWindow ->getChild("Terrainbox");
+	FilterTypebox = cnewWindow ->getChild("FilterTypebox");
 //	std::ostringstream ss5;
 //	ss5 << "Terrain1";
 //	CEGUI::ListboxItem listboxitem = new CEGUI::ListboxItem(ss5.str(), 0);
@@ -85,6 +90,18 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	combobox->addItem(itemCombobox);
 	addconfig(2);
 	csel[2] = CEGUI::String("Terrain2");
+	CEGUI::ListboxTextItem* itemCombobox = new CEGUI::ListboxTextItem("ADD", 1);
+	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
+	combobox->addItem(itemCombobox);
+	CEGUI::ListboxTextItem* itemCombobox = new CEGUI::ListboxTextItem("MULTIPLY", 2);
+	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
+	combobox->addItem(itemCombobox);
+	CEGUI::ListboxTextItem* itemCombobox = new CEGUI::ListboxTextItem("DIFFERENCE", 3);
+	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
+	combobox->addItem(itemCombobox);
+	CEGUI::ListboxTextItem* itemCombobox = new CEGUI::ListboxTextItem("DIVIDE", 4);
+	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
+	combobox->addItem(itemCombobox);
 //	Terrainbox->addItem(listboxitem2);
 	Frequencyslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateF, this));
 	Amplitudeslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateA, this));
@@ -92,6 +109,7 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	Gainslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateG, this));
 	Scaleslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateS, this));
 	Maxheightslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateM, this));
+	Weightslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateW, this));
 	Terrainbox->subscribeEvent(CEGUI::Combobox::EventListSelectionAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateT, this));	//EventDropListDisplayed
 	Terrainbox->subscribeEvent(CEGUI::Combobox::EventDropListDisplayed, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateTD, this));
 	 UpdateButton->subscribeEvent(CEGUI::PushButton::EventClicked,
@@ -108,6 +126,7 @@ void FreqAmpOctEventReg::addconfig(int nameID){
 	settings["Gain"] = .5f;
 	settings["Scale"] = 1.0f/513.0f;
 	settings["Maxheight"] = 1500.0f;
+	settings["Weight"] = .5f;
 	
 	config[nameID] = settings;
 }
@@ -246,6 +265,8 @@ void FreqAmpOctEventReg::updateM(const CEGUI::EventArgs &e){
 }
 
 void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
+	updateConfig();
+	
 	CEGUI::Slider* FSlider = static_cast<CEGUI::Slider*>(Frequencyslider);
 	float fval = FSlider->getCurrentValue();
 	CEGUI::Slider* ASlider = static_cast<CEGUI::Slider*>(Amplitudeslider);
