@@ -11,6 +11,7 @@
 #include "BaseApplication.h"
 #include "LoadHeightMap.cpp"
 #include "ScaleHeights.cpp"
+#include "Combiner.cpp"
 #include <map>
 #include <string>
 
@@ -284,13 +285,22 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	float sval = SSlider->getCurrentValue();
 */	
 	vector<vector<vector<vector<double> > > > tnoisevals;
+	vector<float> weights(config.size());
 	tnoisevals.resize(config.size()); 
 	for (int i = 1; i < config.size()+1; i++){
 		
 		map<string, float> tc = config[i];
 		Perlin* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Gain"], int(3.0f));
 		tnoisevals[i] = test->getNoisevalues();
+		weights[i] = tc["Weight"];
 	}
+	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
+	CEGUI::ListboxItem* litem = combobox->getSelectedItem();
+	//ss5 << "Test update config2" << "\n";
+	//tlog->logMessage(ss5.str());
+	int nameid = (int)litem->getID();
+	Combiner* cmb = new Combiner(nameid);
+	vector<vector<vector<double> > > heightmapvalues = cmb -> Combine(tnoisevals, weights);
 //	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
 	new LoadHeightMap(cterrain, 513.0f*3.0f, heightmapvalues);
