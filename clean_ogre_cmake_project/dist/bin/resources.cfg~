@@ -1,0 +1,23 @@
+# Resources required by the sample browser and most samples.
+[Essential]
+Zip=../media/packs/SdkTrays.zip
+Zip=../media/packs/cubemapsJS.zip
+
+# Resource locations to be added to the default path
+[General]
+FileSystem=../media
+FileSystem=../media/materials/scripts
+FileSystem=../media/materials/textures
+FileSystem=../media/models
+FileSystem=../media/Fonts/Script
+
+[CEGUI]
+ FileSystem=/usr/local/share/cegui-0/schemes
+ FileSystem=/usr/local/share/cegui-0/fonts
+ FileSystem=/usr/local/share/cegui-0/imagesets
+ FileSystem=/usr/local/share/cegui-0/layouts
+ FileSystem=/usr/local/share/cegui-0/looknfeel
+ FileSystem=/usr/local/share/cegui-0/lua_scripts
+ FileSystem=/usr/local/share/cegui-0/schemes
+ FileSystem=/usr/local/share/cegui-0/xml_schemas
+ FileSystem=../media/layouts

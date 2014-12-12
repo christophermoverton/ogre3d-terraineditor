@@ -1,0 +1,55 @@
+ (1.0 - w)*a0 + w*a1
+
+     float u = 6.0f*pow(sx,5) - 15*pow(sx,4)+10*pow(sx,3);
+     float v = 6.0f*pow(sy,5) - 15*pow(sy,4)+10*pow(sy,3);
+     float w = 6.0f*pow(sz,5) - 15*pow(sz,4)+10*pow(sz,3);
+
+pu = 30.0f*pow(sx,4)-60.0f*pow(sx,3)+30.0f*pow(sx,2);
+pv = 30.0f*pow(sy,4)-60.0f*pow(sy,3)+30.0f*pow(sy,2);
+pw = 30.0f*pow(sz,4)-60.0f*pow(sz,3)+30.0f*pow(sz,2);
+
+     c00 = lerp(n000, n100, u);
+     c10 = lerp(n010, n110, u);
+     c01 = lerp(n001, n101, u);
+     c11 = lerp(n011, n111, u);
+     c00 = lerp(n000, n100, u);
+     c10 = lerp(n010, n110, u);
+     c01 = lerp(n001, n101, u);
+     c11 = lerp(n011, n111, u);
+     c0 = lerp(c00, c10, v);
+     c1 = lerp(c01, c11, v);
+     value = lerp(c0,c1, w);
+
+N(x,y,z) = (1-w)*((1-v)((1-u)*n000+u*n100)+v*((1-u)*n010 +u*n110))+w*((1-v)*((1-u)*n001+u*n101)+ v*((1-u)*n011 +u*n111));
+
+float k1 = n000;
+float k2 = n100 - n000;
+float k3 = n010;
+float k4 = n110 - n010;
+float k5 = n001;
+float k6 = n101 - n001;
+float k7 = n011;
+float k8 = n111 - n011;
+a-a*u+u*b = k1+k2*u
+	  = k3+k4*u
+	  
+(1-v)(k1+k2*u) = k1+k2*u-k1*v-k2*u*v
+v(k3+k4*u) = k3*v+k4*u*v
+(1-w)(k1+k2*u-k1*v-k2*u*v+k3*v+k4*u*v)= (k1+k2*u-k1*v-k2*u*v+k3*v+k4*u*v)-k1*w-k2*u*w+k1*v*w+k2*u*v*w-k3*v*w-k4*u*v*w
+
+          =k5+k6*u
+	  =k7+k8*u
+(1-v)(k5+k6*u) = k5+k6*u-k5*v-k6*u*v
+v(k7+k8*u) = k7*v+k8*u*v
+w(k5+k6*u-k5*v-k6*u*v + k7*v+k8*u*v) = k5*w+k6*u*w-k5*v*w-k6*u*v*w+k7*v*w+k8*u*v*w
+
+N(x,y,z) = (k1+k2*u-k1*v-k2*u*v+k3*v+k4*u*v)-k1*w-k2*u*w+k1*v*w+k2*u*v*w-k3*v*w-k4*u*v*w + k5*w+k6*u*w-k5*v*w-k6*u*v*w+k7*v*w+k8*u*v*w
+
+= k1 + k2*u - k1*v - k2*u*v + k3*v + k4*u*v +(k5- k1)*w+(k6-k2)*u*w +(k1-k3-k5+k7)*v*w + (k2-k4-k6+k8)*u*v*w 
+
+//partial N with respect to x
+float pNx = k2*pu -k2*pu*v + k4*pu*v +(k6-k2)*pu*w +(k2-k4-k6+k8)*pu*v*w; 
+//partial N with respect to y
+float pNy = -k1*pv-k2*u*pv+k3*pv+k4*u*pv +(k1-k3-k5+k7)*pv*w + (k2-k4-k6+k8)*u*pv*w;
+//partial N with respect to z
+float pNz = (k5-k1)*pw + (k6-k2)*u*pw + (k1-k3-k5+k7)*v*pw + (k2-k4-k6+k8)*u*v*pw;

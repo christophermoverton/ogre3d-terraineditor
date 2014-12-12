@@ -1,0 +1,7 @@
+Terracing algorithm 
+
+Simpler one that I can think of, involves bounding volumes for vertex selection.  
+
+We'd use a step subdivision based upon the difference from max min heights.
+
+Once obtaining this subdivision

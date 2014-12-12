@@ -1,0 +1,4 @@
+class PlaneIntersection {
+	public:
+		PlaneIntersection(Ogre::Vector3 pos);
+};

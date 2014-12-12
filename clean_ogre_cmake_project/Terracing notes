@@ -1,0 +1,15 @@
+Terracing algorithm 
+
+Simpler one that I can think of, involves bounding volumes for vertex selection.  
+
+We'd use a step subdivision based upon the difference from max min heights.
+
+Once obtaining this subdivision, 
+
+we can use a bounding volume for vertex selections in a certain range.  Once having these vertices all gathered within a given range we floor these to the particular heightband of the terrace elevation.  
+
+This is like the process of terracing to create a layered cake.  
+
+By using bounding volumes and intersection testing we ensure that we select the right vertices for the right range, automatically this countours along the terracing elevation ranges by intersection testing.  
+
+

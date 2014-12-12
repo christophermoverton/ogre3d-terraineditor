@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project CEGUIDefaultResolution="1280x720" CEGUIVersion="0.8" baseDirectory="." fontsPath="../../../../../../usr/local/share/cegui-0/fonts" imagesetsPath="../../../../../../usr/local/share/cegui-0/imagesets" layoutsPath="../../../../../../usr/local/share/cegui-0/layouts" looknfeelsPath="../../../../../../usr/local/share/cegui-0/looknfeel" schemesPath="../../../../../../usr/local/share/cegui-0/schemes" version="CEED Project 1" xmlSchemasPath="../../../../../../usr/local/share/cegui-0/xml_schemas">
+    <Items />
+</Project>

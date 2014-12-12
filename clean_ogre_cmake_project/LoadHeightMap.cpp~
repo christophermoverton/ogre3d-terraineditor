@@ -1,0 +1,119 @@
+#ifndef __LoadHeightMap_CPP
+#define __LoadHeightMap_CPP
+#include <vector>
+//#include "Imagestuff.cpp"
+#include "ColorGet.cpp"
+
+class LoadHeightMap{
+	public:
+		LoadHeightMap(Ogre::Terrain* mterrain, Ogre::String filename, float maxheightscale);
+		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vector<vector<vector<double> > > heightmapvalues);
+	
+};
+
+LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::String filename, float maxheightscale){
+	//maxheightscale = 1.0f means that the terrain is scaled to a maximum possible height 
+	//that is equivalent to the terrain's size.
+	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("HeightMap.log");
+	std::ostringstream ss5;
+	Ogre::Image* img = new Ogre::Image();
+	ss5<< "Test" << "\n";
+	tlog->logMessage(ss5.str());
+//        ResourceGroup* Ogre::ResourceGroupManager::getResourceGroup 	( 	const String &  	name	) 	
+	Ogre::DataStreamPtr a = Ogre::ResourceGroupManager::getSingleton().openResource (filename); 		
+	img->load(filename, Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	//Ogre::Image imga = img->load(a);
+	//Ogre::Image imgb = &imga;
+	Ogre::PixelBox pixel_box = img->getPixelBox();
+	Ogre::uint32 width = img->getWidth(); //x
+	Ogre::uint32 height = img->getHeight(); //y
+	/*
+	std::map<PixelFormat,std::string> m;
+	m[PF_A8R8G8B8]="A8R8G8B8";
+	m[PF_A8B8G8R8]="A8B8G8R8";
+	m[PF_B8G8R8A8]="B8G8R8A8";
+	m[PF_R8G8B8A8]="R8G8B8A8";
+	*/
+	//technically image::load() loads with .png A8R8B8G8 
+	//we stored the image R8B8G8A8 so we need to rotate channel 
+	//values for proper decoding.
+	/*
+	if (m.find(img->getFormat())==m.end()){
+		ss5<<"Not found format.\n";
+	}// not found
+	else{
+		ss5<<"Image Format: "<<m[img->getFormat()]<<"\n";
+	}
+	*/
+	ss5<< "Test" << "\n";
+	ss5<< "width: "<< width << "\n";
+	ss5<< "depth: "<< height << "\n";
+	ss5<< "Ogre::PF_R8G8B8A8: " << Ogre::PF_R8G8B8A8 << "\n";
+	ss5<< "format: "<<img->getFormat()<<"\n";
+	ss5<< "size: " << mterrain->getSize() << "\n";
+	/*
+	std::vector<PixelFormat> a;
+	a.push_back(PF_A8R8G8B8);
+	a.push_back(
+	for (int m = 0; m< 5; m++){
+	
+	}
+	*/
+	tlog->logMessage(ss5.str());
+	ss5.str(std::string());
+	mterrain->dirty();
+	for (int i = 0; i < width; i++){
+		for(int j = 0; j < height; j++){
+			Ogre::ColourValue colour = img->getColourAt((size_t) i, (size_t) j, (size_t) 0);
+			//Ogre::Image::load() apparently decodes with A8R8B8G8 even though
+			//the image were encoded with R8B8G8A8, so we rotate values for realign.
+			//bgar no, agbr no, ragb no, bagr
+			Ogre::ColourValue colrot = Ogre::ColourValue(256.0f*colour.r, 256.0f*colour.b, 256.0f*colour.g, 256.0f*colour.a);
+/*			
+			ss5 << "Red: " << colour.r << "\n";
+			ss5 << "Green: " << colour.g << "\n";
+			ss5 << "Blue: " << colour.b << "\n";
+			ss5 << "Alpha: " << colour.a << "\n";
+*/			
+			ColorGet* cg = new ColorGet(1.0f);
+			double nheight = cg->decode(colrot);
+
+//			ss5<< "nheight: " << nheight<<"\n";
+			double posheight = nheight*(double)mterrain->getSize()*maxheightscale;
+//			ss5<< "posheigh: " << posheight << "\n";
+			mterrain->setHeightAtPoint ((long) i, (long) j, posheight);			
+		}
+	}
+	ColorGet* cg = new ColorGet(1.0f);
+	Ogre::ColourValue acol = Ogre::ColourValue(255,255,255,255);
+	ss5 << "Red: " << acol.r << "\n";
+	ss5 << "Green: " << acol.g << "\n";
+	ss5 << "Blue: " << acol.b << "\n";
+	ss5 << "Alpha: " << acol.a << "\n";
+	ss5 << "Test value decode: " << cg->decode(Ogre::ColourValue(255,255,255,255))<<"\n";
+	Ogre::ColourValue colour = img->getColourAt((size_t) 0,(size_t) 0, (size_t) 0);
+	ss5 << "Red: " << colour.r << "\n";
+	ss5 << "Green: " << colour.g << "\n";
+	ss5 << "Blue: " << colour.b << "\n";
+	ss5 << "Alpha: " << colour.a << "\n";
+	tlog->logMessage(ss5.str());
+	mterrain->update();
+}
+
+LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vector<vector<vector<double> > > heightmapvalues){
+	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("HeightMap.log");
+	std::ostringstream ss5;
+	mterrain->dirty();
+	for (int i = 0; i<heightmapvalues.size();i++){
+		for(int j = 0; j<heightmapvalues[i].size(); j++){
+			for(int k = 0; k < heightmapvalues[i][j].size()-1; k++){
+				double posheight = heightmapvalues[i][j][k]*maxheightscale;
+				mterrain->setHeightAtPoint ((long) i, (long) j, posheight);
+				//ss5<< "posheigh: " << posheight << "\n";
+			}
+		}
+	}
+	tlog->logMessage(ss5.str());
+	mterrain->update();
+}
+#endif

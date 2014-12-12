@@ -1,0 +1,105 @@
+#ifndef __PerlinTest_CPP
+#define __PerlinTest_CPP
+
+#include "PerlinGenerator.cpp"
+#include "ColorGet.cpp"
+#include "Imagestuff.cpp"
+#include <vector>
+class PerlinTest{
+	public:
+		PerlinTest(float size, float scale);
+		PerlinTest(float size, float scale, float zdepth);
+		PerlinTest(float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain, int imagemap);
+		vector<vector<vector<double> > > getNoisevalues();
+	private:
+		vector<vector<vector<double> > > cnoisevals;		
+};
+
+PerlinTest::PerlinTest(float size, float scale){
+	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("Perlin.log");
+	std::ostringstream ss5;
+	ss5<< "Test" << "\n";
+	tlog->logMessage(ss5.str());
+	PerlinGenerator* pgen = new PerlinGenerator(size, scale);
+	//ss5<<"Test2 " <<"\n";
+	//tlog->logMessage(ss5.str());
+	vector<vector<double> > noisevals = pgen->getNoisevalues();
+	ImageBuffer buffer(size);
+    	FillColour* fill = new FillColour (&buffer);
+    	//buffer.saveImage("test1.png");
+	for (int i = 0; i<size; i++){
+		for (int j = 0; j<size; j++){
+			//ss5<<"Color value: "<<noisevals[i][j]<<"\n";
+			Ogre::ColourValue col = Ogre::ColourValue(noisevals[i][j],noisevals[i][j],noisevals[i][j]);
+			fill->setPixl((size_t)i, (size_t)j, col);
+		}
+	}
+	//tlog->logMessage(ss5.str());
+	buffer.saveImage("test2.png");
+}
+
+PerlinTest::PerlinTest(float size, float scale, float zdepth){
+	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("Perlin.log");
+	std::ostringstream ss5;
+	ss5<< "Test" << "\n";
+	tlog->logMessage(ss5.str());
+	PerlinGenerator* pgen = new PerlinGenerator(size, scale, zdepth);
+	//ss5<<"Test2 " <<"\n";
+	//tlog->logMessage(ss5.str());
+	vector<vector<vector<double> > > noisevals = pgen->getNoisevalues3d();
+	ImageBuffer buffer(size);
+    	FillColour* fill = new FillColour (&buffer);
+    	//buffer.saveImage("test1.png");
+	//no test on z depth.  This function is designed a single 2 dimensional slice
+	//implementation of the test provides a number 2
+	for (int i = 0; i<size; i++){
+		for (int j = 0; j<size; j++){
+		   for(int k = 0; k<(int)zdepth-1;k++){
+			//ss5<<"Color value: "<<noisevals[i][j]<<"\n";
+			ColorGet* cget = new ColorGet(noisevals[i][j][k]);
+			Ogre::ColourValue acol = cget->getCol();
+			//Ogre::ColourValue col = Ogre::ColourValue(noisevals[i][j][k],noisevals[i][j][k],noisevals[i][j][k]);
+			fill->setPixl((size_t)i, (size_t)j, acol);
+		   }
+		}
+	}
+	//tlog->logMessage(ss5.str());
+	buffer.saveImage("test2.png");
+}
+
+PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain = 1.5f, int imagemap = (int)3.0f){
+	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("Perlin.log");
+	std::ostringstream ss5, filename;
+	ss5<< "Test" << "\n";
+	tlog->logMessage(ss5.str());
+	PerlinGenerator* pgen = new PerlinGenerator(size, scale, zdepth, frequency, amplitude, octaves, gain);
+	//ss5<<"Test2 " <<"\n";
+	//tlog->logMessage(ss5.str());
+	vector<vector<vector<float> > > noisevals = pgen->getNoisevalues3d();
+	cnoisevals = noisevals;
+	ImageBuffer buffer(size);
+    	FillColour* fill = new FillColour (&buffer);
+    	//buffer.saveImage("test1.png");
+	//no test on z depth.  This function is designed a single 2 dimensional slice
+	//implementation of the test provides a number 2
+	for (int i = 0; i<size; i++){
+		for (int j = 0; j<size; j++){
+		   for(int k = 0; k<(int)zdepth-1;k++){
+			//ss5<<"Color value: "<<noisevals[i][j]<<"\n";
+			ColorGet* cget = new ColorGet(noisevals[i][j][k]);
+			Ogre::ColourValue acol = cget->getCol();
+			//Ogre::ColourValue col = Ogre::ColourValue(noisevals[i][j][k],noisevals[i][j][k],noisevals[i][j][k]);
+			fill->setPixl((size_t)i, (size_t)j, acol);
+		   }
+		}
+	}
+	//tlog->logMessage(ss5.str());
+	filename << "../media/materials/textures/test" << imagemap << ".png";
+	buffer.saveImage(filename.str());
+}
+
+vector<vector<vector<double> > > PerlinTest::getNoisevalues(){
+	return cnoisevals;
+}
+
+#endif

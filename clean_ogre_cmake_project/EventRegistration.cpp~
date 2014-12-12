@@ -1,0 +1,9 @@
+#ifndef __EventRegistration_CPP
+#define __EventRegistration_CPP
+
+class EventRegisteration{
+	public:
+		EventRegistration(void);
+};
+
+#endif
