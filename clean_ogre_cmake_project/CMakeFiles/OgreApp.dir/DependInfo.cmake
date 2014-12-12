@@ -4,8 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/strangequark2/inttutorial3/clean_ogre_cmake_project/BaseApplication.cpp" "/home/strangequark2/inttutorial3/clean_ogre_cmake_project/CMakeFiles/OgreApp.dir/BaseApplication.cpp.o"
-  "/home/strangequark2/inttutorial3/clean_ogre_cmake_project/ITutorial02.cpp" "/home/strangequark2/inttutorial3/clean_ogre_cmake_project/CMakeFiles/OgreApp.dir/ITutorial02.cpp.o"
+  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BaseApplication.cpp" "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles/OgreApp.dir/BaseApplication.cpp.o"
+  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ITutorial02.cpp" "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles/OgreApp.dir/ITutorial02.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -231,6 +231,7 @@ CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: /usr/local/include/OGRE/Threading/
 
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BaseApplication.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ColorGet.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Combiner.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Falloffinterpolate.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: FreqAmpOctEventReg.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ITutorial02.cpp

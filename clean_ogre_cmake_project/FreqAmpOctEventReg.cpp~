@@ -91,17 +91,17 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	combobox->addItem(itemCombobox);
 	addconfig(2);
 	csel[2] = CEGUI::String("Terrain2");
-	CEGUI::ListboxTextItem* itemCombobox = new CEGUI::ListboxTextItem("ADD", 1);
-	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
+	itemCombobox = new CEGUI::ListboxTextItem("ADD", 1);
+	combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
 	combobox->addItem(itemCombobox);
-	CEGUI::ListboxTextItem* itemCombobox = new CEGUI::ListboxTextItem("MULTIPLY", 2);
-	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
+	itemCombobox = new CEGUI::ListboxTextItem("MULTIPLY", 2);
+	//CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
 	combobox->addItem(itemCombobox);
-	CEGUI::ListboxTextItem* itemCombobox = new CEGUI::ListboxTextItem("DIFFERENCE", 3);
-	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
+	itemCombobox = new CEGUI::ListboxTextItem("DIFFERENCE", 3);
+	//CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
 	combobox->addItem(itemCombobox);
-	CEGUI::ListboxTextItem* itemCombobox = new CEGUI::ListboxTextItem("DIVIDE", 4);
-	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
+	itemCombobox = new CEGUI::ListboxTextItem("DIVIDE", 4);
+	//CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
 	combobox->addItem(itemCombobox);
 //	Terrainbox->addItem(listboxitem2);
 	Frequencyslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateF, this));
@@ -270,6 +270,15 @@ void FreqAmpOctEventReg::updateM(const CEGUI::EventArgs &e){
 	//}
 }
 
+void updateW(const CEGUI::EventArgs &e){
+	CEGUI::Window* wlabel = cnewWindow ->getChild("Weightlabel");
+	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Weightslider);
+	float val = WSlider->getCurrentValue();
+	std::ostringstream ss5;
+	ss5<<val;
+	wlabel->setText(ss5.str());
+}
+
 void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	updateConfig();
 /*	
@@ -290,7 +299,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	for (int i = 1; i < config.size()+1; i++){
 		
 		map<string, float> tc = config[i];
-		Perlin* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Gain"], int(3.0f));
+		PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Gain"], int(3.0f));
 		tnoisevals[i] = test->getNoisevalues();
 		weights[i] = tc["Weight"];
 	}

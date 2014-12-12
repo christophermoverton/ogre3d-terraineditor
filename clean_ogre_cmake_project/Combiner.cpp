@@ -1,7 +1,7 @@
 #include <vector>
 
 using namespace std;
-enum class COMBINER_TYPE {ADD, MULTIPLY, DIVIDE, DIFFERENCE
+enum COMBINER_TYPE {ADD, MULTIPLY, DIVIDE, DIFFERENCE
 };
 
 class Combiner{
@@ -9,7 +9,7 @@ class Combiner{
 
 		Combiner(COMBINER_TYPE type);
 		Combiner(int type);
-		COMBINER_TYPE ctype;
+		//COMBINER_TYPE ctype;
 		vector<vector<vector<double> > > Combine(vector<vector<vector<double> > > val1,
 							float weight1,
 							vector<vector<vector<double> > > val2,
@@ -20,7 +20,7 @@ class Combiner{
 							float weight2,
 							vector<vector<vector<double> > > val3,
 							float weight3);
-		vector<vector<vector<double> > > Combine(vector<vector<vector<vector<double> vals,
+		vector<vector<vector<double> > > Combine(vector<vector<vector<vector<double> > > > vals,
 							vector<float> weights);
 	private:
 		COMBINER_TYPE ctype;
@@ -32,16 +32,16 @@ Combiner::Combiner(COMBINER_TYPE type){
 
 Combiner::Combiner(int type){
 	if (type == 1){
-		ctype = COMBINER_TYPE::ADD;
+		ctype = ADD;
 	}
 	else if (type == 2) {
-		ctype = COMBINER_TYPE::MULTIPLY;
+		ctype = MULTIPLY;
 	}
 	else if (type == 3) {
-		ctype = COMBINER_TYPE::DIFFERENCE;
+		ctype = DIFFERENCE;
 	}
 	else if (type == 4) {
-		ctype = COMBINER_TYPE::DIVIDE;
+		ctype = DIVIDE;
 	}
 }
 
@@ -61,18 +61,18 @@ vector<vector<vector<double> > > Combiner::Combine(vector<vector<vector<double> 
 				double val1 = vals1[i][j][k];
 				double val2 = vals2[i][j][k];
 				double tval;
-				if ctype == COMBINER_TYPE::ADD {
+				if (ctype == ADD) {
 					//combinevals[i][j][k] = weight1*val1 + weight2*val2;
 					tval = weight1*val1 + weight2*val2;
 				}
-				else if (ctype == COMBINER_TYPE::MULTIPLY){
+				else if (ctype == MULTIPLY){
 					//no weighting since order of weights is commutative 
 					tval = val1*val2;
 				}
-				else if (ctype == COMBINER_TYPE::DIFFERENCE){
+				else if (ctype == DIFFERENCE){
 					tval = weight1*val1-weight2*val2;
 				}
-				else if (ctype == COMBINER_TYPE::DIVIDE){
+				else if (ctype == DIVIDE){
 					tval = val1/val2;
 				}
 				if (tval < minval){
@@ -102,7 +102,7 @@ vector<vector<vector<double> > > Combiner::Combine(vector<vector<vector<double> 
 	return combinevals;
 }
 
-vector<vector<vector<double> > > Combiner::Combine(vector<vector<vector<vector<double> vals,
+vector<vector<vector<double> > > Combiner::Combine(vector<vector<vector<vector<double> > > > vals,
 							vector<float> weights){
 
 	vector<vector<vector<double> > > combinevals;
@@ -118,25 +118,25 @@ vector<vector<vector<double> > > Combiner::Combine(vector<vector<vector<vector<d
 				double val1 = vals[0][i][j][k];
 				float weight1 = weights[0];
 				for(int l = 1; l < vals.size()+1; l++){
-				if l>1 {
+				if (l>1){
 					double val1 = combinevals[i][j][k];
 					float weight1 = 1.0f;
 					}
 				double val2 = vals[l][i][j][k];
 				float weight2 = weights[l];
 				double tval;
-				if ctype == COMBINER_TYPE::ADD {
+				if (ctype == ADD) {
 					//combinevals[i][j][k] = weight1*val1 + weight2*val2;
 					tval = weight1*val1 + weight2*val2;
 				}
-				else if (ctype == COMBINER_TYPE::MULTIPLY){
+				else if (ctype == MULTIPLY){
 					//no weighting since order of weights is commutative 
 					tval = val1*val2;
 				}
-				else if (ctype == COMBINER_TYPE::DIFFERENCE){
+				else if (ctype == DIFFERENCE){
 					tval = weight1*val1-weight2*val2;
 				}
-				else if (ctype == COMBINER_TYPE::DIVIDE){
+				else if (ctype == DIVIDE){
 					tval = val1/val2;
 				}
 				if (tval < minval){
