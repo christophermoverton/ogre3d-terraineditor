@@ -11,6 +11,7 @@
 #include "BaseApplication.h"
 #include "LoadHeightMap.cpp"
 #include "ScaleHeights.cpp"
+#include "Combiner.cpp"
 #include <map>
 #include <string>
 
@@ -147,6 +148,8 @@ void FreqAmpOctEventReg::updateConfig(){
 	float sval = SSlider->getCurrentValue();
 	CEGUI::Slider* MSlider = static_cast<CEGUI::Slider*>(Maxheightslider);
 	float mval = MSlider->getCurrentValue();
+	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Weightslider);
+	float wval = WSlider->getCurrentValue();
 	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(Terrainbox);
 	map<string, float> settings;
 	ss5 << "Test update config" << "\n";
@@ -157,6 +160,7 @@ void FreqAmpOctEventReg::updateConfig(){
 	settings["Gain"] = gval;
 	settings["Scale"] = sval;
 	settings["Maxheight"] = mval;
+	settings["Weight"] = wval;
 	ss5 << "Test update config" << "\n";
 	tlog->logMessage(ss5.str());
 	CEGUI::ListboxItem* litem = combobox->getSelectedItem();
@@ -183,13 +187,14 @@ void FreqAmpOctEventReg::loadConfig(){
 	ss5 << "Test load config at name" << "\n";
 	tlog->logMessage(ss5.str());
 	map<string, float> settings = config[nameID];
-	float fval, aval, oval, gval, sval, mval;
+	float fval, aval, oval, gval, sval, mval, wval;
 	fval = settings["Frequency"];
 	aval = settings["Amplitude"];
 	oval = settings["Octaves"];
 	gval = settings["Gain"];
 	sval = settings["Scale"];
 	mval = settings["Maxheight"];
+	wval = settings["Weight"];
 	ss5 << "Test load config" << "\n";
 	tlog->logMessage(ss5.str());
 	CEGUI::Slider* FSlider = static_cast<CEGUI::Slider*>(Frequencyslider);
@@ -204,7 +209,8 @@ void FreqAmpOctEventReg::loadConfig(){
 	SSlider->setCurrentValue(sval);
 	CEGUI::Slider* MSlider = static_cast<CEGUI::Slider*>(Maxheightslider);
 	MSlider->setCurrentValue(mval);
-	
+	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Weightslider);
+	WSlider->setCurrentValue(wval);	
 }
 
 void FreqAmpOctEventReg::updateF(const CEGUI::EventArgs &e){
@@ -266,7 +272,7 @@ void FreqAmpOctEventReg::updateM(const CEGUI::EventArgs &e){
 
 void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	updateConfig();
-	
+/*	
 	CEGUI::Slider* FSlider = static_cast<CEGUI::Slider*>(Frequencyslider);
 	float fval = FSlider->getCurrentValue();
 	CEGUI::Slider* ASlider = static_cast<CEGUI::Slider*>(Amplitudeslider);
@@ -276,9 +282,18 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	CEGUI::Slider* GSlider = static_cast<CEGUI::Slider*>(Gainslider);
 	float gval = GSlider->getCurrentValue();
 	CEGUI::Slider* SSlider = static_cast<CEGUI::Slider*>(Scaleslider);
-	float sval = SSlider->getCurrentValue();	
-	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
-	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
+	float sval = SSlider->getCurrentValue();
+*/	
+	vector<vector<vector<vector<double> > > > tnoisevals;
+	tnoisevals.resize(config.size()); 
+	for (int i = 1; i < config.size()+1; i++){
+		
+		map<string, float> tc = config[i];
+		Perlin* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Gain"], int(3.0f));
+		tnoisevals[i] = test->getNoisevalues();
+	}
+//	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
+//	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
 	new LoadHeightMap(cterrain, 513.0f*3.0f, heightmapvalues);
 }
 

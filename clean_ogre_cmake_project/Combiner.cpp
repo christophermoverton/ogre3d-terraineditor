@@ -19,6 +19,8 @@ class Combiner{
 							float weight2,
 							vector<vector<vector<double> > > val3,
 							float weight3);
+		vector<vector<vector<double> > > Combine(vector<vector<vector<vector<double> vals,
+							vector<float> weights);
 	private:
 		COMBINER_TYPE ctype;
 };
@@ -82,4 +84,9 @@ vector<vector<vector<double> > > Combiner::Combine(vector<vector<vector<double> 
 		}
 	}
 	return combinevals;
+}
+
+vector<vector<vector<double> > > Combiner::Combine(vector<vector<vector<vector<double> vals,
+							vector<float> weights){
+
 }
