@@ -117,7 +117,7 @@ vector<vector<vector<double> > > Combiner::Combine(vector<vector<vector<vector<d
 				combinevals[i][j].resize(vals[0][i][j].size());
 				double val1 = vals[0][i][j][k];
 				float weight1 = weights[0];
-				for(int l = 1; l < vals.size()+1; l++){
+				for(int l = 1; l < vals.size(); l++){
 				if (l>1){
 					double val1 = combinevals[i][j][k];
 					float weight1 = 1.0f;

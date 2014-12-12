@@ -270,7 +270,7 @@ void FreqAmpOctEventReg::updateM(const CEGUI::EventArgs &e){
 	//}
 }
 
-void updateW(const CEGUI::EventArgs &e){
+void FreqAmpOctEventReg::updateW(const CEGUI::EventArgs &e){
 	CEGUI::Window* wlabel = cnewWindow ->getChild("Weightlabel");
 	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Weightslider);
 	float val = WSlider->getCurrentValue();
@@ -296,9 +296,9 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	vector<vector<vector<vector<double> > > > tnoisevals;
 	vector<float> weights(config.size());
 	tnoisevals.resize(config.size()); 
-	for (int i = 1; i < config.size()+1; i++){
+	for (int i = 0; i < config.size(); i++){
 		
-		map<string, float> tc = config[i];
+		map<string, float> tc = config[i+1];
 		PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Gain"], int(3.0f));
 		tnoisevals[i] = test->getNoisevalues();
 		weights[i] = tc["Weight"];
