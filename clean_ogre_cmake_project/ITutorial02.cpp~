@@ -283,7 +283,7 @@ void ITutorial02::createScene(void)
     //FillColour (&buffer).setColour(Ogre::ColourValue(0.0f, 1.0f, 1.0f)).process();
     //buffer.saveImage("test1.png");
     PerlinTest* test = new PerlinTest(513.0f,20.0f, 2.0f,0.001949318f, .90f, 7.0f, (int)3.0f); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
-    new LoadHeightMap(cterrain, Ogre::String("test2.png"), 3.0f);
+    new LoadHeightMap(cterrain, Ogre::String("test3.png"), 3.0f);
     //CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
     //cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
 }

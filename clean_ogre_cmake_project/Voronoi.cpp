@@ -1,14 +1,22 @@
 #include <math.h>       /* cos */
-
+#include "cspline.cpp"
 #define PI 3.14159265
+
 class Voronoi {
 	public:
 		Voronoi(int points, int size);
+		vector<vector<double> > getHeightMap(void);
 	private:
 		double distance(vector<double> point1, vector<double> point2);
 		vector<double> randompoint(void);
+		vector<double> directionVector(vector<double> point1, vector<double> point2);		
 		vector<vector<double> > > cpoints;
+		vector<double> normvector(double distance, vector<double> pos);
+		double Voronoi::nearestNodes2(int x, int y);
+		double Voronoi::nearestNodes2(vector<double> pos);
+		//vector<vector<double> > getHeightMap(void)
 		int csize;
+		Ogre::Vector4 falloffcoeff;
 };
 
 Voronoi::Voronoi(int points, int size){
@@ -17,6 +25,17 @@ Voronoi::Voronoi(int points, int size){
 		cpoints[i] = randompoint(size);
 	}
 	csize = size;
+	vector<double> twopoints(2);
+    	twopoints[0] = 0; 
+    	twopoints[1] = 1;
+    	cspline* cs = new cspline(twopoints,twopoints);
+    	double tan1 = (double)Ogre::Math::Tan(Ogre::Math::DegreesToRadians(30));
+    	falloffcoeff = cs->compute2nodecspline (tan1, tan1);    std::vector<double> twopoints(2);
+    	twopoints[0] = 0; 
+    	twopoints[1] = 1;
+    	cspline* cs = new cspline(twopoints,twopoints);
+    	double tan1 = (double)Ogre::Math::Tan(Ogre::Math::DegreesToRadians(30));
+    	falloffcoeff = cs->compute2nodecspline (tan1, tan1);
 }
 
 vector<double> Voronoi::randompoint(int size){
@@ -28,8 +47,11 @@ vector<double> Voronoi::randompoint(int size){
 	return pos;
 }
 
-Ogre::Vector3 Voronoi::normvector(double distance, vector<double> pos){
-	return Ogre::Vector3(pos[0]/distance, pos[1]/distance,0);
+vector<double> Voronoi::normvector(double distance, vector<double> pos){
+	vector<double> retvec(2);
+	retvec[0] = pos[0]/distance;
+	retvec[1] = pos[1]/distance; 
+	return retvec;
 }
 
 vector<double> Voronoi::directionVector(vector<double> point1, vector<double> point2){
@@ -43,14 +65,14 @@ double Voronoi::distance(vector<double> point1, vector<double> point2){
 	return pow(pow(point1[0] - point2[0],2) + pow(point1[1] - point2[1]),(double).5f);
 }
 
-double<vector> Voronoi::mirrorTest(vector<double> node1, vector<double> node2, vector<double> pos){
-	//sign testing direction vectors, 
-	double distn2n1 = distance(node1, node2);
-	double n2n1x = node2
-	
+double Voronoi::nearestNodes2(int x, int y){
+	vector<double> inputvec(2);
+	inputvec[0] = x;
+	inputvec[1] = y;
+	return nearestNodes2(inputvec);
 }
 
-vector<double> Voronoi::nearestNodes2(vector<double> pos){
+double Voronoi::nearestNodes2(vector<double> pos){
 		double minval = pow(2*pow(csize,2), (double).5f);
 		double minval2 = (double)0.0f;
 		int minvali = 0;
@@ -74,12 +96,16 @@ vector<double> Voronoi::nearestNodes2(vector<double> pos){
 		Ogre::Ray ray1 = Ogre::Ray(Ogre::Vector3(pos[0],pos[1],0),ndirvec);
 		//we intersect test to see that we aren't closer to an edge boundary of the voronoi system
 		if (abs(513.0f - pos[0]) < minval2){
+			double distposnedge = abs(513.0f - pos[0]); 
 		}
 		else if (abs(513.0f - pos[1]) < minval2){
+			double distposnedge = abs(513.0f - pos[1]);
 		}
 		else if (abs(0.0f - pos[0]) < minval2){
+			double distposnedge = abs(0.0f - pos[0]);
 		}
 		else if (abs(0.0f - pos[1]) < minval2){
+			double distposnedge = abs(0.0f - pos[1]);
 		}
 		else {
 			//minval2 passes, then assumption that between cells the 
@@ -117,15 +143,28 @@ vector<double> Voronoi::nearestNodes2(vector<double> pos){
 			// a = 1, b = -m_n , and c = -2*m/(m^2+1)^1/2 * distn2n1 + 2*m_n*distn2n1/(m^2+1)^1/2
 			//now we make use of distance between point (x_0,y_0) and a line.
 			//distance (ax +by + c) = |ax_0 + by_0 + c|/(a^2 + b^2)^1/2
-				
+			double m = mnode21;
+			double m_n = -1.0f/m;
+			double a = 1;
+			double b = -m_n;
+			double c = -2*m/pow((m^2+1),.5f) *distn2n1 + 2*m_n*distn2n1/pow(m^2+1,.5f);
+			double distposnedge = abs(a*pos_t[0] + b*pos_t[1]+ c)/pow(a*a+b*b,.5f);	
 		}	
-		//next we mirror the ndirvec.  We need to perform a mirror test
 		
+		return distposnedge;
 	}
-double Voronoi::getHeightMap(){
+vector<vector<double> > Voronoi::getHeightMap(double falloffdist){
 	for (int i = 0; i < csize; i++){
 		for(int j = 0; j < csize; j++){
-			
+			double dist = nearestNodes2(i, j);
+			//compute t param 
+			double tparam = dist / falloffdist;
+			if (tparam > 1) {
+				tparam = (double) 1.0f;
+			}
+			else{
+				tparam = 1 - tparam;
+			}			
 		}
 	}
 }
