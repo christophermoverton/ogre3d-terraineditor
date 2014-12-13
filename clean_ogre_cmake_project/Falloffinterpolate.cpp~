@@ -1,6 +1,8 @@
+#ifndef __Falloffinterpolate_CPP
+#define __Falloffinterpolate_CPP
 #include <OgreMatrix4.h>
-
-
+#include <vector>
+using namespace std;
 class Falloffinterpolate{
 	public:
 		double tparam, crfalloff, ctramount;
@@ -8,20 +10,32 @@ class Falloffinterpolate{
 		Ogre::Vector3 cipoint;  //interpolated position
 		Ogre::Vector3 ccpoint;  //center point for falloff radii
 		Ogre::Vector4 cicoeff;
+		Falloffinterpolate(double itparam, double rfalloff, Ogre::Vector4 icoeff, double tramount);
 		Falloffinterpolate(Ogre::Vector3 point, Ogre::Vector3 clpoint, double rfalloff, Ogre::Vector4 icoeff, double tramount);
 		Falloffinterpolate(std::vector<Ogre::Vector3> falloffSelection, Ogre::Vector3 clpoint,
 		double rfalloff, Ogre::Vector4 icoeff, double tramount);
 		~Falloffinterpolate(void);
+		double getTPoint(void);
 		Ogre::Vector3 getIpoint(void);
-		std::vector<Ogre::Vector3> getIpoints(void);
+		vector<Ogre::Vector3> getIpoints(void);
 	private:
 		double computetparam(void);  //normalized distance measure from ccpoint to cpoint.
 		Ogre::Vector3 computeinterp(void);
-		std::vector<Ogre::Vector3> cfalloffSelection;
+		vector<Ogre::Vector3> cfalloffSelection;
 		//std::vector<Ogre::Real> Ipoints;
-		std::vector<Ogre::Vector3> Ipoints;
+		vector<Ogre::Vector3> Ipoints;
 
 };
+
+Falloffinterpolate::Falloffinterpolate(double itparam, double rfalloff, Ogre::Vector4 icoeff, double tramount){
+	cpoint = Ogre::Vector3(0, 0, 0);
+//	ccpoint = clpoint;
+	tparam = itparam;
+	cicoeff = icoeff;
+	crfalloff = rfalloff;
+	ctramount = tramount;
+	cipoint = computeinterp();
+}
 
 Falloffinterpolate::Falloffinterpolate(Ogre::Vector3 point, Ogre::Vector3 clpoint, double rfalloff, Ogre::Vector4 icoeff, double tramount){
 	cpoint = point;
@@ -32,7 +46,7 @@ Falloffinterpolate::Falloffinterpolate(Ogre::Vector3 point, Ogre::Vector3 clpoin
 	tparam = computetparam();
 	cipoint = computeinterp();
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("test.log");
-	std::ostringstream ss;
+	ostringstream ss;
 	ss<<"Faloffinterpolation********\n";
 	ss<<"cpoint: "<< cpoint << "\n";
 	ss<<"ccpoint: "<< ccpoint << "\n";
@@ -48,7 +62,7 @@ Falloffinterpolate::Falloffinterpolate(std::vector<Ogre::Vector3> falloffSelecti
 	crfalloff = rfalloff;
 	ctramount = tramount;
 	Ipoints.resize(falloffSelection.size());
-	std::ostringstream ss;
+	ostringstream ss;
 	for (int i = 0; i < falloffSelection.size(); i++){
 		cpoint = falloffSelection[i];
 		tparam = computetparam();
@@ -78,7 +92,7 @@ double Falloffinterpolate::computetparam(){
 	// distance measure for tparam is done on xz plane strictly...we neglect height 
 	//when selecting a set of vertices.
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("test.log");
-	std::ostringstream ss;
+	ostringstream ss;
 	ss << "point 1:  "<< cpoint.x<<","<< cpoint.z << "\n";
 	ss << "center point: "<< ccpoint.x<< ","<<ccpoint.z << "\n";
 	tlog->logMessage(ss.str());
@@ -88,7 +102,7 @@ double Falloffinterpolate::computetparam(){
 Ogre::Vector3 Falloffinterpolate::computeinterp(){
 	//f(x_i)=a+bx_i+cx_i^2+dx_i^3. is the ordering on coefficients 
 	//for the 2 node cspline method that we call upon.
-	double x = cicoeff.w + cicoeff.x*abs(tparam) + cicoeff.y*pow(tparam,2) + cicoeff.z*pow(abs(tparam),3);
+	double x = cicoeff[0] + cicoeff[1]*abs(tparam) + cicoeff[2]*pow(tparam,2) + cicoeff[3]*pow(abs(tparam),3);
 	//next we rescale this by the translation factor ctramount.
 	double hpos = abs(x)*ctramount; //or height position
 	//double hpos = tparam*ctramount;
@@ -101,6 +115,10 @@ Ogre::Vector3 Falloffinterpolate::computeinterp(){
 	return Ogre::Vector3(cpoint.x, cpoint.y+hpos, cpoint.z);
 }
 
+double getTPoint(){
+	return cipoint.y;
+}
+
 Ogre::Vector3 Falloffinterpolate::getIpoint(){
 	return cipoint;
 }
@@ -108,3 +126,5 @@ Ogre::Vector3 Falloffinterpolate::getIpoint(){
 std::vector<Ogre::Vector3> Falloffinterpolate::getIpoints(){
 	return Ipoints;
 }
+
+#endif
