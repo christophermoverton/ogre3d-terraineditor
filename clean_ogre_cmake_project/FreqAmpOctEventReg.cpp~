@@ -12,6 +12,7 @@
 #include "LoadHeightMap.cpp"
 #include "ScaleHeights.cpp"
 #include "Combiner.cpp"
+#include "Voronoi.cpp"
 #include <map>
 #include <string>
 
@@ -31,6 +32,7 @@ class FreqAmpOctEventReg{
 		void updateT(const CEGUI::EventArgs &e);
 		void updateTD(const CEGUI::EventArgs &e);
 		void updateW(const CEGUI::EventArgs &e);
+		void updateN(const CEGUI::EventArgs &e);
 	private:
 		CEGUI::Window *cnewWindow;
 		CEGUI::Window *Frequencyslider;
@@ -44,6 +46,7 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *Terrainbox;
 		CEGUI::Window *FilterTypebox;
 		CEGUI::Window *Weightslider;
+		CEGUI::Window *NoiseTypebox;
 		Ogre::Terrain* cterrain;
 		Ogre::Camera* mCamera;
 		map<int,CEGUI::String> csel;
@@ -71,6 +74,7 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	UpdateButton2 = cnewWindow ->getChild("UpdateButton2");
 	Terrainbox = cnewWindow ->getChild("Terrainbox");
 	FilterTypebox = cnewWindow ->getChild("FilterTypebox");
+	NoiseTypebox = cnewWindow ->getChild("NoiseTypebox");
 //	std::ostringstream ss5;
 //	ss5 << "Terrain1";
 //	CEGUI::ListboxItem listboxitem = new CEGUI::ListboxItem(ss5.str(), 0);
@@ -104,6 +108,13 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	//CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
 	combobox->addItem(itemCombobox);
 //	Terrainbox->addItem(listboxitem2);
+	combobox = static_cast<CEGUI::Combobox*>(NoiseTypebox);
+	itemCombobox = new CEGUI::ListboxTextItem("Advanced Perlin", 1);
+	combobox->addItem(itemCombobox);
+	combobox->setItemSelectState 	(itemCombobox,true); 
+	itemCombobox = new CEGUI::ListboxTextItem("Voronoi", 2);
+	combobox->addItem(itemCombobox);
+
 	Frequencyslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateF, this));
 	Amplitudeslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateA, this));
 	Octavesslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateO, this));
@@ -128,6 +139,7 @@ void FreqAmpOctEventReg::addconfig(int nameID){
 	settings["Scale"] = 1.0f/513.0f;
 	settings["Maxheight"] = 1500.0f;
 	settings["Weight"] = .5f;
+	settings["NoiseType"] = 1.0f;
 	
 	config[nameID] = settings;
 }
@@ -151,6 +163,9 @@ void FreqAmpOctEventReg::updateConfig(){
 	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Weightslider);
 	float wval = WSlider->getCurrentValue();
 	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(Terrainbox);
+	ncombobox = static_cast<CEGUI::Combobox*>(NoiseTypebox);
+	CEGUI::ListboxItem* nlitem = ncombobox->getSelectedItem();
+	float nameID = (float)nlitem->getID();
 	map<string, float> settings;
 	ss5 << "Test update config" << "\n";
 	tlog->logMessage(ss5.str());	
@@ -161,6 +176,7 @@ void FreqAmpOctEventReg::updateConfig(){
 	settings["Scale"] = sval;
 	settings["Maxheight"] = mval;
 	settings["Weight"] = wval;
+	settings["NoiseType"] = nameID;
 	ss5 << "Test update config" << "\n";
 	tlog->logMessage(ss5.str());
 	CEGUI::ListboxItem* litem = combobox->getSelectedItem();
@@ -187,7 +203,7 @@ void FreqAmpOctEventReg::loadConfig(){
 	ss5 << "Test load config at name" << "\n";
 	tlog->logMessage(ss5.str());
 	map<string, float> settings = config[nameID];
-	float fval, aval, oval, gval, sval, mval, wval;
+	float fval, aval, oval, gval, sval, mval, wval, nval;
 	fval = settings["Frequency"];
 	aval = settings["Amplitude"];
 	oval = settings["Octaves"];
@@ -195,6 +211,7 @@ void FreqAmpOctEventReg::loadConfig(){
 	sval = settings["Scale"];
 	mval = settings["Maxheight"];
 	wval = settings["Weight"];
+	nval = settings["NoiseType"];
 	ss5 << "Test load config" << "\n";
 	tlog->logMessage(ss5.str());
 	CEGUI::Slider* FSlider = static_cast<CEGUI::Slider*>(Frequencyslider);
@@ -211,6 +228,16 @@ void FreqAmpOctEventReg::loadConfig(){
 	MSlider->setCurrentValue(mval);
 	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Weightslider);
 	WSlider->setCurrentValue(wval);	
+
+	ncombobox = static_cast<CEGUI::Combobox*>(NoiseTypebox);
+	if ((int)nval == 1){
+		itemCombobox = new CEGUI::ListboxTextItem("Advanced Perlin", 1);
+	}
+	else{
+		itemCombobox = new CEGUI::ListboxTextItem("Voronoi", 2);
+	}
+	ncombobox->setItemSelectState 	(itemCombobox,true);
+	
 }
 
 void FreqAmpOctEventReg::updateF(const CEGUI::EventArgs &e){
@@ -299,8 +326,14 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	for (int i = 0; i < config.size(); i++){
 		
 		map<string, float> tc = config[i+1];
-		PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Gain"], int(3.0f));
-		tnoisevals[i] = test->getNoisevalues();
+		if ((int)tc["NoiseType"] == 1){
+			PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Gain"], int(3.0f));
+			tnoisevals[i] = test->getNoisevalues();
+		}
+		else if ((int)tc["NoiseType"==2){
+			Voronoi* test = new Voronoi(25, 513);
+			tnoisevals[i] = test->get
+		}
 		weights[i] = tc["Weight"];
 	}
 	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);

@@ -6,7 +6,7 @@ class Voronoi {
 	public:
 		Voronoi(int points, int size);
 		vector<vector<double> > getHeightMap(double falloffdist, double tramount);
-		vector<vector<double> > Voronoi::getHeightMapradial(double tramount);
+		vector<vector<vector<double> > > getHeightMapradial(double tramount);
 	private:
 		double distance(vector<double> point1, vector<double> point2);
 		vector<double> randompoint(void);
@@ -18,6 +18,10 @@ class Voronoi {
 		double distanceNodePosToEdge(vector<double> pos, vector<double> node, vector<double> edgepos,bool horiz);
 		vector<double> nearestNodes2radial(int x, int y);
 		vector<double> nearestNodes2radial(vector<double> pos);
+		//this next function is purely to conform to the heightmap data reading data standard
+		//given by the other noise function
+		vector<vector<vector<double> > > convertTo3Darray(vector<vector<double> > inputvec);
+	
 		//vector<vector<double> > getHeightMap(void)
 		int csize;
 		Ogre::Vector4 falloffcoeff;
@@ -326,6 +330,20 @@ vector<vector<double> > Voronoi::getHeightMapradial(double tramount){
 	return points;
 }
 
+vector<vector<vector<double> > > Voronoi::convertTo3Darray(vector<vector<double> > inputvec){
+	vector<vector<vector<double> > > retvec(csize);
+	for (int i = 0; i < csize; i++){
+		retvec[i].resize(csize);
+		for (int j = 0; j < csize; j++){
+			retvec[i][j].resize(2);
+			for (int k = 0; k < 2; k++){
+				retvec[i][j][k] = inputvec[i][j];
+			}
+		}
+	}
+	return retvec;
+}
+
 vector<vector<double> > Voronoi::getHeightMap(double falloffdist, double tramount){
 	vector<vector<double> > points(csize);
 	for (int i = 0; i < csize; i++){
@@ -346,5 +364,6 @@ vector<vector<double> > Voronoi::getHeightMap(double falloffdist, double tramoun
 			points[i][j] = intpoint;
 		}
 	}
-	return points;
+	vector<vector<vector<double> > > rpoints = convertTo3Darray(points);
+	return rpoints;
 }
