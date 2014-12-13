@@ -301,7 +301,7 @@ void Perlin::dnoise3f( vector<float>* vout, float x, float y, float z )
     vout = &pvout;
 }
 
-vector<float> Perlin::get3dNoisePartials(){
+vector<double> Perlin::get3dNoisePartials(){
 	return cNoisePartials3d;
 }
 
