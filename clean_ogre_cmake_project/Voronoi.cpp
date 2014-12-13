@@ -114,9 +114,10 @@ vector<double> Voronoi::nearestNodes2(vector<double> pos){
 			// Then using point slope formula we have
 			// (y-2m/(m^2+1)^1/2*distn2n1) = m_n*(x - 2*distn2n1/(m^2+1)^1/2)
 			// y - m_n*x -2m/(m^2+1)^1/2 * distn2n1 + 2*m_n*distn2n1/(m^2+1)^1/2 = 0
+			// a = 1, b = -m_n , and c = -2*m/(m^2+1)^1/2 * distn2n1 + 2*m_n*distn2n1/(m^2+1)^1/2
 			//now we make use of distance between point (x_0,y_0) and a line.
 			//distance (ax +by + c) = |ax_0 + by_0 + c|/(a^2 + b^2)^1/2
-			// This is given by abs(2*m/(m+1)^1/2*x_0+y_0)/(4m^2/(m+1)+1)	
+				
 		}	
 		//next we mirror the ndirvec.  We need to perform a mirror test
 		
