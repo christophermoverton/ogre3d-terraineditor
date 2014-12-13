@@ -5,7 +5,8 @@
 class Voronoi {
 	public:
 		Voronoi(int points, int size);
-		vector<vector<double> > getHeightMap(void);
+		vector<vector<double> > getHeightMap(double falloffdist, double tramount);
+		vector<vector<double> > Voronoi::getHeightMapradial(double tramount);
 	private:
 		double distance(vector<double> point1, vector<double> point2);
 		vector<double> randompoint(void);
@@ -15,8 +16,8 @@ class Voronoi {
 		double nearestNodes2(int x, int y);
 		double nearestNodes2(vector<double> pos);
 		double distanceNodePosToEdge(vector<double> pos, vector<double> node, vector<double> edgepos,bool horiz);
-		double nearestNodes2radial(int x, int y);
-		double nearestNodes2radial(vector<double> pos);
+		vector<double> nearestNodes2radial(int x, int y);
+		vector<double> nearestNodes2radial(vector<double> pos);
 		//vector<vector<double> > getHeightMap(void)
 		int csize;
 		Ogre::Vector4 falloffcoeff;
@@ -301,7 +302,9 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 	}
 
 vector<vector<double> > Voronoi::getHeightMapradial(double tramount){
+	vector<vector<double> > points(csize);
 	for (int i = 0; i < csize; i++){
+		points[i].resize(csize);
 		for(int j = 0; j < csize; j++){
 			vector<double> distances = nearestNodes2radial(i, j);
 			//compute t param 
@@ -317,12 +320,16 @@ vector<vector<double> > Voronoi::getHeightMapradial(double tramount){
 */
 			Falloffinterpolate fint = Falloffinterpolate(tparam, distances[1], falloffcoeff, tramount);			
 			double intpoint = fint.getTPoint(void);
+			points[i][j] = intpoint;
 		}
 	}
+	return points;
 }
 
 vector<vector<double> > Voronoi::getHeightMap(double falloffdist, double tramount){
+	vector<vector<double> > points(csize);
 	for (int i = 0; i < csize; i++){
+		points[i].resize(csize);
 		for(int j = 0; j < csize; j++){
 			double dist = nearestNodes2(i, j);
 			//compute t param 
@@ -336,6 +343,8 @@ vector<vector<double> > Voronoi::getHeightMap(double falloffdist, double tramoun
 			}
 			Falloffinterpolate fint = Falloffinterpolate(tparam, falloffdist, falloffcoeff, tramount);			
 			double intpoint = fint.getTPoint(void);
+			points[i][j] = intpoint;
 		}
 	}
+	return points;
 }
