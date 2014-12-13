@@ -12,8 +12,11 @@ class Voronoi {
 		vector<double> directionVector(vector<double> point1, vector<double> point2);		
 		vector<vector<double> > > cpoints;
 		vector<double> normvector(double distance, vector<double> pos);
-		double Voronoi::nearestNodes2(int x, int y);
-		double Voronoi::nearestNodes2(vector<double> pos);
+		double nearestNodes2(int x, int y);
+		double nearestNodes2(vector<double> pos);
+		double distanceNodePosToEdge(vector<double> pos, vector<double> node, vector<double> edgepos,bool horiz);
+		double nearestNodes2radial(int x, int y);
+		double nearestNodes2radial(vector<double> pos);
 		//vector<vector<double> > getHeightMap(void)
 		int csize;
 		Ogre::Vector4 falloffcoeff;
@@ -187,7 +190,14 @@ double Voronoi::distanceNodePosToEdge(vector<double> pos, vector<double> node, v
 		return distance(intercept, pos_t);  	
 }
 
-double Voronoi::nearestNodes2radial(vector<double> pos){
+vector<double> Voronoi::nearestNodes2radial(int x, int y){
+	vector<double> inputvec(2);
+	inputvec[0] = x;
+	inputvec[1] = y;
+	return nearestNodes2radial(inputvec);
+}
+
+vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 		double minval = pow(2*pow(csize,2), (double).5f);
 		double minval2 = (double)0.0f;
 		int minvali = 0;
@@ -211,19 +221,25 @@ double Voronoi::nearestNodes2radial(vector<double> pos){
 		Ogre::Ray ray1 = Ogre::Ray(Ogre::Vector3(pos[0],pos[1],0),ndirvec);
 		//we intersect test to see that we aren't closer to an edge boundary of the voronoi system
 		vector<double> edgepos(2);
-		edgepos[0] = ;
-		distanceNodePosToEdge(pos, cpoints[minvali], vector<double> edgepos,true); //horizontal 
-		if (abs(513.0f - pos[0]) < minval2){
-			double distposnedge = abs(513.0f - pos[0]); 
+		edgepos[0] = csize;
+		edgepos[1] = csize;
+		double distance = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, true); //horizontal
+		double distance2 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, false); //vertical
+		edgepos[0] = 0.0f;
+		edgepos[1] = 0.0f;
+		double distance3 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, true); //horizontal
+		double distance4 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, false); //vertical		  
+		if (distance < minval2){
+			double distposnedge = distance; 
 		}
-		else if (abs(513.0f - pos[1]) < minval2){
-			double distposnedge = abs(513.0f - pos[1]);
+		else if (distance2 < minval2){
+			double distposnedge = distance2;
 		}
-		else if (abs(0.0f - pos[0]) < minval2){
-			double distposnedge = abs(0.0f - pos[0]);
+		else if (distance3 < minval2){
+			double distposnedge = distance3;
 		}
-		else if (abs(0.0f - pos[1]) < minval2){
-			double distposnedge = abs(0.0f - pos[1]);
+		else if (distance4 < minval2){
+			double distposnedge = distance4;
 		}
 		else {
 			//minval2 passes, then assumption that between cells the 
@@ -271,11 +287,39 @@ double Voronoi::nearestNodes2radial(vector<double> pos){
 			double d = 0.0f;
 			double px = d-c/(a-b);
 			double py = (a*d-b*c)/(a-b);
-			double distposnedge = abs(a*pos_t[0] + b*pos_t[1]+ c)/pow(a*a+b*b,.5f);	
+			vector<double> pvec(2);
+			pvec[0] = px;
+			pvec[1] = py;
+			double distposnedge = distance(pvec, pos_t)
+			//double distposnedge = abs(a*pos_t[0] + b*pos_t[1]+ c)/pow(a*a+b*b,.5f);	
 		}	
-		
-		return distposnedge;
+		vector<double> distances(2);
+		double distn1pos = distance(cpoints[minvali], pos)
+		distances[0] = distposnedge;
+		distances[1] = distposnedge+distn1pos;  //total length on the given radial axis.
+		return distances;
 	}
+
+vector<vector<double> > Voronoi::getHeightMapradial(double tramount){
+	for (int i = 0; i < csize; i++){
+		for(int j = 0; j < csize; j++){
+			vector<double> distances = nearestNodes2radial(i, j);
+			//compute t param 
+			double tparam = distances[0] / distances[1];
+/*
+			if (tparam > 1) {
+				//tparam = (double) 1.0f;
+				tparam = 0.0f;
+			}
+			else{
+				tparam = 1 - tparam;
+			}
+*/
+			Falloffinterpolate fint = Falloffinterpolate(tparam, distances[1], falloffcoeff, tramount);			
+			double intpoint = fint.getTPoint(void);
+		}
+	}
+}
 
 vector<vector<double> > Voronoi::getHeightMap(double falloffdist, double tramount){
 	for (int i = 0; i < csize; i++){
