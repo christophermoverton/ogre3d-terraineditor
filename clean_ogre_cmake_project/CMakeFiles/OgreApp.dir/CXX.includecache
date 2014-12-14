@@ -45,6 +45,8 @@ vector
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Falloffinterpolate.cpp
 OgreMatrix4.h
 -
+vector
+-
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/FreqAmpOctEventReg.cpp
 PerlinTest.cpp
@@ -67,6 +69,8 @@ ScaleHeights.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ScaleHeights.cpp
 Combiner.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Combiner.cpp
+Voronoi.cpp
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi.cpp
 map
 -
 string
@@ -155,6 +159,14 @@ string
 -
 sstream
 -
+vector
+-
+
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi.cpp
+math.h
+-
+cspline.cpp
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/cspline.cpp
 vector
 -
 

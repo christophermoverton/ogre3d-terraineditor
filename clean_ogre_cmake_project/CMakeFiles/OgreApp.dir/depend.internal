@@ -245,6 +245,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PlaneIntersection.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ScaleHeights.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Terrainheightselection.cpp
+ /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/cspline.cpp
  /usr/include/ois/OIS.h
  /usr/include/ois/OISConfig.h
