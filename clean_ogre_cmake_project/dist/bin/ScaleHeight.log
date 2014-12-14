@@ -1,286 +1,144 @@
-12:17:47: Test update config
+07:51:46: Test update config
 
-12:17:47: Test update config
+07:51:46: Test update config
+Noise type nameID: 1
 
-12:17:47: Test update config
+07:51:46: Test update config
+Noise type nameID: 1
 Test update config
+updated noise type: 0
 
-12:17:47: Test update config
+07:51:46: Test update config
+Noise type nameID: 1
 Test update config
+updated noise type: 0
 Test update config2
 
-12:17:47: Test update config
+07:51:46: Test update config
+Noise type nameID: 1
 Test update config
-Test update config2
-Test update config
-
-12:17:47: Test update config
-Test update config
-Test update config2
-Test update config
-Test update config settings updated
-
-12:17:56: Test update config
-
-12:17:56: Test update config
-
-12:17:56: Test update config
-Test update config
-
-12:17:56: Test update config
-Test update config
-Test update config2
-
-12:17:56: Test update config
-Test update config
+updated noise type: 0
 Test update config2
 Test update config
 
-12:17:56: Test update config
+07:51:46: Test update config
+Noise type nameID: 1
 Test update config
+updated noise type: 0
 Test update config2
 Test update config
 Test update config settings updated
 
-12:17:58: Test load config
+07:51:51: Test update config
 
-12:17:58: Test load config
-Test load config at litem
+07:51:51: Test update config
+Noise type nameID: 1
 
-12:17:58: Test load config
-Test load config at litem
-Test load config at name
-
-12:17:58: Test load config
-Test load config at litem
-Test load config at name
-Test load config
-
-12:18:10: Test update config
-
-12:18:10: Test update config
-
-12:18:10: Test update config
+07:51:51: Test update config
+Noise type nameID: 1
 Test update config
+updated noise type: 0
 
-12:18:10: Test update config
+07:51:51: Test update config
+Noise type nameID: 1
 Test update config
+updated noise type: 0
 Test update config2
 
-12:18:10: Test update config
+07:51:51: Test update config
+Noise type nameID: 1
 Test update config
+updated noise type: 0
 Test update config2
 Test update config
 
-12:18:10: Test update config
+07:51:51: Test update config
+Noise type nameID: 1
 Test update config
+updated noise type: 0
 Test update config2
 Test update config
 Test update config settings updated
 
-12:18:12: Test load config
+07:51:52: Test load config
 
-12:18:12: Test load config
+07:51:52: Test load config
 Test load config at litem
 
-12:18:12: Test load config
+07:51:52: Test load config
 Test load config at litem
 Test load config at name
 
-12:18:12: Test load config
+07:51:52: Test load config
 Test load config at litem
 Test load config at name
 Test load config
 
-12:18:21: Test update config
+07:52:02: Test update config
+Noise type nameID: 2
 
-12:18:21: Test update config
-
-12:18:21: Test update config
+07:52:02: Test update config
+Noise type nameID: 2
 Test update config
+updated noise type: 1
 
-12:18:21: Test update config
+07:52:02: Test update config
+Noise type nameID: 2
 Test update config
+updated noise type: 1
 Test update config2
 
-12:18:21: Test update config
+07:52:02: Test update config
+Noise type nameID: 2
 Test update config
-Test update config2
-Test update config
-
-12:18:21: Test update config
-Test update config
-Test update config2
-Test update config
-Test update config settings updated
-
-12:18:23: Test load config
-
-12:18:23: Test load config
-Test load config at litem
-
-12:18:23: Test load config
-Test load config at litem
-Test load config at name
-
-12:18:23: Test load config
-Test load config at litem
-Test load config at name
-Test load config
-
-12:18:26: Test update config
-
-12:18:26: Test update config
-
-12:18:26: Test update config
-Test update config
-
-12:18:26: Test update config
-Test update config
-Test update config2
-
-12:18:26: Test update config
-Test update config
+updated noise type: 1
 Test update config2
 Test update config
 
-12:18:26: Test update config
+07:52:02: Test update config
+Noise type nameID: 2
 Test update config
+updated noise type: 1
 Test update config2
 Test update config
 Test update config settings updated
 
-12:18:27: Test load config
+07:52:02: Hitting update button!!!!!!!
+Second terrain noise type:  0
+Config size: 2
 
-12:18:27: Test load config
-Test load config at litem
+07:52:02: Key: 1
+Values:
+ Amplitude,0.5
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,0
+ NoiseType,0
+ Octaves,1
+ Scale,34.8333
+ Weight,0
+Key: 2
+Values:
+ Amplitude,0.5
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseType,1
+ Octaves,2
+ Scale,22.1667
+ Weight,0.5
 
-12:18:27: Test load config
-Test load config at litem
-Test load config at name
+07:52:02: Starting noise gen loop!!!!!!!
+NoiseType: 0
 
-12:18:27: Test load config
-Test load config at litem
-Test load config at name
-Test load config
+07:52:02: Hitting update button!!!!!!!
 
-12:18:35: Test update config
+07:52:02: weights!!!!!!! 0
 
-12:18:35: Test update config
+07:52:02: Starting noise gen loop!!!!!!!
+NoiseType: 1
 
-12:18:35: Test update config
-Test update config
+07:52:02: 2 on noise !!!!!!!
 
-12:18:35: Test update config
-Test update config
-Test update config2
-
-12:18:35: Test update config
-Test update config
-Test update config2
-Test update config
-
-12:18:35: Test update config
-Test update config
-Test update config2
-Test update config
-Test update config settings updated
-
-12:18:37: Test load config
-
-12:18:37: Test load config
-Test load config at litem
-
-12:18:37: Test load config
-Test load config at litem
-Test load config at name
-
-12:18:37: Test load config
-Test load config at litem
-Test load config at name
-Test load config
-
-12:18:46: Test update config
-
-12:18:46: Test update config
-Test update config
-
-12:18:46: Test update config
-Test update config
-Test update config2
-
-12:18:46: Test update config
-Test update config
-Test update config2
-Test update config
-
-12:18:46: Test update config
-Test update config
-Test update config2
-Test update config
-Test update config settings updated
-
-12:19:20: Test update config
-
-12:19:20: Test update config
-Test update config
-
-12:19:20: Test update config
-Test update config
-Test update config2
-
-12:19:20: Test update config
-Test update config
-Test update config2
-Test update config
-
-12:19:20: Test update config
-Test update config
-Test update config2
-Test update config
-Test update config settings updated
-
-12:19:53: Test update config
-
-12:19:53: Test update config
-Test update config
-
-12:19:53: Test update config
-Test update config
-Test update config2
-
-12:19:53: Test update config
-Test update config
-Test update config2
-Test update config
-
-12:19:53: Test update config
-Test update config
-Test update config2
-Test update config
-Test update config settings updated
-
-12:20:14: Test update config
-
-12:20:14: Test update config
-Test update config
-
-12:20:14: Test update config
-Test update config
-Test update config2
-
-12:20:14: Test update config
-Test update config
-Test update config2
-Test update config
-
-12:20:14: Test update config
-Test update config
-Test update config2
-Test update config
-Test update config settings updated
-
-12:20:41: Max Height: 1545.03
-Min Height: -1491.57
-Size: 513
+07:52:02: 21 on noise !!!!!!!
 

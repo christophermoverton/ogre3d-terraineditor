@@ -15,6 +15,7 @@
 #include "Voronoi.cpp"
 #include <map>
 #include <string>
+#include <iostream>
 
 using namespace std;
 
@@ -60,6 +61,7 @@ class FreqAmpOctEventReg{
 
 FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera){
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("ScaleHeight.log");
+	
 	cterrain = terrain;
 	mCamera = Camera;
 	cnewWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
@@ -139,7 +141,7 @@ void FreqAmpOctEventReg::addconfig(int nameID){
 	settings["Scale"] = 1.0f/513.0f;
 	settings["Maxheight"] = 1500.0f;
 	settings["Weight"] = .5f;
-	settings["NoiseType"] = 1.0f;
+	settings["NoiseType"] = 0.0f;
 	
 	config[nameID] = settings;
 }
@@ -168,6 +170,7 @@ void FreqAmpOctEventReg::updateConfig(){
 	float nameID = (float)nlitem->getID();
 	map<string, float> settings;
 	ss5 << "Test update config" << "\n";
+	ss5 << "Noise type nameID: "<< nameID << "\n";
 	tlog->logMessage(ss5.str());	
 	settings["Frequency"] = fval;
 	settings["Amplitude"] = aval;
@@ -176,8 +179,9 @@ void FreqAmpOctEventReg::updateConfig(){
 	settings["Scale"] = sval;
 	settings["Maxheight"] = mval;
 	settings["Weight"] = wval;
-	settings["NoiseType"] = nameID;
+	settings["NoiseType"] = nameID-1;
 	ss5 << "Test update config" << "\n";
+	ss5 << "updated noise type: " << nameID-1 << "\n";
 	tlog->logMessage(ss5.str());
 	CEGUI::ListboxItem* litem = combobox->getSelectedItem();
 	ss5 << "Test update config2" << "\n";
@@ -230,14 +234,14 @@ void FreqAmpOctEventReg::loadConfig(){
 	WSlider->setCurrentValue(wval);	
 
 	CEGUI::Combobox* ncombobox = static_cast<CEGUI::Combobox*>(NoiseTypebox);
-	CEGUI::ListboxTextItem* itemCombobox
+	CEGUI::ListboxTextItem* itemCombobox;
 	if ((int)nval == 1){
 		itemCombobox = new CEGUI::ListboxTextItem("Advanced Perlin", 1);
 	}
 	else{
 		itemCombobox = new CEGUI::ListboxTextItem("Voronoi", 2);
 	}
-	ncombobox->setItemSelectState 	(itemCombobox,true);
+	ncombobox->setItemSelectState 	((int)nval,true);
 	
 }
 
@@ -321,26 +325,67 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	CEGUI::Slider* SSlider = static_cast<CEGUI::Slider*>(Scaleslider);
 	float sval = SSlider->getCurrentValue();
 */	
+	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("ScaleHeight.log");
+	std::ostringstream ss5;
 	vector<vector<vector<vector<double> > > > tnoisevals;
 	vector<float> weights(config.size());
 	tnoisevals.resize(config.size()); 
-	for (int i = 0; i < config.size(); i++){
-		
-		map<string, float> tc = config[i+1];
-		if ((int)tc["NoiseType"] == 1){
+	ss5 << "Hitting update button!!!!!!!" << "\n";
+	ss5 << "Second terrain noise type:  "<<config[1]["NoiseType"]<< "\n";
+	//ss5 << "First terrain noise type: "<<config[0]["NoiseType"]<< "\n";
+	ss5 << "Config size: "<< config.size() << "\n";
+	tlog->logMessage(ss5.str());
+	ss5.str(std::string());
+
+	map<int, map<string,float> >::iterator miter;
+	for (miter = config.begin(); miter != config.end(); miter++)
+	{
+    		ss5 << "Key: " << miter->first << endl << "Values:" << endl;
+    		map<string,float>::iterator miter2;
+    		for (miter2 = miter->second.begin(); miter2 != miter->second.end(); miter2++){
+   			ss5 << " " << miter2->first << ","<< miter2->second << endl;
+		}
+	}
+	tlog->logMessage(ss5.str());
+	ss5.str(std::string());
+	int i = 0;
+	map<int, map<string,float> >:: iterator miter3;
+	for (miter3 = config.begin(); miter3 != config.end(); miter3++){
+		ss5 << "Starting noise gen loop!!!!!!!" << "\n";
+		ss5 << "NoiseType: " << miter3->second["NoiseType"] << "\n";
+		tlog->logMessage(ss5.str());
+		ss5.str(std::string());		
+		map<string, float> tc = miter3->second;
+		if ((int)tc["NoiseType"] == 0){
+			
 			PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Gain"], int(3.0f));
 			tnoisevals[i] = test->getNoisevalues();
+			ss5 << "Hitting update button!!!!!!!" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
 		}
-		else if ((int)tc["NoiseType"]==2){
+		else if ((int)tc["NoiseType"]==1){
+			ss5 << "2 on noise !!!!!!!" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
 			Voronoi* test = new Voronoi(25, 513);
+			ss5 << "21 on noise !!!!!!!" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
 			tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);
 		}
+		ss5 << "weights!!!!!!! " << tc["Weight"]<< "\n";
+		tlog->logMessage(ss5.str());
+		ss5.str(std::string());
 		weights[i] = tc["Weight"];
+		i++;
 	}
+	ss5 << "Update 3!!!!!!!" << "\n";
+	tlog->logMessage(ss5.str());
 	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(FilterTypebox);
 	CEGUI::ListboxItem* litem = combobox->getSelectedItem();
-	//ss5 << "Test update config2" << "\n";
-	//tlog->logMessage(ss5.str());
+	ss5 << "Hitting update button!!!!!!!" << "\n";
+	tlog->logMessage(ss5.str());
 	int nameid = (int)litem->getID();
 	Combiner* cmb = new Combiner(nameid);
 	vector<vector<vector<double> > > heightmapvalues = cmb -> Combine(tnoisevals, weights);

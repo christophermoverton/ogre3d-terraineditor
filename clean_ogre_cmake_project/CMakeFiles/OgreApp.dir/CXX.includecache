@@ -75,6 +75,8 @@ map
 -
 string
 -
+iostream
+-
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ITutorial02.cpp
 ITutorial02.h

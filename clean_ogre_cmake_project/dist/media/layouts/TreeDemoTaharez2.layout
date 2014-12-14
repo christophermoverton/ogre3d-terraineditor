@@ -188,7 +188,7 @@
         <Window type="AlfiskoSkin/HorizontalSlider" name="WeightSlider" >
             <Property name="Area" value="{{0,159},{0,513},{0,331},{0,545}}" />
         </Window>
-        <Window type="TaharezLook/Combobox" name="Combobox" >
+        <Window type="TaharezLook/Combobox" name="NoiseTypebox" >
             <Property name="Area" value="{{0,413},{0,382},{0,553},{0,498}}" />
             <AutoWindow namePath="__auto_editbox__" >
                 <Property name="ActiveSelectionColour" value="tl:FF6060FF tr:FF6060FF bl:FF6060FF br:FF6060FF" />
