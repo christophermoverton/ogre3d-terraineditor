@@ -368,7 +368,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			ss5 << "2 on noise !!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
-			Voronoi* test = new Voronoi(25, 513);
+			Voronoi* test = new Voronoi(40, 513);
 			ss5 << "21 on noise !!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
@@ -391,7 +391,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	vector<vector<vector<double> > > heightmapvalues = cmb -> Combine(tnoisevals, weights);
 //	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
-	new LoadHeightMap(cterrain, 513.0f*3.0f, heightmapvalues);
+	new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);
 }
 
 void FreqAmpOctEventReg::updateBB(const CEGUI::EventArgs &e){

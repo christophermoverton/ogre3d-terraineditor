@@ -61,7 +61,7 @@ class FreqAmpOctEventReg{
 
 FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera){
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("ScaleHeight.log");
-	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("Voronoi.log");
+	Ogre::Log* slog = Ogre::LogManager::getSingleton().createLog("Voronoi.log");
 	cterrain = terrain;
 	mCamera = Camera;
 	cnewWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
@@ -368,7 +368,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			ss5 << "2 on noise !!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
-			Voronoi* test = new Voronoi(25, 513);
+			Voronoi* test = new Voronoi(40, 513);
 			ss5 << "21 on noise !!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
