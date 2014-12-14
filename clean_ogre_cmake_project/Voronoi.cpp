@@ -11,6 +11,7 @@ class Voronoi {
 		vector<vector<vector<double> > > getHeightMap(double falloffdist, double tramount);
 		vector<vector<vector<double> > > getHeightMapradial(double tramount);
 	private:
+		Ogre::Log* tlog;
 		double distance(vector<double> point1, vector<double> point2);
 		vector<double> randompoint(int size);
 		vector<double> directionVector(vector<double> point1, vector<double> point2);		
@@ -210,19 +211,39 @@ vector<double> Voronoi::nearestNodes2radial(int x, int y){
 }
 
 vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
+		std::ostringstream ss5;
 		double minval = pow(2*pow(csize,2), (double).5f);
 		double minval2 = (double)0.0f;
 		int minvali = 0;
 		int minval2i = 0;
-		for(int i = 0; cpoints.size(); i++){
+		ss5 << "beginning nearestNodes2radial !!!!!!!" << "\n";
+//		ss5 << "minval: "<< minval << "\n";
+//		ss5 << "cpoint size: " << cpoints.size()<< "\n";
+		tlog->logMessage(ss5.str());
+		ss5.str(std::string());
+		int j = 1;
+		for(int i = 0; i < cpoints.size(); i++){
+/*			ss5 << "cpoint x: " << cpoints[i][0] << "\n";
+			//ss5 << "dist: "<< dist << "\n";
+			tlog->logMessage(ss5.str());
+*/			ss5.str(std::string());
 			double dist = distance(cpoints[i], pos);
+			//ss5 << "cpoint x: " << cpoint[i][0] << "\n";
+/*			ss5 << "dist: "<< dist << "\n";
+			ss5 << "iteration: " << j << "\n";
+			tlog->logMessage(ss5.str());
+*/			ss5.str(std::string());
 			if (dist < minval){
 				minval2 = minval;
 				minval2i = minvali;
 				minval = dist;
 				minvali = i;
 			}
+			j++;
 		} 
+		ss5 << "Reached nodes check in nearestNodes2radial !!!!!!!" << "\n";
+		tlog->logMessage(ss5.str());
+		ss5.str(std::string());
 		//we found above the neareast and a nearest cell neighbor relative
 		//to our position.  Now we need to find line defining the border between cells
 		//or that this point is nearest to the boundary of our voronoi system.
@@ -241,25 +262,41 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 		edgepos[1] = 0.0f;
 		double d3 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, true); //horizontal
 		double d4 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, false); //vertical	double distposnedge
+		ss5 << "end of distanceNodePosToEdge in nearestNodes2radial !!!!!!!" << "\n";
+		tlog->logMessage(ss5.str());
+		ss5.str(std::string());
+		vector<double> dset(4);
+		dset[0] = d2; dset[1] = d3; dset[2] = d4;
+		double compminval = d1;
+		for (int j = 0; j < 3; j++){
+			if (dset[j]<compminval){
+				compminval = dset[j];
+			}
+		}
 		double distposnedge;	  
-		if (d1 < minval2){
+		if (compminval < minval2){
 			distposnedge = d1; 
 		}
-		else if (d2 < minval2){
+		else if (compminval < minval2){
 			distposnedge = d2;
 		}
-		else if (d3 < minval2){
+		else if (compminval < minval2){
 			distposnedge = d3;
 		}
-		else if (d4 < minval2){
+		else if (compminval < minval2){
 			distposnedge = d4;
 		}
 		else {
 			//minval2 passes, then assumption that between cells the 
 			//the minimum point whose position is given at such a point in the direction
 			//from node1 to node2 and is equi distant from both such node is.
+			ss5 << "beginning minval2 else in nearestNodes2radial !!!!!!!" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());	
 			double distn2n1 = distance(cpoints[minvali], cpoints[minval2i])/2.0f;
-			
+			ss5 << "Reached minval2 else in nearestNodes2radial !!!!!!!" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());			
 			//then we can apply a ray to intercept this point or use point slope
 			//to make this easier if using point slope, we can localize a node position
 			//as representing an origin point. 
@@ -314,12 +351,20 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 	}
 
 vector<vector<vector<double> > > Voronoi::getHeightMapradial(double tramount){
+	tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
+	std::ostringstream ss5;
 	vector<vector<double> > points(csize);
+	ss5 << "Beginning !!!!!!!" << "\n";
+	tlog->logMessage(ss5.str());
+	ss5.str(std::string());
 	for (int i = 0; i < csize; i++){
 		points[i].resize(csize);
 		for(int j = 0; j < csize; j++){
 			vector<double> distances = nearestNodes2radial(i, j);
 			//compute t param 
+			ss5 << "Reached distances !!!!!!!" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
 			double tparam = distances[0] / distances[1];
 /*
 			if (tparam > 1) {
@@ -333,9 +378,18 @@ vector<vector<vector<double> > > Voronoi::getHeightMapradial(double tramount){
 			Falloffinterpolate fint = Falloffinterpolate(tparam, distances[1], falloffcoeff, tramount);			
 			double intpoint = fint.getTPoint();
 			points[i][j] = intpoint;
+			ss5 << "Point: " << i << ","<< j <<":"<< intpoint << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
 		}
 	}
+	ss5 << "before convert" << "\n";
+	tlog->logMessage(ss5.str());
+	ss5.str(std::string());
 	vector<vector<vector<double> > > rpoints = convertTo3Darray(points);
+	ss5 << "Reached convert !!!!!!!" << "\n";
+	tlog->logMessage(ss5.str());
+	ss5.str(std::string());
 	return rpoints;
 }
 
@@ -354,6 +408,8 @@ vector<vector<vector<double> > > Voronoi::convertTo3Darray(vector<vector<double>
 }
 
 vector<vector<vector<double> > > Voronoi::getHeightMap(double falloffdist, double tramount){
+	tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
+	std::ostringstream ss5;
 	vector<vector<double> > points(csize);
 	for (int i = 0; i < csize; i++){
 		points[i].resize(csize);

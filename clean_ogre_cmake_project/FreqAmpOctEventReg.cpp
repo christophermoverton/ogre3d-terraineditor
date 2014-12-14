@@ -61,7 +61,7 @@ class FreqAmpOctEventReg{
 
 FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera){
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("ScaleHeight.log");
-	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("Voronoi.log");
+	Ogre::Log* slog = Ogre::LogManager::getSingleton().createLog("Voronoi.log");
 	cterrain = terrain;
 	mCamera = Camera;
 	cnewWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
