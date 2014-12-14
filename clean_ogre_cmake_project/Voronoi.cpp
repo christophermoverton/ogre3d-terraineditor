@@ -216,17 +216,17 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 		double minval2 = (double)0.0f;
 		int minvali = 0;
 		int minval2i = 0;
-		ss5 << "beginning nearestNodes2radial !!!!!!!" << "\n";
+//		ss5 << "beginning nearestNodes2radial !!!!!!!" << "\n";
 //		ss5 << "minval: "<< minval << "\n";
 //		ss5 << "cpoint size: " << cpoints.size()<< "\n";
-		tlog->logMessage(ss5.str());
-		ss5.str(std::string());
+//		tlog->logMessage(ss5.str());
+//		ss5.str(std::string());
 		int j = 1;
 		for(int i = 0; i < cpoints.size(); i++){
 /*			ss5 << "cpoint x: " << cpoints[i][0] << "\n";
 			//ss5 << "dist: "<< dist << "\n";
 			tlog->logMessage(ss5.str());
-*/			ss5.str(std::string());
+*///			ss5.str(std::string());
 			double dist = distance(cpoints[i], pos);
 			//ss5 << "cpoint x: " << cpoint[i][0] << "\n";
 /*			ss5 << "dist: "<< dist << "\n";
@@ -241,16 +241,22 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 			}
 			j++;
 		} 
-		ss5 << "Reached nodes check in nearestNodes2radial !!!!!!!" << "\n";
-		tlog->logMessage(ss5.str());
-		ss5.str(std::string());
+//		ss5 << "Reached nodes check in nearestNodes2radial !!!!!!!" << "\n";
+//		tlog->logMessage(ss5.str());
+//		ss5.str(std::string());
 		//we found above the neareast and a nearest cell neighbor relative
 		//to our position.  Now we need to find line defining the border between cells
 		//or that this point is nearest to the boundary of our voronoi system.
 		//to find the line we ray cast in the direction from such point to the nearest
 		//cell node away from the cell node.  Set the origin of the ray to the point.
-		vector<double> dirpos = directionVector(cpoints[minval], pos);
-		vector<double> ndirvec = normvector(minval, dirpos);
+		vector<double> dirpos = directionVector(cpoints[minvali], pos);
+		if (minval == 0.0f){
+			vector<double> altvec(2);
+			altvec[0] = (double) 0.0f;
+			altvec[1] = (double) 1.0f;
+			return altvec;  //we by default return the a zero distance vector return set.
+		}
+		vector<double> ndirvec = normvector(minval, dirpos); //check div by zero issues
 		//Ogre::Ray ray1 = Ogre::Ray(Ogre::Vector3(pos[0],pos[1],0),ndirvec);
 		//we intersect test to see that we aren't closer to an edge boundary of the voronoi system
 		vector<double> edgepos(2);
@@ -262,9 +268,9 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 		edgepos[1] = 0.0f;
 		double d3 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, true); //horizontal
 		double d4 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, false); //vertical	double distposnedge
-		ss5 << "end of distanceNodePosToEdge in nearestNodes2radial !!!!!!!" << "\n";
-		tlog->logMessage(ss5.str());
-		ss5.str(std::string());
+//		ss5 << "end of distanceNodePosToEdge in nearestNodes2radial !!!!!!!" << "\n";
+//		tlog->logMessage(ss5.str());
+//		ss5.str(std::string());
 		vector<double> dset(4);
 		dset[0] = d2; dset[1] = d3; dset[2] = d4;
 		double compminval = d1;
@@ -294,10 +300,10 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());	
 			double distn2n1 = distance(cpoints[minvali], cpoints[minval2i])/2.0f;
-			ss5 << "Reached minval2 else in nearestNodes2radial !!!!!!!" << "\n";
+/*			ss5 << "Reached minval2 else in nearestNodes2radial !!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());			
-			//then we can apply a ray to intercept this point or use point slope
+*/			//then we can apply a ray to intercept this point or use point slope
 			//to make this easier if using point slope, we can localize a node position
 			//as representing an origin point. 
 			vector<double> pos_t(2);
