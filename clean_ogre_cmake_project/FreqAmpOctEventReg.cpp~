@@ -391,7 +391,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	vector<vector<vector<double> > > heightmapvalues = cmb -> Combine(tnoisevals, weights);
 //	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
-	new LoadHeightMap(cterrain, 513.0f*3.0f, heightmapvalues);
+	new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);
 }
 
 void FreqAmpOctEventReg::updateBB(const CEGUI::EventArgs &e){

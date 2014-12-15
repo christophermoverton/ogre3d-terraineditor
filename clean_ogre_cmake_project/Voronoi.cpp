@@ -22,9 +22,11 @@ class Voronoi {
 		double nearestNodes2(int x, int y);
 		double nearestNodes2(vector<double> pos);
 		double distanceNodePosToEdge(vector<double> pos, vector<double> node, vector<double> edgepos,bool horiz);
-		double distancevecNodePosToEdge(vector<double> pos, vector<double> node, vector<double> edgev ,vector<double> edgepos)
+		double distancevecNodePosToEdge(vector<double> pos, vector<double> node, vector<double> edgev ,vector<double> edgepos);
+		vector<double> invert(vector<double> x);
 		double angle(vector<double> x);
 		double dotproduct(vector<double> x, vector<double> y);
+		vector<double> scalem(double c, vector<double> x);
 		vector<double> difference(vector<double> x, vector<double> y);
 		vector<double> add(vector<double> x, vector<double> y);
 		vector<vector<double> > nodeswithinaSquare(vector<double> pos, double dsize);
@@ -62,18 +64,32 @@ Voronoi::Voronoi(int points, int size){
 */
 }
 
+vector<double> Voronoi::invert(vector<double> x){
+	vector<double> retvec(2);
+	retvec[0] = x[1];
+	retvec[1] = x[0];
+	return retvec;
+}
+
+vector<double> Voronoi::scalem(double c, vector<double> x){
+	vector<double> retvec(2);
+	retvec[0] = c*x[0];
+	retvec[1] = c*x[1];
+	return retvec;
+}
+
 double Voronoi::dotproduct(vector<double> x, vector<double> y){
 	return x[0]*y[0]+x[1]*y[1];
 }
 
-vector<double> difference(vector<double> x, vector<double> y){
+vector<double> Voronoi::difference(vector<double> x, vector<double> y){
 	vector<double> retvec(2);
 	retvec[0] = x[0] - y[0];
 	retvec[1] = x[1] - y[1];
 	return retvec;
 }
 
-vector<double> add(vector<double> x, vector<double> y){
+vector<double> Voronoi::add(vector<double> x, vector<double> y){
 	vector<double> retvec(2);
 	retvec[0] = x[0] + y[0];
 	retvec[1] = x[1] + y[1];
@@ -107,7 +123,7 @@ double Voronoi::distance(vector<double> point1, vector<double> point2){
 	return pow(pow(point1[0] - point2[0],2) + pow(point1[1] - point2[1],2),.5f);
 }
 
-double angle(vector<double> x){
+double Voronoi::angle(vector<double> x){
 	if (x[0] == 0.0f){
 		return atan(x[1]/.00000000000001f);
 	}
@@ -241,12 +257,12 @@ double Voronoi::distancevecNodePosToEdge(vector<double> pos, vector<double> node
 	//to the direction of such line.  ndirvec and vecPosToEdgepos are the vectors
 	//we need.  So we project by simply taking the dot product of these vectors.
 	//this gives us the corresponding orthogonal distance
-	orthogdist = dotproduct(vecPosToEdgepos, ndirvec);
+	double orthogdist = dotproduct(vecPosToEdgepos, ndirvec);
 	
 	//now we can make use of trig to find the point of intercept from NodeToPosToEdge
 	//the angle of the NodeToPos vector should aid us.
 	double angleNodeToPos = angle(vecNodeToPos);
-	return orthogdist/sin(angleNodeToPos);
+	return orthogdist;///sin(angleNodeToPos);
 }
 
 double Voronoi::distanceNodePosToEdge(vector<double> pos, vector<double> node, vector<double> edgepos,
@@ -337,10 +353,7 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 		vector<int> minvalis(6);
 		int minvali = 0;
 		int minval2i = 0;
-		int minval3i = 0;
-		int minval4i = 0;
-		int minval5i = 0;
-		int minval6i = 0;
+
 //		ss5 << "beginning nearestNodes2radial !!!!!!!" << "\n";
 //		ss5 << "minval: "<< minval << "\n";
 //		ss5 << "cpoint size: " << cpoints.size()<< "\n";
@@ -365,8 +378,29 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 				minvali = i;
 			}
 			
-		} 
-		cpointsl = nodeswithinaSquare(pos, csize/2.0f);
+		}
+		minval2 = pow(2*pow(csize,2), (double).5f);
+		minval2i = 0;
+		for(int i = 0; i < cpoints.size(); i++){
+/*			ss5 << "cpoint x: " << cpoints[i][0] << "\n";
+			//ss5 << "dist: "<< dist << "\n";
+			tlog->logMessage(ss5.str());
+*///			ss5.str(std::string());
+			double dist = distance(cpoints[i], pos);
+			//ss5 << "cpoint x: " << cpoint[i][0] << "\n";
+/*			ss5 << "dist: "<< dist << "\n";
+			ss5 << "iteration: " << j << "\n";
+			tlog->logMessage(ss5.str());
+*/			ss5.str(std::string());
+			if (dist > minval and dist < minval2){
+				minval2 = dist;
+				minval2i = i;
+				//minval = dist;
+				//minvali = i;
+			}
+			
+		}  
+		//cpointsl = nodeswithinaSquare(pos, csize/2.0f);
 //		ss5 << "Reached nodes check in nearestNodes2radial !!!!!!!" << "\n";
 //		tlog->logMessage(ss5.str());
 //		ss5.str(std::string());
@@ -378,11 +412,17 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 		vector<double> dirpos = directionVector(cpoints[minvali], pos);
 		if (minval == 0.0f){
 			vector<double> altvec(2);
-			altvec[0] = (double) 1.0f;
-			altvec[1] = (double) 1.0f;
+			vector<double> nod1Tonod2vec = difference(cpoints[minval2i], cpoints[minvali]);
+			nod1Tonod2vec = scalem(.5f, nod1Tonod2vec);
+			double dist = distance(nod1Tonod2vec,nod1Tonod2vec);
+			altvec[0] = dist;
+			altvec[1] = dist;
 			return altvec;  //we by default return the a zero distance vector return set.
 		}
 		vector<double> ndirvec = normvector(minval, dirpos); //check div by zero issues
+
+//***Disabled RayTest method much slower then direct solution methods, uncomment it if you like to see the method in action
+/*
 		Ogre::Ray posRay(Ogre::Vector3(pos[0],pos[1],0.0f), Ogre::Vector3(ndirvec[0],ndirvec[1],0.0f));
 		vector<double> poscheck(2);
 		vector<double> retvals(2);
@@ -409,6 +449,7 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 				}
 			}
 		}
+*/
 		//Ogre::Ray ray1 = Ogre::Ray(Ogre::Vector3(pos[0],pos[1],0),ndirvec);
 		//we intersect test to see that we aren't closer to an edge boundary of the voronoi system
 		vector<double> edgepos(2); vector<double> edgepos2(2); vector<double> edgepos3(2);
@@ -443,20 +484,60 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 				compminval = dset[j];
 			}
 		}
+		vector<double> retvec(2);
 		double distposnedge;	  
 		if (compminval < minval2){
-			distposnedge = d1; 
+			distposnedge = d1;
+			retvec[0] = distposnedge;
+			retvec[1] = minval + distposnedge;
+			return retvec; 
 		}
 		else if (compminval < minval2){
 			distposnedge = d2;
+			retvec[0] = distposnedge;
+			retvec[1] = minval + distposnedge;
+			return retvec; 
 		}
 		else if (compminval < minval2){
 			distposnedge = d3;
+			retvec[0] = distposnedge;
+			retvec[1] = minval + distposnedge;
+			return retvec; 
 		}
 		else if (compminval < minval2){
 			distposnedge = d4;
+			retvec[0] = distposnedge;
+			retvec[1] = minval + distposnedge;
+			return retvec; 
 		}
 		else {
+			//****vector based alternate approach to algebraics given below*****
+			//below we find the vector starting at node 1 to node2 (neighboring)
+			//then we take the 1/2 distance intersection.  The direction of this
+			//vector is moving from node 1 to node 2 direction wise.
+			//To project onto the line that describes the voronoi cell boundary,
+			//we know that the node mid point position intercepts this, and that
+			//the direction vector between such nodes is orthogonal to such point.
+			//so we normalize this and invert this for a 90 degree rotation.
+			//then we need a vector from our knowns to a point on such line.
+			//find a vector moving from position to node 2 then a vector moving
+			//from node2 to the midpoint of node2 to node 1 vector, or subtract
+			//from this the 1/2* node1tonode2vector.
+			vector<double> nod1Tonod2vec = difference(cpoints[minval2i], cpoints[minvali]);
+			nod1Tonod2vec = scalem(.5f, nod1Tonod2vec);
+			vector<double> posTonod2vec = difference(cpoints[minval2i], pos);
+			vector<double> posTopointintercept = difference(posTonod2vec,nod1Tonod2vec);
+			double n2n1dist = distance(nod1Tonod2vec,nod1Tonod2vec);
+			vector<double> Nn2n1dist = normvector(n2n1dist, nod1Tonod2vec);
+			vector<double> iNn2n1dist = invert(Nn2n1dist);
+			iNn2n1dist[0] = -1.0f*iNn2n1dist[0];
+			double distpostoline = dotproduct(posTopointintercept,iNn2n1dist);
+			double angleNodeToPos = angle(posTopointintercept);
+			retvec[0] = distpostoline; ///cos(angleNodeToPos);
+			retvec[1] = minval + distpostoline;
+			return retvec; 	 //disable this line if you want to utilize the algebraic
+			//method.  Generally not working right at the moment though below.
+
 			//minval2 passes, then assumption that between cells the 
 			//the minimum point whose position is given at such a point in the direction
 			//from node1 to node2 and is equi distant from both such node is.
@@ -735,7 +816,7 @@ vector<vector<vector<double> > > Voronoi::getHeightMapradial(double tramount){
 			//ss5 << "Reached distances !!!!!!!" << "\n";
 			//tlog->logMessage(ss5.str());
 			//ss5.str(std::string());
-			double tparam = distances[0] / distances[1];
+			double tparam = distances[0]; /// distances[1];
 
 /*			if (tparam > 1) {
 				//tparam = (double) 1.0f;

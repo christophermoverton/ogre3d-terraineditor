@@ -368,7 +368,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			ss5 << "2 on noise !!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
-			Voronoi* test = new Voronoi(40, 513);
+			Voronoi* test = new Voronoi(10, 513);
 			ss5 << "21 on noise !!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
