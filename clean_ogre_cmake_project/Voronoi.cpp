@@ -22,6 +22,11 @@ class Voronoi {
 		double nearestNodes2(int x, int y);
 		double nearestNodes2(vector<double> pos);
 		double distanceNodePosToEdge(vector<double> pos, vector<double> node, vector<double> edgepos,bool horiz);
+		double distancevecNodePosToEdge(vector<double> pos, vector<double> node, vector<double> edgev ,vector<double> edgepos)
+		double angle(vector<double> x);
+		double dotproduct(vector<double> x, vector<double> y);
+		vector<double> difference(vector<double> x, vector<double> y);
+		vector<double> add(vector<double> x, vector<double> y);
 		vector<vector<double> > nodeswithinaSquare(vector<double> pos, double dsize);
 		int raytestPosition(vector<double> pos, double minval, int minvali);
 		vector<double> nearestNodes2radial(int x, int y);
@@ -57,6 +62,24 @@ Voronoi::Voronoi(int points, int size){
 */
 }
 
+double Voronoi::dotproduct(vector<double> x, vector<double> y){
+	return x[0]*y[0]+x[1]*y[1];
+}
+
+vector<double> difference(vector<double> x, vector<double> y){
+	vector<double> retvec(2);
+	retvec[0] = x[0] - y[0];
+	retvec[1] = x[1] - y[1];
+	return retvec;
+}
+
+vector<double> add(vector<double> x, vector<double> y){
+	vector<double> retvec(2);
+	retvec[0] = x[0] + y[0];
+	retvec[1] = x[1] + y[1];
+	return retvec;
+}
+
 vector<double> Voronoi::randompoint(int size){
 	int v1 = rand() % size;
 	int v2 = rand() % size;
@@ -82,6 +105,15 @@ vector<double> Voronoi::directionVector(vector<double> point1, vector<double> po
 
 double Voronoi::distance(vector<double> point1, vector<double> point2){
 	return pow(pow(point1[0] - point2[0],2) + pow(point1[1] - point2[1],2),.5f);
+}
+
+double angle(vector<double> x){
+	if (x[0] == 0.0f){
+		return atan(x[1]/.00000000000001f);
+	}
+	else{
+		return atan(x[1]/x[0]);
+	}
 }
 
 bool Voronoi::angleTest(vector<double> npos2, vector<double> pos){
@@ -192,6 +224,30 @@ double Voronoi::nearestNodes2(vector<double> pos){
 		
 		return distposnedge;
 	}
+
+double Voronoi::distancevecNodePosToEdge(vector<double> pos, vector<double> node, vector<double> edgev ,vector<double> edgepos){
+	//edgepos is assumed to be a vector that is in the direction of the edge.
+	//vector approach
+	vector<double> vecNodeToPos = difference(pos, node);
+	vector<double> orthogvecedge(2);
+	orthogvecedge[0] = -1.0f*edgev[1];
+	orthogvecedge[1] = edgev[0];
+	double odist = distance(orthogvecedge, orthogvecedge);
+	vector<double> ndirvec = normvector(odist, orthogvecedge);
+	vector<double> vecPosToEdgepos = difference(edgepos, pos);
+	//to use the projection method here we need to have a vector whose tail coincides
+	//at the position vector and whose head ends on the line that we wish to find 
+	//such orthogonal distance to, coupling this with a unit vector that is orthogonal 
+	//to the direction of such line.  ndirvec and vecPosToEdgepos are the vectors
+	//we need.  So we project by simply taking the dot product of these vectors.
+	//this gives us the corresponding orthogonal distance
+	orthogdist = dotproduct(vecPosToEdgepos, ndirvec);
+	
+	//now we can make use of trig to find the point of intercept from NodeToPosToEdge
+	//the angle of the NodeToPos vector should aid us.
+	double angleNodeToPos = angle(vecNodeToPos);
+	return orthogdist/sin(angleNodeToPos);
+}
 
 double Voronoi::distanceNodePosToEdge(vector<double> pos, vector<double> node, vector<double> edgepos,
 					bool horiz){
@@ -355,15 +411,27 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 		}
 		//Ogre::Ray ray1 = Ogre::Ray(Ogre::Vector3(pos[0],pos[1],0),ndirvec);
 		//we intersect test to see that we aren't closer to an edge boundary of the voronoi system
-		vector<double> edgepos(2);
+		vector<double> edgepos(2); vector<double> edgepos2(2); vector<double> edgepos3(2);
 		edgepos[0] = csize;
 		edgepos[1] = csize;
-		double d1 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, true); //horizontal
-		double d2 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, false); //vertical
+		edgepos2[0] = 0.0f;
+		edgepos2[1] = csize;
+		edgepos3[0] = csize;
+		edgepos3[1] = 0.0f;
+		vector<double> edgevec; vector<double> edgevec2;
+		edgevec = difference(edgepos,edgepos2);  edgevec2 = difference(edgepos,edgepos3);
+		double d1 = distancevecNodePosToEdge(pos, cpoints[minvali], edgevec , edgepos);
+		//double d1 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, true); //horizontal
+		double d2 = distancevecNodePosToEdge(pos, cpoints[minvali], edgevec2 , edgepos);
+		//double d2 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, false); //vertical
 		edgepos[0] = 0.0f;
 		edgepos[1] = 0.0f;
-		double d3 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, true); //horizontal
-		double d4 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, false); //vertical	double distposnedge
+		edgevec = difference(edgepos,edgepos2);  edgevec2 = difference(edgepos,edgepos3);
+		double d3 = distancevecNodePosToEdge(pos, cpoints[minvali], edgevec , edgepos);
+		//double d1 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, true); //horizontal
+		double d4 = distancevecNodePosToEdge(pos, cpoints[minvali], edgevec2 , edgepos);
+		//double d3 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, true); //horizontal
+		//double d4 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, false); //vertical	double distposnedge
 //		ss5 << "end of distanceNodePosToEdge in nearestNodes2radial !!!!!!!" << "\n";
 //		tlog->logMessage(ss5.str());
 //		ss5.str(std::string());
@@ -493,6 +561,12 @@ vector<double> Voronoi::nearestNodes2radial2(vector<double> pos){
 			}
 			
 		} 
+
+//trying a vectors approach****for the vectors to line intercept approach we simply need at the position
+//vector a vector that ends on a point of the line that we are intercepting coupled with a unit 
+//vector perpendicular to the axis of such line.  
+		
+		
 		cpointsl = nodeswithinaSquare(pos, csize/2.0f);
 //		ss5 << "Reached nodes check in nearestNodes2radial !!!!!!!" << "\n";
 //		tlog->logMessage(ss5.str());
@@ -671,9 +745,10 @@ vector<vector<vector<double> > > Voronoi::getHeightMapradial(double tramount){
 				tparam = 1 - tparam;
 			}
 */
-			Falloffinterpolate fint = Falloffinterpolate(tparam, distances[1], falloffcoeff, tramount);			
-			double intpoint = fint.getTPoint();
-			points[i][j] = intpoint;
+			//Falloffinterpolate fint = Falloffinterpolate(tparam, distances[1], falloffcoeff, tramount);			
+			//double intpoint = fint.getTPoint();
+			//points[i][j] = intpoint;
+			points[i][j] = tparam;
 			//ss5 << "Point: " << i << ","<< j <<":"<< intpoint << "\n";
 			//tlog->logMessage(ss5.str());
 			//ss5.str(std::string());
