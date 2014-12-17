@@ -134,7 +134,7 @@ vector<double> Voronoi::directionVector(vector<double> point1, vector<double> po
 }
 
 double Voronoi::distance(vector<double> point1, vector<double> point2){
-	return pow(pow(point1[0] - point2[0],2) + pow(point1[1] - point2[1],2),.5f);
+	return pow(pow(point1[0] - point2[0],2.0f) + pow(point1[1] - point2[1],2.0f),.5f);
 }
 
 double Voronoi::angle(vector<double> x){
@@ -166,7 +166,7 @@ double Voronoi::nearestNodes2(int x, int y){
 }
 
 double Voronoi::nearestNodes2(vector<double> pos){
-		double minval = pow(2*pow((double)csize,2), (double).5f);
+		double minval = pow(2*pow((double)csize,2.0f), (double).5f);
 		double minval2 = (double)0.0f;
 		int minvali = 0;
 		int minval2i = 0;
@@ -368,7 +368,7 @@ vector<vector<double> > Voronoi::nodeswithinaSquare(vector<double> pos, double d
 
 vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 		std::ostringstream ss5;
-		double minval = pow(2*pow(csize,2), (double).5f);
+		double minval = pow(2.0f*pow(csize,2.0f), (double).5f);
 		double minval2 = (double)0.0f;
 		vector<int> minvalis(6);
 		int minvali = 0;
@@ -399,7 +399,7 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 			}
 			
 		}
-		minval2 = pow(2, (double).5f)*csize;
+		minval2 = pow(2.0f, (double).5f)*csize;
 		minval2i = 0;
 		for(int i = 0; i < cpoints.size(); i++){
 /*			ss5 << "cpoint x: " << cpoints[i][0] << "\n";
@@ -483,7 +483,7 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 		edgepos3[0] = csize;
 		edgepos3[1] = 0.0f;
 		vector<double> edgevec; vector<double> edgevec2;
-		edgevec = difference(edgepos,edgepos2);  edgevec2 = difference(edgepos,edgepos3);
+		edgevec = difference(edgepos2,edgepos);  edgevec2 = difference(edgepos3,edgepos);
 		vector<double> d1node(2), d2node(2), d3node(2), d4node(2);
 		d1node[1] = edgepos[1];
 		d1node[0] = cpoints[minvali][0];
@@ -495,7 +495,7 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 		//double d2 = distanceNodePosToEdge(pos, cpoints[minvali], edgepos, false); //vertical
 		edgepos[0] = 0.0f;
 		edgepos[1] = 0.0f;		
-		edgevec = difference(edgepos,edgepos2);  edgevec2 = difference(edgepos,edgepos3);
+		edgevec = difference(edgepos,edgepos2);  edgevec2 = difference(edgepos3,edgepos);
 		d3node[0] = edgepos[0];
 		d3node[1] = cpoints[minvali][1];
 		double d3 = distancevecNodePosToEdge(pos, cpoints[minvali], edgevec , edgepos);
@@ -517,6 +517,7 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 		dnodeset[0].resize(2); dnodeset[0] = d2node;
 		dnodeset[1].resize(2); dnodeset[1] = d3node;
 		dnodeset[2].resize(2); dnodeset[2] = d4node;
+		rtnnode = d1node;
 		for (int j = 0; j < 3; j++){
 			if (abs(dset[j])<compminval){
 				compminval = abs(dset[j]);
@@ -733,6 +734,11 @@ vector<vector<vector<double> > > Voronoi::getHeightMapradial(double tramount){
 			//double intpoint = fint.getTPoint();
 			//points[i][j] = intpoint;
 			points[i][j] = tparam;
+			if (tparam > 1){
+				ss5 << "Point: " << i << ","<< j <<":"<< tparam << "\n";
+				tlog->logMessage(ss5.str());
+				ss5.str(std::string());
+			}
 			//ss5 << "Point: " << i << ","<< j <<":"<< intpoint << "\n";
 			//tlog->logMessage(ss5.str());
 			//ss5.str(std::string());
