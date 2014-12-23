@@ -334,5 +334,9 @@ VPoint * Voronoi::GetEdgeIntersection(VEdge * a, VEdge * b)
 	return p;
 }
 
+Cells * Voronoi::GetVoronoiCells(){
+	return cells;
+}
+
 
 	

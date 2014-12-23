@@ -52,6 +52,7 @@ namespace vor
 		*/
 
 		Edges *			GetEdges(Vertices * v, int w, int h);
+		Cells *                 GetVoronoiCells(void);
 
 	private:
 
