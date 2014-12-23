@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_pro
 # Target rules for target CMakeFiles/OgreApp.dir
 
 # All Build rule for target.
-CMakeFiles/OgreApp.dir/all:
+CMakeFiles/OgreApp.dir/all: Voronoi/CMakeFiles/Voronoi.dir/all
 	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/depend
 	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles  1 2
@@ -72,7 +72,7 @@ all: CMakeFiles/OgreApp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OgreApp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OgreApp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
 .PHONY : CMakeFiles/OgreApp.dir/rule

@@ -30,6 +30,7 @@ This source file is part of the
 #include "PerlinTest.cpp"
 #include "LoadHeightMap.cpp"
 #include "FreqAmpOctEventReg.cpp"
+#include "BuildVoronoi.cpp"
  
 //-------------------------------------------------------------------------------------
 ITutorial02::ITutorial02(void)
@@ -284,6 +285,7 @@ void ITutorial02::createScene(void)
     //buffer.saveImage("test1.png");
     PerlinTest* test = new PerlinTest(513.0f,20.0f, 2.0f,0.001949318f, .90f, 7.0f, (int)3.0f); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
     new LoadHeightMap(cterrain, Ogre::String("test3.png"), 3.0f);
+    new BuildVoronoi();
     //CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
     //cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
 }

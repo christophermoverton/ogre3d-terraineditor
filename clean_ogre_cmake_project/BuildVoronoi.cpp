@@ -15,7 +15,7 @@ class BuildVoronoi{
 	public:
 		BuildVoronoi();
 	private:
-		double w = 10000;
+		double w        ;
 		vor::Voronoi * v;
 		vor::Vertices * ver; // vrcholy
 		vor::Vertices * dir; // smìry, kterými se pohybují
@@ -24,11 +24,12 @@ class BuildVoronoi{
 };
 
 BuildVoronoi::BuildVoronoi(){
-	tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
+	w = 10000;
+	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
 	std::ostringstream ss5;
-	v = new Voronoi();
-	ver = new Vertices();
-	dir = new Vertices();
+	v = new vor::Voronoi();
+	ver = new vor::Vertices();
+	dir = new vor::Vertices();
 	for(int i=0; i<50; i++) 
 	{
 
@@ -40,10 +41,10 @@ BuildVoronoi::BuildVoronoi(){
 	cells = v->GetVoronoiCells();
 	for(vor::Cells::iterator i = cells->begin(); i!= cells->end(); ++i)
 	{
-		ss5 << "Cell: " << (* (*i)->sitePos)->x << "," << << "\n"; 
-		vor::Vertices * verts = (*cells)->places;
+		ss5 << "Cell: " << (* (*i).second->sitePos).x << "," <<(* (*i).second->sitePos).y << "\n"; 
+		vor::Vertices * verts = (*i).second->places;
 		for(vor::Vertices::iterator j = verts->begin(); j != verts->end(); j++){
-			ss5 << "x: " << (*verts)->x << ", y: " << (*verts)->y << "\n";
+			ss5 << "x: " << (*j)->x << ", y: " << (*j)->y << "\n";
 		}
 	}
 	tlog->logMessage(ss5.str());

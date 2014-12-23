@@ -231,6 +231,7 @@ CMakeFiles/OgreApp.dir/BaseApplication.cpp.o
  /usr/local/include/OGRE/Threading/OgreThreadHeadersTBB.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BaseApplication.h
+ /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildVoronoi.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ColorGet.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Combiner.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Falloffinterpolate.cpp
@@ -686,3 +687,9 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /usr/local/include/cegui-0/CEGUI/widgets/All.h
  /usr/local/include/cegui-0/CEGUI/widgets/ButtonBase.h
  /usr/local/include/cegui-0/CEGUI/widgets/ToggleButton.h
+ Voronoi/VEdge.h
+ Voronoi/VEvent.h
+ Voronoi/VParabola.h
+ Voronoi/VPoint.h
+ Voronoi/Voronoi.h
+ Voronoi/VoronoiCell.h
