@@ -24,6 +24,8 @@ class BuildVoronoi{
 };
 
 BuildVoronoi::BuildVoronoi(){
+	tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
+	std::ostringstream ss5;
 	v = new Voronoi();
 	ver = new Vertices();
 	dir = new Vertices();
@@ -36,5 +38,14 @@ BuildVoronoi::BuildVoronoi(){
 	edg = v->GetEdges(ver, w, w);
 	std::cout << "voronois done!\n";
 	cells = v->GetVoronoiCells();
+	for(vor::Cells::iterator i = cells->begin(); i!= cells->end(); ++i)
+	{
+		ss5 << "Cell: " << (* (*i)->sitePos)->x << "," << << "\n"; 
+		vor::Vertices * verts = (*cells)->places;
+		for(vor::Vertices::iterator j = verts->begin(); j != verts->end(); j++){
+			ss5 << "x: " << (*verts)->x << ", y: " << (*verts)->y << "\n";
+		}
+	}
+	tlog->logMessage(ss5.str());
 }
 #endif
