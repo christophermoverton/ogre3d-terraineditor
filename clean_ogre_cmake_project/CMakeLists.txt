@@ -143,7 +143,7 @@ add_executable(OgreApp WIN32 ${HDRS} ${SRCS})
  
 set_target_properties(OgreApp PROPERTIES DEBUG_POSTFIX _d)
  
-target_link_libraries(OgreApp ${OGRE_LIBRARIES} ${OIS_LIBRARIES} ${OGRE_Overlay_LIBRARIES} ${CEGUI_LIBRARY} ${CEGUIOGRE_LIBRARY_OPTIMIZED})
+target_link_libraries(OgreApp ${OGRE_LIBRARIES} ${OIS_LIBRARIES} ${OGRE_Overlay_LIBRARIES} ${CEGUI_LIBRARY} ${CEGUIOGRE_LIBRARY_OPTIMIZED} Voronoi)
  
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/bin)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/media)

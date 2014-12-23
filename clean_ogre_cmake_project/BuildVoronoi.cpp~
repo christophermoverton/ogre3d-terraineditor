@@ -1,0 +1,26 @@
+#ifndef __BuildVoronoi_CPP
+#define __BuildVoronoi_CPP
+
+#include <iostream>
+#include <math.h>
+#include <algorithm>
+#include <time.h>
+
+
+#include "Voronoi.h"
+#include "VPoint.h"
+
+class BuildVoronoi{
+
+	public:
+		BuildVoronoi();
+	private:
+		double w = 10000;
+};
+
+BuildVoronoi::BuildVoronoi(){
+	v = new Voronoi();
+	ver = new Vertices();
+	dir = new Vertices();
+}
+#endif

@@ -1,6 +1,6 @@
 #ifndef __Voronoi_CPP
 #define __Voronoi_CPP
-#include <math>       /* cos */
+//#include <math>       /* cos */
 #include "cspline.cpp"
 #include <vector>
 
