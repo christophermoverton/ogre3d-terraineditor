@@ -1,8 +1,10 @@
 #ifndef __Voronoi_CPP
 #define __Voronoi_CPP
-#include <math.h>       /* cos */
+//#include <math>       /* cos */
 #include "cspline.cpp"
 #include <vector>
+
+#include <cmath>
 #define PI 3.14159265
 
 class Voronoi {

@@ -134,7 +134,10 @@ include_directories( ${OIS_INCLUDE_DIRS}
 	${OGRE_Overlay_INCLUDE_DIRS}
 	${CEGUI_INCLUDE_DIR}
 	${CEGUIOGRE_INCLUDE_DIR}
+	${CMAKE_CURRENT_BINARY_DIR}/Voronoi
 )
+
+add_subdirectory (Voronoi) 
  
 add_executable(OgreApp WIN32 ${HDRS} ${SRCS})
  

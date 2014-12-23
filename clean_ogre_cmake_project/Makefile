@@ -150,6 +150,19 @@ OgreApp/preinstall:
 	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/preinstall
 .PHONY : OgreApp/preinstall
 
+#=============================================================================
+# Target rules for targets named Voronoi
+
+# Build rule for target.
+Voronoi: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Voronoi
+.PHONY : Voronoi
+
+# fast build rule for target.
+Voronoi/fast:
+	$(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/build
+.PHONY : Voronoi/fast
+
 BaseApplication.o: BaseApplication.cpp.o
 .PHONY : BaseApplication.o
 
@@ -210,6 +223,7 @@ help:
 	@echo "... install/local"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... Voronoi"
 	@echo "... BaseApplication.o"
 	@echo "... BaseApplication.i"
 	@echo "... BaseApplication.s"

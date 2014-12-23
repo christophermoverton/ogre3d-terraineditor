@@ -100,6 +100,56 @@ clean: CMakeFiles/OgreApp.dir/clean
 .PHONY : clean
 
 #=============================================================================
+# Directory level rules for directory Voronoi
+
+# Convenience name for "all" pass in the directory.
+Voronoi/all: Voronoi/CMakeFiles/Voronoi.dir/all
+.PHONY : Voronoi/all
+
+# Convenience name for "clean" pass in the directory.
+Voronoi/clean: Voronoi/CMakeFiles/Voronoi.dir/clean
+.PHONY : Voronoi/clean
+
+# Convenience name for "preinstall" pass in the directory.
+Voronoi/preinstall:
+.PHONY : Voronoi/preinstall
+
+#=============================================================================
+# Target rules for target Voronoi/CMakeFiles/Voronoi.dir
+
+# All Build rule for target.
+Voronoi/CMakeFiles/Voronoi.dir/all:
+	$(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/depend
+	$(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles  3 4
+	@echo "Built target Voronoi"
+.PHONY : Voronoi/CMakeFiles/Voronoi.dir/all
+
+# Include target in all.
+all: Voronoi/CMakeFiles/Voronoi.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+Voronoi/CMakeFiles/Voronoi.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 Voronoi/CMakeFiles/Voronoi.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
+.PHONY : Voronoi/CMakeFiles/Voronoi.dir/rule
+
+# Convenience name for target.
+Voronoi: Voronoi/CMakeFiles/Voronoi.dir/rule
+.PHONY : Voronoi
+
+# clean rule for target.
+Voronoi/CMakeFiles/Voronoi.dir/clean:
+	$(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/clean
+.PHONY : Voronoi/CMakeFiles/Voronoi.dir/clean
+
+# clean rule for target.
+clean: Voronoi/CMakeFiles/Voronoi.dir/clean
+.PHONY : clean
+
+#=============================================================================
 # Special targets to cleanup operation of make.
 
 # Special rule to run CMake to check the build system integrity.

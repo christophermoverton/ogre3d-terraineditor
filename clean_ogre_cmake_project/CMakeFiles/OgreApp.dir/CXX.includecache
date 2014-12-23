@@ -165,11 +165,11 @@ vector
 -
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi.cpp
-math.h
--
 cspline.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/cspline.cpp
 vector
+-
+cmath
 -
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/cspline.cpp
