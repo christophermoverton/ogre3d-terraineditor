@@ -27,7 +27,11 @@ BuildVoronoi::BuildVoronoi(){
 	w = 10000;
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
 	std::ostringstream ss5;
+	ss5 << "Hitting Voronoi test1 !" << "\n";
+    	tlog->logMessage(ss5.str());
+    	ss5.str(std::string());
 	v = new vor::Voronoi();
+
 	ver = new vor::Vertices();
 	dir = new vor::Vertices();
 	for(int i=0; i<50; i++) 
@@ -38,6 +42,9 @@ BuildVoronoi::BuildVoronoi(){
 	}
 	edg = v->GetEdges(ver, w, w);
 	std::cout << "voronois done!\n";
+	ss5 << "Hitting Voronoi test2 !" << "\n";
+    	tlog->logMessage(ss5.str());
+    	ss5.str(std::string());
 	cells = v->GetVoronoiCells();
 	for(vor::Cells::iterator i = cells->begin(); i!= cells->end(); ++i)
 	{

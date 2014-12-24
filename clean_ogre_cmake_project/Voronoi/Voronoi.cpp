@@ -1,9 +1,12 @@
 
 #include "Voronoi.h"
 #include <iostream>
+#include <sstream>
+
 #include <algorithm>
 #include <set>
 #include <cmath>
+#include <fstream>
 
 using namespace vor;
 
@@ -14,31 +17,51 @@ Voronoi::Voronoi()
 
 Edges * Voronoi::GetEdges(Vertices * v, int w, int h)
 {
+	//Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
+  	std::ofstream myfile;
+  	myfile.open ("Voronoi2.txt");
+	std::ostringstream ss5;
+
 	places = v;
 	width = w;
 	height = h;
 	root = 0;
-
-	if(!edges) edges = new Edges();
-	if(!cells) cells = new Cells();
+	ss5 << "Hitting Voronoi test2 !" << "\n";
+//    	tlog->logMessage(ss5.str());
+	myfile << ss5.str();
+	
+//	if(!edges) edges = new Edges();
+//	if(!cells) cells = new Cells();
+	edges = new Edges();
+	cells = new Cells();
+/*
 	else 
 	{
 		for(Vertices::iterator	i = points.begin(); i != points.end(); ++i) delete (*i);
 		for(Edges::iterator		i = edges->begin(); i != edges->end(); ++i) delete (*i);
-		//for(Cells::iterator		i = cells->begin(); i != cells->end(); ++i) delete (*i);
+		//for(Cells::iterator		i = cells->begin(); i != cells->end(); ++i) (*cells).erase( (*i).first);
 		//cells->RemoveAll();
 		points.clear();
 		edges->clear();
-		cells->clear();
+		//(*cells).erase((*cells).begin(),(*cells).end());
+		//cells->clear();
 	
 	}
+*/
+	ss5 << "Hitting Voronoi test3 !" << "\n";
+//    	tlog->logMessage(ss5.str());
+	myfile << ss5.str();
 	
 	for(Vertices::iterator i = places->begin(); i!=places->end(); ++i)
 	{
 		queue.push(new VEvent( *i, true));
 		(*cells)[*i] = new VoronoiCell(*i);
 	}
-
+	ss5 << "Hitting Voronoi test2 !" << "\n";
+//    	tlog->logMessage(ss5.str());
+	myfile << ss5.str();
+	myfile.close();
+    	ss5.str(std::string());
 	VEvent * e;
 	while(!queue.empty())
 	{
@@ -54,7 +77,10 @@ Edges * Voronoi::GetEdges(Vertices * v, int w, int h)
 		else RemoveParabola(e);
 		delete(e);
 	}
-	
+	ss5 << "Hitting Voronoi test3 !" << "\n";
+//    	tlog->logMessage(ss5.str());
+//	myfile << ss5.str();
+    	ss5.str(std::string());	
 	FinishEdge(root);
 
 	for(Edges::iterator i = edges->begin(); i != edges->end(); ++i)
@@ -228,23 +254,63 @@ double	Voronoi::GetXOfEdge(VParabola * par, double y)
 	//two parabolas.  Or writing out both parabolic equations
 	// and solving these simultaneously, then having solved the 
 	//quadratic expression.  
+
+	//solutions below need division by zero resolution.
 	double dp = 2.0 * (p->y - y);
-	double a1 = 1.0 / dp;
-	double b1 = -2.0 * p->x / dp;
-	double c1 = y + dp / 4 + p->x * p->x / dp;
+	//double a1,b1,c1,a2,b2,c2;
+	//if (dp != 0.0){
+		double a1 = 1.0 / dp;
+		double b1 = -2.0 * p->x / dp;
+		double c1 = y + dp / 4 + p->x * p->x / dp;
+	/*
+	}
+	else{
+		double a1 = 9999999999999;
+		double b1 = -9999999999999*p->x;
+		double c1 = 9999999999999;
+	}
+	*/
+	//double b1 = -2.0 * p->x / dp;
+	//double c1 = y + dp / 4 + p->x * p->x / dp;
 			
-		   dp = 2.0 * (r->y - y);
-	double a2 = 1.0 / dp;
-	double b2 = -2.0 * r->x/dp;
-	double c2 = ly + dp / 4 + r->x * r->x / dp;
+	dp = 2.0 * (r->y - y);
+	
+	//if (dp != 0.0){
+		double a2 = 1.0 / dp;
+		double b2 = -2.0 * r->x / dp;
+		double c2 = ly + dp / 4 + r->x * r->x / dp;
+	/*
+	}
+	else{
+	
+		double a2 = 9999999999999;
+		double b2 = -9999999999999*r->x;
+		double c2 = 9999999999999;
+	}
+	*/
+	//double a2 = 1.0 / dp;
+	//double b2 = -2.0 * r->x/dp;
+	//double c2 = ly + dp / 4 + r->x * r->x / dp;
 			
 	double a = a1 - a2;
+
 	double b = b1 - b2;
 	double c = c1 - c2;
 			
 	double disc = b*b - 4 * a * c;
-	double x1 = (-b + std::sqrt(disc)) / (2*a);
-	double x2 = (-b - std::sqrt(disc)) / (2*a);
+	//double x1,x2;
+	/*
+	if (a == 0.0) {
+		double x1 = (-b + std::sqrt(disc)) * 9999999999999;
+		double x2 = (-b - std::sqrt(disc)) * 9999999999999;		
+	}
+	else{
+	*/
+		double x1 = (-b + std::sqrt(disc)) / (2*a);
+		double x2 = (-b - std::sqrt(disc)) / (2*a);
+	//}
+	//double x1 = (-b + std::sqrt(disc)) / (2*a);
+	//double x2 = (-b - std::sqrt(disc)) / (2*a);
 
 	double ry;
 	if(p->y < r->y ) ry =  std::max(x1, x2);
@@ -270,9 +336,19 @@ VParabola * Voronoi::GetParabolaByX(double xx)
 double	Voronoi::GetY(VPoint * p, double x) // ohnisko, x-souøadnice
 {
 	double dp = 2 * (p->y - ly);
-	double a1 = 1 / dp;
-	double b1 = -2 * p->x / dp;
-	double c1 = ly + dp / 4 + p->x * p->x / dp;
+	//double a1,b1,c1;
+	/*
+	if (dp == 0.0){
+		double a1 = 9999999999999;
+		double b1 = -2 * p->x *9999999999999;
+		double c1 = 9999999999999;
+	}
+	else{
+	*/
+		double a1 = 1 / dp;
+		double b1 = -2 * p->x / dp;
+		double c1 = ly + dp / 4 + p->x * p->x / dp;
+	//}
 	
 	return(a1*x*x + b1*x + c1);
 }
@@ -320,7 +396,16 @@ void	Voronoi::CheckCircle(VParabola * b)
 VPoint * Voronoi::GetEdgeIntersection(VEdge * a, VEdge * b)
 {
 	//intersection of two lines
-	double x = (b->g-a->g) / (a->f - b->f);
+	//double x;
+	/*
+	if ((a->f - b->f) == 0.0){
+		double x = (b->g-a->g)*9999999999999;
+	}
+	else{
+	*/
+		double x = (b->g-a->g) / (a->f - b->f);	
+	//}
+	//double x = (b->g-a->g) / (a->f - b->f);
 	double y = a->f * x + a->g;
 
 	if((x - a->start->x)/a->direction->x < 0) return 0;
