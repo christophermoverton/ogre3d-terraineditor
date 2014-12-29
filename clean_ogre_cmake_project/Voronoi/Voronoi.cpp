@@ -168,6 +168,15 @@ void	Voronoi::InsertParabola(VPoint * p)
 	par->Left()->SetLeft(p0);
 	par->Left()->SetRight(p1);
 	
+	//I am not understanding the doubly iterated check on the same parabola here.
+	//secondly, I am not understanding parabola linked lists here.
+	//one p0 is assigned from par->site as is p2 similarly, but given either parabolas
+	//initialization it seems that a parent is neither assigned to both.  This raises a 
+	//question in mind as to exactly how a circle event is constructed since
+	//checkcircle as a necessary criteria needs parents of p0 and p2 which should be a 
+	//null set (or zero return) and then in theory should return out of the checkcirle
+	//method call before assigning a circle event (non site event).  Somehow, however, circle
+	//events are being registered though, so I am not fully understanding what is going on here.
 	CheckCircle(p0);
 	CheckCircle(p2);
 }
@@ -228,6 +237,15 @@ void	Voronoi::FinishEdge(VParabola * n)
 	//This finishes all end point vertices for all parabolas recursively
 	if(n->isLeaf) {delete n; return;}
 	double mx;
+	//I am seeing potentially a number of issues for vertices returned on a given voronoi edge using
+	//this algorithm control point below.  A parabola that need terminate at the given voronoi map 
+	//boundary is such to have a point residing as either a max width, or max height position,
+	//but not solely max width.  The maximum boundary position then could be a problem where the 
+	//maximum y is given and we solve the x and not solely solving for y every time.  
+	//when I have browsed the set of finished vertices for a given voronoi node, these are not 
+	//inside the defined boundaries of the voronoi map for finishing such edge...I am literally seeing
+	//values that are well outside these (e.g., with a 10,000 x 10,000 map nodes that are at 120,000+ 
+	//for a given y value or being negative ) which is not what we want!  
 	if(n->edge->direction->x > 0.0)	mx = std::max(width, n->edge->start->x + 10 );
 	else mx = std::min(0.0, n->edge->start->x - 10);
 	
@@ -236,7 +254,7 @@ void	Voronoi::FinishEdge(VParabola * n)
 	points.push_back(end);
 	if((*cells).find((n->site)) != (*cells).end()){
 		VoronoiCell * lpcell = (*cells)[(n->site)];  //should be assignment to a pointer so may need & on the right
-		lpcell->places->push_back(end);
+		lpcell->places->push_back(end); //****************
 	} 			
 	FinishEdge(n->Left() );
 	FinishEdge(n->Right());
@@ -376,15 +394,15 @@ void	Voronoi::CheckCircle(VParabola * b)
 //at this point intersection is true can set edges and vertices to all necessary cells
 //an edge will be set on one parent site from a parent parabola, while 
 //all three sites from parabolas will have a vertex added.
-	cell->places->push_back(s);
+	//cell->places->push_back(s);
 	if((*cells).find((lp->site)) != (*cells).end()){
 		VoronoiCell * lpcell = (*cells)[(lp->site)];  //should be assignment to a pointer so may need & on the right
-		lpcell->places->push_back(s);
+		//lpcell->places->push_back(s);
 	} 
 
 	if((*cells).find((rp->site)) != (*cells).end()){
 		VoronoiCell * rpcell = (*cells)[(rp->site)];  //should be assignment to a pointer so may need & on the right
-		rpcell->places->push_back(s);
+		//rpcell->places->push_back(s);
 	} 
 	VEvent * e = new VEvent(new VPoint(s->x, s->y - d), false);
 	points.push_back(e->point);
