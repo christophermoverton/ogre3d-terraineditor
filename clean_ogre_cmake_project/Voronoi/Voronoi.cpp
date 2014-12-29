@@ -182,7 +182,8 @@ void	Voronoi::InsertParabola(VPoint * p)
 	//events are being registered though, so I am not fully understanding what is going on here.
 	//A circle event (remove parabola event) originates in this alogorithm from a insert parabola
 	// checkcircle method call.  However, if p0 and p2 fail at the outset, how are these events,
-	//being created?
+	//being created?  Sorry I see this now.  It appears in the parabola header...this comes from 
+	//setLeft() or setRight() parabola functions.
 
 	CheckCircle(p0);
 	CheckCircle(p2);
