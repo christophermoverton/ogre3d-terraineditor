@@ -10,6 +10,9 @@
 
 using namespace vor;
 
+//while division by zero errors may be rare for a random point set generation in this algorithm.
+//This algorithm appears not to be clearly resolved for division by zero problems.
+
 Voronoi::Voronoi()
 {
 	edges = 0;
@@ -177,6 +180,10 @@ void	Voronoi::InsertParabola(VPoint * p)
 	//null set (or zero return) and then in theory should return out of the checkcirle
 	//method call before assigning a circle event (non site event).  Somehow, however, circle
 	//events are being registered though, so I am not fully understanding what is going on here.
+	//A circle event (remove parabola event) originates in this alogorithm from a insert parabola
+	// checkcircle method call.  However, if p0 and p2 fail at the outset, how are these events,
+	//being created?
+
 	CheckCircle(p0);
 	CheckCircle(p2);
 }
