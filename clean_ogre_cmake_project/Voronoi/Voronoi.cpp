@@ -404,7 +404,13 @@ void	Voronoi::CheckCircle(VParabola * b)
 // is an issue say occurring because of the edge chosen in terms of coefficients stored.
 // I am not certain if circle test failure is occurring, for instance, because a site is within
 //the delaunay triangle's circle for three sites?!  Hence why an intersection is producing, 
-//potentially a not valid vertex?!  
+//potentially a not valid vertex?! 
+
+//Technically circle test is not completed, or at least when appending the vertices this should
+//be done at the circle event node (which confirms appending the vertices), or at least, if 
+//a node is found inside the delaunay triangle, removes the added vertices to the given cells.
+// This can be fixed by recording the sites and the intersection point to a given map,
+//and then appending the vertices instead as given below on the delete parabola method call.
   
 	cell->places->push_back(s);
 	if((*cells).find((lp->site)) != (*cells).end()){
