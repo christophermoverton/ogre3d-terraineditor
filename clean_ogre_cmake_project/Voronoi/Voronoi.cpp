@@ -198,6 +198,11 @@ void	Voronoi::RemoveParabola(VEvent * e)
 
 	VPoint * p = new VPoint(e->point->x, GetY(p1->site, e->point->x));
 	points.push_back(p);
+
+	/*  call to instance circle event data and append vertex (intersection) data
+	    for a remove parabola method call.  Ensuring that the three originated 
+	    site nodes are referenced in appending such vertex data. Given below.
+	*/
 	VoronoiCellDat * celldat = (*cellsdat)[e];
 	
 	//cell->places->push_back(s);
@@ -414,19 +419,19 @@ void	Voronoi::CheckCircle(VParabola * b)
 //an edge will be set on one parent site from a parent parabola, while 
 //all three sites from parabolas will have a vertex added.
 
-//I am again seeing absurd results being pushed back for cell vertices on intersection.
-//Again not certain where this is exactly coming.  Technically if this is arising from 
-//false positives on (push back of vertices from intersection testing)?  Or if there 
-// is an issue say occurring because of the edge chosen in terms of coefficients stored.
-// I am not certain if circle test failure is occurring, for instance, because a site is within
-//the delaunay triangle's circle for three sites?!  Hence why an intersection is producing, 
-//potentially a not valid vertex?! 
+
 
 //Technically circle test is not completed, or at least when appending the vertices this should
 //be done at the circle event node (which confirms appending the vertices), or at least, if 
 //a node is found inside the delaunay triangle, removes the added vertices to the given cells.
 // This can be fixed by recording the sites and the intersection point to a given map,
 //and then appending the vertices instead as given below on the delete parabola method call.
+
+//I've created a preliminary circle event map data structure appending VPoint * data from 
+//into a class object called VoronoiCellDat.  The VoronoiCellDat is the value of the Event *
+// key of the map data structure called cellsdat.  This key value pairing makes data lookup retrieval
+//easier.
+
   	VoronoiCellDat * celldat = new VoronoiCellDat(cell->sitePos);
 	celldat->LeftPSite = lp->site;
 	celldat->RightPSite = rp->site;
