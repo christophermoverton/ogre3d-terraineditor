@@ -23,6 +23,7 @@ namespace vor
 	typedef std::list<VPoint *>		Vertices	;
 	typedef std::list<VEdge *>		Edges		;
 	typedef std::map<VPoint *, VoronoiCell *>        Cells           ;
+	typedef std::map<VEvent *, VoronoiCellDat *>     Cellsdat        ;
 
 	/*
 		Class for generating the Voronoi diagram
@@ -72,6 +73,7 @@ namespace vor
 		VParabola *		root;
 		VoronoiCell *           cell;
 		double			ly;
+		Cellsdat *              cellsdat;
 
 		/*
 						deleted		: set  of deleted (false) Events (since we can not delete from PriorityQueue

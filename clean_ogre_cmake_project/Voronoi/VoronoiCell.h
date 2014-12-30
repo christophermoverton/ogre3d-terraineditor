@@ -77,6 +77,19 @@ namespace vor{
 
 	
 	};
+	
+	class VoronoiCellDat
+	{
+		public:
+			VPoint * 			intersection;
+			VPoint *         		LeftPSite;
+			VPoint *         		RightPSite;
+			VPoint *         		sitePos;
+			VoronoiCellDat(VPoint * spos){
+				sitePos = spos;
+			}
+			
+	};
 
 
 #endif

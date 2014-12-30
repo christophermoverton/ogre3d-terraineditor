@@ -58,7 +58,7 @@ namespace vor{
 		vor::Vertices *				places;
 		vor::Edges *				 edges;
 		VPoint *         		       sitePos;
-		VEdgemap *                             edgemap;
+		vor::VEdgemap *                             edgemap;
 
 		VoronoiCell(VPoint * point){
 			sitePos = point;
@@ -76,6 +76,19 @@ namespace vor{
 		*/
 
 	
+	};
+	
+	class VoronoiCellDat
+	{
+		public:
+			VPoint * 			intersection;
+			VPoint *         		LeftPSite;
+			VPoint *         		RightPSite;
+			VPoint *         		sitePos;
+			VoronoiCellDat(VPoint * spos){
+				sitePos = spos;
+			}
+			
 	};
 
 

@@ -37,6 +37,7 @@ Edges * Voronoi::GetEdges(Vertices * v, int w, int h)
 //	if(!cells) cells = new Cells();
 	edges = new Edges();
 	cells = new Cells();
+	cellsdat = new Cellsdat();
 /*
 	else 
 	{
@@ -197,7 +198,22 @@ void	Voronoi::RemoveParabola(VEvent * e)
 
 	VPoint * p = new VPoint(e->point->x, GetY(p1->site, e->point->x));
 	points.push_back(p);
+	VoronoiCellDat * celldat = (*cellsdat)[e];
+	
+	//cell->places->push_back(s);
+	if((*cells).find((celldat->sitePos)) != (*cells).end()){
+		VoronoiCell * siteposcell = (*cells)[celldat->sitePos];  //should be assignment to a pointer so may need & on the right
+		siteposcell->places->push_back(celldat->intersection);
+	} 
+	if((*cells).find((celldat->LeftPSite)) != (*cells).end()){
+		VoronoiCell * lpcell = (*cells)[celldat->LeftPSite];  //should be assignment to a pointer so may need & on the right
+		lpcell->places->push_back(celldat->intersection);
+	} 
 
+	if((*cells).find((celldat->RightPSite)) != (*cells).end()){
+		VoronoiCell * rpcell = (*cells)[celldat->RightPSite];  //should be assignment to a pointer so may need & on the right
+		rpcell->places->push_back(celldat->intersection);
+	} 
 	xl->edge->end = p;
 	xr->edge->end = p;
 	
@@ -411,7 +427,11 @@ void	Voronoi::CheckCircle(VParabola * b)
 //a node is found inside the delaunay triangle, removes the added vertices to the given cells.
 // This can be fixed by recording the sites and the intersection point to a given map,
 //and then appending the vertices instead as given below on the delete parabola method call.
-  
+  	VoronoiCellDat * celldat = new VoronoiCellDat(cell->sitePos);
+	celldat->LeftPSite = lp->site;
+	celldat->RightPSite = rp->site;
+	celldat->intersection = s;
+	/*
 	cell->places->push_back(s);
 	if((*cells).find((lp->site)) != (*cells).end()){
 		VoronoiCell * lpcell = (*cells)[(lp->site)];  //should be assignment to a pointer so may need & on the right
@@ -422,7 +442,9 @@ void	Voronoi::CheckCircle(VParabola * b)
 		VoronoiCell * rpcell = (*cells)[(rp->site)];  //should be assignment to a pointer so may need & on the right
 		rpcell->places->push_back(s);
 	} 
+	*/
 	VEvent * e = new VEvent(new VPoint(s->x, s->y - d), false);
+	(*cellsdat)[e] = celldat;
 	points.push_back(e->point);
 	b->cEvent = e;
 	e->arch = b;
