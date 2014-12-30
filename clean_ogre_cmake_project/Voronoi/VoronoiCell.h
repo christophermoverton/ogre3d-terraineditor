@@ -20,9 +20,11 @@ namespace vor{
 		Useful data containers for Vertices (places) and Edges of Voronoi diagram
 	*/
  
-	typedef std::list<VPoint *>		                Vertices	 ;
-	typedef std::list<VEdge *>				Edges		 ;
-	typedef std::map<std::pair<VPoint *, VPoint *>, VEdge *>     VEdgemap         ;
+	typedef std::list<VPoint *>		                     Vertices	 ;
+	typedef std::list<VEdge *>				     Edges	 ;
+	typedef std::map<std::pair<VPoint *, VPoint *>, VEdge *>     VEdgemap    ;
+	typedef std::map<VPoint *, std::list<VEdge *> >              VertEdges   ;
+	typedef std::map<VPoint *, VEdge * >                         VertEdge    ;
 
 	/*
 		Class for generating the Voronoi diagram
@@ -58,12 +60,15 @@ namespace vor{
 		vor::Vertices *				places;
 		vor::Edges *				 edges;
 		VPoint *         		       sitePos;
-		vor::VEdgemap *                             edgemap;
+		vor::VEdgemap *                        edgemap;
+		vor::VertEdges *                       vertedges;
 
 		VoronoiCell(VPoint * point){
 			sitePos = point;
 			places = new vor::Vertices();
 			edges = new vor::Edges();
+			edgemap = new vor::Edgemap();
+			vertedges = new vor::VertEdges();
 		}
 	//private:
 
@@ -83,10 +88,14 @@ namespace vor{
 		public:
 			VPoint * 			intersection;
 			VPoint *         		LeftPSite;
+			VEdge  *                        LeftEdge;
 			VPoint *         		RightPSite;
+			VEdge  *                        RightEdge;
 			VPoint *         		sitePos;
+			VEdge  *                        siteEdge;
 			VoronoiCellDat(VPoint * spos){
 				sitePos = spos;
+				
 			}
 			
 	};

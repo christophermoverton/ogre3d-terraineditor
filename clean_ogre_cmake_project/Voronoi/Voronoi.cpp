@@ -209,16 +209,27 @@ void	Voronoi::RemoveParabola(VEvent * e)
 	if((*cells).find((celldat->sitePos)) != (*cells).end()){
 		VoronoiCell * siteposcell = (*cells)[celldat->sitePos];  //should be assignment to a pointer so may need & on the right
 		siteposcell->places->push_back(celldat->intersection);
+		VertEdges * sitevertedges = siteposcell->vertedges;
+		(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
 	} 
 	if((*cells).find((celldat->LeftPSite)) != (*cells).end()){
 		VoronoiCell * lpcell = (*cells)[celldat->LeftPSite];  //should be assignment to a pointer so may need & on the right
 		lpcell->places->push_back(celldat->intersection);
+		VertEdges * leftvertedges = lpcell->vertedges;
+		(*leftvertedges)[celldat->intersection]->push_back(celldat->LeftEdge);
 	} 
 
 	if((*cells).find((celldat->RightPSite)) != (*cells).end()){
 		VoronoiCell * rpcell = (*cells)[celldat->RightPSite];  //should be assignment to a pointer so may need & on the right
 		rpcell->places->push_back(celldat->intersection);
+		VertEdges * rightvertedges = rpcell->vertedges;
+		(*rightvertedges)[celldat->intersection]->push_back(celldat->RightEdge);
 	} 
+
+	/*  So with appending the data, it occurred to me that the algorithm isn't 
+	    much concerned with where the voronoi cells are in relation to the a given 
+	    boundary for the entire map.
+	*/
 	xl->edge->end = p;
 	xr->edge->end = p;
 	
@@ -433,8 +444,11 @@ void	Voronoi::CheckCircle(VParabola * b)
 //easier.
 
   	VoronoiCellDat * celldat = new VoronoiCellDat(cell->sitePos);
+	celldat->siteEdge = b->edge;
 	celldat->LeftPSite = lp->site;
+	celldat->LeftEdge = lp->edge;
 	celldat->RightPSite = rp->site;
+	celldat->RightEdge = rp->edge;
 	celldat->intersection = s;
 	/*
 	cell->places->push_back(s);
