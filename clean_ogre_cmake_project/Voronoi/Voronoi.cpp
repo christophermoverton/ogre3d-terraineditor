@@ -402,8 +402,10 @@ void	Voronoi::CheckCircle(VParabola * b)
 //Again not certain where this is exactly coming.  Technically if this is arising from 
 //false positives on (push back of vertices from intersection testing)?  Or if there 
 // is an issue say occurring because of the edge chosen in terms of coefficients stored.
-//That is because of the solution given for the intersection of two parabolics which determines
-//potentially 
+// I am not certain if circle test failure is occurring, for instance, because a site is within
+//the delaunay triangle's circle for three sites?!  Hence why an intersection is producing, 
+//potentially a not valid vertex?!  
+  
 	cell->places->push_back(s);
 	if((*cells).find((lp->site)) != (*cells).end()){
 		VoronoiCell * lpcell = (*cells)[(lp->site)];  //should be assignment to a pointer so may need & on the right
