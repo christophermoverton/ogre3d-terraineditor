@@ -25,6 +25,7 @@ namespace vor{
 	typedef std::map<std::pair<VPoint *, VPoint *>, VEdge *>     VEdgemap    ;
 	typedef std::map<VPoint *, std::list<VEdge *> >              VertEdges   ;
 	typedef std::map<VPoint *, VEdge * >                         VertEdge    ;
+	typedef std::map<VEdge *, std::list<VPoint *> >              EdgeVerts   ;
 
 	/*
 		Class for generating the Voronoi diagram
@@ -62,13 +63,14 @@ namespace vor{
 		VPoint *         		       sitePos;
 		vor::VEdgemap *                        edgemap;
 		vor::VertEdges *                       vertedges;
-
+		vor::EdgeVerts *                       edgeverts;
 		VoronoiCell(VPoint * point){
 			sitePos = point;
 			places = new vor::Vertices();
 			edges = new vor::Edges();
 			edgemap = new vor::Edgemap();
 			vertedges = new vor::VertEdges();
+			edgeverts = new vor::EdgeVerts();
 		}
 	//private:
 
