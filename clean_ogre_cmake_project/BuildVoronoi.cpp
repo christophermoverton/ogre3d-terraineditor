@@ -53,6 +53,13 @@ BuildVoronoi::BuildVoronoi(){
 		for(vor::Vertices::iterator j = verts->begin(); j != verts->end(); j++){
 			ss5 << "x: " << (*j)->x << ", y: " << (*j)->y << "\n";
 		}
+		vor::VertEdges * bvertedges = (*i).second->vertedges;
+		for(vor::VertEdges::iterator j = bvertedges->begin(); j != bvertedges->end(); j++){
+			VPoint * cellvertex = (*j);
+			VEdges * edges = (*j)->second();
+			for(vor::VEdges::iterator k = edges->begin(); k != edges->end(); k++) {
+			}
+		}
 	}
 	tlog->logMessage(ss5.str());
 }

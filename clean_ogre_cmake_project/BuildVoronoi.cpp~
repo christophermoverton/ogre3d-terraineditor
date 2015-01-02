@@ -24,7 +24,7 @@ class BuildVoronoi{
 };
 
 BuildVoronoi::BuildVoronoi(){
-	w = 513;
+	w = 10000;
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
 	std::ostringstream ss5;
 	ss5 << "Hitting Voronoi test1 !" << "\n";
@@ -52,6 +52,13 @@ BuildVoronoi::BuildVoronoi(){
 		vor::Vertices * verts = (*i).second->places;
 		for(vor::Vertices::iterator j = verts->begin(); j != verts->end(); j++){
 			ss5 << "x: " << (*j)->x << ", y: " << (*j)->y << "\n";
+		}
+		vor::VertEdges * bvertedges = (*i).second->vertedges;
+		for(vor::VertEdges::iterator j = bvertedges->begin(); j != bvertedges->end(); j++){
+			VPoint * cellvertex = (*j);
+			VEdges * edges = (*j)->second();
+			for() {
+			}
 		}
 	}
 	tlog->logMessage(ss5.str());
