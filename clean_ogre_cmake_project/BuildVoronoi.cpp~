@@ -21,6 +21,9 @@ class BuildVoronoi{
 		vor::Vertices * dir; // smìry, kterými se pohybují
 		vor::Edges * edg;	 // hrany diagramu
 		vor::Cells * cells;
+		vor::CellPolyPoints * bcellpolypoints;  //temporary cell map container for internal use
+		vor::VPoint * cellpoint;                //temporary vertex point for internal use
+		rayCastLine(double f, double g, VPoint * start, VPoint * end);
 };
 
 BuildVoronoi::BuildVoronoi(){
@@ -54,13 +57,26 @@ BuildVoronoi::BuildVoronoi(){
 			ss5 << "x: " << (*j)->x << ", y: " << (*j)->y << "\n";
 		}
 		vor::VertEdges * bvertedges = (*i).second->vertedges;
+		vor::EdgeVerts * bedgeverts = (*i).second->edgeverts;
 		for(vor::VertEdges::iterator j = bvertedges->begin(); j != bvertedges->end(); j++){
 			VPoint * cellvertex = (*j);
-			VEdges * edges = (*j)->second();
-			for() {
+			VEdges * instedges = (*j)->second();
+			for(vor::VEdges::iterator k = instedges->begin(); k != instedges->end(); k++) {
+				vor::Vertices instverts = (*bedgeverts)[*k];  //edge vertices
+				//to iterate a vertex's linked neighbor.
+				for(vor::Vertices::iterator l = instverts->begin(); l != instverts->end();l++) {
+					if (*l != cellvertex){
+						//compute line points with this neighbor vertex as boundary
+						
+					}
+				}
 			}
 		}
 	}
 	tlog->logMessage(ss5.str());
+}
+
+BuildVoronoi::rayCastLine(double f, double g, VPoint * start, VPoint * end) {
+	
 }
 #endif
