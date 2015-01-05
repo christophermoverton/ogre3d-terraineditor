@@ -20,10 +20,11 @@ class BuildVoronoi{
 		vor::Vertices * ver; // vrcholy
 		vor::Vertices * dir; // smìry, kterými se pohybují
 		vor::Edges * edg;	 // hrany diagramu
-		vor::Cells * cells;
+		vor::Cells * cells; 
 		VoronoiCell * cell;  //temporary cell map container for internal use
 		//vor::VPoint * cellpoint;                //temporary vertex point for internal use
-		rayCastLine(double f, double g, VPoint * start, VPoint * end);
+		void rayCastLine(double f, double g, VPoint * start, VPoint * end);
+		void rayCastLine(double f, double g, VPoint * start);  //overloaded function for incomplete edge
 };
 
 BuildVoronoi::BuildVoronoi(){
@@ -69,7 +70,7 @@ BuildVoronoi::BuildVoronoi(){
 				for(vor::Vertices::iterator l = instverts->begin(); l != instverts->end();l++) {
 					if (*l != cellvertex){
 						//compute line points with this neighbor vertex as boundary
-						
+						ss5 << "neighbor point x: " << *l->x << " , y: " << *l->y << "\n";
 					}
 				}
 			}
@@ -78,20 +79,27 @@ BuildVoronoi::BuildVoronoi(){
 	tlog->logMessage(ss5.str());
 }
 
-BuildVoronoi::rayCastLine(double f, double g, VPoint * start, VPoint * end) {
+
+void BuildVoronoi::rayCastLine(double f, double g, VPoint * start, VPoint * end) {
 
 	vor::VPoint *  point;
-	double incdec = .001f
+	double incdec = .001f;
 	if (end->x - start->x < 0){
 		incdec = -.001f;  //-1 > -8    -8 +1 = -7 < 0 
 	} 
+	
 	double valx = start->x + incdec;
 	cell->cellpolypoints->push_back(start);	
 	if (incdec < 0){
 		while (valx > end->x){
 			valy = f*valx + g;
 			point = new VPoint(valx,valy);
-			cell->cellpolypoints->push_back(point);
+			bool test1 = valx >= 0 and valy >= 0;
+			bool test2 = valx <= w and valy <= w;
+			if (test1 and test2) {
+				cell->cellpolypoints->push_back(point);
+			}
+			
 			valx = valx + incdec;
 		}
 	}
@@ -105,5 +113,9 @@ BuildVoronoi::rayCastLine(double f, double g, VPoint * start, VPoint * end) {
 	}
 	cell->cellpolypoints->push_back(end);
 
+}
+
+void BuildVoronoi::rayCastLine(double f, double g, VPoint * start) {
+	//
 }
 #endif
