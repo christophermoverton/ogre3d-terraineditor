@@ -23,9 +23,9 @@ namespace vor{
 	typedef std::list<VPoint *>		                     Vertices	   ;
 	typedef std::list<VEdge *>				     Edges	   ;
 	typedef std::map<std::pair<VPoint *, VPoint *>, VEdge *>     VEdgemap      ;
-	typedef std::map<VPoint *, Edges >                           VertEdges     ;
+	typedef std::map<VPoint *, Edges *>                           VertEdges     ;
 	typedef std::map<VPoint *, VEdge * >                         VertEdge      ;
-	typedef std::map<VEdge *, Vertices >                         EdgeVerts     ;
+	typedef std::map<VEdge *, Vertices *>                         EdgeVerts     ;
 	//typedef std::map<Vpoint *, Vertices>                      CellPolyPoints   ;
 
 	/*
@@ -70,7 +70,7 @@ namespace vor{
 			sitePos = point;
 			places = new vor::Vertices();
 			edges = new vor::Edges();
-			edgemap = new vor::Edgemap();
+			edgemap = new vor::VEdgemap();
 			vertedges = new vor::VertEdges();
 			edgeverts = new vor::EdgeVerts();
 			cellpolypoints = new vor::Vertices();

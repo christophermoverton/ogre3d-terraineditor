@@ -44,6 +44,7 @@ BuildVoronoi::BuildVoronoi(){
 		ver->push_back(new VPoint( w * (double)rand()/(double)RAND_MAX , w * (double)rand()/(double)RAND_MAX )); 
 		dir->push_back(new VPoint( (double)rand()/(double)RAND_MAX - 0.5, (double)rand()/(double)RAND_MAX - 0.5)); 
 	}
+	/*
 	edg = v->GetEdges(ver, w, w);
 	std::cout << "voronois done!\n";
 	ss5 << "Hitting Voronoi test2 !" << "\n";
@@ -57,32 +58,35 @@ BuildVoronoi::BuildVoronoi(){
 		for(vor::Vertices::iterator j = verts->begin(); j != verts->end(); j++){
 			ss5 << "x: " << (*j)->x << ", y: " << (*j)->y << "\n";
 		}
-		cell = i;
-		vor::VertEdges * bvertedges = (*i).second->vertedges;
-		vor::EdgeVerts * bedgeverts = (*i).second->edgeverts;
+		//cell = (*i).second;
+		//vor::VertEdges * bvertedges = (*i).second->vertedges;
+		//vor::EdgeVerts * bedgeverts = (*i).second->edgeverts;
+		/*
 		for(vor::VertEdges::iterator j = bvertedges->begin(); j != bvertedges->end(); j++){
-			VPoint * cellvertex = (*j);
-			VEdges * instedges = (*j)->second();
-			for(vor::VEdges::iterator k = instedges->begin(); k != instedges->end(); k++) {
-				vor::Vertices instverts = (*bedgeverts)[*k];  //edge vertices
+			VPoint * cellvertex = (*j).first;
+			vor::Edges * instedges = (*j).second;
+			for(vor::Edges::iterator k = instedges->begin(); k != instedges->end(); k++) {
+				vor::Vertices * instverts = (*bedgeverts)[*k];  //edge vertices
 				//to iterate a vertex's linked neighbor.
 				//need to append neighbor vertices to avoid reiterating a ray construction.
 				for(vor::Vertices::iterator l = instverts->begin(); l != instverts->end();l++) {
 					if (*l != cellvertex){
 						//compute line points with this neighbor vertex as boundary
-						ss5 << "neighbor point x: " << *l->x << " , y: " << *l->y <<
+						ss5 << "neighbor point x: " << (*l)->x << " , y: " << (*l)->y << "\n";
 					}
 				}
 			}
 		}
-	}
+		*/
+//	}
 	tlog->logMessage(ss5.str());
 }
 
 
 void BuildVoronoi::rayCastLine(double f, double g, VPoint * start, VPoint * end) {
 
-	vor::VPoint *  point;
+	VPoint *  point;
+	double valy;
 	double incdec = .001f;
 	if (end->x - start->x < 0){
 		incdec = -.001f;  //-1 > -8    -8 +1 = -7 < 0 

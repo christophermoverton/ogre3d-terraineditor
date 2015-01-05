@@ -211,16 +211,56 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		siteposcell->places->push_back(celldat->intersection);
 		VertEdges * sitevertedges = siteposcell->vertedges;
 		EdgeVerts * siteedgeverts = siteposcell->edgeverts;
-		(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
-		(*siteedgeverts)[celldat->siteEdge]->push_back(celldat->intersection);
+		if ((*sitevertedges).find(celldat->intersection)!= (*sitevertedges).end()) {
+			(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
+			
+		}
+		else {
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(celldat->siteEdge);
+			(*sitevertedges)[celldat->intersection] = nedges;
+			
+		}
+		
+		//(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
+		if ((*siteedgeverts).find(celldat->siteEdge) != (*siteedgeverts).end()){
+			(*siteedgeverts)[celldat->siteEdge]->push_back(celldat->intersection);
+		}
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(celldat->intersection);
+			(*siteedgeverts)[celldat->siteEdge] = vertices; 
+		}
+		//(*siteedgeverts)[celldat->siteEdge]->push_back(celldat->intersection);
 	} 
 	if((*cells).find((celldat->LeftPSite)) != (*cells).end()){
 		VoronoiCell * lpcell = (*cells)[celldat->LeftPSite];  //should be assignment to a pointer so may need & on the right
 		lpcell->places->push_back(celldat->intersection);
 		VertEdges * leftvertedges = lpcell->vertedges;
 		EdgeVerts * leftedgeverts = lpcell->edgeverts;
-		(*leftvertedges)[celldat->intersection]->push_back(celldat->LeftEdge);
-		(*leftedgeverts)[celldat->LeftEdge]->push_back(celldat->intersection);
+
+		if ((*leftvertedges).find(celldat->intersection)!= (*leftvertedges).end()) {
+			(*leftvertedges)[celldat->intersection]->push_back(celldat->LeftEdge);
+			
+		}
+		else {
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(celldat->LeftEdge);
+			(*leftvertedges)[celldat->intersection] = nedges;
+			
+		}
+		
+		//(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
+		if ((*leftedgeverts).find(celldat->LeftEdge) != (*leftedgeverts).end()){
+			(*leftedgeverts)[celldat->LeftEdge]->push_back(celldat->intersection);
+		}
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(celldat->intersection);
+			(*leftedgeverts)[celldat->LeftEdge] = vertices; 
+		}
+		//(*leftvertedges)[celldat->intersection]->push_back(celldat->LeftEdge);
+		//(*leftedgeverts)[celldat->LeftEdge]->push_back(celldat->intersection);
 	} 
 
 	if((*cells).find((celldat->RightPSite)) != (*cells).end()){
@@ -228,8 +268,29 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		rpcell->places->push_back(celldat->intersection);
 		VertEdges * rightvertedges = rpcell->vertedges;
 		EdgeVerts * rightedgeverts = rpcell->edgeverts;
-		(*rightvertedges)[celldat->intersection]->push_back(celldat->RightEdge);
-		(*rightedgeverts)[celldat->RightEdge]->push_back(celldat->intersection);
+
+		if ((*rightvertedges).find(celldat->intersection)!= (*rightvertedges).end()) {
+			(*rightvertedges)[celldat->intersection]->push_back(celldat->RightEdge);
+			
+		}
+		else {
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(celldat->RightEdge);
+			(*rightvertedges)[celldat->intersection] = nedges;
+			
+		}
+		
+		//(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
+		if ((*rightedgeverts).find(celldat->RightEdge) != (*rightedgeverts).end()){
+			(*rightedgeverts)[celldat->RightEdge]->push_back(celldat->intersection);
+		}
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(celldat->intersection);
+			(*rightedgeverts)[celldat->RightEdge] = vertices; 
+		}
+		//(*rightvertedges)[celldat->intersection]->push_back(celldat->RightEdge);
+		//(*rightedgeverts)[celldat->RightEdge]->push_back(celldat->intersection);
 	} 
 
 	/*  So with appending the data, it occurred to me that the algorithm isn't 
