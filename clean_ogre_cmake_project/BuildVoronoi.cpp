@@ -21,8 +21,8 @@ class BuildVoronoi{
 		vor::Vertices * dir; // smìry, kterými se pohybují
 		vor::Edges * edg;	 // hrany diagramu
 		vor::Cells * cells;
-		vor::CellPolyPoints * bcellpolypoints;  //temporary cell map container for internal use
-		vor::VPoint * cellpoint;                //temporary vertex point for internal use
+		VoronoiCell * cell;  //temporary cell map container for internal use
+		//vor::VPoint * cellpoint;                //temporary vertex point for internal use
 		rayCastLine(double f, double g, VPoint * start, VPoint * end);
 };
 
@@ -56,6 +56,7 @@ BuildVoronoi::BuildVoronoi(){
 		for(vor::Vertices::iterator j = verts->begin(); j != verts->end(); j++){
 			ss5 << "x: " << (*j)->x << ", y: " << (*j)->y << "\n";
 		}
+		cell = i;
 		vor::VertEdges * bvertedges = (*i).second->vertedges;
 		vor::EdgeVerts * bedgeverts = (*i).second->edgeverts;
 		for(vor::VertEdges::iterator j = bvertedges->begin(); j != bvertedges->end(); j++){
@@ -78,6 +79,31 @@ BuildVoronoi::BuildVoronoi(){
 }
 
 BuildVoronoi::rayCastLine(double f, double g, VPoint * start, VPoint * end) {
-	
+
+	vor::VPoint *  point;
+	double incdec = .001f
+	if (end->x - start->x < 0){
+		incdec = -.001f;  //-1 > -8    -8 +1 = -7 < 0 
+	} 
+	double valx = start->x + incdec;
+	cell->cellpolypoints->push_back(start);	
+	if (incdec < 0){
+		while (valx > end->x){
+			valy = f*valx + g;
+			point = new VPoint(valx,valy);
+			cell->cellpolypoints->push_back(point);
+			valx = valx + incdec;
+		}
+	}
+	else {
+		while (valx < end->x){
+			valy = f*valx + g;
+			point = new VPoint(valx,valy);
+			cell->cellpolypoints->push_back(point);
+			valx = valx + incdec;
+		}
+	}
+	cell->cellpolypoints->push_back(end);
+
 }
 #endif
