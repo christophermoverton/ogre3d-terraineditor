@@ -49,7 +49,7 @@ BuildVoronoi::BuildVoronoi(){
 	std::cout << "voronois done!\n";
 	ss5 << "Hitting Voronoi test2 !" << "\n";
     	tlog->logMessage(ss5.str());
-	/*
+	
     	ss5.str(std::string());
 	cells = v->GetVoronoiCells();
 	for(vor::Cells::iterator i = cells->begin(); i!= cells->end(); ++i)
@@ -59,10 +59,10 @@ BuildVoronoi::BuildVoronoi(){
 		for(vor::Vertices::iterator j = verts->begin(); j != verts->end(); j++){
 			ss5 << "x: " << (*j)->x << ", y: " << (*j)->y << "\n";
 		}
-		//cell = (*i).second;
-		//vor::VertEdges * bvertedges = (*i).second->vertedges;
-		//vor::EdgeVerts * bedgeverts = (*i).second->edgeverts;
-		/*
+		cell = (*i).second;
+		vor::VertEdges * bvertedges = (*i).second->vertedges;
+		vor::EdgeVerts * bedgeverts = (*i).second->edgeverts;
+		
 		for(vor::VertEdges::iterator j = bvertedges->begin(); j != bvertedges->end(); j++){
 			VPoint * cellvertex = (*j).first;
 			vor::Edges * instedges = (*j).second;
@@ -78,8 +78,8 @@ BuildVoronoi::BuildVoronoi(){
 				}
 			}
 		}
-		*/
-//	}
+		
+	}
 	tlog->logMessage(ss5.str());
 }
 

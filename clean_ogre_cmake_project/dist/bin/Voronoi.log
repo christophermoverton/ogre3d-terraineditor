@@ -1,6 +1,394 @@
-16:36:10: Hitting Voronoi test1 !
+04:28:37: Hitting Voronoi test1 !
 
-16:36:10: Hitting Voronoi test2 !
+04:28:37: Hitting Voronoi test2 !
 
-16:36:10: Hitting Voronoi test2 !
+04:28:37: Cell: 831.929,6487.65
+x: 938.939, y: 7256.04
+x: 1086.92, y: 5616.79
+Cell: 972.218,4088.26
+x: 1074.34, y: 4840.58
+x: 2151.69, y: 3918.83
+x: 1368.25, y: 3384.18
+x: 1196.85, y: 2730.56
+x: 1216.48, y: 2023.27
+x: 1262.61, y: 1983.59
+x: 1113.34, y: 680.792
+x: 1217.02, y: -2063.88
+Cell: 1879.52,2758.75
+x: 2151.69, y: 3918.83
+x: 2217.22, y: 3921.04
+x: 1368.25, y: 3384.18
+x: 2662.59, y: 1877.16
+neighbor point x: 2151.69 , y: 3918.83
+neighbor point x: 2217.22 , y: 3921.04
+neighbor point x: 2217.22 , y: 3921.04
+neighbor point x: 1368.25 , y: 3384.18
+neighbor point x: 2151.69 , y: 3918.83
+neighbor point x: 1368.25 , y: 3384.18
+Cell: 1714.67,7245.36
+x: 1456.39, y: 7598.51
+x: 4096.22, y: 8313.57
+x: 2474.39, y: 6949.96
+x: 2508.37, y: 6378.95
+neighbor point x: 4096.22 , y: 8313.57
+neighbor point x: 2474.39 , y: 6949.96
+neighbor point x: 1456.39 , y: 7598.51
+neighbor point x: 2474.39 , y: 6949.96
+neighbor point x: 1456.39 , y: 7598.51
+neighbor point x: 4096.22 , y: 8313.57
+Cell: 7075.82,5965.49
+x: 6546.51, y: 6099.4
+x: 8354.47, y: 5946.29
+x: 6991.81, y: 5102.19
+Cell: 6005.03,6169.51
+x: 6280.77, y: 7277.46
+x: 5455.46, y: 6994.84
+x: 2501.26, y: 6539.39
+neighbor point x: 6280.77 , y: 7277.46
+neighbor point x: 2501.26 , y: 6539.39
+neighbor point x: 5455.46 , y: 6994.84
+neighbor point x: 2501.26 , y: 6539.39
+neighbor point x: 6280.77 , y: 7277.46
+neighbor point x: 5455.46 , y: 6994.84
+Cell: 2768.09,8364.19
+x: 1962.72, y: 8316.74
+x: 4082.91, y: 8307.82
+x: 4096.22, y: 8313.57
+x: 2571.3, y: 7685.29
+x: 2474.39, y: 6949.96
+x: 2501.26, y: 6539.39
+x: 2508.37, y: 6378.95
+x: 2953.64, y: 6099.34
+x: 3085.92, y: 5940.73
+x: 2981.33, y: 5171.86
+x: 2628.64, y: 4716.98
+x: 2217.22, y: 3921.04
+x: 2884.43, y: 3242.76
+x: 2662.59, y: 1877.16
+x: 2905.42, y: 1527.94
+x: 1217.02, y: -2063.88
+Cell: 7171.93,309.107
+Cell: 4397.37,6734.65
+x: 4458.9, y: 7700.08
+x: 5023.15, y: 7254.53
+Cell: 3222.3,7312.19
+x: 4082.91, y: 8307.82
+x: 4152.63, y: 8132.01
+Cell: 70.9349,2322.91
+x: -256.862, y: 3132.86
+x: 4967.48, y: 3550.72
+x: -1273.28, y: 3854.77
+x: 761.324, y: 2000.05
+neighbor point x: 4967.48 , y: 3550.72
+neighbor point x: -1273.28 , y: 3854.77
+neighbor point x: -256.862 , y: 3132.86
+neighbor point x: 4967.48 , y: 3550.72
+neighbor point x: -256.862 , y: 3132.86
+neighbor point x: -1273.28 , y: 3854.77
+Cell: 9568.27,9418.26
+Cell: 5383.75,7983.81
+x: 4214.26, y: 9125.27
+x: 6280.77, y: 7277.46
+Cell: 4153.32,5020.72
+x: 4247.75, y: 5833.14
+x: 3085.92, y: 5940.73
+x: 5057.82, y: 5629.53
+neighbor point x: 3085.92 , y: 5940.73
+neighbor point x: 5057.82 , y: 5629.53
+neighbor point x: 4247.75 , y: 5833.14
+neighbor point x: 3085.92 , y: 5940.73
+neighbor point x: 4247.75 , y: 5833.14
+neighbor point x: 5057.82 , y: 5629.53
+Cell: 3384.92,4239.56
+x: 2981.33, y: 5171.86
+x: 3943.64, y: 4458.48
+x: 2628.64, y: 4716.98
+x: 4843.3, y: 3573.51
+neighbor point x: 3943.64 , y: 4458.48
+neighbor point x: 2628.64 , y: 4716.98
+neighbor point x: 2981.33 , y: 5171.86
+neighbor point x: 2628.64 , y: 4716.98
+neighbor point x: 2981.33 , y: 5171.86
+neighbor point x: 3943.64 , y: 4458.48
+Cell: 4548.67,6593.66
+x: 5023.15, y: 7254.53
+x: 4247.75, y: 5833.14
+x: 5057.82, y: 5629.53
+Cell: 3328.31,384.636
+x: 3199.39, y: 1477.63
+x: 2905.42, y: 1527.94
+neighbor point x: 2905.42 , y: 1527.94
+neighbor point x: 3199.39 , y: 1477.63
+Cell: 7696.83,3126.02
+x: 7487.26, y: 3976.04
+x: 9226.59, y: 3866.1
+x: 8752.55, y: 1863.01
+x: 10942, y: 2534.48
+neighbor point x: 9226.59 , y: 3866.1
+neighbor point x: 7487.26 , y: 3976.04
+Cell: 5448.92,366.388
+x: 6308.73, y: 1316.4
+x: 4698.28, y: 408.676
+neighbor point x: 6308.73 , y: 1316.4
+neighbor point x: 4698.28 , y: 408.676
+Cell: 9784.65,5700.64
+x: 10821.9, y: 6982.7
+x: 12217, y: 2299.56
+Cell: 3684.45,2465.54
+x: 2884.43, y: 3242.76
+x: 4843.3, y: 3573.51
+x: 5352.74, y: 2735.55
+x: 4457.79, y: 1857.6
+neighbor point x: 4843.3 , y: 3573.51
+neighbor point x: 2884.43 , y: 3242.76
+Cell: 7486.26,811.219
+x: 6390.5, y: 2077.87
+x: 8752.55, y: 1863.01
+x: 7503.61, y: 450.915
+x: 8081.8, y: 603.6
+x: 6194.71, y: -3143.16
+Cell: 5050.78,1072.75
+x: 5352.74, y: 2735.55
+x: 1262.61, y: 1983.59
+x: 6291.34, y: 2205.66
+x: 6308.73, y: 1316.4
+x: 1113.34, y: 680.792
+neighbor point x: 1262.61 , y: 1983.59
+neighbor point x: 6291.34 , y: 2205.66
+neighbor point x: 1113.34 , y: 680.792
+neighbor point x: 5352.74 , y: 2735.55
+neighbor point x: 1262.61 , y: 1983.59
+neighbor point x: 1113.34 , y: 680.792
+neighbor point x: 5352.74 , y: 2735.55
+neighbor point x: 6291.34 , y: 2205.66
+neighbor point x: 1113.34 , y: 680.792
+neighbor point x: 5352.74 , y: 2735.55
+neighbor point x: 1262.61 , y: 1983.59
+neighbor point x: 6291.34 , y: 2205.66
+Cell: 7666.41,129.025
+x: 7503.61, y: 450.915
+x: 6338.44, y: 1180.34
+x: 8081.8, y: 603.6
+x: 4382.57, y: -327.652
+x: 12217, y: 2299.56
+x: 1217.02, y: -2063.88
+x: 6194.71, y: -3143.16
+x: 4197.8, y: -21798.6
+neighbor point x: 6338.44 , y: 1180.34
+neighbor point x: 8081.8 , y: 603.6
+neighbor point x: 4382.57 , y: -327.652
+neighbor point x: 12217 , y: 2299.56
+neighbor point x: 1217.02 , y: -2063.88
+neighbor point x: 6194.71 , y: -3143.16
+neighbor point x: 4197.8 , y: -21798.6
+neighbor point x: 7503.61 , y: 450.915
+neighbor point x: 6338.44 , y: 1180.34
+neighbor point x: 4382.57 , y: -327.652
+neighbor point x: 12217 , y: 2299.56
+neighbor point x: 1217.02 , y: -2063.88
+neighbor point x: 6194.71 , y: -3143.16
+neighbor point x: 4197.8 , y: -21798.6
+neighbor point x: 7503.61 , y: 450.915
+neighbor point x: 8081.8 , y: 603.6
+neighbor point x: 4382.57 , y: -327.652
+neighbor point x: 12217 , y: 2299.56
+neighbor point x: 1217.02 , y: -2063.88
+neighbor point x: 6194.71 , y: -3143.16
+neighbor point x: 4197.8 , y: -21798.6
+neighbor point x: 7503.61 , y: 450.915
+neighbor point x: 6338.44 , y: 1180.34
+neighbor point x: 8081.8 , y: 603.6
+neighbor point x: 4382.57 , y: -327.652
+neighbor point x: 12217 , y: 2299.56
+neighbor point x: 1217.02 , y: -2063.88
+neighbor point x: 4197.8 , y: -21798.6
+neighbor point x: 7503.61 , y: 450.915
+neighbor point x: 6338.44 , y: 1180.34
+neighbor point x: 8081.8 , y: 603.6
+neighbor point x: 4382.57 , y: -327.652
+neighbor point x: 12217 , y: 2299.56
+neighbor point x: 6194.71 , y: -3143.16
+neighbor point x: 4197.8 , y: -21798.6
+neighbor point x: 7503.61 , y: 450.915
+neighbor point x: 6338.44 , y: 1180.34
+neighbor point x: 8081.8 , y: 603.6
+neighbor point x: 12217 , y: 2299.56
+neighbor point x: 1217.02 , y: -2063.88
+neighbor point x: 6194.71 , y: -3143.16
+neighbor point x: 4197.8 , y: -21798.6
+neighbor point x: 7503.61 , y: 450.915
+neighbor point x: 6338.44 , y: 1180.34
+neighbor point x: 8081.8 , y: 603.6
+neighbor point x: 4382.57 , y: -327.652
+neighbor point x: 1217.02 , y: -2063.88
+neighbor point x: 6194.71 , y: -3143.16
+neighbor point x: 4197.8 , y: -21798.6
+neighbor point x: 7503.61 , y: 450.915
+neighbor point x: 6338.44 , y: 1180.34
+neighbor point x: 8081.8 , y: 603.6
+neighbor point x: 4382.57 , y: -327.652
+neighbor point x: 12217 , y: 2299.56
+neighbor point x: 1217.02 , y: -2063.88
+neighbor point x: 6194.71 , y: -3143.16
+Cell: 513.661,2720.84
+x: 1196.85, y: 2730.56
+x: 761.324, y: 2000.05
+x: 1216.48, y: 2023.27
+Cell: 5846.85,9197.78
+x: 4214.26, y: 9125.27
+x: 4096.22, y: 8313.57
+x: 6628.5, y: 8204.28
+x: 4152.63, y: 8132.01
+x: 4458.9, y: 7700.08
+x: 5023.15, y: 7254.53
+x: 5455.46, y: 6994.84
+x: 5057.82, y: 5629.53
+x: 5457.54, y: 4985.24
+Cell: 9564.17,5531.62
+x: 9060.51, y: 6416.9
+x: 8354.81, y: 6395.58
+x: 19405.8, y: 8125.72
+neighbor point x: 8354.81 , y: 6395.58
+neighbor point x: 19405.8 , y: 8125.72
+neighbor point x: 9060.51 , y: 6416.9
+neighbor point x: 19405.8 , y: 8125.72
+neighbor point x: 9060.51 , y: 6416.9
+neighbor point x: 8354.81 , y: 6395.58
+Cell: 1232.26,7974.26
+x: 1962.72, y: 8316.74
+x: 938.939, y: 7256.04
+x: -35228, y: 154801
+Cell: 439.804,1074.39
+x: -36.9337, y: 1612.29
+Cell: 1885.61,7513.67
+x: 1962.72, y: 8316.74
+x: 2474.39, y: 6949.96
+Cell: 8586.42,225.283
+x: 8752.55, y: 1863.01
+x: 10942, y: 2534.48
+neighbor point x: 10942 , y: 2534.48
+neighbor point x: 8752.55 , y: 1863.01
+Cell: 354.307,5081.35
+x: 1074.34, y: 4840.58
+x: -21651.2, y: 13339.3
+Cell: 7802.19,4792.9
+x: 1086.92, y: 5616.79
+x: 8354.47, y: 5946.29
+x: 9226.59, y: 3866.1
+neighbor point x: 1086.92 , y: 5616.79
+neighbor point x: 8354.47 , y: 5946.29
+Cell: 3990.69,5056.7
+x: 3837.45, y: 5982.1
+x: 3833.57, y: 5983.04
+x: 4247.75, y: 5833.14
+x: 8416.8, y: 6303.74
+x: 3943.64, y: 4458.48
+neighbor point x: 3833.57 , y: 5983.04
+neighbor point x: 8416.8 , y: 6303.74
+neighbor point x: 3837.45 , y: 5982.1
+neighbor point x: 3833.57 , y: 5983.04
+neighbor point x: 3837.45 , y: 5982.1
+neighbor point x: 8416.8 , y: 6303.74
+Cell: 588.321,1257.79
+x: 761.324, y: 2000.05
+x: 1216.48, y: 2023.27
+x: 1113.34, y: 680.792
+neighbor point x: 1216.48 , y: 2023.27
+neighbor point x: 761.324 , y: 2000.05
+Cell: 9232.05,7420.88
+x: 8658.45, y: 8020.77
+x: 10821.9, y: 6982.7
+Cell: 8495.27,9491.78
+x: 9045.51, y: 9655.5
+x: 8158.06, y: 8679.9
+x: 7202.6, y: 9060.65
+x: 6628.5, y: 8204.28
+x: 6597.81, y: 7601.1
+x: 6280.77, y: 7277.46
+x: 6546.51, y: 6099.4
+x: 6390.74, y: 5281.84
+x: 5457.54, y: 4985.24
+x: 5179.41, y: 3998.51
+x: 4967.48, y: 3550.72
+x: 5352.74, y: 2735.55
+x: 6291.34, y: 2205.66
+x: 6390.5, y: 2077.87
+x: 6308.73, y: 1316.4
+x: 6338.44, y: 1180.34
+x: 6194.71, y: -3143.16
+x: 4197.8, y: -21798.6
+Cell: 7005.45,6395.18
+x: 6597.81, y: 7601.1
+x: 8230.74, y: 6664.92
+x: 8354.81, y: 6395.58
+neighbor point x: 8230.74 , y: 6664.92
+neighbor point x: 6597.81 , y: 7601.1
+Cell: 6620.46,3853.12
+x: 7353.81, y: 4143.84
+x: 5179.41, y: 3998.51
+neighbor point x: 5179.41 , y: 3998.51
+neighbor point x: 7353.81 , y: 4143.84
+Cell: 8934.47,9092.26
+x: 9045.51, y: 9655.5
+x: 9546.03, y: 8682.38
+Cell: 3885.17,6921.19
+x: 4152.63, y: 8132.01
+x: 4458.9, y: 7700.08
+Cell: 1977.89,5330.51
+x: 1777.98, y: 6278.55
+x: 2508.37, y: 6378.95
+x: 2953.64, y: 6099.34
+x: 2628.64, y: 4716.98
+neighbor point x: 2508.37 , y: 6378.95
+neighbor point x: 2953.64 , y: 6099.34
+neighbor point x: 1777.98 , y: 6278.55
+neighbor point x: 2953.64 , y: 6099.34
+neighbor point x: 1777.98 , y: 6278.55
+neighbor point x: 2508.37 , y: 6378.95
+Cell: 6588.3,4334.38
+x: 6390.74, y: 5281.84
+x: 6991.81, y: 5102.19
+x: 5457.54, y: 4985.24
+x: 7353.81, y: 4143.84
+neighbor point x: 6991.81 , y: 5102.19
+neighbor point x: 5457.54 , y: 4985.24
+neighbor point x: 6390.74 , y: 5281.84
+neighbor point x: 5457.54 , y: 4985.24
+neighbor point x: 6390.74 , y: 5281.84
+neighbor point x: 6991.81 , y: 5102.19
+Cell: 1755.25,1124.08
+x: 2662.59, y: 1877.16
+Cell: 615.858,3090.13
+x: -305.776, y: 3981.86
+x: 1196.85, y: 2730.56
+Cell: 9485.3,7948.67
+x: 9546.03, y: 8682.38
+x: 10821.9, y: 6982.7
+x: 19405.8, y: 8125.72
+Cell: 1801.79,5057.88
+x: 1159.44, y: 5665.98
+Cell: 4150.14,923.262
+x: 4457.79, y: 1857.6
+x: 4382.57, y: -327.652
+Cell: 7844.45,7858.61
+x: 8158.06, y: 8679.9
+x: 7202.6, y: 9060.65
+x: 8645.93, y: 8248.83
+x: 6628.5, y: 8204.28
+x: 8230.74, y: 6664.92
+neighbor point x: 8158.06 , y: 8679.9
+neighbor point x: 8645.93 , y: 8248.83
+neighbor point x: 6628.5 , y: 8204.28
+neighbor point x: 7202.6 , y: 9060.65
+neighbor point x: 8645.93 , y: 8248.83
+neighbor point x: 6628.5 , y: 8204.28
+neighbor point x: 8158.06 , y: 8679.9
+neighbor point x: 7202.6 , y: 9060.65
+neighbor point x: 6628.5 , y: 8204.28
+neighbor point x: 8158.06 , y: 8679.9
+neighbor point x: 7202.6 , y: 9060.65
+neighbor point x: 8645.93 , y: 8248.83
+Cell: 3189.12,7341.87
+x: 4082.91, y: 8307.82
+x: 2571.3, y: 7685.29
 
