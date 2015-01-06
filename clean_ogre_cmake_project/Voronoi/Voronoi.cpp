@@ -317,6 +317,7 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		appended up above to the voronoi cell class, we just need to ensure that the new
 		edge to vertex and vertex to edge relation is provisioned here.
 	*/
+	
 
 	if((*cells).find((p0->site)) != (*cells).end()){
 		VoronoiCell * p0cell = (*cells)[p0->site]; 
@@ -365,7 +366,7 @@ void	Voronoi::RemoveParabola(VEvent * e)
 			(*p2edgeverts)[higher->edge] = vertices; 
 		}
 	}
-
+	
 	VParabola * gparent = p1->parent->parent;
 	if(p1->parent->Left() == p1)
 	{
