@@ -311,6 +311,61 @@ void	Voronoi::RemoveParabola(VEvent * e)
 	higher->edge = new VEdge(p, p0->site, p2->site);
 	edges->push_back(higher->edge);
 
+	/* 
+		In deleting a given parabola a new edge is created in the process.  Appending this
+		edge data to the Voronoi cell.  Presuming that vertex intersection data is already
+		appended up above to the voronoi cell class, we just need to ensure that the new
+		edge to vertex and vertex to edge relation is provisioned here.
+	*/
+
+	if((*cells).find((p0->site)) != (*cells).end()){
+		VoronoiCell * p0cell = (*cells)[p0->site]; 
+		VertEdges * p0vertedges = p0cell->vertedges;
+		EdgeVerts * p0edgeverts = p0cell->edgeverts;
+		if ((*p0vertedges).find(celldat->intersection)!= (*p0vertedges).end()) {
+			(*p0vertedges)[celldat->intersection]->push_back(higher->edge);
+			
+		}
+		else {
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(higher->edge);
+			(*p0vertedges)[celldat->intersection] = nedges;
+			
+		}
+		if ((*p0edgeverts).find(higher->edge) != (*p0edgeverts).end()){
+			(*p0edgeverts)[higher->edge]->push_back(celldat->intersection);
+		}
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(celldat->intersection);
+			(*p0edgeverts)[higher->edge] = vertices; 
+		}
+	}
+
+	if((*cells).find((p2->site)) != (*cells).end()){
+		VoronoiCell * p2cell = (*cells)[p2->site]; 
+		VertEdges * p2vertedges = p2cell->vertedges;
+		EdgeVerts * p2edgeverts = p2cell->edgeverts;
+		if ((*p2vertedges).find(celldat->intersection)!= (*p2vertedges).end()) {
+			(*p2vertedges)[celldat->intersection]->push_back(higher->edge);
+			
+		}
+		else {
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(higher->edge);
+			(*p2vertedges)[celldat->intersection] = nedges;
+			
+		}
+		if ((*p2edgeverts).find(higher->edge) != (*p2edgeverts).end()){
+			(*p2edgeverts)[higher->edge]->push_back(celldat->intersection);
+		}
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(celldat->intersection);
+			(*p2edgeverts)[higher->edge] = vertices; 
+		}
+	}
+
 	VParabola * gparent = p1->parent->parent;
 	if(p1->parent->Left() == p1)
 	{

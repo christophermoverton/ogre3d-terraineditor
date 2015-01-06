@@ -17,6 +17,13 @@ vertices which one might expect, there are some weird instances where vertices a
 to all vertices in a given cell set which is in error I believe (?), and then there are also instances
 where there are numerous vertices in a given cell of which none are neighbor linked.  Not sure exactly how 
 this is possible here.
+
+Here are some post analysis thoughts on the above:
+
+-With a circle event it appears that I need to ensure on the Voronoi function that
+ not only vertex to edge data is appended but also ensuring that a new edge is written on 
+ a insert parabola event.
+
 */
 class BuildVoronoi{
 
