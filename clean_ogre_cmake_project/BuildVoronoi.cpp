@@ -10,6 +10,14 @@
 #include "Voronoi.h"
 #include "VPoint.h"
 
+/*
+
+While most Voronoi.log data showing voronoi cell's having vertices linked typically, to none, one, or two,
+vertices which one might expect, there are some weird instances where vertices are linked 
+to all vertices in a given cell set which is in error I believe (?), and then there are also instances
+where there are numerous vertices in a given cell of which none are neighbor linked.  Not sure exactly how 
+this is possible here.
+*/
 class BuildVoronoi{
 
 	public:
