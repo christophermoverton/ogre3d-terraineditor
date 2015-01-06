@@ -65,6 +65,7 @@ BuildVoronoi::BuildVoronoi(){
 		
 		for(vor::VertEdges::iterator j = bvertedges->begin(); j != bvertedges->end(); j++){
 			VPoint * cellvertex = (*j).first;
+			ss5 << "Vertex x: " << cellvertex->x << " , y: " << cellvertex->y << "\n";
 			vor::Edges * instedges = (*j).second;
 			for(vor::Edges::iterator k = instedges->begin(); k != instedges->end(); k++) {
 				vor::Vertices * instverts = (*bedgeverts)[*k];  //edge vertices
