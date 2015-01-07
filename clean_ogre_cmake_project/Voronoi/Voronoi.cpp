@@ -228,6 +228,23 @@ void	Voronoi::InsertParabola(VPoint * p)
 	stack parabolic arc)...so I am confused how intersection data is being
 	compiled here when checkcircle method is invoked.
 
+	Presently researching binary search tree model here for Voronoi diagram.
+	One proposed structure is given to the beach front being subdivided by 
+	breakpoints.  The root node is set to the nearest to graph center breakpoint
+        which is then internally linked to additional breakpoint nodes.  Here 
+        a furthered tree subdivision occurs of breakpoints progressively until having 
+	reached leaves which are represented by the parabolas or site nodes defining 
+	these.  The binary search tree is of course ordered for the given set of breakpoints
+	(i.e., the points of intersection between parabolic arcs on the beachfront), as 
+	implicitly the site nodes defining the parabolic arcs.  
+
+	This algorithm appears to use one data object structure in defining the binary tree.
+  	http://cgm.cs.mcgill.ca/~mcleish/644/Projects/DerekJohns/Sweep.htm provides a
+	visual depiction, for instance, of the above binary search tree structure. 
+	In the ordered algorithm no node is exceeding in its given domain to it subtree 
+	allocation (e.g. no left subtree node should exceed a root node, and no right subtree
+        node should be less than a given root node).
+
 	*/
 	par->edge = er;
 	par->isLeaf = false;
