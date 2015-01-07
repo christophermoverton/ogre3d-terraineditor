@@ -214,6 +214,13 @@ void	Voronoi::InsertParabola(VPoint * p)
 	edges->push_back(el);
 
 	// pøestavuju strom .. vkládám novou parabolu
+	/*  Question points:  What happens to a par's original edge assignment if it already
+	has a leaf node a given edge assigned to it?  I can understand the creation of a new
+	parabola with par-> site used as the new parabola's identifier but a par may actually
+	have concurrently more than one active edge in the fortune model.  See American 
+	Mathematical Society visual model example to see this. 
+
+	*/
 	par->edge = er;
 	par->isLeaf = false;
 
