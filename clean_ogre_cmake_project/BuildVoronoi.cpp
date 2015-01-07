@@ -84,6 +84,7 @@ BuildVoronoi::BuildVoronoi(){
 			vor::Edges * instedges = (*j).second;
 			for(vor::Edges::iterator k = instedges->begin(); k != instedges->end(); k++) {
 				vor::Vertices * instverts = (*bedgeverts)[*k];  //edge vertices
+				
 				//to iterate a vertex's linked neighbor.
 				//need to append neighbor vertices to avoid reiterating a ray construction.
 				for(vor::Vertices::iterator l = instverts->begin(); l != instverts->end();l++) {

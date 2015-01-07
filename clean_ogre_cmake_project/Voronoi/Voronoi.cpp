@@ -12,6 +12,58 @@ using namespace vor;
 
 //while division by zero errors may be rare for a random point set generation in this algorithm.
 //This algorithm appears not to be clearly resolved for division by zero problems.
+/*
+Algorithm description notes:  
+
+Generically speaking the overlaying structure of the algorithm follows the 
+Fortune model.  There is a key point however to be had in following:
+
+-parabola insertion events, this with a site node event means 
+ pulling the nearest parent parabola to a given site node which is adding
+ a new parabola, and adding to this a new edge.  This can be a bit tricky 
+ since the directrix line (wavefront line) which controls the shape and size
+ of the parabola is always changing and hence any x position that a new site
+ node occcupies in time could have depending on the beach front have a differring
+ parent parabola returned for such position even with smaller variations in the 
+ wave front line.  This algorithm tracks to a parent parabola using a binary 
+ tree search of child parabola intersections starting from the root (parent 
+ of all parent parabolas) until hitting a nearest child leaf parabola (beach front parabola).
+ to such position.  Then having this parabola determines the site to site or edge
+ property of parent child parabola intersection upon initialization.
+
+ Furthered details of this search utilizes either a minimum or maximum value 
+ of the parabolic curve intersections depending on either child site nodes y position
+in relation to one another.  Obviously one child site node, for instance, having 
+a higher y position, for instance, relative another child site node means as the wave front
+line is descending on the y axis that the high y position site node will form a larger 
+parabola which in turn determines the rapidity of intersection.  For instance, two narrow parabolas
+spread apart will have a slower convergence to intersection, relative to parabolas whose site nodes
+are spread further apart on the y axis.  A decision criteria to choose a minimum or maximum value 
+of a two point intersection set is given for the intersection equations (since this is a quadratic
+solution).  Further where the intersection point lay in relation to the new node determines 
+whether a left or right parabola is chosen... a point intersection to the right of the new site 
+node means a left parabola is chosen (from the left right child tree) and conversely to the right 
+in the opposite case.  
+
+Where I have appended data for added organizational purposes for tracking:
+
+-parabola deletion events (or otherwise known as circle events).  A circle event in the fortune
+model occurs where no new site is found inside the circle for three sites forming the circle event.
+If the case where a site node is found occupying the circle of the three nodes, 
+a written caveat to this is found logically, for instance, inside the parabola 
+insertion event where a cross check is made to ensure that a found parabola that is marked as 
+circle event will automatically delete such circle event.  Otherwise, when the parabolic deletion 
+(circle event) is good, then I append vertex data to all relevant voronoi cells.  This should be represented
+in three sites (or cells as I have worded it).  Adding to this that at such deletion event, there is 
+a new edge formed by a grandparent and child left node remaining (where the old parent parabola is 
+squeezed out), this data is also appended, or at least should be appended.  
+
+Problems:  Somehow data is appearing not right in some instances.  For instances, seeing more than 
+two edges radiating internally throughout the cell which appear to be in violation to the voronoi 
+diagrams typified structure...that is where such edge technically crosses the interior of such cell
+as opposed to forming a boundary of the cell.  Thus examining where appending data is going awry here.
+Or if there is potentially an error with the algorithm itself.
+*/
 
 Voronoi::Voronoi()
 {

@@ -21,7 +21,8 @@ this is possible here.
 Here are some post analysis thoughts on the above:
 
 -With a circle event it appears that I need to ensure on the Voronoi function that
- not only vertex to edge data is appended but also ensuring that a new edge is written.
+ not only vertex to edge data is appended but also ensuring that a new edge is written on 
+ a insert parabola event.
 
 */
 class BuildVoronoi{
