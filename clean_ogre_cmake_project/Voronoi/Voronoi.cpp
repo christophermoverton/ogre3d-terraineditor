@@ -218,7 +218,15 @@ void	Voronoi::InsertParabola(VPoint * p)
 	has a leaf node a given edge assigned to it?  I can understand the creation of a new
 	parabola with par-> site used as the new parabola's identifier but a par may actually
 	have concurrently more than one active edge in the fortune model.  See American 
-	Mathematical Society visual model example to see this. 
+	Mathematical Society visual model example to see this (triple parabolic stack). 
+
+	Its certainly confusing with assignements given below.
+	Checkcircle uses parent information from p0 and p2 which in theory
+	should be the par edge data which in part comes from the new edge 
+	assigned to par.  However, I am not seeing where the intersection
+	is formed from par's original edge data there (from the triple 
+	stack parabolic arc)...so I am confused how intersection data is being
+	compiled here when checkcircle method is invoked.
 
 	*/
 	par->edge = er;
