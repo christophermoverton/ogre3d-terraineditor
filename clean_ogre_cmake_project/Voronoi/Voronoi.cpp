@@ -62,7 +62,11 @@ Problems:  Somehow data is appearing not right in some instances.  For instances
 two edges radiating internally throughout the cell which appear to be in violation to the voronoi 
 diagrams typified structure...that is where such edge technically crosses the interior of such cell
 as opposed to forming a boundary of the cell.  Thus examining where appending data is going awry here.
-Or if there is potentially an error with the algorithm itself.
+Or if there is potentially an error with the algorithm itself.  I do have some questions about the circle
+test for instance, it may be, for instance, better to retain the radius of the circle and then compare the 
+a given site node (prior to a circle event) for parabola insertion whether or not the point is at a distance
+less than the radius of such circle when comparing the distance between the new site and the given 
+intersection point (as alternate means to deleting a circle event).
 */
 
 Voronoi::Voronoi()
