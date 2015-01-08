@@ -83,8 +83,20 @@ that the breakpoint being to the right of the new site node that a left child no
 under the parabola insertion event.  Now a new test is readministered in the while loop where the same two leaf node parbolas
 are tested for intersection yielding the same result which means that the leaf on the left is again chosen but this is the 
 root parabola, but clearly we know at the outset the new site node is directly aligned with an existing child parabola (which 
-is in contradiction to the algorithm's result).
+is in contradiction to the algorithm's result stating that the root parabola should be returned).  In principle a child path 
+decision criteria is reliant upon other data and is obviously according to present data structure bears no relation to the 
+the left right children assignments (as has been structured) on the binary data tree.  In this way, left right path criterai 
+should be more 
+contingent on the x position ordering of site nodes relative breakpoints, and also hopefully ordered in the binary tree 
+so that the branches are optimally in so far as choosing nearest parabola neighbor.  
 
+This implementation may be resolved by path choosing according to an additional conditions namely if parA is left of (test) breakpoint
+choose parA path, or if parA is right of breakpoint choose parB path.  
+
+Sort of important noting that the subtree split when using VParabola getleftchild() or getrightchild() functions are always
+testing fork cul de sacs (terminus) on a given tree juncture.  This allows for the persistence of a site node 
+at many subtree (branch) levels to be retested parabolically (for instance, where say a root node has many different parabola arc 
+intersections).  
 
 */
 
