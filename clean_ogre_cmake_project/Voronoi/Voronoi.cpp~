@@ -74,8 +74,6 @@ only) where this is given such that a new site node is always assigned to the ri
 an existing site node to the left.  What happens when in such ordering a new breakpoint calls for furthered
 binary tree allocations, isn't ordering off?  I think then the search tree mechanism may need some tweaking/revisions
 here.  
-
-
 */
 
 Voronoi::Voronoi()
