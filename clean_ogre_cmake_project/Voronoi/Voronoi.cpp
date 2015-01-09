@@ -98,6 +98,16 @@ testing fork cul de sacs (terminus) on a given tree juncture.  This allows for t
 at many subtree (branch) levels to be retested parabolically (for instance, where say a root node has many different parabola arc 
 intersections).  I'll likely draw up a more complex diagram illustrating this.
 
+Another problem I see potentially exists with the parabola deletion event (see example tree configruation).  Let's say with the following
+site nodes root, p1, p2, and p3, that the right intersection node of p1-p3 is to be deleted and instead replaced by root-p3.  This
+corresponds to a circle event with a voronoi cell vertex constructed at the intersection of root-p1 and p1-p3 edges, here the 
+right edge of the p1 parabola is deleted but the parabola p1 still persists for the root-p1 left edge node site.  Keep in mind
+any parabola insertion is given by the insertion of three leaf nodes, two nodes are from the parent on the left and right of 
+the new site node.  So one particular site node namely the left p1 site node persists with the p3 node on such branch given 
+to the right.  The right p1 site node is however, deleted but this leaves the subtree structure imbalanced by the present
+algorithm.  Instead this node I believe should be replaced for instance, by a root site node which in turn leaves the subtree
+now balanced and references the grandparent node which is what is desired for the deletion event.  
+
 */
 
 Voronoi::Voronoi()
@@ -190,18 +200,18 @@ void	Voronoi::InsertParabola(VPoint * p)
 {
 	if(!root){root = new VParabola(p); return;}
 
-	if(root->isLeaf && root->site->y - p->y < 1) // degenerovaný pøípad - obì spodní místa ve stejné výšce
+	if(root->isLeaf && root->site->y - p->y < 1) // degenerovan ppad - ob spodn msta ve stejn vce
 	{
 		VPoint * fp = root->site;
 		root->isLeaf = false;
 		root->SetLeft( new VParabola(fp) );
 		root->SetRight(new VParabola(p)  );
-		VPoint * s = new VPoint((p->x + fp->x)/2, height); // zaèátek hrany uprostøed míst
+		VPoint * s = new VPoint((p->x + fp->x)/2, height); // zatek hrany uprosted mst
 		points.push_back(s);
 		if(p->x > fp->x) {
 			root->edge = new VEdge(s, fp, p);
 			cell -> edges->push_back(root->edge);
-		} // rozhodnu, který vlevo, který vpravo
+		} // rozhodnu, kter vlevo, kter vpravo
 		else {
 			root->edge = new VEdge(s, p, fp);
 			cell -> edges->push_back(root->edge);
@@ -244,7 +254,7 @@ void	Voronoi::InsertParabola(VPoint * p)
 	} 
 	edges->push_back(el);
 
-	// pøestavuju strom .. vkládám novou parabolu
+	// pestavuju strom .. vkldm novou parabolu
 	/*  Question points:  What happens to a par's original edge assignment if it already
 	has a leaf node a given edge assigned to it?  I can understand the creation of a new
 	parabola with par-> site used as the new parabola's identifier but a par may actually
@@ -314,7 +324,7 @@ void	Voronoi::RemoveParabola(VEvent * e)
 	VParabola * p0 = VParabola::GetLeftChild(xl);
 	VParabola * p2 = VParabola::GetRightChild(xr);
 
-	if(p0 == p2) std::cout << "chyba - pravá a levá parabola má stejné ohnisko!\n";
+	if(p0 == p2) std::cout << "chyba - prav a lev parabola m stejn ohnisko!\n";
 
 	if(p0->cEvent){ deleted.insert(p0->cEvent); p0->cEvent = 0; }
 	if(p2->cEvent){ deleted.insert(p2->cEvent); p2->cEvent = 0; }
@@ -623,7 +633,7 @@ VParabola * Voronoi::GetParabolaByX(double xx)
 	VParabola * par = root;
 	double x = 0.0;
 
-	while(!par->isLeaf) // projdu stromem dokud nenarazím na vhodný list
+	while(!par->isLeaf) // projdu stromem dokud nenarazm na vhodn list
 	{
 		x = GetXOfEdge(par, ly);
 		if(x>xx) par = par->Left();
@@ -632,7 +642,7 @@ VParabola * Voronoi::GetParabolaByX(double xx)
 	return par;
 }
 
-double	Voronoi::GetY(VPoint * p, double x) // ohnisko, x-souøadnice
+double	Voronoi::GetY(VPoint * p, double x) // ohnisko, x-souadnice
 {
 	double dp = 2 * (p->y - ly);
 	//double a1,b1,c1;
