@@ -101,7 +101,12 @@ intersections).  I'll likely draw up a more complex diagram illustrating this.
 Another problem I see potentially exists with the parabola deletion event (see example tree configruation).  Let's say with the following
 site nodes root, p1, p2, and p3, that the right intersection node of p1-p3 is to be deleted and instead replaced by root-p3.  This
 corresponds to a circle event with a voronoi cell vertex constructed at the intersection of root-p1 and p1-p3 edges, here the 
-right edge of the p1 parabola is deleted but the parabola p1 still persists for the root-p1 edge.
+right edge of the p1 parabola is deleted but the parabola p1 still persists for the root-p1 left edge node site.  Keep in mind
+any parabola insertion is given by the insertion of three leaf nodes, two nodes are from the parent on the left and right of 
+the new site node.  So one particular site node namely the left p1 site node persists with the p3 node on such branch given 
+to the right.  The right p1 site node is however, deleted but this leaves the subtree structure imbalanced by the present
+algorithm.  Instead this node I believe should be replaced for instance, by a root site node which in turn leaves the subtree
+now balanced and references the grandparent node which is what is desired for the deletion event.  
 
 */
 
