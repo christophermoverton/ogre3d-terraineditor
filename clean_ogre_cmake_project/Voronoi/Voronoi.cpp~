@@ -105,8 +105,12 @@ right edge of the p1 parabola is deleted but the parabola p1 still persists for 
 any parabola insertion is given by the insertion of three leaf nodes, two nodes are from the parent on the left and right of 
 the new site node.  So one particular site node namely the left p1 site node persists with the p3 node on such branch given 
 to the right.  The right p1 site node is however, deleted but this leaves the subtree structure imbalanced by the present
-algorithm.  Instead this node I believe should be replaced for instance, by a root site node which in turn leaves the subtree
-now balanced and references the grandparent node which is what is desired for the deletion event.  
+algorithm.  Instead this node I believe should be replaced for instance, by p3 site node which in turn leaves the subtree
+now balanced and references the child node (originally centered on the tree) 
+ which is what is desired for the deletion event.  Whenever p1 parabola on the given
+subtree is completely removed leaving only the existence, for instance, of the p3 parabola, then we could entirely re append the 
+subtree to read as in the original case like the root-p1 subtree prior to the insertion of the p1-p3 subtree.  Technically re appending
+the subtree then occurs when, in theory p3 occupies all three leaf nodes (as a conditional check).  
 
 */
 
