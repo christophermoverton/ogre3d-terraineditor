@@ -82,22 +82,11 @@ testing fork cul de sacs (terminus) on a given tree juncture.  This allows for t
 at many subtree (branch) levels to be retested parabolically (for instance, where say a root node has many different parabola arc 
 intersections).  I'll likely draw up a more complex diagram illustrating this.
 
-Another problem I see potentially exists with the parabola deletion event (see example tree configruation).  Let's say with the following
-site nodes root, p1, p2, and p3, that the right intersection node of p1-p3 is to be deleted and instead replaced by root-p3.  This
-corresponds to a circle event with a voronoi cell vertex constructed at the intersection of root-p1 and p1-p3 edges, here the 
-right edge of the p1 parabola is deleted but the parabola p1 still persists for the root-p1 left edge node site.  Keep in mind
-any parabola insertion is given by the insertion of three leaf nodes, two nodes are from the parent on the left and right of 
-the new site node.  So one particular site node namely the left p1 site node persists with the p3 node on such branch given 
-to the right.  The right p1 site node is however, deleted but this leaves the subtree structure imbalanced by the present
-algorithm.  Instead this node I believe should be replaced for instance, by p3 site node which in turn leaves the subtree
-now balanced and references the child node (originally centered on the tree) 
- which is what is desired for the deletion event.  Whenever p1 parabola on the given
-subtree is completely removed leaving only the existence, for instance, of the p3 parabola, then we could entirely re append the 
-subtree to read as in the original case like the root-p1 subtree prior to the insertion of the p1-p3 subtree.  Technically re appending
-the subtree then occurs when, in theory p3 occupies all three leaf nodes (as a conditional check).  Thus the triangle breakpoint header
-root-p1 would be written as root-p3 and a given subtree level is removed from the original example diagram.  
+Okay so I've appended two example diagrams covering a two case node deletion example.  It appears that
+the deletion event checks out.  
 
-I am presently puzzled how the search tree algorithm works with the delete parabola call at the moment.
+So now the insertion, deletion, and search tree portion of the algorithm has been covered by example.
+
 
 */
 
