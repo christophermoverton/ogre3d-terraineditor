@@ -75,7 +75,7 @@ an existing site node to the left.  What happens when in such ordering a new bre
 binary tree allocations, isn't ordering off?  I think then the search tree mechanism may need some tweaking/revisions
 here. 
 
-It appears the algorithm's leaf structure follows the balanced binary tree outline (for arc insertion).  Correcting myself on a previous assertion.  A parent parabola (where the site node is technically at higher y position relative to a child site node), is considered in so far as its left right orientation relative a child parabola in binary search algorithm in the given tree diagram.  That is correcting myself in stating that the search needs a revision previously. 
+It appears the algorithm's leaf structure follows the balanced binary tree outline (for arc insertion).  Correcting myself on a previous assertion.  A parent parabola (where the site node is technically at higher y position relative to a child site node), is considered in so far as its left right orientation relative a child parabola in binary search algorithm in the given tree diagram.  That is correcting myself in stating that the search needs a revision previously.  Isn't needed. 
 
 Sort of important noting that the subtree split when using VParabola getleftchild() or getrightchild() functions are always
 testing fork cul de sacs (terminus) on a given tree juncture.  This allows for the persistence of a site node 
@@ -96,6 +96,8 @@ subtree is completely removed leaving only the existence, for instance, of the p
 subtree to read as in the original case like the root-p1 subtree prior to the insertion of the p1-p3 subtree.  Technically re appending
 the subtree then occurs when, in theory p3 occupies all three leaf nodes (as a conditional check).  Thus the triangle breakpoint header
 root-p1 would be written as root-p3 and a given subtree level is removed from the original example diagram.  
+
+I am presently puzzled how the search tree algorithm works with the delete parabola call at the moment.
 
 */
 
