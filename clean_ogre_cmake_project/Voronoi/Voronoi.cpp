@@ -75,23 +75,7 @@ an existing site node to the left.  What happens when in such ordering a new bre
 binary tree allocations, isn't ordering off?  I think then the search tree mechanism may need some tweaking/revisions
 here. 
 
-It appears the algorithm's leaf structure follows the balanced binary tree outline (for arc insertion), but consider where
-the breakpoint is to the right of a new site node, and a more elementary case where there is a root parabola with a given 
-child parabola (relative root) positioned to the left of the breakpoint node.  Now the tree is diagramed with a root leaf
-node on the right and a breakpoint node on the left relative a root breakpoint node.  The decision tree would logically yield
-that the breakpoint being to the right of the new site node that a left child node is chosen in the return parabola function
-under the parabola insertion event.  Now a new test is readministered in the while loop where the same two leaf node parbolas
-are tested for intersection yielding the same result which means that the leaf on the left is again chosen but this is the 
-root parabola, but clearly we know at the outset the new site node is directly aligned with an existing child parabola (which 
-is in contradiction to the algorithm's result stating that the root parabola should be returned).  In principle a child path 
-decision criteria is reliant upon other data and is obviously according to present data structure bears no relation to the 
-the left right children assignments (as has been structured) on the binary data tree.  In this way, left right path criterai 
-should be more 
-contingent on the x position ordering of site nodes relative breakpoints, and also hopefully ordered in the binary tree 
-so that the branches are optimally in so far as choosing nearest parabola neighbor.  
-
-This implementation may be resolved by path choosing according to an additional conditions namely if parA is left of (test) breakpoint
-choose parA path, or if parA is right of breakpoint choose parB path.  
+It appears the algorithm's leaf structure follows the balanced binary tree outline (for arc insertion).  Correcting myself on a previous assertion.  A parent parabola (where the site node is technically at higher y position relative to a child site node), is considered in so far as its left right orientation relative a child parabola in binary search algorithm in the given tree diagram.  That is correcting myself in stating that the search needs a revision previously. 
 
 Sort of important noting that the subtree split when using VParabola getleftchild() or getrightchild() functions are always
 testing fork cul de sacs (terminus) on a given tree juncture.  This allows for the persistence of a site node 
@@ -559,6 +543,10 @@ void	Voronoi::FinishEdge(VParabola * n)
 
 double	Voronoi::GetXOfEdge(VParabola * par, double y)
 {
+	/*
+	
+	
+	*/
 	VParabola * left = VParabola::GetLeftChild(par);
 	VParabola * right= VParabola::GetRightChild(par);
 
