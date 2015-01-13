@@ -65,7 +65,10 @@ below that the branch parabola has a possibility of edge data being stored in tw
 of the other in so far as an edge assignement with the same line and slope data, but both having separate edge assignements.
 Mostly concerned that an edge, for instance, is keyed from the same branch only is shown distinct relative the same 
 child parabola, and thus the neighbor edge problem is added.  I mention neighbor edge (btw) as an outline to above
-and not defined as in the VEdge.h.  
+and not defined as in the VEdge.h.  Original mappings in previous versions were improper.  One having attempted to use 
+a breakpoint parabola node in recalling a given site (not all breakpoint nodes may have site nodes assigned to them)...
+more properly a left or right child method call is proper and indicated, for instance, in the circlecheck event where
+these are used in keying a corresponding site for a given edge(s).
 
 It appears the algorithm's leaf structure follows the balanced binary tree outline (for arc insertion).  Correcting myself on a previous assertion.  A parent parabola (where the site node is technically at higher y position relative to a child site node), is considered in so far as its left right orientation relative a child parabola in binary search algorithm in the given tree diagram.  That is correcting myself in stating that the search needs a revision previously.  Isn't needed. 
 
@@ -319,11 +322,13 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		EdgeVerts * siteedgeverts = siteposcell->edgeverts;
 		if ((*sitevertedges).find(celldat->intersection)!= (*sitevertedges).end()) {
 			(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
+			(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge2);
 			
 		}
 		else {
 			vor::Edges * nedges = new Edges();
 			nedges->push_back(celldat->siteEdge);
+			nedges->push_back(celldat->siteEdge2);
 			(*sitevertedges)[celldat->intersection] = nedges;
 			
 		}
@@ -350,6 +355,28 @@ void	Voronoi::RemoveParabola(VEvent * e)
 			(*siteedgeverts)[celldat->siteEdge] = vertices; 
 		}
 		//(*siteedgeverts)[celldat->siteEdge]->push_back(celldat->intersection);
+		if ((*siteedgeverts).find(celldat->siteEdge2) != (*siteedgeverts).end()){
+
+			(*siteedgeverts)[celldat->siteEdge2]->push_back(celldat->intersection);
+
+		}
+		/*
+		else if (celldat->siteEdge->neighbour != 0){
+			if ((*siteedgeverts).find(celldat->siteEdge->neighbour) != (*siteedgeverts).end()){
+				(*siteedgeverts)[celldat->siteEdge->neighbour]->push_back(celldat->intersection);
+			}
+			else {
+				vor::Vertices * vertices = new Vertices();
+				vertices->push_back(celldat->intersection);
+				(*siteedgeverts)[celldat->siteEdge] = vertices;
+			}
+		} 
+		*/ 
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(celldat->intersection);
+			(*siteedgeverts)[celldat->siteEdge2] = vertices; 
+		}
 	} 
 	if((*cells).find((celldat->LeftPSite)) != (*cells).end()){
 		VoronoiCell * lpcell = (*cells)[celldat->LeftPSite];  //should be assignment to a pointer so may need & on the right
@@ -724,6 +751,12 @@ void	Voronoi::CheckCircle(VParabola * b)
 
   	VoronoiCellDat * celldat = new VoronoiCellDat(cell->sitePos);
 	celldat->siteEdge = b->parent->edge;  //no edge data here  needs update
+	if (lp->edge == celldat->siteEdge){
+		celldat->siteEdge2 = rp->edge;
+	}
+	else {
+		celldat->siteEdge2 = lp->edge;
+	}
 	celldat->LeftPSite = a->site;
 	celldat->LeftEdge = lp->edge;
 	celldat->RightPSite = c->site;

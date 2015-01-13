@@ -98,6 +98,7 @@ namespace vor{
 			VEdge  *                        RightEdge;
 			VPoint *         		sitePos;
 			VEdge  *                        siteEdge;
+			VEdge  *                        siteEdge2;
 			VoronoiCellDat(VPoint * spos){
 				sitePos = spos;
 				
