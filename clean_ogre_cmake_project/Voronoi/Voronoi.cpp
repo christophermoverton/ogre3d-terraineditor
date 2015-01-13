@@ -226,6 +226,7 @@ void	Voronoi::InsertParabola(VPoint * p)
 	VEdge * er = new VEdge(start, p, par->site);
 
 	el->neighbour = er;
+	er->neighbour = el;
 	cell -> edges->push_back(el);
 
 	if((*cells).find((par->site)) != (*cells).end()){
@@ -339,6 +340,10 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		if ((*siteedgeverts).find(celldat->siteEdge) != (*siteedgeverts).end()){
 			(*siteedgeverts)[celldat->siteEdge]->push_back(celldat->intersection);
 		}
+		
+		else if ((*siteedgeverts).find(celldat->siteEdge->neighbour) != (*siteedgeverts).end()){
+			(*siteedgeverts)[celldat->siteEdge->neighbour]->push_back(celldat->intersection);
+		}  
 		else {
 			vor::Vertices * vertices = new Vertices();
 			vertices->push_back(celldat->intersection);
@@ -366,6 +371,9 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		//(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
 		if ((*leftedgeverts).find(celldat->LeftEdge) != (*leftedgeverts).end()){
 			(*leftedgeverts)[celldat->LeftEdge]->push_back(celldat->intersection);
+		}
+		else if((*leftedgeverts).find(celldat->LeftEdge->neighbour) != (*leftedgeverts).end()) {
+			(*leftedgeverts)[celldat->LeftEdge->neighbour]->push_back(celldat->intersection);
 		}
 		else {
 			vor::Vertices * vertices = new Vertices();
@@ -396,6 +404,9 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		//(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
 		if ((*rightedgeverts).find(celldat->RightEdge) != (*rightedgeverts).end()){
 			(*rightedgeverts)[celldat->RightEdge]->push_back(celldat->intersection);
+		}
+		else if ((*rightedgeverts).find(celldat->RightEdge->neighbour) != (*rightedgeverts).end()){
+			(*rightedgeverts)[celldat->RightEdge->neighbour]->push_back(celldat->intersection);
 		}
 		else {
 			vor::Vertices * vertices = new Vertices();
@@ -449,6 +460,9 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		if ((*p0edgeverts).find(higher->edge) != (*p0edgeverts).end()){
 			(*p0edgeverts)[higher->edge]->push_back(celldat->intersection);
 		}
+		else if ((*p0edgeverts).find(higher->edge->neighbour) != (*p0edgeverts).end()){
+			(*p0edgeverts)[higher->edge->neighbour]->push_back(celldat->intersection);
+		}
 		else {
 			vor::Vertices * vertices = new Vertices();
 			vertices->push_back(celldat->intersection);
@@ -472,6 +486,8 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		}
 		if ((*p2edgeverts).find(higher->edge) != (*p2edgeverts).end()){
 			(*p2edgeverts)[higher->edge]->push_back(celldat->intersection);
+		}
+		else if ((*p2edgeverts).find(higher->edge->neighbour) != (*p2edgeverts).end()){
 		}
 		else {
 			vor::Vertices * vertices = new Vertices();
@@ -684,7 +700,7 @@ void	Voronoi::CheckCircle(VParabola * b)
 //easier.
 
   	VoronoiCellDat * celldat = new VoronoiCellDat(cell->sitePos);
-	celldat->siteEdge = b->edge;
+	celldat->siteEdge = b->parent->edge;  //no edge data here  needs update
 	celldat->LeftPSite = lp->site;
 	celldat->LeftEdge = lp->edge;
 	celldat->RightPSite = rp->site;
