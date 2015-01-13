@@ -58,22 +58,14 @@ in three sites (or cells as I have worded it).  Adding to this that at such dele
 a new edge formed by a grandparent and child left node remaining (where the old parent parabola is 
 squeezed out), this data is also appended, or at least should be appended.  
 
-Problems:  Somehow data is appearing not right in some instances.  For instances, seeing more than 
-two edges radiating internally throughout the cell which appear to be in violation to the voronoi 
-diagrams typified structure...that is where such edge technically crosses the interior of such cell
-as opposed to forming a boundary of the cell.  Thus examining where appending data is going awry here.
-Or if there is potentially an error with the algorithm itself.  I do have some questions about the circle
-test for instance, it may be, for instance, better to retain the radius of the circle and then compare the 
-a given site node (prior to a circle event) for parabola insertion whether or not the point is at a distance
-less than the radius of such circle when comparing the distance between the new site and the given 
-intersection point (as alternate means to deleting a circle event).
-
-I am also concerned about the binary tree search mechanism here.   One because I am wondering about 
-ordering given for the placement of leaf nodes in the binary mechanism (generally this is given one way
-only) where this is given such that a new site node is always assigned to the right of a new breakpoint, and
-an existing site node to the left.  What happens when in such ordering a new breakpoint calls for furthered
-binary tree allocations, isn't ordering off?  I think then the search tree mechanism may need some tweaking/revisions
-here. 
+problems:  So far resolved major issue relating to the assignment of data.  Part of this could be attributed to not fully
+understanding the binary tree structure, and having properly keyed data values to ensure proper mappings.  Only a remaining
+problem exists that I can think of which is given to the sub branch system for any child parabola.  Namely, it is indicated 
+below that the branch parabola has a possibility of edge data being stored in two different ways.  One being a variation
+of the other in so far as an edge assignement with the same line and slope data, but both having separate edge assignements.
+Mostly concerned that an edge, for instance, is keyed from the same branch only is shown distinct relative the same 
+child parabola, and thus the neighbor edge problem is added.  I mention neighbor edge (btw) as an outline to above
+and not defined as in the VEdge.h.  
 
 It appears the algorithm's leaf structure follows the balanced binary tree outline (for arc insertion).  Correcting myself on a previous assertion.  A parent parabola (where the site node is technically at higher y position relative to a child site node), is considered in so far as its left right orientation relative a child parabola in binary search algorithm in the given tree diagram.  That is correcting myself in stating that the search needs a revision previously.  Isn't needed. 
 
