@@ -70,6 +70,10 @@ a breakpoint parabola node in recalling a given site (not all breakpoint nodes m
 more properly a left or right child method call is proper and indicated, for instance, in the circlecheck event where
 these are used in keying a corresponding site for a given edge(s).
 
+Right now it appears that the identifiers between edges and corresponding vertices are not working as hoped.  I'd expect at
+least statistically more edges (especially for interior cells sites) being roundedly continguous with neighboring
+vertices (that is, having two vertex neighbor per vertex nodes) but I am generally not seeing this.	
+
 It appears the algorithm's leaf structure follows the balanced binary tree outline (for arc insertion).  Correcting myself on a previous assertion.  A parent parabola (where the site node is technically at higher y position relative to a child site node), is considered in so far as its left right orientation relative a child parabola in binary search algorithm in the given tree diagram.  That is correcting myself in stating that the search needs a revision previously.  Isn't needed. 
 
 Sort of important noting that the subtree split when using VParabola getleftchild() or getrightchild() functions are always
@@ -703,11 +707,11 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		else {
 			vor::Edges * nedges = new Edges();
 			nedges->push_back(higher->edge);
-			(*p2vertedges)[celldat->intersection] = nedges;
+			(*p2vertedges)[p] = nedges;
 			
 		}
 		if ((*p2edgeverts).find(higher->edge) != (*p2edgeverts).end()){
-			(*p2edgeverts)[higher->edge]->push_back(celldat->intersection);
+			(*p2edgeverts)[higher->edge]->push_back(p);
 		}
 		/*
 		else if ((*p2edgeverts).find(higher->edge->neighbour) != (*p2edgeverts).end()){
@@ -716,7 +720,7 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		*/
 		else {
 			vor::Vertices * vertices = new Vertices();
-			vertices->push_back(celldat->intersection);
+			vertices->push_back(p);
 			(*p2edgeverts)[higher->edge] = vertices; 
 		}
 	}

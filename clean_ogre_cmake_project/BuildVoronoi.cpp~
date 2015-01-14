@@ -35,7 +35,8 @@ class BuildVoronoi{
 		vor::Vertices * ver; // vrcholy
 		vor::Vertices * dir; // smìry, kterými se pohybují
 		vor::Edges * edg;	 // hrany diagramu
-		vor::Cells * cells; 
+		vor::Cells * cells;      //voronoi cell data gathered prior to edges data return
+		vor::Cells * cellspost;  //post processed voronoi cell edges data container.
 		VoronoiCell * cell;  //temporary cell map container for internal use
 		//vor::VPoint * cellpoint;                //temporary vertex point for internal use
 		void rayCastLine(double f, double g, VPoint * start, VPoint * end);
@@ -84,6 +85,7 @@ BuildVoronoi::BuildVoronoi(){
 			vor::Edges * instedges = (*j).second;
 			for(vor::Edges::iterator k = instedges->begin(); k != instedges->end(); k++) {
 				vor::Vertices * instverts = (*bedgeverts)[*k];  //edge vertices
+				
 				//to iterate a vertex's linked neighbor.
 				//need to append neighbor vertices to avoid reiterating a ray construction.
 				for(vor::Vertices::iterator l = instverts->begin(); l != instverts->end();l++) {
@@ -95,6 +97,145 @@ BuildVoronoi::BuildVoronoi(){
 			}
 		}
 		
+	}
+
+	for(vor::Edges::iterator i = edg->begin(); i!= edg->end(); ++i)
+	{
+		/*  Comparing and building cell data from edg data (post processing method).
+		*/
+		if ((*cellspost).find((*i)->left)!= (*cellspost).end()){
+
+			VoronoiCell * siteposcell = (*cells)[(*i)->left];
+			siteposcell->places->push_back((*i)->start);
+			siteposcell->places->push_back((*i)->start);
+			vor::VertEdges * sitevertedges = siteposcell->vertedges;
+			vor::EdgeVerts * siteedgeverts = siteposcell->edgeverts;
+			if ((*sitevertedges).find((*i)->start) != (*sitevertedges).end()){
+				(*sitevertedges)[(*i)->start]->push_back(*i);
+			}
+			else{
+				vor::Edges * nedges = new Edges();
+				nedges->push_back(*i);
+			
+				(*sitevertedges)[(*i)->start] = nedges;
+				
+			}
+			if ((*sitevertedges).find((*i)->end) != (*sitevertedges).end()){
+				(*sitevertedges)[(*i)->end]->push_back(*i);
+			}
+			else{
+				vor::Edges * nedges = new Edges();
+				nedges->push_back(*i);
+			
+				(*sitevertedges)[(*i)->end] = nedges;
+				
+			}
+			if ((*sitedgeverts).find((*i)) != (*siteedgeverts).end()){
+				(*siteedgeverts)[(*i)]->push_back((*i)->start);
+			}
+			else{
+				vor::Vertices * verts = new Vertices();
+				verts->push_back((*i)->start);
+			
+				(*siteedgeverts)[(*i)] = verts;
+				
+			}
+			if ((*siteedgeverts).find((*i)->end) != (*siteedgeverts).end()){
+				(*siteedgeverts)[(*i)]->push_back((*i)->end);
+			}
+			else{
+				vor::Vertices * verts = new Vertices();
+				verts->push_back((*i)->end);
+			
+				(*siteedgeverts)[(*i)] = verts;
+			
+		}
+		else{
+			(*cellspost)[(*i)->left] = new VoronoiCell(*i);
+			VoronoiCell * siteposcell = (*cells)[(*i)->left];
+			siteposcell->places->push_back((*i)->start);
+			siteposcell->places->push_back((*i)->start);
+			vor::VertEdges * sitevertedges = siteposcell->vertedges;
+			vor::EdgeVerts * siteedgeverts = siteposcell->edgeverts;
+			
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(*i);
+			
+			(*sitevertedges)[(*i)->start] = nedges;
+			(*sitevertedges)[(*i)->end] = nedges;
+			
+			vor::Vertices * verts = new Vertices();
+			verts->push_back((*i)->start);
+			verts->push_back((*i)->end);
+			(*siteedgeverts)[(*i)] = verts;
+		}
+
+		if ((*cellspost).find((*i)->right)!= (*cellspost).end()){
+
+			VoronoiCell * siteposcell = (*cells)[(*i)->right];
+			siteposcell->places->push_back((*i)->start);
+			siteposcell->places->push_back((*i)->start);
+			vor::VertEdges * sitevertedges = siteposcell->vertedges;
+			vor::EdgeVerts * siteedgeverts = siteposcell->edgeverts;
+			if ((*sitevertedges).find((*i)->start) != (*sitevertedges).end()){
+				(*sitevertedges)[(*i)->start]->push_back(*i);
+			}
+			else{
+				vor::Edges * nedges = new Edges();
+				nedges->push_back(*i);
+			
+				(*sitevertedges)[(*i)->start] = nedges;
+				
+			}
+			if ((*sitevertedges).find((*i)->end) != (*sitevertedges).end()){
+				(*sitevertedges)[(*i)->end]->push_back(*i);
+			}
+			else{
+				vor::Edges * nedges = new Edges();
+				nedges->push_back(*i);
+			
+				(*sitevertedges)[(*i)->end] = nedges;
+				
+			}
+			if ((*sitedgeverts).find((*i)) != (*siteedgeverts).end()){
+				(*siteedgeverts)[(*i)]->push_back((*i)->start);
+			}
+			else{
+				vor::Vertices * verts = new Vertices();
+				verts->push_back((*i)->start);
+			
+				(*siteedgeverts)[(*i)] = verts;
+				
+			}
+			if ((*siteedgeverts).find((*i)->end) != (*siteedgeverts).end()){
+				(*siteedgeverts)[(*i)]->push_back((*i)->end);
+			}
+			else{
+				vor::Vertices * verts = new Vertices();
+				verts->push_back((*i)->end);
+			
+				(*siteedgeverts)[(*i)] = verts;
+			
+		}
+		else{
+			(*cellspost)[(*i)->right] = new VoronoiCell(*i);
+			VoronoiCell * siteposcell = (*cells)[(*i)->right];
+			siteposcell->places->push_back((*i)->start);
+			siteposcell->places->push_back((*i)->start);
+			vor::VertEdges * sitevertedges = siteposcell->vertedges;
+			vor::EdgeVerts * siteedgeverts = siteposcell->edgeverts;
+			
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(*i);
+			
+			(*sitevertedges)[(*i)->start] = nedges;
+			(*sitevertedges)[(*i)->end] = nedges;
+			
+			vor::Vertices * verts = new Vertices();
+			verts->push_back((*i)->start);
+			verts->push_back((*i)->end);
+			(*siteedgeverts)[(*i)] = verts;
+		}
 	}
 	tlog->logMessage(ss5.str());
 }
