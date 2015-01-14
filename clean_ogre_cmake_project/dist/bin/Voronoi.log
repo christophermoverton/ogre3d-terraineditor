@@ -1,669 +1,841 @@
-00:47:26: Hitting Voronoi test1 !
+22:08:10: Hitting Voronoi test1 !
 
-00:47:26: Hitting Voronoi test2 !
+22:08:10: Hitting Voronoi test2 !
 
-00:47:26: Cell: 1433.97,2050.73
-x: 994.426, y: 2877.57
-x: 994.426, y: 2877.57
-x: 2280.15, y: 2018.31
-Vertex x: 994.426 , y: 2877.57
-Vertex x: 2280.15 , y: 2018.31
-Cell: 8058.6,1561.84
-x: 8219.12, y: 2282.5
-x: 8219.12, y: 2282.5
-x: 8588.14, y: 2296.27
-x: 8588.14, y: 2296.27
-x: 8593.95, y: 1931.18
-x: 7314.98, y: 1790.16
-x: 8246.47, y: 906.653
-Vertex x: 8219.12 , y: 2282.5
-neighbor point x: 8588.14 , y: 2296.27
-Vertex x: 8588.14 , y: 2296.27
-neighbor point x: 8219.12 , y: 2282.5
-neighbor point x: 8593.95 , y: 1931.18
-Vertex x: 7314.98 , y: 1790.16
-Vertex x: 8593.95 , y: 1931.18
-neighbor point x: 8588.14 , y: 2296.27
-Vertex x: 8246.47 , y: 906.653
-Cell: 3395.28,7643.58
-x: 3877.18, y: 7826.63
-x: 2506.68, y: 8001.22
-x: 2506.68, y: 8001.22
-Vertex x: 2506.68 , y: 8001.22
-Vertex x: 3877.18 , y: 7826.63
-Cell: 2654.44,3945.57
-x: 3348.46, y: 5185.68
-x: 3348.46, y: 5185.68
-x: 1449.88, y: 4590.05
-x: 1449.88, y: 4590.05
-Vertex x: 3348.46 , y: 5185.68
-Vertex x: 1449.88 , y: 4590.05
-Cell: 6190.76,966.495
-x: 5686.1, y: 1880.75
-x: 5686.1, y: 1880.75
-x: 5615.9, y: 1800.75
-x: 5615.9, y: 1800.75
-x: 6905.61, y: 726.889
-x: 6905.61, y: 726.889
-x: 6936.11, y: 270.283
-x: 3181.72, y: -5843.32
-Vertex x: 5686.1 , y: 1880.75
-neighbor point x: 5615.9 , y: 1800.75
-Vertex x: 6905.61 , y: 726.889
-neighbor point x: 6936.11 , y: 270.283
-Vertex x: 5615.9 , y: 1800.75
-neighbor point x: 5686.1 , y: 1880.75
-neighbor point x: 3181.72 , y: -5843.32
-Vertex x: 6936.11 , y: 270.283
-neighbor point x: 6905.61 , y: 726.889
-Vertex x: 3181.72 , y: -5843.32
-neighbor point x: 5615.9 , y: 1800.75
-Cell: 7526.66,2538.69
-x: 6836.22, y: 3751.89
-x: 6836.22, y: 3751.89
-x: 6594.88, y: 3797.57
-x: 6594.88, y: 3797.57
-x: 6019.46, y: 3427.77
-Vertex x: 6836.22 , y: 3751.89
-neighbor point x: 6594.88 , y: 3797.57
-neighbor point x: 6594.88 , y: 3797.57
-Vertex x: 6594.88 , y: 3797.57
-neighbor point x: 6836.22 , y: 3751.89
-neighbor point x: 6836.22 , y: 3751.89
-neighbor point x: 6019.46 , y: 3427.77
-Vertex x: 6019.46 , y: 3427.77
-neighbor point x: 6594.88 , y: 3797.57
-Cell: 1123.02,6007.87
-x: 1427.53, y: 6960.34
-x: 1427.53, y: 6960.34
-x: 1802.4, y: 6878.04
-x: 597.66, y: 6017.77
-Vertex x: 1427.53 , y: 6960.34
-neighbor point x: 1802.4 , y: 6878.04
-Vertex x: 1802.4 , y: 6878.04
-neighbor point x: 1427.53 , y: 6960.34
-Vertex x: 597.66 , y: 6017.77
-Cell: 4915.31,6494.88
-x: 5304.56, y: 7796.79
-x: 5304.56, y: 7796.79
-x: 5710.53, y: 7703.86
-x: 5710.53, y: 7703.86
-x: 5772.53, y: 6106.86
-Vertex x: 5304.56 , y: 7796.79
-neighbor point x: 5710.53 , y: 7703.86
-Vertex x: 5710.53 , y: 7703.86
-neighbor point x: 5304.56 , y: 7796.79
-neighbor point x: 5772.53 , y: 6106.86
-Vertex x: 5772.53 , y: 6106.86
-neighbor point x: 5710.53 , y: 7703.86
-Cell: 4769.51,5175
-x: 5305.62, y: 5550.63
-x: 3380.35, y: 5985.94
-x: 3362.1, y: 5243.95
-x: 3348.46, y: 5185.68
-x: 3613.03, y: 4730.52
-x: 4164.77, y: 4119
-Vertex x: 3380.35 , y: 5985.94
-Vertex x: 5305.62 , y: 5550.63
-Vertex x: 3362.1 , y: 5243.95
-neighbor point x: 3348.46 , y: 5185.68
-Vertex x: 3348.46 , y: 5185.68
-neighbor point x: 3362.1 , y: 5243.95
-neighbor point x: 3613.03 , y: 4730.52
-Vertex x: 3613.03 , y: 4730.52
-neighbor point x: 3348.46 , y: 5185.68
-neighbor point x: 4164.77 , y: 4119
-Vertex x: 4164.77 , y: 4119
-neighbor point x: 3613.03 , y: 4730.52
-Cell: 7922.22,4628.92
-x: 7893.97, y: 5500.34
-x: 7893.97, y: 5500.34
-x: 6922.78, y: 5065.77
-x: 6922.78, y: 5065.77
-x: 6836.22, y: 3751.89
-Vertex x: 7893.97 , y: 5500.34
-neighbor point x: 6922.78 , y: 5065.77
-Vertex x: 6922.78 , y: 5065.77
-neighbor point x: 7893.97 , y: 5500.34
-Vertex x: 6836.22 , y: 3751.89
-Cell: 6597.09,6560.17
-x: 6204.73, y: 7910.24
-x: 6204.73, y: 7910.24
-x: 7200.18, y: 7703.29
-x: 7200.18, y: 7703.29
-x: 5710.53, y: 7703.86
-Vertex x: 6204.73 , y: 7910.24
-neighbor point x: 5710.53 , y: 7703.86
-Vertex x: 7200.18 , y: 7703.29
-Vertex x: 5710.53 , y: 7703.86
-neighbor point x: 6204.73 , y: 7910.24
-Cell: 9033.57,1451.86
-x: 9003.39, y: 1586.07
-x: 9003.39, y: 1586.07
-x: 8593.95, y: 1931.18
-x: 9277.15, y: 1028.67
-x: 8476.29, y: 888.085
-Vertex x: 9003.39 , y: 1586.07
-neighbor point x: 8593.95 , y: 1931.18
-Vertex x: 8593.95 , y: 1931.18
-neighbor point x: 9003.39 , y: 1586.07
-neighbor point x: 8476.29 , y: 888.085
-Vertex x: 9277.15 , y: 1028.67
-Vertex x: 8476.29 , y: 888.085
-neighbor point x: 8593.95 , y: 1931.18
-Cell: 6626.86,1427.4
-x: 6082.28, y: 2788.28
-x: 6082.28, y: 2788.28
-x: 8593.95, y: 1931.18
-x: 7314.98, y: 1790.16
-x: 7314.98, y: 1790.16
-x: 7315, y: 1789.89
-x: 9277.15, y: 1028.67
-x: 3775.24, y: 797.082
-Vertex x: 6082.28 , y: 2788.28
-Vertex x: 7314.98 , y: 1790.16
-neighbor point x: 7315 , y: 1789.89
-Vertex x: 8593.95 , y: 1931.18
-Vertex x: 9277.15 , y: 1028.67
-Vertex x: 3775.24 , y: 797.082
-Vertex x: 7315 , y: 1789.89
-neighbor point x: 7314.98 , y: 1790.16
-Cell: 9070.98,9070.75
-x: 7550.05, y: 22458.3
-Vertex x: 7550.05 , y: 22458.3
-Cell: 3016.33,1599.84
-x: 2831.05, y: 2523.72
-x: 2831.05, y: 2523.72
-x: 3253.88, y: 1918.42
-x: 3253.88, y: 1918.42
-x: 2280.15, y: 2018.31
-x: 2280.15, y: 2018.31
-x: 3775.24, y: 797.082
-x: 3181.72, y: -5843.32
-x: 1648.29, y: -13529.2
-Vertex x: 2831.05 , y: 2523.72
-neighbor point x: 2280.15 , y: 2018.31
-Vertex x: 3253.88 , y: 1918.42
-neighbor point x: 3775.24 , y: 797.082
-Vertex x: 2280.15 , y: 2018.31
-neighbor point x: 2831.05 , y: 2523.72
-Vertex x: 3775.24 , y: 797.082
-neighbor point x: 3253.88 , y: 1918.42
-neighbor point x: 3181.72 , y: -5843.32
-Vertex x: 3181.72 , y: -5843.32
-neighbor point x: 3775.24 , y: 797.082
-neighbor point x: 1648.29 , y: -13529.2
-Vertex x: 1648.29 , y: -13529.2
-neighbor point x: 3181.72 , y: -5843.32
-Cell: 3650.57,1894.72
-x: 3253.88, y: 1918.42
-x: 4199.94, y: 2027.57
-x: 4249.45, y: 1884.4
-Vertex x: 3253.88 , y: 1918.42
-Vertex x: 4199.94 , y: 2027.57
-neighbor point x: 4249.45 , y: 1884.4
-Vertex x: 4249.45 , y: 1884.4
-neighbor point x: 4199.94 , y: 2027.57
-Cell: 3456.56,8124.66
-x: 4464.91, y: 8679.51
-x: 4464.91, y: 8679.51
-x: 2451.53, y: 8612.91
-Vertex x: 4464.91 , y: 8679.51
-Vertex x: 2451.53 , y: 8612.91
-Cell: 9091.16,1480.14
-x: 4199.94, y: 2027.57
-x: 9230.56, y: 1472.12
-x: 9230.56, y: 1472.12
-x: 10274.3, y: 3708.87
-Vertex x: 9230.56 , y: 1472.12
-Vertex x: 4199.94 , y: 2027.57
-Vertex x: 10274.3 , y: 3708.87
-Cell: 4018.83,2575.29
-x: 1090.48, y: 4099.76
-x: 3408.69, y: 2983.72
-x: 3408.69, y: 2983.72
-x: 4449.44, y: 2603.3
-Vertex x: 3408.69 , y: 2983.72
-Vertex x: 1090.48 , y: 4099.76
-Vertex x: 4449.44 , y: 2603.3
-Cell: 4027.16,7333.42
-x: 3877.18, y: 7826.63
-x: 3877.18, y: 7826.63
-x: 4620.53, y: 8362.69
-x: 4620.53, y: 8362.69
-x: 3671.22, y: 7407.03
-x: 3966.18, y: 6379.21
-Vertex x: 3877.18 , y: 7826.63
-neighbor point x: 3671.22 , y: 7407.03
-Vertex x: 4620.53 , y: 8362.69
-Vertex x: 3671.22 , y: 7407.03
-neighbor point x: 3877.18 , y: 7826.63
-Vertex x: 3966.18 , y: 6379.21
-Cell: 8760.82,5593.73
-x: 9317.18, y: 5935.54
-x: 9317.18, y: 5935.54
-x: 7934.74, y: 5620.46
-x: 7934.74, y: 5620.46
-x: 9736.37, y: 3898.94
-Vertex x: 7934.74 , y: 5620.46
-Vertex x: 9317.18 , y: 5935.54
-Vertex x: 9736.37 , y: 3898.94
-Cell: 4664.48,1452.52
-x: 4249.45, y: 1884.4
-x: 4249.45, y: 1884.4
-x: 5615.9, y: 1800.75
-x: 3775.24, y: 797.082
-Vertex x: 4249.45 , y: 1884.4
-neighbor point x: 3775.24 , y: 797.082
-Vertex x: 3775.24 , y: 797.082
-neighbor point x: 4249.45 , y: 1884.4
-Vertex x: 5615.9 , y: 1800.75
-Cell: 3052.36,3625.68
-x: 3613.03, y: 4730.52
-x: 3613.03, y: 4730.52
-x: 2440.67, y: 3272.23
-x: 3408.69, y: 2983.72
-x: 3172.23, y: 2766.15
-Vertex x: 3613.03 , y: 4730.52
-Vertex x: 2440.67 , y: 3272.23
-Vertex x: 3408.69 , y: 2983.72
-neighbor point x: 3172.23 , y: 2766.15
-Vertex x: 3172.23 , y: 2766.15
-neighbor point x: 3408.69 , y: 2983.72
-Cell: 5520.4,9138.38
-x: 4464.91, y: 8679.51
-x: 4620.53, y: 8362.69
-x: 6204.73, y: 7910.24
-x: 5304.56, y: 7796.79
-Vertex x: 4464.91 , y: 8679.51
-neighbor point x: 4620.53 , y: 8362.69
-Vertex x: 4620.53 , y: 8362.69
-neighbor point x: 4464.91 , y: 8679.51
-neighbor point x: 5304.56 , y: 7796.79
-Vertex x: 6204.73 , y: 7910.24
-Vertex x: 5304.56 , y: 7796.79
-neighbor point x: 4620.53 , y: 8362.69
-Cell: 7263.05,6102.09
-x: 7609.59, y: 7319.02
-x: 7609.59, y: 7319.02
-x: 8041.17, y: 7121.81
-x: 6501.84, y: 5708.57
-x: 7934.74, y: 5620.46
-x: 7893.97, y: 5500.34
-Vertex x: 7609.59 , y: 7319.02
-neighbor point x: 8041.17 , y: 7121.81
-Vertex x: 8041.17 , y: 7121.81
-neighbor point x: 7609.59 , y: 7319.02
-neighbor point x: 7934.74 , y: 5620.46
-Vertex x: 7934.74 , y: 5620.46
-neighbor point x: 8041.17 , y: 7121.81
-neighbor point x: 7893.97 , y: 5500.34
-Vertex x: 6501.84 , y: 5708.57
-Vertex x: 7893.97 , y: 5500.34
-neighbor point x: 7934.74 , y: 5620.46
-Cell: 7582.23,1059.45
-x: 7315, y: 1789.89
-x: 7315, y: 1789.89
-x: 6905.61, y: 726.889
-Vertex x: 7315 , y: 1789.89
-neighbor point x: 6905.61 , y: 726.889
-Vertex x: 6905.61 , y: 726.889
-neighbor point x: 7315 , y: 1789.89
-Cell: 3634.75,2031.82
-x: 3172.23, y: 2766.15
-x: 3172.23, y: 2766.15
-x: 2893.21, y: 2664.2
-x: 2893.21, y: 2664.2
-x: 6019.46, y: 3427.77
-x: 4196.86, y: 2042.02
-x: 4196.86, y: 2042.02
-x: 10175.3, y: 3771.62
-Vertex x: 3172.23 , y: 2766.15
-neighbor point x: 2893.21 , y: 2664.2
-neighbor point x: 2893.21 , y: 2664.2
-Vertex x: 4196.86 , y: 2042.02
-Vertex x: 6019.46 , y: 3427.77
-Vertex x: 10175.3 , y: 3771.62
-Vertex x: 2893.21 , y: 2664.2
-neighbor point x: 3172.23 , y: 2766.15
-neighbor point x: 3172.23 , y: 2766.15
-Cell: 9365.25,1508.94
-x: 9790.38, y: 3264.28
-x: 9790.38, y: 3264.28
-x: 9230.56, y: 1472.12
-x: 10274.3, y: 3708.87
-x: 9277.15, y: 1028.67
-x: 9458.08, y: -22.7013
-Vertex x: 9790.38 , y: 3264.28
-neighbor point x: 10274.3 , y: 3708.87
-Vertex x: 9230.56 , y: 1472.12
-neighbor point x: 9277.15 , y: 1028.67
-Vertex x: 10274.3 , y: 3708.87
-neighbor point x: 9790.38 , y: 3264.28
-Vertex x: 9277.15 , y: 1028.67
-neighbor point x: 9230.56 , y: 1472.12
-neighbor point x: 9458.08 , y: -22.7013
-Vertex x: 9458.08 , y: -22.7013
-neighbor point x: 9277.15 , y: 1028.67
-Cell: 7102.67,8992.06
-x: 7550.05, y: 22458.3
-x: 7550.05, y: 22458.3
-x: 8071.86, y: 9405.65
-Vertex x: 7550.05 , y: 22458.3
-neighbor point x: 8071.86 , y: 9405.65
-Vertex x: 8071.86 , y: 9405.65
-neighbor point x: 7550.05 , y: 22458.3
-Cell: 444.588,5515.1
-x: 597.66, y: 6017.77
-x: 597.66, y: 6017.77
-x: 3714.07, y: 6275.75
-x: 1389.17, y: 4928.03
-x: 1389.17, y: 4928.03
-x: 1449.88, y: 4590.05
-x: 1108.68, y: 4109.65
-Vertex x: 597.66 , y: 6017.77
-neighbor point x: 1389.17 , y: 4928.03
-neighbor point x: 1389.17 , y: 4928.03
-Vertex x: 1389.17 , y: 4928.03
-neighbor point x: 597.66 , y: 6017.77
-neighbor point x: 597.66 , y: 6017.77
-neighbor point x: 1449.88 , y: 4590.05
-Vertex x: 3714.07 , y: 6275.75
-Vertex x: 1449.88 , y: 4590.05
-neighbor point x: 1389.17 , y: 4928.03
-neighbor point x: 1108.68 , y: 4109.65
-Vertex x: 1108.68 , y: 4109.65
-neighbor point x: 1449.88 , y: 4590.05
-Cell: 9140.78,1579.06
-x: 9003.39, y: 1586.07
-x: 8588.14, y: 2296.27
-Vertex x: 8588.14 , y: 2296.27
-Vertex x: 9003.39 , y: 1586.07
-Cell: 717.442,8611.97
-x: -1899.22, y: 7435.1
-Vertex x: -1899.22 , y: 7435.1
-Cell: 4714.06,2262.42
-x: 4449.44, y: 2603.3
-x: 4449.44, y: 2603.3
-x: 5562.38, y: 3604.4
-x: 5562.38, y: 3604.4
-x: 6019.46, y: 3427.77
-x: 4196.86, y: 2042.02
-x: 4199.94, y: 2027.57
-x: 6082.28, y: 2788.28
-x: 5686.1, y: 1880.75
-Vertex x: 4449.44 , y: 2603.3
-neighbor point x: 4196.86 , y: 2042.02
-Vertex x: 5562.38 , y: 3604.4
-neighbor point x: 6019.46 , y: 3427.77
-Vertex x: 4196.86 , y: 2042.02
-neighbor point x: 4449.44 , y: 2603.3
-neighbor point x: 4199.94 , y: 2027.57
-Vertex x: 6019.46 , y: 3427.77
-neighbor point x: 5562.38 , y: 3604.4
-neighbor point x: 6082.28 , y: 2788.28
-Vertex x: 4199.94 , y: 2027.57
-neighbor point x: 4196.86 , y: 2042.02
-Vertex x: 6082.28 , y: 2788.28
-neighbor point x: 6019.46 , y: 3427.77
-neighbor point x: 5686.1 , y: 1880.75
-Vertex x: 5686.1 , y: 1880.75
-neighbor point x: 6082.28 , y: 2788.28
-Cell: 3321.88,7306.72
-x: 3671.22, y: 7407.03
-x: 3671.22, y: 7407.03
-x: 2451.64, y: 7672.75
-x: 2451.64, y: 7672.75
-x: 2196.74, y: 6973.68
-x: 3714.07, y: 6275.75
-Vertex x: 3671.22 , y: 7407.03
-neighbor point x: 3714.07 , y: 6275.75
-Vertex x: 2451.64 , y: 7672.75
-neighbor point x: 2196.74 , y: 6973.68
-Vertex x: 2196.74 , y: 6973.68
-neighbor point x: 2451.64 , y: 7672.75
-Vertex x: 3714.07 , y: 6275.75
-neighbor point x: 3671.22 , y: 7407.03
-Cell: 9338.54,8550.81
-x: 8797.74, y: 8601.33
-x: 9020.12, y: 7272.18
-Vertex x: 8797.74 , y: 8601.33
-neighbor point x: 9020.12 , y: 7272.18
-Vertex x: 9020.12 , y: 7272.18
-neighbor point x: 8797.74 , y: 8601.33
-Cell: 59.7491,2934.45
-x: -240.687, y: 4298.27
-x: -240.687, y: 4298.27
-x: 1090.48, y: 4099.76
-x: 994.426, y: 2877.57
-Vertex x: -240.687 , y: 4298.27
-Vertex x: 1090.48 , y: 4099.76
-neighbor point x: 994.426 , y: 2877.57
-Vertex x: 994.426 , y: 2877.57
-neighbor point x: 1090.48 , y: 4099.76
-Cell: 1926.51,2787.74
-x: 2440.67, y: 3272.23
-x: 2440.67, y: 3272.23
-x: 1108.68, y: 4109.65
-x: 1108.68, y: 4109.65
-x: 1090.48, y: 4099.76
-x: 2893.21, y: 2664.2
-x: 2831.05, y: 2523.72
-Vertex x: 1108.68 , y: 4109.65
-neighbor point x: 1090.48 , y: 4099.76
-Vertex x: 2440.67 , y: 3272.23
-neighbor point x: 2893.21 , y: 2664.2
-Vertex x: 1090.48 , y: 4099.76
-neighbor point x: 1108.68 , y: 4109.65
-Vertex x: 2893.21 , y: 2664.2
-neighbor point x: 2440.67 , y: 3272.23
-neighbor point x: 2831.05 , y: 2523.72
-Vertex x: 2831.05 , y: 2523.72
-neighbor point x: 2893.21 , y: 2664.2
-Cell: 8302.84,8377.53
-x: 8071.86, y: 9405.65
-x: 8071.86, y: 9405.65
-x: 8797.74, y: 8601.33
-x: 8797.74, y: 8601.33
-x: 7200.18, y: 7703.29
-x: 7609.59, y: 7319.02
-Vertex x: 8071.86 , y: 9405.65
-neighbor point x: 7200.18 , y: 7703.29
-Vertex x: 8797.74 , y: 8601.33
-Vertex x: 7200.18 , y: 7703.29
-neighbor point x: 8071.86 , y: 9405.65
-neighbor point x: 7609.59 , y: 7319.02
-Vertex x: 7609.59 , y: 7319.02
-neighbor point x: 7200.18 , y: 7703.29
-Cell: 9956.58,6067.92
-x: 9252.45, y: 7211.01
-x: 9317.18, y: 5935.54
-x: 10175.3, y: 3771.62
-x: 10274.3, y: 3708.87
-Vertex x: 9252.45 , y: 7211.01
-neighbor point x: 9317.18 , y: 5935.54
-Vertex x: 9317.18 , y: 5935.54
-neighbor point x: 9252.45 , y: 7211.01
-neighbor point x: 10175.3 , y: 3771.62
-Vertex x: 10175.3 , y: 3771.62
-neighbor point x: 9317.18 , y: 5935.54
-neighbor point x: 10274.3 , y: 3708.87
-Vertex x: 10274.3 , y: 3708.87
-neighbor point x: 10175.3 , y: 3771.62
-Cell: 4679.89,5742.94
-x: 3966.18, y: 6379.21
-x: 3966.18, y: 6379.21
-x: 3714.07, y: 6275.75
-x: 5481.57, y: 5904.77
-x: 3380.35, y: 5985.94
-Vertex x: 3966.18 , y: 6379.21
-neighbor point x: 3714.07 , y: 6275.75
-Vertex x: 3714.07 , y: 6275.75
-neighbor point x: 3966.18 , y: 6379.21
-neighbor point x: 3380.35 , y: 5985.94
-Vertex x: 3380.35 , y: 5985.94
-neighbor point x: 3714.07 , y: 6275.75
-Vertex x: 5481.57 , y: 5904.77
-Cell: 8005.36,2989.2
-x: 9736.37, y: 3898.94
-x: 9736.37, y: 3898.94
-x: 8219.12, y: 2282.5
-x: 10175.3, y: 3771.62
-x: 9790.38, y: 3264.28
-Vertex x: 9736.37 , y: 3898.94
-neighbor point x: 10175.3 , y: 3771.62
-Vertex x: 10175.3 , y: 3771.62
-neighbor point x: 9736.37 , y: 3898.94
-Vertex x: 8219.12 , y: 2282.5
-Vertex x: 9790.38 , y: 3264.28
-Cell: 295.919,5587.58
-x: 181.455, y: 6836.84
-x: 181.455, y: 6836.84
-x: -1899.22, y: 7435.1
-x: -1899.22, y: 7435.1
-x: -240.687, y: 4298.27
-Vertex x: 181.455 , y: 6836.84
-neighbor point x: -1899.22 , y: 7435.1
-neighbor point x: -1899.22 , y: 7435.1
-Vertex x: -1899.22 , y: 7435.1
-neighbor point x: 181.455 , y: 6836.84
-neighbor point x: 181.455 , y: 6836.84
-Vertex x: -240.687 , y: 4298.27
-Cell: 4138.39,2902.4
-x: 4164.77, y: 4119
-x: 4164.77, y: 4119
-x: 5294.37, y: 3805.31
-x: 5294.37, y: 3805.31
-Vertex x: 4164.77 , y: 4119
-neighbor point x: 5294.37 , y: 3805.31
-neighbor point x: 5294.37 , y: 3805.31
-Vertex x: 5294.37 , y: 3805.31
-neighbor point x: 4164.77 , y: 4119
-neighbor point x: 4164.77 , y: 4119
-Cell: 5836.85,5168.11
-x: 5772.53, y: 6106.86
-x: 5772.53, y: 6106.86
-x: 5481.57, y: 5904.77
-x: 5481.57, y: 5904.77
-x: 5305.62, y: 5550.63
-x: 5305.62, y: 5550.63
-x: 6501.84, y: 5708.57
-x: 6501.84, y: 5708.57
-x: 6922.78, y: 5065.77
-x: 3362.1, y: 5243.95
-x: 5294.37, y: 3805.31
-x: 6594.88, y: 3797.57
-x: 5562.38, y: 3604.4
-Vertex x: 5772.53 , y: 6106.86
-neighbor point x: 5481.57 , y: 5904.77
-Vertex x: 6501.84 , y: 5708.57
-neighbor point x: 6922.78 , y: 5065.77
-Vertex x: 5481.57 , y: 5904.77
-neighbor point x: 5772.53 , y: 6106.86
-neighbor point x: 5305.62 , y: 5550.63
-Vertex x: 5305.62 , y: 5550.63
-neighbor point x: 5481.57 , y: 5904.77
-neighbor point x: 5294.37 , y: 3805.31
-Vertex x: 3362.1 , y: 5243.95
-Vertex x: 6922.78 , y: 5065.77
-neighbor point x: 6501.84 , y: 5708.57
-neighbor point x: 6594.88 , y: 3797.57
-Vertex x: 5294.37 , y: 3805.31
-neighbor point x: 5305.62 , y: 5550.63
-neighbor point x: 5562.38 , y: 3604.4
-Vertex x: 6594.88 , y: 3797.57
-neighbor point x: 6922.78 , y: 5065.77
-Vertex x: 5562.38 , y: 3604.4
-neighbor point x: 5294.37 , y: 3805.31
-Cell: 7955.85,290.129
-x: 8246.47, y: 906.653
-x: 8246.47, y: 906.653
-x: 8476.29, y: 888.085
-x: 8476.29, y: 888.085
-x: 6936.11, y: 270.283
-x: 6936.11, y: 270.283
-x: 9458.08, y: -22.7013
-x: 9458.08, y: -22.7013
-x: 3181.72, y: -5843.32
-x: 1648.29, y: -13529.2
-x: 1648.29, y: -13529.2
-Vertex x: 8246.47 , y: 906.653
-neighbor point x: 8476.29 , y: 888.085
-neighbor point x: 8476.29 , y: 888.085
-Vertex x: 8476.29 , y: 888.085
-neighbor point x: 8246.47 , y: 906.653
-neighbor point x: 8246.47 , y: 906.653
-neighbor point x: 9458.08 , y: -22.7013
-Vertex x: 9458.08 , y: -22.7013
-neighbor point x: 8476.29 , y: 888.085
-Vertex x: 6936.11 , y: 270.283
-neighbor point x: 1648.29 , y: -13529.2
-neighbor point x: 1648.29 , y: -13529.2
-Vertex x: 3181.72 , y: -5843.32
-Vertex x: 1648.29 , y: -13529.2
-neighbor point x: 6936.11 , y: 270.283
-neighbor point x: 6936.11 , y: 270.283
-Cell: 8667.65,6002.51
-x: 9020.12, y: 7272.18
-x: 9020.12, y: 7272.18
-x: 9252.45, y: 7211.01
-x: 9252.45, y: 7211.01
-x: 8041.17, y: 7121.81
-x: 8041.17, y: 7121.81
-Vertex x: 8041.17 , y: 7121.81
-Vertex x: 9020.12 , y: 7272.18
-neighbor point x: 9252.45 , y: 7211.01
-Vertex x: 9252.45 , y: 7211.01
-neighbor point x: 9020.12 , y: 7272.18
-Cell: 2070.44,5807.11
-x: 2196.74, y: 6973.68
-x: 2196.74, y: 6973.68
-x: 1802.4, y: 6878.04
-x: 1802.4, y: 6878.04
-x: 3380.35, y: 5985.94
-x: 3362.1, y: 5243.95
-x: 1389.17, y: 4928.03
-Vertex x: 1802.4 , y: 6878.04
-neighbor point x: 1389.17 , y: 4928.03
-Vertex x: 2196.74 , y: 6973.68
-neighbor point x: 3380.35 , y: 5985.94
-Vertex x: 1389.17 , y: 4928.03
-neighbor point x: 1802.4 , y: 6878.04
-Vertex x: 3380.35 , y: 5985.94
-neighbor point x: 2196.74 , y: 6973.68
-neighbor point x: 3362.1 , y: 5243.95
-Vertex x: 3362.1 , y: 5243.95
-neighbor point x: 3380.35 , y: 5985.94
-Cell: 1550.04,7952.77
-x: 1976.06, y: 9346.27
-x: 1976.06, y: 9346.27
-x: 1163.17, y: 8319.55
-x: 2451.53, y: 8612.91
-x: 2451.53, y: 8612.91
-x: 2506.68, y: 8001.22
-x: 2451.64, y: 7672.75
-x: 1427.53, y: 6960.34
-Vertex x: 1976.06 , y: 9346.27
-neighbor point x: 2451.53 , y: 8612.91
-Vertex x: 2451.53 , y: 8612.91
-neighbor point x: 1976.06 , y: 9346.27
-neighbor point x: 2506.68 , y: 8001.22
-Vertex x: 1163.17 , y: 8319.55
-neighbor point x: 1427.53 , y: 6960.34
-Vertex x: 2506.68 , y: 8001.22
-neighbor point x: 2451.53 , y: 8612.91
-neighbor point x: 2451.64 , y: 7672.75
-Vertex x: 2451.64 , y: 7672.75
-neighbor point x: 2506.68 , y: 8001.22
-Vertex x: 1427.53 , y: 6960.34
-neighbor point x: 1163.17 , y: 8319.55
-Cell: 941.979,7834.51
-x: 1163.17, y: 8319.55
-x: 1163.17, y: 8319.55
-x: 181.455, y: 6836.84
-Vertex x: 1163.17 , y: 8319.55
-Vertex x: 181.455 , y: 6836.84
-Cell: 3422.1,9166.51
-x: 1976.06, y: 9346.27
-Vertex x: 1976.06 , y: 9346.27
+22:08:10: Cell: 2339.84,2060.3
+x: 2805.89, y: 2565.4
+x: 2805.89, y: 2565.4
+x: 1795.94, y: 2508.66
+x: 1795.94, y: 2508.66
+x: 3084.09, y: 1934.04
+x: 2899.73, y: 1337.14
+x: 1651.14, y: 1224.69
+Vertex x: 1795.94 , y: 2508.66
+neighbor point x: 2805.89 , y: 2565.4
+neighbor point x: 2805.89 , y: 2565.4
+neighbor point x: 2805.89 , y: 2565.4
+neighbor point x: 2805.89 , y: 2565.4
+neighbor point x: 2805.89 , y: 2565.4
+neighbor point x: 1651.14 , y: 1224.69
+Vertex x: 2805.89 , y: 2565.4
+neighbor point x: 1795.94 , y: 2508.66
+neighbor point x: 1795.94 , y: 2508.66
+neighbor point x: 1795.94 , y: 2508.66
+neighbor point x: 1795.94 , y: 2508.66
+neighbor point x: 1795.94 , y: 2508.66
+neighbor point x: 3084.09 , y: 1934.04
+Vertex x: 3084.09 , y: 1934.04
+neighbor point x: 2805.89 , y: 2565.4
+Vertex x: 1651.14 , y: 1224.69
+neighbor point x: 1795.94 , y: 2508.66
+Vertex x: 2899.73 , y: 1337.14
+Cell: 168.188,5526.05
+x: 779.392, y: 6631.06
+x: 779.392, y: 6631.06
+x: 1657.39, y: 5774.24
+x: -23441.4, y: 9110.59
+x: -23441.4, y: 9110.59
+Vertex x: -23441.4 , y: 9110.59
+neighbor point x: 779.392 , y: 6631.06
+neighbor point x: 779.392 , y: 6631.06
+neighbor point x: 779.392 , y: 6631.06
+neighbor point x: 779.392 , y: 6631.06
+neighbor point x: 779.392 , y: 6631.06
+Vertex x: 779.392 , y: 6631.06
+neighbor point x: -23441.4 , y: 9110.59
+neighbor point x: -23441.4 , y: 9110.59
+neighbor point x: -23441.4 , y: 9110.59
+neighbor point x: -23441.4 , y: 9110.59
+neighbor point x: -23441.4 , y: 9110.59
+neighbor point x: 1657.39 , y: 5774.24
+Vertex x: 1657.39 , y: 5774.24
+neighbor point x: 779.392 , y: 6631.06
+Cell: 404.764,7837
+x: 884.386, y: 8328.5
+x: 884.386, y: 8328.5
+x: 957.215, y: 7089.56
+Vertex x: 884.386 , y: 8328.5
+Vertex x: 957.215 , y: 7089.56
+Cell: 5301.27,5444.44
+x: 4813.76, y: 6557.06
+x: 4813.76, y: 6557.06
+x: 4583.56, y: 6446.78
+x: 4583.56, y: 6446.78
+x: 5518.5, y: 5344.91
+x: 4332.21, y: 5474.47
+Vertex x: 4813.76 , y: 6557.06
+neighbor point x: 4583.56 , y: 6446.78
+neighbor point x: 4583.56 , y: 6446.78
+Vertex x: 4583.56 , y: 6446.78
+neighbor point x: 4813.76 , y: 6557.06
+neighbor point x: 4813.76 , y: 6557.06
+neighbor point x: 4332.21 , y: 5474.47
+Vertex x: 5518.5 , y: 5344.91
+Vertex x: 4332.21 , y: 5474.47
+neighbor point x: 4583.56 , y: 6446.78
+Cell: 4973.73,9316.45
+x: 6473.75, y: 13185
+x: 6473.75, y: 13185
+x: 4498.82, y: 8524.31
+Vertex x: 6473.75 , y: 13185
+Vertex x: 4498.82 , y: 8524.31
+Cell: 1165.84,2192.69
+x: 1142.33, y: 3399.04
+x: 1142.33, y: 3399.04
+x: 1795.94, y: 2508.66
+Vertex x: 1142.33 , y: 3399.04
+Vertex x: 1795.94 , y: 2508.66
+Cell: 7155.48,3532.02
+x: 7253.64, y: 5049.99
+x: 7253.64, y: 5049.99
+x: 5282.82, y: 4271.95
+x: 5707.28, y: 3831.88
+x: 5641.34, y: 3200.3
+x: 6706.21, y: 2251.16
+Vertex x: 7253.64 , y: 5049.99
+Vertex x: 5282.82 , y: 4271.95
+Vertex x: 5707.28 , y: 3831.88
+neighbor point x: 5641.34 , y: 3200.3
+Vertex x: 5641.34 , y: 3200.3
+neighbor point x: 5707.28 , y: 3831.88
+neighbor point x: 6706.21 , y: 2251.16
+Vertex x: 6706.21 , y: 2251.16
+neighbor point x: 5641.34 , y: 3200.3
+Cell: 4007.84,1932.98
+x: 3614.46, y: 2140.56
+x: 3614.46, y: 2140.56
+x: 4506.64, y: 1881.92
+Vertex x: 3614.46 , y: 2140.56
+neighbor point x: 4506.64 , y: 1881.92
+neighbor point x: 4506.64 , y: 1881.92
+Vertex x: 4506.64 , y: 1881.92
+neighbor point x: 3614.46 , y: 2140.56
+neighbor point x: 3614.46 , y: 2140.56
+Cell: 3993.28,3282.43
+x: 3802.57, y: 3690.55
+x: 3802.57, y: 3690.55
+x: 3098.13, y: 3414.46
+x: 4070.14, y: 2696.44
+Vertex x: 3802.57 , y: 3690.55
+neighbor point x: 3098.13 , y: 3414.46
+Vertex x: 3098.13 , y: 3414.46
+neighbor point x: 3802.57 , y: 3690.55
+Vertex x: 4070.14 , y: 2696.44
+Cell: 824.667,9896.3
+x: 2970.02, y: 11196.8
+x: 1563.87, y: 9027.77
+Vertex x: 2970.02 , y: 11196.8
+Vertex x: 1563.87 , y: 9027.77
+Cell: 3428.32,4576.43
+x: 3852.39, y: 5234.6
+x: 2577.71, y: 5274.2
+Vertex x: 3852.39 , y: 5234.6
+Vertex x: 2577.71 , y: 5274.2
+Cell: 8808.48,9755.01
+x: 5156.38, y: 29027.3
+x: 6473.75, y: 13185
+x: 6849.49, y: 9899.59
+x: 12354.7, y: 11033.8
+Vertex x: 5156.38 , y: 29027.3
+neighbor point x: 6473.75 , y: 13185
+Vertex x: 6473.75 , y: 13185
+neighbor point x: 5156.38 , y: 29027.3
+neighbor point x: 6849.49 , y: 9899.59
+Vertex x: 12354.7 , y: 11033.8
+Vertex x: 6849.49 , y: 9899.59
+neighbor point x: 6473.75 , y: 13185
+Cell: 7592.02,3279.65
+x: 8219.81, y: 4869.32
+x: 8219.81, y: 4869.32
+x: 9010.8, y: 4840.2
+x: 9010.8, y: 4840.2
+x: 5707.28, y: 3831.88
+Vertex x: 8219.81 , y: 4869.32
+neighbor point x: 9010.8 , y: 4840.2
+neighbor point x: 9010.8 , y: 4840.2
+Vertex x: 9010.8 , y: 4840.2
+neighbor point x: 8219.81 , y: 4869.32
+neighbor point x: 8219.81 , y: 4869.32
+Vertex x: 5707.28 , y: 3831.88
+Cell: 8724.09,132.695
+x: 9392.95, y: 602.8
+x: 9392.95, y: 602.8
+x: 1670.3, y: 569.803
+x: 7974.6, y: -66.3381
+x: 7974.6, y: -66.3381
+x: 5212.72, y: -760.722
+x: 5351.69, y: -9306.22
+x: 5351.69, y: -9306.22
+x: 4248.7, y: -31216.5
+x: 4248.7, y: -31216.5
+Vertex x: 7974.6 , y: -66.3381
+neighbor point x: 9392.95 , y: 602.8
+neighbor point x: 9392.95 , y: 602.8
+neighbor point x: 9392.95 , y: 602.8
+neighbor point x: 9392.95 , y: 602.8
+neighbor point x: 9392.95 , y: 602.8
+neighbor point x: 5351.69 , y: -9306.22
+neighbor point x: 5351.69 , y: -9306.22
+Vertex x: 9392.95 , y: 602.8
+neighbor point x: 7974.6 , y: -66.3381
+neighbor point x: 7974.6 , y: -66.3381
+neighbor point x: 7974.6 , y: -66.3381
+neighbor point x: 7974.6 , y: -66.3381
+neighbor point x: 7974.6 , y: -66.3381
+Vertex x: 1670.3 , y: 569.803
+Vertex x: 5212.72 , y: -760.722
+Vertex x: 5351.69 , y: -9306.22
+neighbor point x: 7974.6 , y: -66.3381
+neighbor point x: 7974.6 , y: -66.3381
+neighbor point x: 4248.7 , y: -31216.5
+neighbor point x: 4248.7 , y: -31216.5
+Vertex x: 4248.7 , y: -31216.5
+neighbor point x: 5351.69 , y: -9306.22
+neighbor point x: 5351.69 , y: -9306.22
+Cell: 9449.15,8631.97
+x: 8605.16, y: 8894.76
+Vertex x: 8605.16 , y: 8894.76
+Cell: 6509.41,7154.9
+x: 7356.95, y: 7860.62
+x: 7356.95, y: 7860.62
+x: 7499.47, y: 7543.15
+x: 3047.29, y: 7539.23
+x: 5361.19, y: 7302.07
+x: 5361.19, y: 7302.07
+Vertex x: 7356.95 , y: 7860.62
+neighbor point x: 5361.19 , y: 7302.07
+neighbor point x: 5361.19 , y: 7302.07
+neighbor point x: 5361.19 , y: 7302.07
+neighbor point x: 5361.19 , y: 7302.07
+Vertex x: 5361.19 , y: 7302.07
+neighbor point x: 7356.95 , y: 7860.62
+neighbor point x: 7356.95 , y: 7860.62
+neighbor point x: 7356.95 , y: 7860.62
+neighbor point x: 7356.95 , y: 7860.62
+Vertex x: 3047.29 , y: 7539.23
+Vertex x: 7499.47 , y: 7543.15
+Cell: 437.326,8849.8
+x: -23441.4, y: 9110.59
+Vertex x: -23441.4 , y: 9110.59
+Cell: 8604.81,385.53
+x: 8848.23, y: 1114.94
+x: 8848.23, y: 1114.94
+x: 8947.02, y: 1083.63
+x: 8947.02, y: 1083.63
+x: 8084, y: 917.616
+x: 8084, y: 917.616
+x: 8067.87, y: 908.839
+Vertex x: 8084 , y: 917.616
+neighbor point x: 8848.23 , y: 1114.94
+neighbor point x: 8848.23 , y: 1114.94
+neighbor point x: 8848.23 , y: 1114.94
+neighbor point x: 8848.23 , y: 1114.94
+neighbor point x: 8848.23 , y: 1114.94
+neighbor point x: 8067.87 , y: 908.839
+Vertex x: 8848.23 , y: 1114.94
+neighbor point x: 8084 , y: 917.616
+neighbor point x: 8084 , y: 917.616
+neighbor point x: 8084 , y: 917.616
+neighbor point x: 8084 , y: 917.616
+neighbor point x: 8084 , y: 917.616
+neighbor point x: 8947.02 , y: 1083.63
+neighbor point x: 8947.02 , y: 1083.63
+Vertex x: 8947.02 , y: 1083.63
+neighbor point x: 8848.23 , y: 1114.94
+neighbor point x: 8848.23 , y: 1114.94
+Vertex x: 8067.87 , y: 908.839
+neighbor point x: 8084 , y: 917.616
+Cell: 3665.18,4119.57
+x: 3793.3, y: 4475.82
+x: 3793.3, y: 4475.82
+x: 4039.79, y: 4164.4
+x: 3802.57, y: 3690.55
+x: 2823.79, y: 3973.17
+x: 2823.79, y: 3973.17
+x: 2801.28, y: 3785.1
+Vertex x: 2823.79 , y: 3973.17
+neighbor point x: 3793.3 , y: 4475.82
+neighbor point x: 3793.3 , y: 4475.82
+neighbor point x: 3793.3 , y: 4475.82
+neighbor point x: 3793.3 , y: 4475.82
+neighbor point x: 3793.3 , y: 4475.82
+neighbor point x: 2801.28 , y: 3785.1
+Vertex x: 3793.3 , y: 4475.82
+neighbor point x: 2823.79 , y: 3973.17
+neighbor point x: 2823.79 , y: 3973.17
+neighbor point x: 2823.79 , y: 3973.17
+neighbor point x: 2823.79 , y: 3973.17
+neighbor point x: 2823.79 , y: 3973.17
+Vertex x: 4039.79 , y: 4164.4
+Vertex x: 3802.57 , y: 3690.55
+Vertex x: 2801.28 , y: 3785.1
+neighbor point x: 2823.79 , y: 3973.17
+Cell: 4252.26,7634.23
+x: 4273.92, y: 8585.56
+x: 4273.92, y: 8585.56
+x: 4498.82, y: 8524.31
+x: 4498.82, y: 8524.31
+x: 5181.36, y: 8231.59
+x: 5181.36, y: 8231.59
+x: 3047.29, y: 7539.23
+x: 5361.19, y: 7302.07
+x: 5321.64, y: 7115.84
+x: 5052.22, y: 6706.7
+x: 4813.76, y: 6557.06
+Vertex x: 4273.92 , y: 8585.56
+neighbor point x: 4498.82 , y: 8524.31
+neighbor point x: 4498.82 , y: 8524.31
+Vertex x: 4498.82 , y: 8524.31
+neighbor point x: 4273.92 , y: 8585.56
+neighbor point x: 4273.92 , y: 8585.56
+neighbor point x: 5181.36 , y: 8231.59
+neighbor point x: 5181.36 , y: 8231.59
+Vertex x: 5181.36 , y: 8231.59
+neighbor point x: 4498.82 , y: 8524.31
+neighbor point x: 4498.82 , y: 8524.31
+Vertex x: 5361.19 , y: 7302.07
+Vertex x: 3047.29 , y: 7539.23
+neighbor point x: 5321.64 , y: 7115.84
+Vertex x: 5321.64 , y: 7115.84
+neighbor point x: 3047.29 , y: 7539.23
+Vertex x: 5052.22 , y: 6706.7
+neighbor point x: 4813.76 , y: 6557.06
+Vertex x: 4813.76 , y: 6557.06
+neighbor point x: 5052.22 , y: 6706.7
+Cell: 6266.21,8023.87
+x: 6849.49, y: 9899.59
+x: 6849.49, y: 9899.59
+x: 7356.3, y: 9155.31
+x: 7356.3, y: 9155.31
+x: 9127.33, y: 8033.11
+x: 5181.36, y: 8231.59
+Vertex x: 6849.49 , y: 9899.59
+neighbor point x: 7356.3 , y: 9155.31
+neighbor point x: 7356.3 , y: 9155.31
+Vertex x: 9127.33 , y: 8033.11
+Vertex x: 7356.3 , y: 9155.31
+neighbor point x: 6849.49 , y: 9899.59
+neighbor point x: 6849.49 , y: 9899.59
+Vertex x: 5181.36 , y: 8231.59
+Cell: 7920.17,1643.92
+x: 8122.4, y: 2535.27
+x: 6706.21, y: 2251.16
+x: 6706.21, y: 2251.16
+x: 6481.9, y: 2160.32
+x: 8084, y: 917.616
+Vertex x: 6706.21 , y: 2251.16
+neighbor point x: 6481.9 , y: 2160.32
+Vertex x: 8122.4 , y: 2535.27
+Vertex x: 6481.9 , y: 2160.32
+neighbor point x: 6706.21 , y: 2251.16
+Vertex x: 8084 , y: 917.616
+Cell: 6220.35,6338.25
+x: 5321.64, y: 7115.84
+x: 5321.64, y: 7115.84
+x: 6952.5, y: 6538.58
+x: 6952.5, y: 6538.58
+x: 6075.34, y: 5784.44
+Vertex x: 6952.5 , y: 6538.58
+neighbor point x: 5321.64 , y: 7115.84
+neighbor point x: 5321.64 , y: 7115.84
+neighbor point x: 5321.64 , y: 7115.84
+neighbor point x: 5321.64 , y: 7115.84
+Vertex x: 5321.64 , y: 7115.84
+neighbor point x: 6952.5 , y: 6538.58
+neighbor point x: 6952.5 , y: 6538.58
+neighbor point x: 6952.5 , y: 6538.58
+neighbor point x: 6952.5 , y: 6538.58
+Vertex x: 6075.34 , y: 5784.44
+Cell: 3493.15,2568.49
+x: 3104.66, y: 3372.78
+x: 2805.89, y: 2565.4
+x: 3614.46, y: 2140.56
+x: 3514.17, y: 2059.35
+Vertex x: 3104.66 , y: 3372.78
+neighbor point x: 2805.89 , y: 2565.4
+Vertex x: 2805.89 , y: 2565.4
+neighbor point x: 3104.66 , y: 3372.78
+Vertex x: 3614.46 , y: 2140.56
+Vertex x: 3514.17 , y: 2059.35
+Cell: 1418.29,7896.58
+x: 1563.87, y: 9027.77
+x: 1563.87, y: 9027.77
+x: 2009.39, y: 9160.02
+x: 2009.39, y: 9160.02
+x: 884.386, y: 8328.5
+Vertex x: 1563.87 , y: 9027.77
+neighbor point x: 2009.39 , y: 9160.02
+neighbor point x: 2009.39 , y: 9160.02
+Vertex x: 2009.39 , y: 9160.02
+neighbor point x: 1563.87 , y: 9027.77
+neighbor point x: 1563.87 , y: 9027.77
+Vertex x: 884.386 , y: 8328.5
+Cell: 8282.11,1635.33
+x: 8423.65, y: 2661.7
+x: 8423.65, y: 2661.7
+x: 8122.4, y: 2535.27
+x: 8122.4, y: 2535.27
+Vertex x: 8122.4 , y: 2535.27
+neighbor point x: 8423.65 , y: 2661.7
+neighbor point x: 8423.65 , y: 2661.7
+neighbor point x: 8423.65 , y: 2661.7
+neighbor point x: 8423.65 , y: 2661.7
+neighbor point x: 8423.65 , y: 2661.7
+Vertex x: 8423.65 , y: 2661.7
+neighbor point x: 8122.4 , y: 2535.27
+neighbor point x: 8122.4 , y: 2535.27
+neighbor point x: 8122.4 , y: 2535.27
+neighbor point x: 8122.4 , y: 2535.27
+neighbor point x: 8122.4 , y: 2535.27
+Cell: 5754.9,5310.04
+x: 6075.34, y: 5784.44
+x: 6075.34, y: 5784.44
+x: 5518.5, y: 5344.91
+x: 5518.5, y: 5344.91
+x: 7084.63, y: 5327.56
+x: 7084.63, y: 5327.56
+x: 5231.23, y: 4375.31
+x: 5282.82, y: 4271.95
+Vertex x: 5518.5 , y: 5344.91
+neighbor point x: 6075.34 , y: 5784.44
+neighbor point x: 6075.34 , y: 5784.44
+neighbor point x: 6075.34 , y: 5784.44
+neighbor point x: 6075.34 , y: 5784.44
+neighbor point x: 6075.34 , y: 5784.44
+neighbor point x: 5231.23 , y: 4375.31
+Vertex x: 6075.34 , y: 5784.44
+neighbor point x: 5518.5 , y: 5344.91
+neighbor point x: 5518.5 , y: 5344.91
+neighbor point x: 5518.5 , y: 5344.91
+neighbor point x: 5518.5 , y: 5344.91
+neighbor point x: 5518.5 , y: 5344.91
+neighbor point x: 7084.63 , y: 5327.56
+neighbor point x: 7084.63 , y: 5327.56
+Vertex x: 7084.63 , y: 5327.56
+neighbor point x: 6075.34 , y: 5784.44
+neighbor point x: 6075.34 , y: 5784.44
+Vertex x: 5231.23 , y: 4375.31
+neighbor point x: 5518.5 , y: 5344.91
+neighbor point x: 5282.82 , y: 4271.95
+Vertex x: 5282.82 , y: 4271.95
+neighbor point x: 5231.23 , y: 4375.31
+Cell: 2944.27,423.659
+x: 2899.73, y: 1337.14
+x: 2899.73, y: 1337.14
+x: 1791.08, y: 927.703
+x: 1670.3, y: 569.803
+x: 4598.75, y: 163.189
+x: 4598.75, y: 163.189
+x: 5212.72, y: -760.722
+x: 5351.69, y: -9306.22
+Vertex x: 2899.73 , y: 1337.14
+neighbor point x: 4598.75 , y: 163.189
+neighbor point x: 4598.75 , y: 163.189
+neighbor point x: 4598.75 , y: 163.189
+neighbor point x: 4598.75 , y: 163.189
+neighbor point x: 1791.08 , y: 927.703
+Vertex x: 4598.75 , y: 163.189
+neighbor point x: 2899.73 , y: 1337.14
+neighbor point x: 2899.73 , y: 1337.14
+neighbor point x: 2899.73 , y: 1337.14
+neighbor point x: 2899.73 , y: 1337.14
+neighbor point x: 5212.72 , y: -760.722
+Vertex x: 1791.08 , y: 927.703
+neighbor point x: 2899.73 , y: 1337.14
+neighbor point x: 1670.3 , y: 569.803
+Vertex x: 1670.3 , y: 569.803
+neighbor point x: 1791.08 , y: 927.703
+Vertex x: 5212.72 , y: -760.722
+neighbor point x: 4598.75 , y: 163.189
+neighbor point x: 5351.69 , y: -9306.22
+Vertex x: 5351.69 , y: -9306.22
+neighbor point x: 5212.72 , y: -760.722
+Cell: 8447.53,8024.97
+x: 8605.16, y: 8894.76
+x: 8605.16, y: 8894.76
+x: 7356.3, y: 9155.31
+x: 9127.33, y: 8033.11
+x: 7356.95, y: 7860.62
+x: 9256.12, y: 7446.61
+Vertex x: 8605.16 , y: 8894.76
+Vertex x: 9127.33 , y: 8033.11
+Vertex x: 7356.3 , y: 9155.31
+neighbor point x: 7356.95 , y: 7860.62
+Vertex x: 7356.95 , y: 7860.62
+neighbor point x: 7356.3 , y: 9155.31
+Vertex x: 9256.12 , y: 7446.61
+Cell: 9668.89,1372.37
+x: 11258.5, y: 3976.5
+x: 11258.5, y: 3976.5
+x: 8947.02, y: 1083.63
+x: 9392.95, y: 602.8
+Vertex x: 11258.5 , y: 3976.5
+Vertex x: 8947.02 , y: 1083.63
+neighbor point x: 9392.95 , y: 602.8
+Vertex x: 9392.95 , y: 602.8
+neighbor point x: 8947.02 , y: 1083.63
+Cell: 7710.62,6500.85
+x: 7499.47, y: 7543.15
+x: 7499.47, y: 7543.15
+x: 6952.5, y: 6538.58
+x: 8797.42, y: 6915.59
+x: 8797.42, y: 6915.59
+x: 7084.63, y: 5327.56
+x: 7253.64, y: 5049.99
+x: 8219.81, y: 4869.32
+Vertex x: 7499.47 , y: 7543.15
+neighbor point x: 8797.42 , y: 6915.59
+neighbor point x: 8797.42 , y: 6915.59
+neighbor point x: 8797.42 , y: 6915.59
+neighbor point x: 8797.42 , y: 6915.59
+neighbor point x: 6952.5 , y: 6538.58
+Vertex x: 8797.42 , y: 6915.59
+neighbor point x: 7499.47 , y: 7543.15
+neighbor point x: 7499.47 , y: 7543.15
+neighbor point x: 7499.47 , y: 7543.15
+neighbor point x: 7499.47 , y: 7543.15
+Vertex x: 6952.5 , y: 6538.58
+neighbor point x: 7499.47 , y: 7543.15
+neighbor point x: 7084.63 , y: 5327.56
+Vertex x: 7084.63 , y: 5327.56
+neighbor point x: 6952.5 , y: 6538.58
+neighbor point x: 7253.64 , y: 5049.99
+Vertex x: 7253.64 , y: 5049.99
+neighbor point x: 7084.63 , y: 5327.56
+neighbor point x: 8219.81 , y: 4869.32
+Vertex x: 8219.81 , y: 4869.32
+neighbor point x: 7253.64 , y: 5049.99
+Cell: 9069.35,1851.42
+x: 9926.15, y: 4215.85
+x: 9926.15, y: 4215.85
+x: 8423.65, y: 2661.7
+x: 8848.23, y: 1114.94
+Vertex x: 9926.15 , y: 4215.85
+Vertex x: 8423.65 , y: 2661.7
+neighbor point x: 8848.23 , y: 1114.94
+Vertex x: 8848.23 , y: 1114.94
+neighbor point x: 8423.65 , y: 2661.7
+Cell: 9748,8310.54
+x: 9127.33, y: 8033.11
+x: 12354.7, y: 11033.8
+x: 12354.7, y: 11033.8
+Vertex x: 12354.7 , y: 11033.8
+neighbor point x: 9127.33 , y: 8033.11
+neighbor point x: 9127.33 , y: 8033.11
+Vertex x: 9127.33 , y: 8033.11
+neighbor point x: 12354.7 , y: 11033.8
+neighbor point x: 12354.7 , y: 11033.8
+Cell: 9945.87,6730.66
+x: 9256.12, y: 7446.61
+x: 9256.12, y: 7446.61
+x: 8797.42, y: 6915.59
+x: 9010.8, y: 4840.2
+x: 9926.15, y: 4215.85
+x: 11258.5, y: 3976.5
+Vertex x: 9256.12 , y: 7446.61
+neighbor point x: 8797.42 , y: 6915.59
+Vertex x: 8797.42 , y: 6915.59
+neighbor point x: 9256.12 , y: 7446.61
+neighbor point x: 9010.8 , y: 4840.2
+Vertex x: 9010.8 , y: 4840.2
+neighbor point x: 8797.42 , y: 6915.59
+neighbor point x: 9926.15 , y: 4215.85
+Vertex x: 9926.15 , y: 4215.85
+neighbor point x: 9010.8 , y: 4840.2
+neighbor point x: 11258.5 , y: 3976.5
+Vertex x: 11258.5 , y: 3976.5
+neighbor point x: 9926.15 , y: 4215.85
+Cell: 2040.7,4313.97
+x: 1994.64, y: 5793.82
+x: 1994.64, y: 5793.82
+x: 1657.39, y: 5774.24
+x: 1657.39, y: 5774.24
+x: 2577.71, y: 5274.2
+x: 2577.71, y: 5274.2
+x: 2823.79, y: 3973.17
+x: 541.776, y: 4050.76
+Vertex x: 1994.64 , y: 5793.82
+neighbor point x: 2577.71 , y: 5274.2
+neighbor point x: 2577.71 , y: 5274.2
+neighbor point x: 2577.71 , y: 5274.2
+neighbor point x: 2577.71 , y: 5274.2
+neighbor point x: 1657.39 , y: 5774.24
+neighbor point x: 1657.39 , y: 5774.24
+Vertex x: 2577.71 , y: 5274.2
+neighbor point x: 1994.64 , y: 5793.82
+neighbor point x: 1994.64 , y: 5793.82
+neighbor point x: 1994.64 , y: 5793.82
+neighbor point x: 1994.64 , y: 5793.82
+Vertex x: 1657.39 , y: 5774.24
+neighbor point x: 1994.64 , y: 5793.82
+neighbor point x: 1994.64 , y: 5793.82
+neighbor point x: 541.776 , y: 4050.76
+Vertex x: 2823.79 , y: 3973.17
+Vertex x: 541.776 , y: 4050.76
+neighbor point x: 1657.39 , y: 5774.24
+Cell: 4737.63,9416.5
+x: 5156.38, y: 29027.3
+x: 5156.38, y: 29027.3
+x: 4273.92, y: 8585.56
+Vertex x: 5156.38 , y: 29027.3
+Vertex x: 4273.92 , y: 8585.56
+Cell: 7441.47,496.792
+x: 8067.87, y: 908.839
+x: 6453.13, y: 1582.68
+x: 6453.13, y: 1582.68
+x: 7974.6, y: -66.3381
+x: 5212.72, y: -760.722
+Vertex x: 6453.13 , y: 1582.68
+neighbor point x: 8067.87 , y: 908.839
+neighbor point x: 8067.87 , y: 908.839
+neighbor point x: 5212.72 , y: -760.722
+Vertex x: 8067.87 , y: 908.839
+neighbor point x: 6453.13 , y: 1582.68
+neighbor point x: 6453.13 , y: 1582.68
+Vertex x: 7974.6 , y: -66.3381
+Vertex x: 5212.72 , y: -760.722
+neighbor point x: 6453.13 , y: 1582.68
+Cell: 1869.16,7269.06
+x: 2439.22, y: 8154.38
+x: 2439.22, y: 8154.38
+x: 3047.29, y: 7539.23
+x: 957.215, y: 7089.56
+x: 957.215, y: 7089.56
+x: 3111.92, y: 7117.49
+x: 779.392, y: 6631.06
+x: 1994.64, y: 5793.82
+Vertex x: 957.215 , y: 7089.56
+neighbor point x: 2439.22 , y: 8154.38
+neighbor point x: 2439.22 , y: 8154.38
+neighbor point x: 2439.22 , y: 8154.38
+neighbor point x: 2439.22 , y: 8154.38
+neighbor point x: 779.392 , y: 6631.06
+Vertex x: 2439.22 , y: 8154.38
+neighbor point x: 957.215 , y: 7089.56
+neighbor point x: 957.215 , y: 7089.56
+neighbor point x: 957.215 , y: 7089.56
+neighbor point x: 957.215 , y: 7089.56
+neighbor point x: 3047.29 , y: 7539.23
+Vertex x: 3047.29 , y: 7539.23
+neighbor point x: 2439.22 , y: 8154.38
+Vertex x: 3111.92 , y: 7117.49
+Vertex x: 779.392 , y: 6631.06
+neighbor point x: 957.215 , y: 7089.56
+Vertex x: 1994.64 , y: 5793.82
+Cell: 3769.91,1618.58
+x: 3514.17, y: 2059.35
+x: 3514.17, y: 2059.35
+x: 3084.09, y: 1934.04
+x: 3084.09, y: 1934.04
+x: 4431.78, y: 1364.92
+x: 4431.78, y: 1364.92
+Vertex x: 3514.17 , y: 2059.35
+neighbor point x: 4431.78 , y: 1364.92
+neighbor point x: 4431.78 , y: 1364.92
+neighbor point x: 4431.78 , y: 1364.92
+neighbor point x: 4431.78 , y: 1364.92
+neighbor point x: 3084.09 , y: 1934.04
+neighbor point x: 3084.09 , y: 1934.04
+Vertex x: 3084.09 , y: 1934.04
+neighbor point x: 3514.17 , y: 2059.35
+neighbor point x: 3514.17 , y: 2059.35
+Vertex x: 4431.78 , y: 1364.92
+neighbor point x: 3514.17 , y: 2059.35
+neighbor point x: 3514.17 , y: 2059.35
+neighbor point x: 3514.17 , y: 2059.35
+neighbor point x: 3514.17 , y: 2059.35
+Cell: 3470,5917.82
+x: 3111.92, y: 7117.49
+x: 3111.92, y: 7117.49
+x: 4583.56, y: 6446.78
+Vertex x: 3111.92 , y: 7117.49
+neighbor point x: 4583.56 , y: 6446.78
+neighbor point x: 4583.56 , y: 6446.78
+Vertex x: 4583.56 , y: 6446.78
+neighbor point x: 3111.92 , y: 7117.49
+neighbor point x: 3111.92 , y: 7117.49
+Cell: 4228.37,3837.63
+x: 4039.79, y: 4164.4
+x: 4039.79, y: 4164.4
+x: 5282.82, y: 4271.95
+x: 5707.28, y: 3831.88
+x: 5280.86, y: 3064.6
+Vertex x: 4039.79 , y: 4164.4
+neighbor point x: 5282.82 , y: 4271.95
+neighbor point x: 5282.82 , y: 4271.95
+Vertex x: 5282.82 , y: 4271.95
+neighbor point x: 4039.79 , y: 4164.4
+neighbor point x: 4039.79 , y: 4164.4
+neighbor point x: 5707.28 , y: 3831.88
+Vertex x: 5707.28 , y: 3831.88
+neighbor point x: 5282.82 , y: 4271.95
+Vertex x: 5280.86 , y: 3064.6
+Cell: 568.295,1225.52
+x: 538.314, y: 1912.21
+x: 538.314, y: 1912.21
+x: 6481.9, y: 2160.32
+x: 1651.14, y: 1224.69
+x: 1651.14, y: 1224.69
+x: 1791.08, y: 927.703
+Vertex x: 538.314 , y: 1912.21
+neighbor point x: 1651.14 , y: 1224.69
+neighbor point x: 1651.14 , y: 1224.69
+neighbor point x: 1651.14 , y: 1224.69
+neighbor point x: 1651.14 , y: 1224.69
+Vertex x: 1651.14 , y: 1224.69
+neighbor point x: 538.314 , y: 1912.21
+neighbor point x: 538.314 , y: 1912.21
+neighbor point x: 538.314 , y: 1912.21
+neighbor point x: 538.314 , y: 1912.21
+neighbor point x: 1791.08 , y: 927.703
+Vertex x: 6481.9 , y: 2160.32
+Vertex x: 1791.08 , y: 927.703
+neighbor point x: 1651.14 , y: 1224.69
+Cell: 5539.48,5582.94
+x: 5052.22, y: 6706.7
+x: 5052.22, y: 6706.7
+Vertex x: 5052.22 , y: 6706.7
+Cell: 4999.44,1789.41
+x: 4793.47, y: 2736.14
+x: 4793.47, y: 2736.14
+x: 5280.86, y: 3064.6
+x: 5280.86, y: 3064.6
+x: 5641.34, y: 3200.3
+x: 5641.34, y: 3200.3
+x: 4506.64, y: 1881.92
+x: 4506.64, y: 1881.92
+x: 4431.78, y: 1364.92
+x: 6481.9, y: 2160.32
+x: 6453.13, y: 1582.68
+x: 4598.75, y: 163.189
+Vertex x: 4793.47 , y: 2736.14
+neighbor point x: 5280.86 , y: 3064.6
+neighbor point x: 5280.86 , y: 3064.6
+neighbor point x: 5280.86 , y: 3064.6
+neighbor point x: 5280.86 , y: 3064.6
+neighbor point x: 5280.86 , y: 3064.6
+neighbor point x: 4506.64 , y: 1881.92
+neighbor point x: 4506.64 , y: 1881.92
+Vertex x: 5280.86 , y: 3064.6
+neighbor point x: 4793.47 , y: 2736.14
+neighbor point x: 4793.47 , y: 2736.14
+neighbor point x: 4793.47 , y: 2736.14
+neighbor point x: 4793.47 , y: 2736.14
+neighbor point x: 4793.47 , y: 2736.14
+neighbor point x: 5641.34 , y: 3200.3
+neighbor point x: 5641.34 , y: 3200.3
+Vertex x: 4506.64 , y: 1881.92
+neighbor point x: 4793.47 , y: 2736.14
+neighbor point x: 4793.47 , y: 2736.14
+neighbor point x: 4431.78 , y: 1364.92
+Vertex x: 5641.34 , y: 3200.3
+neighbor point x: 5280.86 , y: 3064.6
+neighbor point x: 5280.86 , y: 3064.6
+neighbor point x: 6481.9 , y: 2160.32
+Vertex x: 4431.78 , y: 1364.92
+neighbor point x: 4506.64 , y: 1881.92
+neighbor point x: 4598.75 , y: 163.189
+Vertex x: 6481.9 , y: 2160.32
+neighbor point x: 5641.34 , y: 3200.3
+Vertex x: 6453.13 , y: 1582.68
+Vertex x: 4598.75 , y: 163.189
+neighbor point x: 4431.78 , y: 1364.92
+Cell: 2286.2,3015.12
+x: 2801.28, y: 3785.1
+x: 2801.28, y: 3785.1
+x: 3098.13, y: 3414.46
+x: 3098.13, y: 3414.46
+x: 3104.66, y: 3372.78
+x: 1126.22, y: 3468.5
+Vertex x: 2801.28 , y: 3785.1
+neighbor point x: 3098.13 , y: 3414.46
+neighbor point x: 3098.13 , y: 3414.46
+Vertex x: 3098.13 , y: 3414.46
+neighbor point x: 2801.28 , y: 3785.1
+neighbor point x: 2801.28 , y: 3785.1
+Vertex x: 1126.22 , y: 3468.5
+Vertex x: 3104.66 , y: 3372.78
+Cell: 284.18,2550.86
+x: 541.776, y: 4050.76
+x: 541.776, y: 4050.76
+x: 3104.66, y: 3372.78
+x: 1126.22, y: 3468.5
+x: 1126.22, y: 3468.5
+x: 1142.33, y: 3399.04
+x: 538.314, y: 1912.21
+x: -2918.25, y: 1171.23
+Vertex x: 541.776 , y: 4050.76
+neighbor point x: 1126.22 , y: 3468.5
+neighbor point x: 1126.22 , y: 3468.5
+Vertex x: 1126.22 , y: 3468.5
+neighbor point x: 541.776 , y: 4050.76
+neighbor point x: 541.776 , y: 4050.76
+Vertex x: 3104.66 , y: 3372.78
+Vertex x: 1142.33 , y: 3399.04
+Vertex x: 538.314 , y: 1912.21
+Vertex x: -2918.25 , y: 1171.23
+Cell: 4169.44,4518.71
+x: 4332.21, y: 5474.47
+x: 4332.21, y: 5474.47
+x: 3852.39, y: 5234.6
+x: 3852.39, y: 5234.6
+x: 3793.3, y: 4475.82
+x: 5231.23, y: 4375.31
+x: 5231.23, y: 4375.31
+Vertex x: 3852.39 , y: 5234.6
+neighbor point x: 4332.21 , y: 5474.47
+neighbor point x: 4332.21 , y: 5474.47
+neighbor point x: 4332.21 , y: 5474.47
+neighbor point x: 4332.21 , y: 5474.47
+neighbor point x: 4332.21 , y: 5474.47
+neighbor point x: 3793.3 , y: 4475.82
+Vertex x: 4332.21 , y: 5474.47
+neighbor point x: 3852.39 , y: 5234.6
+neighbor point x: 3852.39 , y: 5234.6
+neighbor point x: 3852.39 , y: 5234.6
+neighbor point x: 3852.39 , y: 5234.6
+neighbor point x: 3852.39 , y: 5234.6
+neighbor point x: 5231.23 , y: 4375.31
+neighbor point x: 5231.23 , y: 4375.31
+Vertex x: 5231.23 , y: 4375.31
+neighbor point x: 4332.21 , y: 5474.47
+neighbor point x: 4332.21 , y: 5474.47
+Vertex x: 3793.3 , y: 4475.82
+neighbor point x: 3852.39 , y: 5234.6
+Cell: 436.532,220.239
+x: 8067.87, y: 908.839
+x: 1791.08, y: 927.703
+x: 1670.3, y: 569.803
+x: -2918.25, y: 1171.23
+x: -2918.25, y: 1171.23
+x: 4248.7, y: -31216.5
+Vertex x: -2918.25 , y: 1171.23
+neighbor point x: 1670.3 , y: 569.803
+neighbor point x: 1670.3 , y: 569.803
+Vertex x: 8067.87 , y: 908.839
+Vertex x: 1791.08 , y: 927.703
+Vertex x: 1670.3 , y: 569.803
+neighbor point x: -2918.25 , y: 1171.23
+neighbor point x: -2918.25 , y: 1171.23
+neighbor point x: 4248.7 , y: -31216.5
+Vertex x: 4248.7 , y: -31216.5
+neighbor point x: 1670.3 , y: 569.803
+Cell: 4057.87,2105.56
+x: 4070.14, y: 2696.44
+x: 4070.14, y: 2696.44
+x: 4793.47, y: 2736.14
+Vertex x: 4070.14 , y: 2696.44
+Vertex x: 4793.47 , y: 2736.14
+Cell: 3331.08,8714.15
+x: 2970.02, y: 11196.8
+x: 2970.02, y: 11196.8
+x: 2009.39, y: 9160.02
+x: 2439.22, y: 8154.38
+Vertex x: 2970.02 , y: 11196.8
+neighbor point x: 2009.39 , y: 9160.02
+Vertex x: 2009.39 , y: 9160.02
+neighbor point x: 2970.02 , y: 11196.8
+neighbor point x: 2439.22 , y: 8154.38
+Vertex x: 2439.22 , y: 8154.38
+neighbor point x: 2009.39 , y: 9160.02
 

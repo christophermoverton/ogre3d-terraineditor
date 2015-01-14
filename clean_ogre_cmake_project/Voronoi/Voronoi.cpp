@@ -135,8 +135,7 @@ Edges * Voronoi::GetEdges(Vertices * v, int w, int h)
 	}
 	ss5 << "Hitting Voronoi test2 !" << "\n";
 //    	tlog->logMessage(ss5.str());
-	myfile << ss5.str();
-	myfile.close();
+
     	ss5.str(std::string());
 	VEvent * e;
 	while(!queue.empty())
@@ -158,7 +157,8 @@ Edges * Voronoi::GetEdges(Vertices * v, int w, int h)
 //	myfile << ss5.str();
     	ss5.str(std::string());	
 	FinishEdge(root);
-
+	myfile << ss5.str();
+	myfile.close();
 	for(Edges::iterator i = edges->begin(); i != edges->end(); ++i)
 	{
 		if( (*i)->neighbour) 
@@ -345,10 +345,10 @@ void	Voronoi::RemoveParabola(VEvent * e)
 			else {
 				vor::Vertices * vertices = new Vertices();
 				vertices->push_back(celldat->intersection);
-				(*siteedgeverts)[celldat->siteEdge] = vertices;
+				(*siteedgeverts)[celldat->siteEdge->neighbour] = vertices;
 			}
 		} 
-		*/ 
+		//*/ 
 		else {
 			vor::Vertices * vertices = new Vertices();
 			vertices->push_back(celldat->intersection);
@@ -361,17 +361,17 @@ void	Voronoi::RemoveParabola(VEvent * e)
 
 		}
 		/*
-		else if (celldat->siteEdge->neighbour != 0){
-			if ((*siteedgeverts).find(celldat->siteEdge->neighbour) != (*siteedgeverts).end()){
-				(*siteedgeverts)[celldat->siteEdge->neighbour]->push_back(celldat->intersection);
+		else if (celldat->siteEdge2->neighbour != 0){
+			if ((*siteedgeverts).find(celldat->siteEdge2->neighbour) != (*siteedgeverts).end()){
+				(*siteedgeverts)[celldat->siteEdge2->neighbour]->push_back(celldat->intersection);
 			}
 			else {
 				vor::Vertices * vertices = new Vertices();
 				vertices->push_back(celldat->intersection);
-				(*siteedgeverts)[celldat->siteEdge] = vertices;
+				(*siteedgeverts)[celldat->siteEdge2->neighbour] = vertices;
 			}
 		} 
-		*/ 
+		//*/ 
 		else {
 			vor::Vertices * vertices = new Vertices();
 			vertices->push_back(celldat->intersection);
@@ -407,10 +407,10 @@ void	Voronoi::RemoveParabola(VEvent * e)
 			else{
 				vor::Vertices * vertices = new Vertices();
 				vertices->push_back(celldat->intersection);
-				(*leftedgeverts)[celldat->LeftEdge] = vertices;
+				(*leftedgeverts)[celldat->LeftEdge->neighbour] = vertices;
 			}
 		}
-		*/
+		//*/
 		else {
 			vor::Vertices * vertices = new Vertices();
 			vertices->push_back(celldat->intersection);
@@ -750,18 +750,49 @@ void	Voronoi::CheckCircle(VParabola * b)
 //easier.
 
   	VoronoiCellDat * celldat = new VoronoiCellDat(cell->sitePos);
-	celldat->siteEdge = b->parent->edge;  //no edge data here  needs update
-	if (lp->edge == celldat->siteEdge){
-		celldat->siteEdge2 = rp->edge;
+	bool leftnode = false; 
+	//bool parentnodeleft = false;
+	if (!b->parent->parent){
+		celldat->siteEdge = b->parent->edge;
 	}
-	else {
-		celldat->siteEdge2 = lp->edge;
+	else{
+		
+		if (b->parent->edge == b->parent->parent->edge->neighbour){
+			celldat->siteEdge = b->parent->parent->edge;
+			leftnode = true;
+		}
+		else{
+			celldat->siteEdge = b->parent->edge;  //no edge data here  needs update
+		}
 	}
-	celldat->LeftPSite = a->site;
-	celldat->LeftEdge = lp->edge;
-	celldat->RightPSite = c->site;
-	celldat->RightEdge = rp->edge;
-	celldat->intersection = s;
+	
+	if (!leftnode){
+		//redundant check?
+		if (lp->edge == celldat->siteEdge){
+			celldat->siteEdge2 = rp->edge;
+		}
+		else {
+			celldat->siteEdge2 = lp->edge;
+		}
+		celldat->LeftPSite = a->site;
+		celldat->LeftEdge = lp->edge;
+		celldat->RightPSite = c->site;
+
+		celldat->RightEdge = rp->edge;
+	
+		celldat->intersection = s;
+
+	}
+	else{
+		celldat->siteEdge2 = lp->parent->edge;
+		celldat->LeftPSite = a->site;
+		celldat->LeftEdge = lp->parent->edge;
+		celldat->RightPSite = c->site;
+		celldat->RightEdge = rp->parent->edge;	
+		//celldat->RightEdge = rp->edge;
+		celldat->intersection = s;
+	}
+
 	/*
 	cell->places->push_back(s);
 	if((*cells).find((lp->site)) != (*cells).end()){
