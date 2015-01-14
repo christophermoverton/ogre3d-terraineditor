@@ -11,6 +11,7 @@ VParabola::VParabola()
 	isLeaf	= false;
 	cEvent	= 0;
 	edge	= 0;
+	rootedge = 0;
 	parent	= 0;
 }
 
@@ -20,6 +21,7 @@ VParabola::VParabola(VPoint * s)
 	isLeaf	= true;
 	cEvent	= 0;
 	edge	= 0;
+	rootedge = 0;
 	parent	= 0;
 }
 

@@ -185,10 +185,12 @@ void	Voronoi::InsertParabola(VPoint * p)
 		points.push_back(s);
 		if(p->x > fp->x) {
 			root->edge = new VEdge(s, fp, p);
+			root->rootedge = new VEdge(s, fp, p);
 			cell -> edges->push_back(root->edge);
 		} // rozhodnu, kter vlevo, kter vpravo
 		else {
 			root->edge = new VEdge(s, p, fp);
+			root->rootedge = root->edge;
 			cell -> edges->push_back(root->edge);
 		}
 		edges->push_back(root->edge);
@@ -268,6 +270,7 @@ void	Voronoi::InsertParabola(VPoint * p)
 
 	*/
 	par->edge = er;
+	par->rootedge = er;
 	par->isLeaf = false;
 
 	VParabola * p0 = new VParabola(par->site);
@@ -277,6 +280,7 @@ void	Voronoi::InsertParabola(VPoint * p)
 	par->SetRight(p2);
 	par->SetLeft(new VParabola());
 	par->Left()->edge = el;
+	par->Left()->rootedge = er;
 
 	par->Left()->SetLeft(p0);
 	par->Left()->SetRight(p1);
@@ -315,6 +319,172 @@ void	Voronoi::RemoveParabola(VEvent * e)
 	VoronoiCellDat * celldat = (*cellsdat)[e];
 	
 	//cell->places->push_back(s);
+	if((*cells).find((p1->site)) != (*cells).end()){
+		VoronoiCell * siteposcell = (*cells)[p1->site];  //should be assignment to a pointer so may need & on the right
+		siteposcell->places->push_back(p);
+		VertEdges * sitevertedges = siteposcell->vertedges;
+		EdgeVerts * siteedgeverts = siteposcell->edgeverts;
+		VEdge * edge2; 
+		if (p1->parent->rootedge == xl->rootedge){
+			edge2 = xr->rootedge;
+		}
+		else {
+			edge2 = xl->rootedge;
+		}
+		
+		if ((*sitevertedges).find(p)!= (*sitevertedges).end()) {
+			(*sitevertedges)[p]->push_back(p1->parent->rootedge);
+			
+			(*sitevertedges)[p]->push_back(edge2);	
+		}
+		else {
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(p1->parent->rootedge);
+			nedges->push_back(edge2);
+			(*sitevertedges)[p] = nedges;
+			
+		}
+		
+		//(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
+		if ((*siteedgeverts).find(p1->parent->rootedge) != (*siteedgeverts).end()){
+			(*siteedgeverts)[p1->parent->rootedge]->push_back(p);
+		}
+		/*
+		else if (celldat->siteEdge->neighbour != 0){
+			if ((*siteedgeverts).find(celldat->siteEdge->neighbour) != (*siteedgeverts).end()){
+				(*siteedgeverts)[celldat->siteEdge->neighbour]->push_back(celldat->intersection);
+
+			}
+			else {
+				vor::Vertices * vertices = new Vertices();
+
+				vertices->push_back(celldat->intersection);
+
+				(*siteedgeverts)[celldat->siteEdge->neighbour] = vertices;
+			}
+		} 
+		//*/ 
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(p);
+			(*siteedgeverts)[p1->parent->rootedge] = vertices; 
+		}
+		//(*siteedgeverts)[celldat->siteEdge]->push_back(celldat->intersection);
+		if ((*siteedgeverts).find(edge2) != (*siteedgeverts).end()){
+
+			(*siteedgeverts)[edge2]->push_back(p);
+
+		}
+		/*
+		else if (celldat->siteEdge2->neighbour != 0){
+			if ((*siteedgeverts).find(celldat->siteEdge2->neighbour) != (*siteedgeverts).end()){
+				(*siteedgeverts)[celldat->siteEdge2->neighbour]->push_back(celldat->intersection);
+			}
+
+			else {
+
+				vor::Vertices * vertices = new Vertices();
+				vertices->push_back(celldat->intersection);
+				(*siteedgeverts)[celldat->siteEdge2->neighbour] = vertices;
+
+			}
+
+		} 
+		//*/ 
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(p);
+			(*siteedgeverts)[edge2] = vertices; 
+		}
+	} 
+	if((*cells).find((p0->site)) != (*cells).end()){
+		VoronoiCell * lpcell = (*cells)[p0->site];  //should be assignment to a pointer so may need & on the right
+		lpcell->places->push_back(p);
+		VertEdges * leftvertedges = lpcell->vertedges;
+		EdgeVerts * leftedgeverts = lpcell->edgeverts;
+
+		if ((*leftvertedges).find(p)!= (*leftvertedges).end()) {
+			(*leftvertedges)[p]->push_back(xl->rootedge);
+			
+		}
+		else {
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(xl->rootedge);
+			(*leftvertedges)[p] = nedges;
+			
+		}
+		
+		//(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
+		if ((*leftedgeverts).find(xl->rootedge) != (*leftedgeverts).end()){
+			(*leftedgeverts)[xl->rootedge]->push_back(p);
+		}
+		/*
+		else if(celldat->LeftEdge->neighbour != 0) {
+			if ((*leftedgeverts).find(celldat->LeftEdge->neighbour) != (*leftedgeverts).end()){
+
+			(*leftedgeverts)[celldat->LeftEdge->neighbour]->push_back(celldat->intersection);
+			}
+
+			else{
+				vor::Vertices * vertices = new Vertices();
+
+				vertices->push_back(celldat->intersection);
+				(*leftedgeverts)[celldat->LeftEdge->neighbour] = vertices;
+			}
+		}
+		//*/
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(p);
+			(*leftedgeverts)[xl->rootedge] = vertices; 
+		}
+		//(*leftvertedges)[celldat->intersection]->push_back(celldat->LeftEdge);
+		//(*leftedgeverts)[celldat->LeftEdge]->push_back(celldat->intersection);
+	} 
+
+	if((*cells).find((p2->site)) != (*cells).end()){
+		VoronoiCell * rpcell = (*cells)[p2->site];  //should be assignment to a pointer so may need & on the right
+		rpcell->places->push_back(p);
+		VertEdges * rightvertedges = rpcell->vertedges;
+		EdgeVerts * rightedgeverts = rpcell->edgeverts;
+
+		if ((*rightvertedges).find(p)!= (*rightvertedges).end()) {
+			(*rightvertedges)[p]->push_back(xr->rootedge);
+			
+		}
+		else {
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(xr->rootedge);
+			(*rightvertedges)[p] = nedges;
+			
+		}
+		
+		//(*sitevertedges)[celldat->intersection]->push_back(celldat->siteEdge);
+		if ((*rightedgeverts).find(xr->rootedge) != (*rightedgeverts).end()){
+			(*rightedgeverts)[xr->rootedge]->push_back(p);
+		}
+		/*
+		else if (celldat->RightEdge->neighbour != 0){
+			if ((*rightedgeverts).find(celldat->RightEdge->neighbour) != (*rightedgeverts).end()){
+				(*rightedgeverts)[celldat->RightEdge->neighbour]->push_back(celldat->intersection);
+			}
+			else {
+				vor::Vertices * vertices = new Vertices();
+				vertices->push_back(celldat->intersection);
+				(*rightedgeverts)[celldat->RightEdge] = vertices; 
+			}
+
+		}
+		*/
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(p);
+			(*rightedgeverts)[xr->rootedge] = vertices; 
+		}
+		//(*rightvertedges)[celldat->intersection]->push_back(celldat->RightEdge);
+		//(*rightedgeverts)[celldat->RightEdge]->push_back(celldat->intersection);
+	} 
+	/*
 	if((*cells).find((celldat->sitePos)) != (*cells).end()){
 		VoronoiCell * siteposcell = (*cells)[celldat->sitePos];  //should be assignment to a pointer so may need & on the right
 		siteposcell->places->push_back(celldat->intersection);
@@ -349,6 +519,7 @@ void	Voronoi::RemoveParabola(VEvent * e)
 			}
 		} 
 		//*/ 
+		/*
 		else {
 			vor::Vertices * vertices = new Vertices();
 			vertices->push_back(celldat->intersection);
@@ -371,7 +542,8 @@ void	Voronoi::RemoveParabola(VEvent * e)
 				(*siteedgeverts)[celldat->siteEdge2->neighbour] = vertices;
 			}
 		} 
-		//*/ 
+		//*/
+		/* 
 		else {
 			vor::Vertices * vertices = new Vertices();
 			vertices->push_back(celldat->intersection);
@@ -411,6 +583,7 @@ void	Voronoi::RemoveParabola(VEvent * e)
 			}
 		}
 		//*/
+		/*
 		else {
 			vor::Vertices * vertices = new Vertices();
 			vertices->push_back(celldat->intersection);
@@ -453,6 +626,7 @@ void	Voronoi::RemoveParabola(VEvent * e)
 			}
 		}
 		*/
+		/*
 		else {
 			vor::Vertices * vertices = new Vertices();
 			vertices->push_back(celldat->intersection);
@@ -461,7 +635,7 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		//(*rightvertedges)[celldat->intersection]->push_back(celldat->RightEdge);
 		//(*rightedgeverts)[celldat->RightEdge]->push_back(celldat->intersection);
 	} 
-
+	*/
 	/*  So with appending the data, it occurred to me that the algorithm isn't 
 	    much concerned with where the voronoi cells are in relation to the a given 
 	    boundary for the entire map.
@@ -478,6 +652,7 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		if(par == xr) higher = xr;
 	}
 	higher->edge = new VEdge(p, p0->site, p2->site);
+	higher->rootedge = new VEdge(p, p0->site, p2->site);
 	edges->push_back(higher->edge);
 
 	/* 
@@ -486,8 +661,67 @@ void	Voronoi::RemoveParabola(VEvent * e)
 		appended up above to the voronoi cell class, we just need to ensure that the new
 		edge to vertex and vertex to edge relation is provisioned here.
 	*/
-	
+	if((*cells).find((p0->site)) != (*cells).end()){
+		VoronoiCell * p0cell = (*cells)[p0->site]; 
+		VertEdges * p0vertedges = p0cell->vertedges;
+		EdgeVerts * p0edgeverts = p0cell->edgeverts;
+		if ((*p0vertedges).find(p)!= (*p0vertedges).end()) {
+			(*p0vertedges)[p]->push_back(higher->edge);
+			
+		}
+		else {
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(higher->edge);
+			(*p0vertedges)[p] = nedges;
+			
+		}
+		if ((*p0edgeverts).find(higher->edge) != (*p0edgeverts).end()){
+			(*p0edgeverts)[higher->edge]->push_back(p);
+		}
+		/*
+		else if ((*p0edgeverts).find(higher->edge->neighbour) != (*p0edgeverts).end()){
+			(*p0edgeverts)[higher->edge->neighbour]->push_back(celldat->intersection);
 
+		}
+
+		*/
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(p);
+			(*p0edgeverts)[higher->edge] = vertices; 
+		}
+	}
+
+	if((*cells).find((p2->site)) != (*cells).end()){
+		VoronoiCell * p2cell = (*cells)[p2->site]; 
+		VertEdges * p2vertedges = p2cell->vertedges;
+		EdgeVerts * p2edgeverts = p2cell->edgeverts;
+		if ((*p2vertedges).find(p)!= (*p2vertedges).end()) {
+			(*p2vertedges)[p]->push_back(higher->edge);
+			
+		}
+		else {
+			vor::Edges * nedges = new Edges();
+			nedges->push_back(higher->edge);
+			(*p2vertedges)[p] = nedges;
+			
+		}
+		if ((*p2edgeverts).find(higher->edge) != (*p2edgeverts).end()){
+			(*p2edgeverts)[higher->edge]->push_back(p);
+		}
+		/*
+		else if ((*p2edgeverts).find(higher->edge->neighbour) != (*p2edgeverts).end()){
+			(*p2edgeverts)[higher->edge->neighbour]->push_back(celldat->intersection);
+		}
+		*/
+		else {
+			vor::Vertices * vertices = new Vertices();
+			vertices->push_back(p);
+			(*p2edgeverts)[higher->edge] = vertices; 
+		}
+	}
+		
+        /*
 	if((*cells).find((p0->site)) != (*cells).end()){
 		VoronoiCell * p0cell = (*cells)[p0->site]; 
 		VertEdges * p0vertedges = p0cell->vertedges;
@@ -510,6 +744,7 @@ void	Voronoi::RemoveParabola(VEvent * e)
 			(*p0edgeverts)[higher->edge->neighbour]->push_back(celldat->intersection);
 		}
 		*/
+	/*
 		else {
 			vor::Vertices * vertices = new Vertices();
 			vertices->push_back(celldat->intersection);
@@ -539,13 +774,14 @@ void	Voronoi::RemoveParabola(VEvent * e)
 			(*p2edgeverts)[higher->edge->neighbour]->push_back(celldat->intersection);
 		}
 		*/
+	/*
 		else {
 			vor::Vertices * vertices = new Vertices();
 			vertices->push_back(celldat->intersection);
 			(*p2edgeverts)[higher->edge] = vertices; 
 		}
 	}
-	
+	*/
 	VParabola * gparent = p1->parent->parent;
 	if(p1->parent->Left() == p1)
 	{
@@ -749,11 +985,20 @@ void	Voronoi::CheckCircle(VParabola * b)
 // key of the map data structure called cellsdat.  This key value pairing makes data lookup retrieval
 //easier.
 
-  	VoronoiCellDat * celldat = new VoronoiCellDat(cell->sitePos);
+  	VoronoiCellDat * celldat = new VoronoiCellDat(b->site); //used originally cell->sitePos
 	bool leftnode = false; 
 	//bool parentnodeleft = false;
-	if (!b->parent->parent){
-		celldat->siteEdge = b->parent->edge;
+	//if (!b->parent->parent){
+		celldat->siteEdge = b->parent->rootedge;
+		celldat->LeftPSite = a->site;
+		celldat->LeftEdge = lp->rootedge;
+		celldat->RightPSite = c->site;
+
+		celldat->RightEdge = rp->rootedge;
+	
+
+		celldat->intersection = s;	
+	/*
 	}
 	else{
 		

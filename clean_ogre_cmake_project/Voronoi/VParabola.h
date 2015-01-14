@@ -31,6 +31,7 @@ public:
 	bool		isLeaf;
 	VPoint *	site;
 	VEdge *		edge;
+	VEdge *         rootedge;
 	VEvent *	cEvent;
 	VParabola * parent;
 
