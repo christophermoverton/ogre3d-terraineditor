@@ -109,13 +109,19 @@ BuildVoronoi::BuildVoronoi(){
 		if ((*cellspost).find((*i)->left) != (*cellspost).end()){
 
 			VoronoiCell * siteposcell = (*cellspost)[(*i)->left];
-			siteposcell->places->push_back((*i)->start);
-			siteposcell->places->push_back((*i)->end);
+			if ((siteposcell->places).find((*i)->start) == (siteposcell->places).end()){
+				siteposcell->places->push_back((*i)->start);
+			}
+			if ((siteposcell->places).find((*i)->end) == (siteposcell->places).end()){
+				siteposcell->places->push_back((*i)->end);
+			}
 			vor::VertEdges * sitevertedges = siteposcell->vertedges;
 			vor::EdgeVerts * siteedgeverts = siteposcell->edgeverts;
 			///*
 			if ((*sitevertedges).find((*i)->start) != (*sitevertedges).end()){
-				(*sitevertedges)[(*i)->start]->push_back(*i);
+				if ((*sitevertedges)[(*i)->start].find(*i) == (*sitevertedges)[(*i)->start].end()) {
+					(*sitevertedges)[(*i)->start]->push_back(*i);
+				}
 			}
 			else{
 				vor::Edges * nedges = new vor::Edges();
@@ -125,7 +131,9 @@ BuildVoronoi::BuildVoronoi(){
 				
 			}
 			if ((*sitevertedges).find((*i)->end) != (*sitevertedges).end()){
-				(*sitevertedges)[(*i)->end]->push_back(*i);
+				if ((*sitevertedges)[(*i)->end].find(*i) == (*sitevertedges)[(*i)->end].end()) {
+					(*sitevertedges)[(*i)->end]->push_back(*i);
+				}
 			}
 			else{
 				vor::Edges * nedges = new vor::Edges();
@@ -135,8 +143,12 @@ BuildVoronoi::BuildVoronoi(){
 				
 			}
 			if ((*siteedgeverts).find((*i)) != (*siteedgeverts).end()){
-				(*siteedgeverts)[(*i)]->push_back((*i)->start);
-				(*siteedgeverts)[(*i)]->push_back((*i)->end);
+				if ((*siteedgeverts)[(*i)].find((*i)->start) == (*siteedgeverts)[(*i)].end()) {
+					(*siteedgeverts)[(*i)]->push_back((*i)->start);
+				}
+				if ((*siteedgeverts)[(*i)].find((*i)->end) == (*siteedgeverts)[(*i)].end()) {
+					(*siteedgeverts)[(*i)]->push_back((*i)->end);
+				}
 			}
 			else{
 				vor::Vertices * verts = new vor::Vertices();
@@ -173,12 +185,19 @@ BuildVoronoi::BuildVoronoi(){
 		if ((*cellspost).find((*i)->right)!= (*cellspost).end()){
 
 			VoronoiCell * siteposcell = (*cellspost)[(*i)->right];
-			siteposcell->places->push_back((*i)->start);
-			siteposcell->places->push_back((*i)->end);
+			if ((siteposcell->places).find((*i)->start) == (siteposcell->places).end()){
+				siteposcell->places->push_back((*i)->start);
+			}
+			if ((siteposcell->places).find((*i)->end) == (siteposcell->places).end()){
+				siteposcell->places->push_back((*i)->end);
+			}
 			vor::VertEdges * sitevertedges = siteposcell->vertedges;
 			vor::EdgeVerts * siteedgeverts = siteposcell->edgeverts;
+			///*
 			if ((*sitevertedges).find((*i)->start) != (*sitevertedges).end()){
-				(*sitevertedges)[(*i)->start]->push_back(*i);
+				if ((*sitevertedges)[(*i)->start].find(*i) == (*sitevertedges)[(*i)->start].end()) {
+					(*sitevertedges)[(*i)->start]->push_back(*i);
+				}
 			}
 			else{
 				vor::Edges * nedges = new vor::Edges();
@@ -188,7 +207,9 @@ BuildVoronoi::BuildVoronoi(){
 				
 			}
 			if ((*sitevertedges).find((*i)->end) != (*sitevertedges).end()){
-				(*sitevertedges)[(*i)->end]->push_back(*i);
+				if ((*sitevertedges)[(*i)->end].find(*i) == (*sitevertedges)[(*i)->end].end()) {
+					(*sitevertedges)[(*i)->end]->push_back(*i);
+				}
 			}
 			else{
 				vor::Edges * nedges = new vor::Edges();
@@ -198,17 +219,23 @@ BuildVoronoi::BuildVoronoi(){
 				
 			}
 			if ((*siteedgeverts).find((*i)) != (*siteedgeverts).end()){
-				(*siteedgeverts)[(*i)]->push_back((*i)->start);
-				(*siteedgeverts)[(*i)]->push_back((*i)->end);
+				if ((*siteedgeverts)[(*i)].find((*i)->start) == (*siteedgeverts)[(*i)].end()) {
+					(*siteedgeverts)[(*i)]->push_back((*i)->start);
+				}
+				if ((*siteedgeverts)[(*i)].find((*i)->end) == (*siteedgeverts)[(*i)].end()) {
+					(*siteedgeverts)[(*i)]->push_back((*i)->end);
+				}
 			}
 			else{
 				vor::Vertices * verts = new vor::Vertices();
+
 				verts->push_back((*i)->start);
+
 				verts->push_back((*i)->end);
 				(*siteedgeverts)[(*i)] = verts;
 				
 			}
-
+			//*/
 			
 		}
 		else{
@@ -318,7 +345,7 @@ vor::Vertices* traverseCellPath(vor::Vertices * pathlist, vor::VertEdges * bvert
 		vor::Vertices * instverts = (*bedgeverts)[*k];
 		for(vor::Vertices::iterator l = instverts->begin(); l != instverts->end();l++) {
 			bool checkpath = false;
-			vor::VPoint * mathpoint;
+			vor::VPoint * matchpoint;
 			for (vor::Vertices::iterator m = pathlist->begin(); m != pathlist->end();m++){
 				if (*l == *m){
 					checkpath = true;
@@ -327,9 +354,11 @@ vor::Vertices* traverseCellPath(vor::Vertices * pathlist, vor::VertEdges * bvert
 			}
 			if (!checkpath){
 				vor::Vertices * pathlist2 = traverseCellPath(pathlist, bvertedges, bedgeverts, l);
-				for (){  //this will likely need to do ordered insertions on the list stack.
+				for (vor::Vertices::iterator m = pathlist2->begin(); m != pathlist2->end();m++){  
+					//this will likely need to do ordered insertions on the list stack.
 					 //push_back and push_front may not be adequate list populating, or
 					 //in other words there is possibility for an interior edge crossing.
+					
 				}
 			}
 			else {
