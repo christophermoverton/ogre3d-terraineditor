@@ -227,7 +227,7 @@ void	Voronoi::InsertParabola(VPoint * p)
 	VEdge * er = new VEdge(start, p, par->site);
 
 	el->neighbour = er;
-	er->neighbour = el;
+	//er->neighbour = el;
 	cell -> edges->push_back(el);
 
 	if((*cells).find((par->site)) != (*cells).end()){

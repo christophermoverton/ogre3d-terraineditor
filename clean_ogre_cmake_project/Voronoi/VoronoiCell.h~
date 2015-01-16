@@ -66,6 +66,7 @@ namespace vor{
 		vor::VertEdges *                       vertedges;
 		vor::EdgeVerts *                       edgeverts;
 		vor::Vertices *                   cellpolypoints;
+		vor::Vertices *                       duplicates; //vertices may have 2 or 4 neighboring vertices.  Tracking 4.
 		VoronoiCell(VPoint * point){
 			sitePos = point;
 			places = new vor::Vertices();
@@ -98,6 +99,7 @@ namespace vor{
 			VEdge  *                        RightEdge;
 			VPoint *         		sitePos;
 			VEdge  *                        siteEdge;
+			VEdge  *                        siteEdge2;
 			VoronoiCellDat(VPoint * spos){
 				sitePos = spos;
 				
