@@ -42,6 +42,7 @@ class BuildVoronoi{
 		void rayCastLine(double f, double g, VPoint * start, VPoint * end);
 		void rayCastLine(double f, double g, VPoint * start);  //overloaded function for incomplete edge
 		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, vor::VertEdges * bvertedges, vor::EdgeVerts * bedgeverts, VPoint * position);
+		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, VoronoiCell * cell, VPoint * position, bool pushfront);
 };
 
 BuildVoronoi::BuildVoronoi(){
@@ -512,6 +513,57 @@ vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, vor::Ver
 			}
 			else {
 			}
+		}
+	}
+	return pathlist;
+}
+
+vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, VoronoiCell * cell, VPoint * position, bool pushfront){
+	//reursive function traverses voronoi cell path 
+	//position should automatically be populated in pathlist (initially). pathlist->push_back(position);
+	vor::VertEdges * bvertedges = cell->vertedges;
+	vor::EdgeVerts * bedgeverts = cell->edgeverts;
+	vor::Edges * edges = (*bvertedges)[position];
+	vor::Vertices * pointstrack = cell->duplicates;
+	if (!pushfront){
+		pathlist->push_back(position);
+	}
+	else{
+		pathlist->push_front(position);
+	}
+	//bool pushfront = false;
+	int ocount = 0;
+	for (vor::Edges::iterator k = edges->begin(); k != edges->end(); k++){
+		vor::Vertices * instverts = (*bedgeverts)[*k];
+		for(vor::Vertices::iterator l = instverts->begin(); l != instverts->end();l++) {
+			bool checkpath = false;
+			//VPoint * matchpoint;
+			for (vor::Vertices::iterator m = pathlist->begin(); m != pathlist->end();m++){
+				if (*l == *m){
+					checkpath = true;
+					//matchpoint = new VPoint((*m)->x, (*m)->y);
+				
+				}
+			}
+			if (!checkpath){
+				bool checkpath2 = false;
+				for (vor::Vertices::iterator n = pointstrack->begin(); n != pointstrack->end();n++){
+					if (*l == *n){
+						checkpath2 = true;
+						pathlist->push_front(*l);
+						break;
+					}
+				}
+				if (!checkpath2){
+					if (ocount > 0){
+						pushfront = true;
+					}
+					vor::Vertices * pathlist = traverseCellPath(pathlist, cell, *l, pushfront);
+					ocount += 1;
+
+				}
+			}
+			
 		}
 	}
 	return pathlist;
