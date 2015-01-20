@@ -405,7 +405,6 @@ BuildVoronoi::BuildVoronoi(){
 		//cell = (*i).second;
 		vor::VertEdges * bvertedges = (*i).second->vertedges;
 		vor::EdgeVerts * bedgeverts = (*i).second->edgeverts;
-		
 		for(vor::VertEdges::iterator j = bvertedges->begin(); j != bvertedges->end(); j++){
 			VPoint * cellvertex = (*j).first;
 			ss5 << "Vertex x: " << cellvertex->x << " , y: " << cellvertex->y << "\n";
@@ -436,8 +435,13 @@ BuildVoronoi::BuildVoronoi(){
 					pointstrack->push_back(*l);
 				}
 			}
+
 		}
-		
+
+		//insert here recursive pathlist build
+		vor::VertEdges::iterator j = bvertedges->begin();
+		vor::Vertices * pathlist = new vor::Vertices();
+		cell->cellpolypoints = traverseCellPath(pathlist, cell, *j, false);		
 	}
 //*/
 	tlog2->logMessage(ss5.str());
