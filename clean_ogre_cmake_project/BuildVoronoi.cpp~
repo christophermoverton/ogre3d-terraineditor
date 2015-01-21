@@ -435,6 +435,7 @@ BuildVoronoi::BuildVoronoi(){
 					if (*l != cellvertex){
 						//compute line points with this neighbor vertex as boundary
 						ss5 << "neighbor point x: " << (*l)->x << " , y: " << (*l)->y << "\n";
+						
 						for(vor::Vertices::iterator m = pointstrack->begin(); m != pointstrack->end();l++) {
 							if (*m == *l){
 								(*i).second->duplicates->push_back(cellvertex);
@@ -445,27 +446,28 @@ BuildVoronoi::BuildVoronoi(){
 							
 						}
 						pointstrack->push_back(*l);
+						
 					}
 					
 				}
 			}
 			(*pointstrack).clear();
-			while(!(*pointstrack).empty()) delete (*pointstrack).front(), (*pointstrack).pop_front();
+			//while(!(*pointstrack).empty()) delete (*pointstrack).front(), (*pointstrack).pop_front();
 
 		}
 
 		//insert here recursive pathlist build
 		vor::VertEdges::iterator j = bvertedges->begin();
 		vor::Vertices * pathlist = new vor::Vertices();
-		(*i).second->cellpolypoints = traverseCellPath(pathlist, (*i).second, (*j).first, false);
-		pathlist = (*i).second->cellpolypoints;
+		//(*i).second->cellpolypoints = traverseCellPath(pathlist, (*i).second, (*j).first, false);
+		//pathlist = (*i).second->cellpolypoints;
 		vor::Vertices * dupls = (*i).second->duplicates;
 		for(vor::Vertices::iterator l = dupls->begin(); l != dupls->end();l++) {
 			ss5 << "Duplicates coordinate x: " << (*l)->x << ", y: " << (*l)->y << "\n";	
 		}
-		for(vor::Vertices::iterator l = pathlist->begin(); l != pathlist->end();l++) {
-			ss5 << "Path coordinate x: " << (*l)->x << ", y: " << (*l)->y << "\n";	
-		}
+		//for(vor::Vertices::iterator l = pathlist->begin(); l != pathlist->end();l++) {
+		//	ss5 << "Path coordinate x: " << (*l)->x << ", y: " << (*l)->y << "\n";	
+		//}
 		//centroid((*i).second);
 		
 		//ss5 << "Centroid coordinate x: " << (*i).second->centroid->x << ", y: " << (*i).second->centroid->y << "\n";

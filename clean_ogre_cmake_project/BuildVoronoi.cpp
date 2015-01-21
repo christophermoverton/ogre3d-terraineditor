@@ -435,7 +435,8 @@ BuildVoronoi::BuildVoronoi(){
 					if (*l != cellvertex){
 						//compute line points with this neighbor vertex as boundary
 						ss5 << "neighbor point x: " << (*l)->x << " , y: " << (*l)->y << "\n";
-						for(vor::Vertices::iterator m = pointstrack->begin(); m != pointstrack->end();l++) {
+						
+						for(vor::Vertices::iterator m = pointstrack->begin(); m != pointstrack->end();m++) {
 							if (*m == *l){
 								(*i).second->duplicates->push_back(cellvertex);
 								(*i).second->duplicates->push_back(*m);
@@ -445,12 +446,13 @@ BuildVoronoi::BuildVoronoi(){
 							
 						}
 						pointstrack->push_back(*l);
+						
 					}
 					
 				}
 			}
 			(*pointstrack).clear();
-			while(!(*pointstrack).empty()) delete (*pointstrack).front(), (*pointstrack).pop_front();
+			//while(!(*pointstrack).empty()) delete (*pointstrack).front(), (*pointstrack).pop_front();
 
 		}
 
