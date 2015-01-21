@@ -442,7 +442,10 @@ BuildVoronoi::BuildVoronoi(){
 		//insert here recursive pathlist build
 		vor::VertEdges::iterator j = bvertedges->begin();
 		vor::Vertices * pathlist = new vor::Vertices();
-		cell->cellpolypoints = traverseCellPath(pathlist, cell, *j, false);		
+		cell->cellpolypoints = traverseCellPath(pathlist, cell, *j, false);
+		centroid(cell);
+		//now that we have centroid computed we have completed relaxation step...at this point you can refeed 
+		//centroid coordinates for each back into this loop to recompute new voronoi diagram.		
 	}
 //*/
 	tlog2->logMessage(ss5.str());

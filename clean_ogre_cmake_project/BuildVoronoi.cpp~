@@ -442,7 +442,8 @@ BuildVoronoi::BuildVoronoi(){
 		//insert here recursive pathlist build
 		vor::VertEdges::iterator j = bvertedges->begin();
 		vor::Vertices * pathlist = new vor::Vertices();
-		cell->cellpolypoints = traverseCellPath(pathlist, cell, *j, false);		
+		cell->cellpolypoints = traverseCellPath(pathlist, cell, *j, false);
+		centroid(cell);		
 	}
 //*/
 	tlog2->logMessage(ss5.str());
@@ -595,5 +596,6 @@ void BuildVoronoi::centroid(VoronoiCell * cell){
 	A = .5f*A;
 	xc = 1.0f/(6.0f*A)*xc;
 	yc = 1.0f/(6.0f*A)*yc;
+	cell->centroid = new VPoint(xc, yc);
 }
 #endif
