@@ -67,6 +67,7 @@ namespace vor{
 		vor::EdgeVerts *                       edgeverts;
 		vor::Vertices *                   cellpolypoints;  //polygon vertices (ordered by neighboring relations).
 		vor::Vertices *                       duplicates; //vertices may have 2 or 4 neighboring vertices.  Tracking 4.
+		VPoint *                              centroid;
 		VoronoiCell(VPoint * point){
 			sitePos = point;
 			places = new vor::Vertices();
@@ -76,6 +77,7 @@ namespace vor{
 			edgeverts = new vor::EdgeVerts();
 			cellpolypoints = new vor::Vertices();
 			duplicates = new vor::Vertices();
+			//centroid = new VPoint();
 		}
 	//private:
 

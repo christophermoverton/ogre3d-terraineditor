@@ -43,6 +43,7 @@ class BuildVoronoi{
 		void rayCastLine(double f, double g, VPoint * start);  //overloaded function for incomplete edge
 		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, vor::VertEdges * bvertedges, vor::EdgeVerts * bedgeverts, VPoint * position);
 		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, VoronoiCell * cell, VPoint * position, bool pushfront);
+		void centroid(VoronoiCell * cell);
 };
 
 BuildVoronoi::BuildVoronoi(){
@@ -571,5 +572,29 @@ vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, VoronoiC
 		}
 	}
 	return pathlist;
+}
+
+void BuildVoronoi::centroid(VoronoiCell * cell){
+	vor::Vertices * cellverts = cell->cellpolypoints;
+	vor::Vertices::iterator i = cellverts->begin();
+	double A = 0; double xc = 0; double yc = 0;
+	double xi1,xi2, yi1,yi2;
+	while (i != cellverts->end()){
+		xi1 = *i->x; yi1 = *i->y;
+		i++;
+		//if (i != cellverts->end()){
+			xi2 = *i->x; yi2 = *i->y;
+			xc = (xi1 + xi2)*(xi1*yi2+xi2*yi1) + xc;
+			yc = (yi1 + yi2)*(xi1*yi2+xi2*yi1) + yc;
+			A = xi1*yi2+xi2*yi1 + A;
+		//}
+		//else{
+		//	break;
+		//}
+	}
+	A = .5f*A;
+	xc = 1.0f/(6.0f*A)*xc;
+	yc = 1.0f/(6.0f*A)*yc;
+	cell->centroid = new VPoint(xc, yc);
 }
 #endif
