@@ -42,7 +42,7 @@ class BuildVoronoi{
 		void rayCastLine(double f, double g, VPoint * start, VPoint * end);
 		void rayCastLine(double f, double g, VPoint * start);  //overloaded function for incomplete edge
 		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, vor::VertEdges * bvertedges, vor::EdgeVerts * bedgeverts, VPoint * position);
-		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, VoronoiCell * cell, VPoint * position, bool pushfront);
+		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, VoronoiCell * cell, VPoint * position, bool pushfront, int ct);
 		void centroid(VoronoiCell * cell);
 };
 
@@ -436,19 +436,29 @@ BuildVoronoi::BuildVoronoi(){
 						//compute line points with this neighbor vertex as boundary
 						ss5 << "neighbor point x: " << (*l)->x << " , y: " << (*l)->y << "\n";
 						
-						for(vor::Vertices::iterator m = pointstrack->begin(); m != pointstrack->end();l++) {
+						for(vor::Vertices::iterator m = pointstrack->begin(); m != pointstrack->end();m++) {
 							if (*m == *l){
-								(*i).second->duplicates->push_back(cellvertex);
-								(*i).second->duplicates->push_back(*m);
-								stopcheck = true;
+								vor::Vertices * dup = (*i).second->duplicates;
+								bool checkd = false;
+								for(vor::Vertices::iterator n = dup->begin(); n != dup->end();n++) {
+									if (*l == *n){
+										checkd = true;
+										break;
+									}
+								}
+								if (!checkd){
+									(*i).second->duplicates->push_back(cellvertex);
+									(*i).second->duplicates->push_back(*m);
+									stopcheck = true;
 								break;
+								}
 							}
 							
 						}
 						pointstrack->push_back(*l);
 						
 					}
-					
+					 
 				}
 			}
 			(*pointstrack).clear();
@@ -459,7 +469,7 @@ BuildVoronoi::BuildVoronoi(){
 		//insert here recursive pathlist build
 		vor::VertEdges::iterator j = bvertedges->begin();
 		vor::Vertices * pathlist = new vor::Vertices();
-		//(*i).second->cellpolypoints = traverseCellPath(pathlist, (*i).second, (*j).first, false);
+		(*i).second->cellpolypoints = traverseCellPath(pathlist, (*i).second, (*j).first, false, 0);
 		//pathlist = (*i).second->cellpolypoints;
 		vor::Vertices * dupls = (*i).second->duplicates;
 		for(vor::Vertices::iterator l = dupls->begin(); l != dupls->end();l++) {
@@ -553,7 +563,7 @@ vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, vor::Ver
 	return pathlist;
 }
 
-vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, VoronoiCell * cell, VPoint * position, bool pushfront){
+vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, VoronoiCell * cell, VPoint * position, bool pushfront, int ct){
 	//reursive function traverses voronoi cell path 
 	//position should automatically be populated in pathlist (initially). pathlist->push_back(position);
 	vor::VertEdges * bvertedges = cell->vertedges;
@@ -574,7 +584,7 @@ vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, VoronoiC
 			bool checkpath = false;
 			//VPoint * matchpoint;
 			for (vor::Vertices::iterator m = pathlist->begin(); m != pathlist->end();m++){
-				if (*l == *m){
+				if (((*l)->x == (*m)->x) and ((*l)->y == (*m)->y)){
 					checkpath = true;
 					//matchpoint = new VPoint((*m)->x, (*m)->y);
 				
@@ -583,7 +593,7 @@ vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, VoronoiC
 			if (!checkpath){
 				bool checkpath2 = false;
 				for (vor::Vertices::iterator n = pointstrack->begin(); n != pointstrack->end();n++){
-					if (*l == *n){
+					if (((*l)->x == (*n)->x) and ((*l)->y == (*n)->y)){
 						checkpath2 = true;
 						pathlist->push_front(*l);
 						break;
@@ -593,7 +603,11 @@ vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, VoronoiC
 					if (ocount > 0){
 						pushfront = true;
 					}
-					vor::Vertices * pathlist = traverseCellPath(pathlist, cell, *l, pushfront);
+					//if (ct < 1){
+					//	ct += 1;
+				
+					pathlist = traverseCellPath(pathlist, cell, *l, pushfront, ct);
+					//}
 					ocount += 1;
 
 				}
