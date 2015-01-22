@@ -482,7 +482,9 @@ BuildVoronoi::BuildVoronoi(){
 		
 		ss5 << "Centroid coordinate x: " << (*i).second->centroid->x << ", y: " << (*i).second->centroid->y << "\n";
 		//now that we have centroid computed we have completed relaxation step...at this point you can refeed 
-		//centroid coordinates for each back into this loop to recompute new voronoi diagram.		
+		//centroid coordinates for each back into this loop to recompute new voronoi diagram.  It appears that the given
+		//formulation for a finite set of points on the polygon is not right...or something is off...I might try 
+		//a geometric decomposition approach to see if the result is the same.		
 	}
 //*/
 	tlog2->logMessage(ss5.str());
@@ -595,7 +597,7 @@ vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, VoronoiC
 				for (vor::Vertices::iterator n = pointstrack->begin(); n != pointstrack->end();n++){
 					if (((*l)->x == (*n)->x) and ((*l)->y == (*n)->y)){
 						checkpath2 = true;
-						pathlist->push_front(*l);
+						//pathlist->push_front(*l);
 						break;
 					}
 				}
@@ -628,17 +630,17 @@ void BuildVoronoi::centroid(VoronoiCell * cell){
 		i++;
 		//if (i != cellverts->end()){
 			xi2 = (*i)->x; yi2 = (*i)->y;
-			xc = (xi1 + xi2)*(xi1*yi2+xi2*yi1) + xc;
-			yc = (yi1 + yi2)*(xi1*yi2+xi2*yi1) + yc;
-			A = xi1*yi2+xi2*yi1 + A;
+			xc = (xi1 + xi2)*(xi1*yi2-xi2*yi1) + xc;
+			yc = (yi1 + yi2)*(xi1*yi2-xi2*yi1) + yc;
+			A = xi1*yi2-xi2*yi1 + A;
 		//}
 		//else{
 		//	break;
 		//}
 	}
 	A = .5f*A;
-	xc = 1.0f/(6.0f*A)*xc;
-	yc = 1.0f/(6.0f*A)*yc;
+	xc = (1.0f/(6.0f*A))*xc;
+	yc = (1.0f/(6.0f*A))*yc;
 	cell->centroid = new VPoint(xc, yc);
 }
 #endif
