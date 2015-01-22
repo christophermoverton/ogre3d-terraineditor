@@ -605,11 +605,15 @@ vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, VoronoiC
 					if (ocount > 0){
 						pushfront = true;
 					}
+<<<<<<< local
+					pathlist = traverseCellPath(pathlist, cell, *l, pushfront);
+=======
 					//if (ct < 1){
 					//	ct += 1;
 				
 					pathlist = traverseCellPath(pathlist, cell, *l, pushfront, ct);
 					//}
+>>>>>>> other
 					ocount += 1;
 
 				}
@@ -641,6 +645,35 @@ void BuildVoronoi::centroid(VoronoiCell * cell){
 	A = .5f*A;
 	xc = (1.0f/(6.0f*A))*xc;
 	yc = (1.0f/(6.0f*A))*yc;
+	cell->centroid = new VPoint(xc, yc);
+}
+
+void BuildVoronoi::gcentroid(VoronoiCell * cell){
+	VPoint * sitepos = cell->sitePos;
+	vor::Vertices * cellverts = cell->cellpolypoints;
+	vor::Vertices::iterator i = cellverts->begin();
+	double A = 0; double xc = 0; double yc = 0;
+	double xi1,xi2,xi3, yi1,yi2,yi3,xct,yct,At;
+	xi3 = sitePos->x; yi3 = sitePos->y;
+	while (i != cellverts->end()){
+		xi1 = (*i)->x; yi1 = (*i)->y;
+		i++;
+		//if (i != cellverts->end()){
+		xi2 = (*i)->x; yi2 = (*i)->y;
+		xct = 1.0f/3.0f*(xi1 +xi2 + xi3);
+		yct = 1.0f/3.0f*(yi1 +yi2 + yi3);
+		At = abs(xi1*(yi2-yi3) + xi2*(yi3-yi1)+xi3*(yi1-yi2));
+		xc = At*xct + xc;
+		yc = At*yct + yc;
+		A = At + A;
+		//}
+		//else{
+		//	break;
+		//}
+	}
+	
+	xc = xc/A;
+	yc = yc/A;
 	cell->centroid = new VPoint(xc, yc);
 }
 #endif

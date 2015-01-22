@@ -1,5 +1,10 @@
+<<<<<<< local
+16:20:00: blahblah
+16:20:01: Terrain Size: 513
+=======
 21:38:16: blahblah
 21:38:17: Terrain Size: 513
+>>>>>>> other
 Maximum Height: 600
 World Size: 12000
 Terrain position(0,0)181.176
@@ -62509,8 +62514,16 @@ Terrain world space coordinate for (30,30): Vector3(-5296.88, 220, 5296.88)
 Terrain local space coordinate for (30,30): Vector3(30.0586, 30.0586, 220)
 Falloff coefficients: Vector4(0, 0.57735, 1.26795, -0.845299)
 
+<<<<<<< local
+16:20:01: 8
+16:20:01: 210.588
+16:20:01: 513
+16:20:01: 249.569
+16:20:01: 1257
+=======
 21:38:17: 8
 21:38:17: 210.588
 21:38:17: 513
 21:38:17: 249.569
 21:38:17: 1257
+>>>>>>> other

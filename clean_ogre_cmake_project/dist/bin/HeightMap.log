@@ -1,6 +1,14 @@
+<<<<<<< local
+16:20:03: Test
+=======
 21:38:19: Test
+>>>>>>> other
 
+<<<<<<< local
+16:20:03: Test
+=======
 21:38:19: Test
+>>>>>>> other
 Test
 width: 513
 depth: 513
@@ -8,7 +16,11 @@ Ogre::PF_R8G8B8A8: 28
 format: 12
 size: 513
 
+<<<<<<< local
+16:20:03: Red: 255
+=======
 21:38:19: Red: 255
+>>>>>>> other
 Green: 255
 Blue: 255
 Alpha: 255

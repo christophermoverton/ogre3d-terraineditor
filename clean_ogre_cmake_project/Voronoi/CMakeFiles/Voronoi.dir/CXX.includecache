@@ -6,31 +6,37 @@
 
 #IncludeRegexTransform: 
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEdge.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEdge.h
 VPoint.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
 iostream
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEvent.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEvent.h
 iostream
 -
 VPoint.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
 VParabola.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.h
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.cpp
+VParabola.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.h
 VPoint.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
+
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.h
+VPoint.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
 VEdge.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEdge.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEdge.h
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.cpp
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.cpp
 Voronoi.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.h
 iostream
 -
 sstream
@@ -44,7 +50,7 @@ cmath
 fstream
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.h
 list
 -
 queue
@@ -52,23 +58,23 @@ queue
 set
 -
 VPoint.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
 VEdge.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEdge.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEdge.h
 VParabola.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.h
 VEvent.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEvent.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEvent.h
 functional
 -
 VoronoiCell.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VoronoiCell.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VoronoiCell.h
 map
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VoronoiCell.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VoronoiCell.h
 Voronoi.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.h
 list
 -
 queue
@@ -76,13 +82,13 @@ queue
 set
 -
 VPoint.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VPoint.h
 VEdge.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEdge.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEdge.h
 VParabola.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.h
 VEvent.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEvent.h
+/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VEvent.h
 functional
 -
 vector
