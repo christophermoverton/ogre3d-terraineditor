@@ -44,6 +44,7 @@ class BuildVoronoi{
 		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, vor::VertEdges * bvertedges, vor::EdgeVerts * bedgeverts, VPoint * position);
 		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, VoronoiCell * cell, VPoint * position, bool pushfront, int ct);
 		void centroid(VoronoiCell * cell);
+		void gcentroid(VoronoiCell * cell);
 };
 
 BuildVoronoi::BuildVoronoi(){
@@ -469,32 +470,22 @@ BuildVoronoi::BuildVoronoi(){
 		//insert here recursive pathlist build
 		vor::VertEdges::iterator j = bvertedges->begin();
 		vor::Vertices * pathlist = new vor::Vertices();
-<<<<<<< local
-		//(*i).second->cellpolypoints = traverseCellPath(pathlist, (*i).second, (*j).first, false);
-		//pathlist = (*i).second->cellpolypoints;
-=======
 		(*i).second->cellpolypoints = traverseCellPath(pathlist, (*i).second, (*j).first, false, 0);
 		pathlist = (*i).second->cellpolypoints;
->>>>>>> other
 		vor::Vertices * dupls = (*i).second->duplicates;
 		for(vor::Vertices::iterator l = dupls->begin(); l != dupls->end();l++) {
 			ss5 << "Duplicates coordinate x: " << (*l)->x << ", y: " << (*l)->y << "\n";	
 		}
-<<<<<<< local
-		//for(vor::Vertices::iterator l = pathlist->begin(); l != pathlist->end();l++) {
-		//	ss5 << "Path coordinate x: " << (*l)->x << ", y: " << (*l)->y << "\n";	
-		//}
-		//centroid((*i).second);
-=======
 		for(vor::Vertices::iterator l = pathlist->begin(); l != pathlist->end();l++) {
 			ss5 << "Path coordinate x: " << (*l)->x << ", y: " << (*l)->y << "\n";	
 		}
 		centroid((*i).second);
->>>>>>> other
 		
 		ss5 << "Centroid coordinate x: " << (*i).second->centroid->x << ", y: " << (*i).second->centroid->y << "\n";
 		//now that we have centroid computed we have completed relaxation step...at this point you can refeed 
-		//centroid coordinates for each back into this loop to recompute new voronoi diagram.		
+		//centroid coordinates for each back into this loop to recompute new voronoi diagram.  It appears that the given
+		//formulation for a finite set of points on the polygon is not right...or something is off...I might try 
+		//a geometric decomposition approach to see if the result is the same.		
 	}
 //*/
 	tlog2->logMessage(ss5.str());
@@ -615,11 +606,15 @@ vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, VoronoiC
 					if (ocount > 0){
 						pushfront = true;
 					}
+<<<<<<< local
+					pathlist = traverseCellPath(pathlist, cell, *l, pushfront);
+=======
 					//if (ct < 1){
 					//	ct += 1;
 				
 					pathlist = traverseCellPath(pathlist, cell, *l, pushfront, ct);
 					//}
+>>>>>>> other
 					ocount += 1;
 
 				}

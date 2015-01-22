@@ -44,6 +44,7 @@ class BuildVoronoi{
 		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, vor::VertEdges * bvertedges, vor::EdgeVerts * bedgeverts, VPoint * position);
 		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, VoronoiCell * cell, VPoint * position, bool pushfront, int ct);
 		void centroid(VoronoiCell * cell);
+		void gcentroid(VoronoiCell * cell);
 };
 
 BuildVoronoi::BuildVoronoi(){
@@ -478,7 +479,7 @@ BuildVoronoi::BuildVoronoi(){
 		for(vor::Vertices::iterator l = pathlist->begin(); l != pathlist->end();l++) {
 			ss5 << "Path coordinate x: " << (*l)->x << ", y: " << (*l)->y << "\n";	
 		}
-		centroid((*i).second);
+		gcentroid((*i).second);
 		
 		ss5 << "Centroid coordinate x: " << (*i).second->centroid->x << ", y: " << (*i).second->centroid->y << "\n";
 		//now that we have centroid computed we have completed relaxation step...at this point you can refeed 
