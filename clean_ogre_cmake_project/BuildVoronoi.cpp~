@@ -41,7 +41,15 @@ A point in geometry test comes by way of the direction of a given ray, by its po
 by the position of vertices.  If we find that a ray is likely to intersect two or zero edges
 then our point fails the test.  Note :  we only need to test in the direction of the ray, since
 it is assumed precursor points did not fail and thus testing in the opposite direction is not
-needed.
+needed.  Also our test becomes easy since we are are working in the direction of the basis of 
+our coordinate system, in this case, we hadn't need apply formula for intersections say of two 
+lines...instead we find the edge segment vertices opposite coordinate points relative to the 
+direction of the ray.  Thus if the ray is traversing the y axis we examine the x coordinate positions
+of all edges.  Those edges whose x coordinate vertices are greater and respectively less than 
+a given ray x position is the edge of intercept...if both the y coordinate positions of either edge
+vertex are less than (while positive y ray direction testing) such ray position means the ray position
+point is no longer in geometry.  The opposite is true for negative y ray testing.  We can apply 
+similar logic for ray x direction testing.
 
 */
 class BuildVoronoi{
