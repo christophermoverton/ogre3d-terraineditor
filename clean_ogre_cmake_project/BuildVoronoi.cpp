@@ -24,6 +24,33 @@ Here are some post analysis thoughts on the above:
  not only vertex to edge data is appended but also ensuring that a new edge is written on 
  a insert parabola event.
 
+I want a fast rasterization method for drawing a voronoi cell with some caveats.
+Here I'd like to do a radial drawing method...this measures the radial distance of any 
+point to a given voronoi site position.  This is given from a posting at my blog spot 
+on this subject.  We can point in a point in geometry testing method here...settling in 
+this case for a ray test.  We start the ray originally at the cell site posiiton.  We cast 
+a ray in 4 different directions (up, down, left, and right).  In this case each increment of 
+the ray comes with a point in geometry test to ensure such a point is in the geometry.
+Now each ray then spawns a orthogonal child rays in opposite directions.  In this case,
+as we incrementally advance the ray (one integer unit), we use the same point in geometry test
+.  If the test fails, then the ray is finished...all child rays are advanced respectively 
+until finished, and then we increment the parent rays until they too are finished in the succession
+of new children.
+
+A point in geometry test comes by way of the direction of a given ray, by its position and 
+by the position of vertices.  If we find that a ray is likely to intersect two or zero edges
+then our point fails the test.  Note :  we only need to test in the direction of the ray, since
+it is assumed precursor points did not fail and thus testing in the opposite direction is not
+needed.  Also our test becomes easy since we are are working in the direction of the basis of 
+our coordinate system, in this case, we hadn't need apply formula for intersections say of two 
+lines...instead we find the edge segment vertices opposite coordinate points relative to the 
+direction of the ray.  Thus if the ray is traversing the y axis we examine the x coordinate positions
+of all edges.  Those edges whose x coordinate vertices are greater and respectively less than 
+a given ray x position is the edge of intercept...if both the y coordinate positions of either edge
+vertex are less than (while positive y ray direction testing) such ray position means the ray position
+point is no longer in geometry.  The opposite is true for negative y ray testing.  We can apply 
+similar logic for ray x direction testing.
+
 */
 class BuildVoronoi{
 
@@ -606,15 +633,13 @@ vor::Vertices* BuildVoronoi::traverseCellPath(vor::Vertices * pathlist, VoronoiC
 					if (ocount > 0){
 						pushfront = true;
 					}
-<<<<<<< local
-					pathlist = traverseCellPath(pathlist, cell, *l, pushfront);
-=======
+
 					//if (ct < 1){
 					//	ct += 1;
 				
 					pathlist = traverseCellPath(pathlist, cell, *l, pushfront, ct);
 					//}
->>>>>>> other
+
 					ocount += 1;
 
 				}
