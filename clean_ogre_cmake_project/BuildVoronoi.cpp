@@ -85,6 +85,8 @@ class BuildVoronoi{
 		vor::Vertices* traverseCellPath(vor::Vertices * pathlist, VoronoiCell * cell, VPoint * position, bool pushfront, int ct);
 		void centroid(VoronoiCell * cell);
 		void gcentroid(VoronoiCell * cell);
+		double solveX(double y, VEdge * edge);
+		double solveY(double x, VEdge * edge);
 };
 
 BuildVoronoi::BuildVoronoi(){
@@ -173,6 +175,9 @@ BuildVoronoi::BuildVoronoi(){
 			place = false; place2 = false;
 			vor::VertEdges * sitevertedges = siteposcell->vertedges;
 			vor::EdgeVerts * siteedgeverts = siteposcell->edgeverts;
+			vor::VEdgemap * siteedgemap = siteposcell->edgemap;
+			vor::Vertpair vpair = new Vertpair((*i)->start,(*i)->end);
+			siteedgemap[vpair] = *i;
 			///*
 			if ((*sitevertedges).find((*i)->start) != (*sitevertedges).end()){
 				for(vor::Edges::iterator l = (*sitevertedges)[(*i)->start]->begin(); l != (*sitevertedges)[(*i)->start]->end();l++) {
@@ -264,6 +269,10 @@ BuildVoronoi::BuildVoronoi(){
 			///*
 			vor::VertEdges * sitevertedges = siteposcell->vertedges;
 			vor::EdgeVerts * siteedgeverts = siteposcell->edgeverts;
+
+			vor::VEdgemap * siteedgemap = siteposcell->edgemap;
+			vor::Vertpair vpair = new Vertpair((*i)->start,(*i)->end);
+			siteedgemap[vpair] = *i;
 			
 			vor::Edges * nedges = new vor::Edges();
 			nedges->push_back(*i);
@@ -313,6 +322,9 @@ BuildVoronoi::BuildVoronoi(){
 			place = false; place2 = false;
 			vor::VertEdges * sitevertedges = siteposcell->vertedges;
 			vor::EdgeVerts * siteedgeverts = siteposcell->edgeverts;
+			vor::VEdgemap * siteedgemap = siteposcell->edgemap;
+			vor::Vertpair vpair = new Vertpair((*i)->start,(*i)->end);
+			siteedgemap[vpair] = *i;
 			///*
 			if ((*sitevertedges).find((*i)->start) != (*sitevertedges).end()){
 				for(vor::Edges::iterator l = (*sitevertedges)[(*i)->start]->begin(); l != (*sitevertedges)[(*i)->start]->end();l++) {
@@ -406,6 +418,10 @@ BuildVoronoi::BuildVoronoi(){
 			///*
 			vor::VertEdges * sitevertedges = siteposcell->vertedges;
 			vor::EdgeVerts * siteedgeverts = siteposcell->edgeverts;
+
+			vor::VEdgemap * siteedgemap = siteposcell->edgemap;
+			vor::Vertpair vpair = new Vertpair((*i)->start,(*i)->end);
+			siteedgemap[vpair] = *i;
 			
 			vor::Edges * nedges = new vor::Edges();
 
@@ -714,5 +730,17 @@ void BuildVoronoi::gcentroid(VoronoiCell * cell){
 	xc = xc/A;
 	yc = yc/A;
 	cell->centroid = new VPoint(xc, yc);
+}
+
+double BuildVoronoi::solveX(double y, VEdge * edge){
+	//y = f*x + g
+	double f = edge->f; double g = edge->g;
+	return 1.0f/f * (y-g);
+}
+
+double BuildVoronoi::solveY(double x, VEdge * edge){
+	//y = f*x + g
+	double f = edge->f; double g = edge->g;
+	return f*x+g;
 }
 #endif
