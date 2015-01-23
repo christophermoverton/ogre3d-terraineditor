@@ -741,6 +741,44 @@ double BuildVoronoi::solveX(double y, VEdge * edge){
 double BuildVoronoi::solveY(double x, VEdge * edge){
 	//y = f*x + g
 	double f = edge->f; double g = edge->g;
-	return 1.0f/f * (y-g);
+	return f*x+g;
+}
+
+void BuildVoronoi::buildPoints(vor::Cells * cells){
+	for(vor::Cells::iterator i = cells->begin(); i != cells->end(); i++) {
+		VoronoiCell * cell = (*i).second;
+		vor::VEdgemap * siteedgemap = cell->edgemap;
+		VPoint * sitepos = cell->sitePos;
+		//get y max and y min from sitepos->x.
+		bool checkp = false; bool checkp2 = false;
+		double ymax = 0, ymin = 0; int ct = 1;
+		for (vor::VEdgemap::iterator j = siteedgemap->begin(); j!=siteedgemap->end(); j++){
+			vor::Vertpair vpair = (*j).first;
+			VPoint * v1 = vpair.first; Vpoint * v2 = vpair.second;
+			if ((v1->x <= sitepos->x) and (v2->x >= sitepos->x)){
+				double y = solveY(sitepos->x,(*j).second);
+				if (y > sitepos->y){
+					ymax = y;
+				}
+				else{
+					ymin = y;
+				}
+				checkp = true;
+				if (ct > 1) {
+					checkp2 = true;
+				}
+				ct += 1;
+			}
+		}
+		if (ymax < sitepos->y){
+			ymax = w;
+		}
+		if (ymax > w){
+			ymax = w;
+		}
+		if (ymin < 0){
+			ymin = 0;
+		}
+	}  
 }
 #endif
