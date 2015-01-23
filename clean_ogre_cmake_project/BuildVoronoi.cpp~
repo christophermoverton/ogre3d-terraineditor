@@ -49,7 +49,13 @@ of all edges.  Those edges whose x coordinate vertices are greater and respectiv
 a given ray x position is the edge of intercept...if both the y coordinate positions of either edge
 vertex are less than (while positive y ray direction testing) such ray position means the ray position
 point is no longer in geometry.  The opposite is true for negative y ray testing.  We can apply 
-similar logic for ray x direction testing.
+similar logic for ray x direction testing.  Lastly when parent ray testing on say the y axis,
+for instance, we may need to perform a ray shift horizontally so that a given parent y direction
+ray is shifted horizontally to conform to a position that is still interiror to the geometry,
+and given below the polygon's max min vertex (respectively).  Procedurally the process is repeated
+creating child horizontal ray's filling out the  remainder of the polygon's interior points, or likely
+we could do this at the outset of parent ray construction (so knowing that a given point is interior).
+All this comes by way also of the polygon's monotonicity.
 
 */
 class BuildVoronoi{

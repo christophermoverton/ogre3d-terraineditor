@@ -48,7 +48,9 @@ direction of the ray.  Thus if the ray is traversing the y axis we examine the x
 of all edges.  Those edges whose x coordinate vertices are greater and respectively less than 
 a given ray x position is the edge of intercept...if both the y coordinate positions of either edge
 vertex are less than (while positive y ray direction testing) such ray position means the ray position
-point is no longer in geometry.  The opposite is true for negative y ray testing.  We can apply 
+point is no longer in geometry (actually this is a bit crude)...more so we'd 
+simply use the edges line information and project where the ray intercepts for such test.  
+The opposite is true for negative y ray testing.  We can apply 
 similar logic for ray x direction testing.  Lastly when parent ray testing on say the y axis,
 for instance, we may need to perform a ray shift horizontally so that a given parent y direction
 ray is shifted horizontally to conform to a position that is still interiror to the geometry,
@@ -56,6 +58,11 @@ and given below the polygon's max min vertex (respectively).  Procedurally the p
 creating child horizontal ray's filling out the  remainder of the polygon's interior points, or likely
 we could do this at the outset of parent ray construction (so knowing that a given point is interior).
 All this comes by way also of the polygon's monotonicity.
+
+Technically at the outset limitations to iteration and avoiding added edge checking can be done
+at the outset of any ray's construction.  Since we know where intersection is to occur for 
+a given edge, we can therefore limit any ray casting iterator to such maximum/minimum position
+and forgo the necessity of edge testing.
 
 */
 class BuildVoronoi{
