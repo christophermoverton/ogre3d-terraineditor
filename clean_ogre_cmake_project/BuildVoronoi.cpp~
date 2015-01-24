@@ -88,6 +88,8 @@ class BuildVoronoi{
 		double solveX(double y, VEdge * edge);
 		double solveY(double x, VEdge * edge);
 		vor::Dvalues getMinMaxvalues(VPoint * origin, vor:VEdgemap * siteedgemap, bool xaxis);
+		VPoint * BuildVoronoi::getMaxYVertex(vor::VertEdges * bvertedges);
+		void buildPoints(vor::Cells * cells);
 };
 
 BuildVoronoi::BuildVoronoi(){
@@ -797,6 +799,17 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor:VEdgemap * sitee
 	return dvals;
 }
 
+VPoint * BuildVoronoi::getMaxYVertex(vor::VertEdges * bvertedges){
+	VPoint * maxpoint;
+	double ymax = 0;
+	for (vor::VertEdges::iterator i = bvertedges->begin(); i!=bvertedges->end();i++){
+		if ((*i).first->y > ymax){
+			maxpoint = (*i).first;
+		}
+	}
+	return maxpoint;
+}
+
 void BuildVoronoi::buildPoints(vor::Cells * cells){
 	vor::PointsMap * pointsmap = new vor::PointsMap();
 	for(vor::Cells::iterator i = cells->begin(); i != cells->end(); i++) {
@@ -838,7 +851,10 @@ void BuildVoronoi::buildPoints(vor::Cells * cells){
 		pointsmap[sitepos] = 0.0f;
 		double x = sitepos->x;
 		while(y =< ymax){
-			
+			VPoint * o = new VPoint(x,y);
+			vor::Dvalues dvals = getMinMaxvalues(o, siteedgemap, true);
+			while (){
+			}
 		}
 	}  
 }
