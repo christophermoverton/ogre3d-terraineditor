@@ -88,7 +88,7 @@ class BuildVoronoi{
 		double solveX(double y, VEdge * edge);
 		double solveY(double x, VEdge * edge);
 		vor::Dvalues getMinMaxvalues(VPoint * origin, vor:VEdgemap * siteedgemap, bool xaxis);
-		VPoint * BuildVoronoi::getMaxYVertex(vor::VertEdges * bvertedges);
+		VPoint * getMaxYVertex(vor::VertEdges * bvertedges);
 		void buildPoints(vor::Cells * cells);
 };
 

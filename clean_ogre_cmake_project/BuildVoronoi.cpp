@@ -811,6 +811,16 @@ VPoint * BuildVoronoi::getMaxYVertex(vor::VertEdges * bvertedges){
 }
 
 void BuildVoronoi::buildPoints(vor::Cells * cells){
+	//Using a up and down vertical rays from the cell site and then spawning child horizontal rays 
+	//to trace point drawing.
+	//Likely to use a recursive or while loop condition to ladder up and down 
+	//the polygon (since starting at the cell site the given corresponding ray y max in poly
+	//may not correspond to the poly's maximum y vertex position.  So will need to use a
+	//a horizontal ladder upon reaching y max that either chooses a new x position spawning 
+	// a new vertical y ray to reach such max vertex y, or choose a subdivision of x repeatedly 
+	//until choosing a point in the polygon and then repeating this process until honing on 
+	//the poly's absolute y max.  A similar approach is used in hitting the poly's vertices y
+	//min.
 	vor::PointsMap * pointsmap = new vor::PointsMap();
 	for(vor::Cells::iterator i = cells->begin(); i != cells->end(); i++) {
 		VoronoiCell * cell = (*i).second;
