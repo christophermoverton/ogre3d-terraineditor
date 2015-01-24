@@ -87,6 +87,7 @@ class BuildVoronoi{
 		void gcentroid(VoronoiCell * cell);
 		double solveX(double y, VEdge * edge);
 		double solveY(double x, VEdge * edge);
+		vor::Dvalues getMinMaxvalues(VPoint * origin, vor:VEdgemap * siteedgemap, bool xaxis);
 };
 
 BuildVoronoi::BuildVoronoi(){
@@ -744,7 +745,60 @@ double BuildVoronoi::solveY(double x, VEdge * edge){
 	return f*x+g;
 }
 
+vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor:VEdgemap * siteedgemap, bool xaxis){
+	vor::Dvalues dvals = new vor::Dvalues();
+	double vmax = 0, vmin = 0; int ct = 1;
+	for (vor::VEdgemap::iterator j = siteedgemap->begin(); j!=siteedgemap->end(); j++){
+		vor::Vertpair vpair = (*j).first;
+		VPoint * v1 = vpair.first; Vpoint * v2 = vpair.second;
+		if (xaxis){
+			if ((v1->y =< origin->y) and (v2->y => origin->y)){
+				double x = solveX(origin->y,(*j).second);
+				if (x > origin->x){
+					vmax = x;
+				}
+				else{
+					vmin = x;
+				}
+
+			}
+		}
+		else{
+			if ((v1->x =< origin->x) and (v2->x => origin->x)){
+				double y = solveY(origin->x,(*j).second);
+				if (y > origin->y){
+					vmax = y;
+				}
+				else{
+					vmin = y;
+				}
+
+			}
+		}
+	}
+	if (xaxis){
+		if (vmax < origin->x){
+			vmax = w;
+		}
+	}
+	else {
+		if (vmax < origin->y){
+			vmax = w;
+		}
+	}
+	if (vmax > w){
+		vmax = w;
+	}
+	if (vmin < 0){
+		vmin = 0;
+	}
+	dvals.push_back(vmin);
+	dvals.push_back(vmax);
+	return dvals;
+}
+
 void BuildVoronoi::buildPoints(vor::Cells * cells){
+	vor::PointsMap * pointsmap = new vor::PointsMap();
 	for(vor::Cells::iterator i = cells->begin(); i != cells->end(); i++) {
 		VoronoiCell * cell = (*i).second;
 		vor::VEdgemap * siteedgemap = cell->edgemap;
@@ -778,6 +832,13 @@ void BuildVoronoi::buildPoints(vor::Cells * cells){
 		}
 		if (ymin < 0){
 			ymin = 0;
+		}
+		//positive y iteration
+		double y = sitepos->y;
+		pointsmap[sitepos] = 0.0f;
+		double x = sitepos->x;
+		while(y =< ymax){
+			
 		}
 	}  
 }

@@ -26,6 +26,8 @@ namespace vor{
 	typedef std::map<VPoint *, Edges *>                           VertEdges     ;
 	typedef std::map<VPoint *, VEdge * >                         VertEdge      ;
 	typedef std::map<VEdge *, Vertices *>                         EdgeVerts     ;
+	typedef std::map<VPoint *, double>                            PointsMap    ;
+	typedef std::list<double>                                     Dvalues      ;
 	//typedef std::map<Vpoint *, Vertices>                      CellPolyPoints   ;
 
 	/*
