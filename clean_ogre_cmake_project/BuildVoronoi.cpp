@@ -863,8 +863,35 @@ void BuildVoronoi::buildPoints(vor::Cells * cells){
 		while(y =< ymax){
 			VPoint * o = new VPoint(x,y);
 			vor::Dvalues dvals = getMinMaxvalues(o, siteedgemap, true);
-			while (){
+			dmax = dvals[1]; dmin = dvals[0]; int j = sitepos->x; int k = y;
+			while (j =< dmax){
+				VPoint * ipos = new VPoint(i, j);
+				pointsmap[ipos] = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
+				j += 1;
 			}
+			while (j >= dmin){
+				VPoint * ipos = new VPoint(i, j);
+				pointsmap[ipos] = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
+				j -= 1;
+			}
+			y += 1;
+		}
+
+		while(y => ymin){
+			VPoint * o = new VPoint(x,y);
+			vor::Dvalues dvals = getMinMaxvalues(o, siteedgemap, true);
+			dmax = dvals[1]; dmin = dvals[0]; int j = sitepos->x; int k = y;
+			while (j =< dmax){
+				VPoint * ipos = new VPoint(i, j);
+				pointsmap[ipos] = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
+				j += 1;
+			}
+			while (j >= dmin){
+				VPoint * ipos = new VPoint(i, j);
+				pointsmap[ipos] = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
+				j -= 1;
+			}
+			y -= 1;
 		}
 	}  
 }
