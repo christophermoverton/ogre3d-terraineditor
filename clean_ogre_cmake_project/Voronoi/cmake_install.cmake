@@ -1,8 +1,8 @@
-# Install script for directory: /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi
+# Install script for directory: /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/dist")
+  SET(CMAKE_INSTALL_PREFIX "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/dist")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
