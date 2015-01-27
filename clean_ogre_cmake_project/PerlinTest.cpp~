@@ -75,7 +75,7 @@ PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, f
 	PerlinGenerator* pgen = new PerlinGenerator(size, scale, zdepth, frequency, amplitude, octaves, gain);
 	//ss5<<"Test2 " <<"\n";
 	//tlog->logMessage(ss5.str());
-	vector<vector<vector<float> > > noisevals = pgen->getNoisevalues3d();
+	vector<vector<vector<double> > > noisevals = pgen->getNoisevalues3d();
 	cnoisevals = noisevals;
 	ImageBuffer buffer(size);
     	FillColour* fill = new FillColour (&buffer);
