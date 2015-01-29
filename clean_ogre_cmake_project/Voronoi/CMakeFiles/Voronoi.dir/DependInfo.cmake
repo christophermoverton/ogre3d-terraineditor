@@ -4,8 +4,8 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.cpp" "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.o"
-  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.cpp" "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.o"
+  "/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.cpp" "/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.o"
+  "/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.cpp" "/home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
