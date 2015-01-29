@@ -859,6 +859,9 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 		else{
 			if ((v1->x <= origin->x) and (v2->x >= origin->x)){
 				double y = solveY(origin->x,(*j).second);
+				if (abs(y-origin->y) < 1){
+					siteapr = true;
+				}
 				if (y > origin->y){
 					if (y > vmax){
 						vmax = y;
@@ -873,6 +876,9 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 			}
 			else if ((v1->x >= origin->x) and (v2->x <= origin->x)) {
 				double y = solveY(origin->x,(*j).second);
+				if (abs(y-origin->y) < 1){
+					siteapr = true;
+				}
 				if (y > origin->y){
 					if (y > vmax){
 						vmax = y;
@@ -897,10 +903,10 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 		if (vmin > origin->x){
 			vmin = origin->x;
 		}
-		if ((vmin == origin->x) and (!siteappr)){
+		if ((vmin == origin->x) and (!siteapr)){
 			vmin = 0;
 		}
-		if (vmax == origin->x){
+		if ((vmax == origin->x) and (!siteapr)){
 			vmax = w;
 		}
 	}
