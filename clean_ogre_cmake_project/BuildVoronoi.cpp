@@ -555,8 +555,8 @@ BuildVoronoi::BuildVoronoi(){
 		///*	
 		for(vor::VEdgemap::iterator j = bedgemap->begin(); j != bedgemap->end(); j++){
 			vor::Vertpair vpair = (*j).first;  VPoint * v1p = vpair.first; VPoint * v2p = vpair.second;
-			ss5 << "1rst x: "<< v1p->x << "1rst y: " << v1p->y <<"\n";
-			ss5 << "2nd x: "<< v2p->x << "2nd y: " << v2p->y <<"\n";
+			ss5 << "1rst x: "<< v1p->x << " 1rst y: " << v1p->y <<"\n";
+			ss5 << "2nd x: "<< v2p->x << " 2nd y: " << v2p->y <<"\n";
 		}
 		//*/	
 	}
@@ -814,7 +814,7 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 	else{
 		vmin = origin->y;
 	}
-	double vmax = 0; int ct = 0;
+	double vmax = 0; int ct = 0; bool siteapr = false;
 	for (vor::VEdgemap::iterator j = siteedgemap->begin(); j!=siteedgemap->end(); j++){
 		vor::Vertpair vpair = (*j).first;
 		VPoint * v1 = vpair.first; VPoint * v2 = vpair.second;
@@ -822,9 +822,13 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 		if (xaxis){
 			if ((v1->y <= origin->y) and (v2->y >= origin->y)){
 				double x = solveX(origin->y,(*j).second);
+				if (abs(x-origin->x) < 1){
+					siteapr = true;
+				}
 				if (x > origin->x){
-					vmax = x;
-
+					if (x > vmax){
+						vmax = x;
+					}
 				}
 				else{
 					if (x < vmin){
@@ -835,9 +839,13 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 			}
 			else if ((v1->y >= origin->y) and (v2->y <= origin->y)) {
 				double x = solveX(origin->y,(*j).second);
+				if (abs(x-origin->x) < 1){
+					siteapr = true;
+				}
 				if (x > origin->x){
-					vmax = x;
-
+					if (x > vmax){
+						vmax = x;
+					}
 				}
 				else{
 					if (x < vmin){
@@ -852,8 +860,9 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 			if ((v1->x <= origin->x) and (v2->x >= origin->x)){
 				double y = solveY(origin->x,(*j).second);
 				if (y > origin->y){
-					vmax = y;
-
+					if (y > vmax){
+						vmax = y;
+					}
 				}
 				else{
 					if (y < vmin){
@@ -865,8 +874,9 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 			else if ((v1->x >= origin->x) and (v2->x <= origin->x)) {
 				double y = solveY(origin->x,(*j).second);
 				if (y > origin->y){
-					vmax = y;
-
+					if (y > vmax){
+						vmax = y;
+					}
 				}
 				else{
 					if (y < vmin){
@@ -887,10 +897,10 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 		if (vmin > origin->x){
 			vmin = origin->x;
 		}
-		if (vmin == origin->x){
+		if ((vmin == origin->x) and (!siteapr)){
 			vmin = 0;
 		}
-		if (vmax == origin->x){
+		if ((vmax == origin->x) and (!siteapr)){
 			vmax = w;
 		}
 	}
@@ -972,7 +982,7 @@ vor::CPointsMap * BuildVoronoi::fillpoints(vor::CPointsMap * cpointsmap, vor::VE
 			VPoint * o = new VPoint(x,y);
 			vor::Dvalues dvals = getMinMaxvalues(o, siteedgemap, true);
 			double dmax = dvals[1]; double dmin = dvals[0]; int i = x; int j = y; int k = y;
-			while (i <= dmax){
+			while (i < dmax){
 				VPoint * ipos = new VPoint(i, j);
 				dist = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
 				vor::Coordpair * coordpair = new vor::Coordpair(i, j);
@@ -984,7 +994,7 @@ vor::CPointsMap * BuildVoronoi::fillpoints(vor::CPointsMap * cpointsmap, vor::VE
 				i += 1;
 			}
 			i = x;
-			while (i >= dmin){
+			while (i > dmin){
 				VPoint * ipos = new VPoint(i, j);
 				dist = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
 				vor::Coordpair * coordpair = new vor::Coordpair(i, j);
@@ -1004,7 +1014,7 @@ vor::CPointsMap * BuildVoronoi::fillpoints(vor::CPointsMap * cpointsmap, vor::VE
 			VPoint * o = new VPoint(x,y);
 			vor::Dvalues dvals = getMinMaxvalues(o, siteedgemap, true);
 			double dmax = dvals[1]; double dmin = dvals[0]; int i = x; int j = y; int k = y;
-			while (i <= dmax){
+			while (i < dmax){
 				VPoint * ipos = new VPoint(i, j);
 				dist = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
 				vor::Coordpair * coordpair = new vor::Coordpair(i, j);
@@ -1016,7 +1026,7 @@ vor::CPointsMap * BuildVoronoi::fillpoints(vor::CPointsMap * cpointsmap, vor::VE
 				i += 1;
 			}
 			i = x;
-			while (i >= dmin){
+			while (i > dmin){
 				VPoint * ipos = new VPoint(i, j);
 				dist = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
 				vor::Coordpair * coordpair = new vor::Coordpair(i, j);
@@ -1117,7 +1127,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 			vor::Dvalues dvals = getMinMaxvalues(o, siteedgemap, true);
 			double dmax = dvals[1]; double dmin = dvals[0], dist; int l = x; int m = y; int k = y;
 			 
-			while (l <= dmax){
+			while (l < dmax){
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
 				(*pointsmap)[ipos] = dist;
@@ -1129,7 +1139,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				l += 1;
 			}
 			l = x;
-			while (l >= dmin){
+			while (l > dmin){
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
 				(*pointsmap)[ipos] = dist;
@@ -1148,11 +1158,11 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 			VPoint * o = new VPoint(x,y);
 			vor::Dvalues dvals = getMinMaxvalues(o, siteedgemap, true);
 			double dmax = dvals[1]; double dmin = dvals[0], dist; int l = x; int m = y; int k = y;
-			while (l <= dmax){
+			while (l < dmax){
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
 				(*pointsmap)[ipos] = dist;
-				vor::Coordpair * coordpair = new vor::Coordpair(ipos->x, ipos->y);
+				vor::Coordpair * coordpair = new vor::Coordpair(l, m);
 				(*cpointsmap)[(*coordpair)] = dist;
 				if (maxval < dist){
 					maxval = dist;
@@ -1161,12 +1171,12 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				l += 1;
 			}
 			l = x;
-			while (l >= dmin){
+			while (l > dmin){
 				
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
 				(*pointsmap)[ipos] = dist;
-				vor::Coordpair * coordpair = new vor::Coordpair(ipos->x, ipos->y);
+				vor::Coordpair * coordpair = new vor::Coordpair(l, m);
 				(*cpointsmap)[(*coordpair)] = dist;
 				if (maxval < dist){
 					maxval = dist;
@@ -1184,19 +1194,21 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 		VPoint * basepos = new VPoint(sitepos->x, ymax);
 		VPoint * ymaxvert = getMaxYVertex(bvertedges);
 		//VPoint * bpoint = getBase(basepos, ymaxvert, siteedgemap);
+
 		///*
 		ct = 0;
 		if (!(ymax == w)){
+
 			while (basepos->y < ymaxvert->y){
 				basepos = getBase(basepos, ymaxvert, siteedgemap);
 				vor::Dvalues dvals = getMinMaxvalues(basepos, siteedgemap, false);
 				ymax = dvals[1];
 				cpointsmap = fillpoints(cpointsmap, siteedgemap, sitepos, basepos, true);
 				basepos = new VPoint(basepos->x,ymax);
-				if (ymax == w){
+				if (ymax >= w){
 					break;
 				}
-				if (ymax == 0){
+				if (ymax <= 0){
 					break;
 				}
 				if (ct > 10){
