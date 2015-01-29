@@ -92,7 +92,7 @@ class BuildVoronoi{
 		VPoint * getBase(VPoint * basepos, VPoint * ymaxvert, vor::VEdgemap * siteedgemap);
 		VPoint * getMaxYVertex(vor::VertEdges * bvertedges);
 		VPoint * getMinYVertex(vor::VertEdges * bvertedges);
-		vor::PointsMap * buildPoints(vor::Cells * cells);
+		vor::CPointsMap * buildPoints(vor::Cells * cells);
 };
 
 BuildVoronoi::BuildVoronoi(){
@@ -470,6 +470,7 @@ BuildVoronoi::BuildVoronoi(){
 		//cell = (*i).second;
 		vor::VertEdges * bvertedges = (*i).second->vertedges;
 		vor::EdgeVerts * bedgeverts = (*i).second->edgeverts;
+		vor::VEdgemap * bedgemap = (*i).second->edgemap;
 		for(vor::VertEdges::iterator j = bvertedges->begin(); j != bvertedges->end(); j++){
 			VPoint * cellvertex = (*j).first;
 			ss5 << "Vertex x: " << cellvertex->x << " , y: " << cellvertex->y << "\n";
@@ -547,37 +548,58 @@ BuildVoronoi::BuildVoronoi(){
 		//now that we have centroid computed we have completed relaxation step...at this point you can refeed 
 		//centroid coordinates for each back into this loop to recompute new voronoi diagram.  It appears that the given
 		//formulation for a finite set of points on the polygon is not right...or something is off...I might try 
-		//a geometric decomposition approach to see if the result is the same.		
+		//a geometric decomposition approach to see if the result is the same.
+		/*	
+		for(vor::VEdgemap::iterator j = bedgemap->begin(); j != bedgemap->end(); j++){
+			vor::Vertpair vpair = (*j).first;  VPoint * v1p = vpair.first; VPoint * v2p = vpair.second;
+			ss5 << "1rst x: "<< v1p->x << "1rst y: " << v1p->y <<"\n";
+			ss5 << "2nd x: "<< v2p->x << "2nd y: " << v2p->y <<"\n";
+		}
+		*/	
 	}
 //*/
-	VPoint * point1 = new VPoint(1,1);
-	VPoint * point2 = new VPoint(1,1);
-	bool test1 = point1 == point2;
+	vor::Coordpair * point1 = new vor::Coordpair(1,1);
+	vor::Coordpair * point2 = new vor::Coordpair(1,1);
+	bool test1 = (*point1) == (*point2);
 	ss5 << "Point 1 equals Point 2 " << test1 << "\n";
 	tlog2->logMessage(ss5.str());
-	vor::PointsMap * pointsmap = buildPoints(cellspost);
+	vor::CPointsMap * pointsmap = buildPoints(cellspost);
 	
-	/*
+	
 	double size = 1026.0f;
 	ImageBuffer buffer(size);
     	FillColour* fill = new FillColour (&buffer);
     	//buffer.saveImage("test1.png");
-	for (int i = 0; i<size; i++){
-		for (int j = 0; j<size; j++){
+	///*
+	for (int j = 0; j<size; j++){
+		for (int k = 0; k<size; k++){
 			//ss5<<"Color value: "<<noisevals[i][j]<<"\n";
-			double mult = w/size; int imn = i*mult; int jmn = j*mult; double idiff = i-imn, jdiff = j-jmn;
-			if (idiff >= .5){
-				imn += 1;
-			}
+			double mult = w/size; int jmn = j*mult; int kmn = k*mult; double jmm = j*mult, kmm = k*mult; 
+			double jdiff = jmm-jmn, kdiff = kmm-kmn;
 			if (jdiff >= .5){
 				jmn += 1;
 			}
+			if (kdiff >= .5){
+				kmn += 1;
+			}
+			vor::Coordpair * coordpair = new vor::Coordpair(jmn, kmn);
+			if ((*pointsmap).find((*coordpair)) != (*pointsmap).end()){
+				double colval = (*pointsmap)[(*coordpair)];
+				vor::Coordpair * mcoordpair = new vor::Coordpair(w+1, w+1);
+				double div = (*pointsmap)[(*mcoordpair)];
+				Ogre::ColourValue col = Ogre::ColourValue(colval/div,colval/div,colval/div);
+				fill->setPixl((size_t)j, (size_t)k, col);
+			}
+			else{
+				Ogre::ColourValue col = Ogre::ColourValue(1.0f,1.0f,1.0f);
+				fill->setPixl((size_t)j, (size_t)k, col);
+			}
 
-			Ogre::ColourValue col = Ogre::ColourValue(noisevals[i][j],noisevals[i][j],noisevals[i][j]);
-			fill->setPixl((size_t)i, (size_t)j, col);
+			//fill->setPixl((size_t)j, (size_t)k, col);
 		}
 	}
-	*/
+	buffer.saveImage("test4.png");
+	//*/
 }
 
 
@@ -788,17 +810,11 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 				double x = solveX(origin->y,(*j).second);
 				if (x > origin->x){
 					vmax = x;
-					ct += 1;
-					if (ct > 1){
-						break;
-					}
+
 				}
 				else{
 					vmin = x;
-					ct += 1;
-					if  (ct > 1){
-						break;
-					}
+
 				}
 
 			}
@@ -806,17 +822,11 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 				double x = solveX(origin->y,(*j).second);
 				if (x > origin->x){
 					vmax = x;
-					ct += 1;
-					if (ct > 1){
-						break;
-					}
+
 				}
 				else{
 					vmin = x;
-					ct += 1;
-					if (ct > 1){
-						break;
-					}
+
 				}
 			}
 		}
@@ -825,17 +835,11 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 				double y = solveY(origin->x,(*j).second);
 				if (y > origin->y){
 					vmax = y;
-					ct += 1;
-					if (ct > 1){
-						break;
-					}
+
 				}
 				else{
 					vmin = y;
-					ct += 1;
-					if (ct > 1){
-						break;
-					}
+
 				}
 
 			}
@@ -843,17 +847,11 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 				double y = solveY(origin->x,(*j).second);
 				if (y > origin->y){
 					vmax = y;
-					ct += 1;
-					if (ct > 1){
-						break;
-					}
+
 				}
 				else{
 					vmin = y;
-					ct += 1;
-					if (ct > 1){
-						break;
-					}
+
 				}
 			}
 		}
@@ -891,8 +889,10 @@ VPoint * BuildVoronoi::getMaxYVertex(vor::VertEdges * bvertedges){
 	for (vor::VertEdges::iterator i = bvertedges->begin(); i!=bvertedges->end();i++){
 		if ((*i).first->y > ymax){
 			maxpoint = (*i).first;
+			ymax = (*i).first->y;
 		}
 	}
+
 	return maxpoint;
 }
 
@@ -903,8 +903,10 @@ VPoint * BuildVoronoi::getMinYVertex(vor::VertEdges * bvertedges){
 	for (vor::VertEdges::iterator i = bvertedges->begin(); i!=bvertedges->end();i++){
 		if ((*i).first->y < ymin){
 			minpoint = (*i).first;
+			ymin = (*i).first->y;
 		}
 	}
+
 	return minpoint;
 }
 
@@ -999,7 +1001,7 @@ VPoint * BuildVoronoi::getBase(VPoint * basepos, VPoint * ymaxvert, vor::VEdgema
 	}
 }
 
-vor::PointsMap * BuildVoronoi::buildPoints(vor::Cells * cells){
+vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cells){
 	//Using a up and down vertical rays from the cell site and then spawning child horizontal rays 
 	//to trace point drawing.
 	//Likely to use a recursive or while loop condition to ladder up and down 
@@ -1011,6 +1013,7 @@ vor::PointsMap * BuildVoronoi::buildPoints(vor::Cells * cells){
 	//the poly's absolute y max.  A similar approach is used in hitting the poly's vertices y
 	//min.
 	vor::PointsMap * pointsmap = new vor::PointsMap();
+	vor::CPointsMap * cpointsmap = new vor::CPointsMap();
 	for(vor::Cells::iterator i = cells->begin(); i != cells->end(); i++) {
 		VoronoiCell * cell = (*i).second;
 		vor::VEdgemap * siteedgemap = cell->edgemap;
@@ -1064,6 +1067,8 @@ vor::PointsMap * BuildVoronoi::buildPoints(vor::Cells * cells){
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
 				(*pointsmap)[ipos] = dist;
+				vor::Coordpair * coordpair = new vor::Coordpair(l, m);
+				(*cpointsmap)[(*coordpair)] = dist;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1074,6 +1079,8 @@ vor::PointsMap * BuildVoronoi::buildPoints(vor::Cells * cells){
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
 				(*pointsmap)[ipos] = dist;
+				vor::Coordpair * coordpair = new vor::Coordpair(l, m);
+				(*cpointsmap)[(*coordpair)] = dist;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1091,6 +1098,8 @@ vor::PointsMap * BuildVoronoi::buildPoints(vor::Cells * cells){
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
 				(*pointsmap)[ipos] = dist;
+				vor::Coordpair * coordpair = new vor::Coordpair(ipos->x, ipos->y);
+				(*cpointsmap)[(*coordpair)] = dist;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1099,9 +1108,12 @@ vor::PointsMap * BuildVoronoi::buildPoints(vor::Cells * cells){
 			}
 			l = x;
 			while (l >= dmin){
+				
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
 				(*pointsmap)[ipos] = dist;
+				vor::Coordpair * coordpair = new vor::Coordpair(ipos->x, ipos->y);
+				(*cpointsmap)[(*coordpair)] = dist;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1112,28 +1124,48 @@ vor::PointsMap * BuildVoronoi::buildPoints(vor::Cells * cells){
 		}
 		VPoint * mxpnt = new VPoint(w+1,w+1);
 		(*pointsmap)[mxpnt] = maxval;
-                /*
+		vor::Coordpair * coordpair = new vor::Coordpair(w+1, w+1);
+		(*cpointsmap)[(*coordpair)] = maxval;
+                ///*  This code block causing issues on finishing Voronoi cell...need to resolve this.
 		VPoint * basepos = new VPoint(sitepos->x, ymax);
-		VPoint * ymaxvert = getMaxYVertex(bvertedges);
-		//VPoint * bpoint = getBase(VPoint * basepos, VPoint * ymaxvert, vor::VEdgemap * siteedgemap);
-		while (basepos->y < ymaxvert->y){
-			basepos = getBase(basepos, ymaxvert, siteedgemap);
-			vor::Dvalues dvals = getMinMaxvalues(basepos, siteedgemap, false);
-			ymax = dvals[1];
-			fillpoints(pointsmap, siteedgemap, sitepos, basepos, true);
-			basepos = new VPoint(basepos->x,ymax);
+		//VPoint * ymaxvert = getMaxYVertex(bvertedges);
+		//VPoint * bpoint = getBase(basepos, ymaxvert, siteedgemap);
+		/*
+		if (!(ymax == w)){
+			while (basepos->y < ymaxvert->y){
+				basepos = getBase(basepos, ymaxvert, siteedgemap);
+				vor::Dvalues dvals = getMinMaxvalues(basepos, siteedgemap, false);
+				ymax = dvals[1];
+				//fillpoints(pointsmap, siteedgemap, sitepos, basepos, true);
+				basepos = new VPoint(basepos->x,ymax);
+				if (ymax == w){
+					break;
+				}
+				if (ymax == 0){
+					break;
+				}
+			}
 		}
 		basepos = new VPoint(sitepos->x, ymin);
 		VPoint * yminvert = getMinYVertex(bvertedges);
-		while (basepos->y > yminvert->y){
-			basepos = getBase(basepos, yminvert, siteedgemap);
-			vor::Dvalues dvals = getMinMaxvalues(basepos, siteedgemap, false);
-			ymin = dvals[0];
-			fillpoints(pointsmap, siteedgemap, sitepos, basepos, false);
-			basepos = new VPoint(basepos->x,ymin);
+		/*
+		if (!(ymin == 0)){
+			while (basepos->y > yminvert->y){
+				basepos = getBase(basepos, yminvert, siteedgemap);
+				vor::Dvalues dvals = getMinMaxvalues(basepos, siteedgemap, false);
+				ymin = dvals[0];
+				//fillpoints(pointsmap, siteedgemap, sitepos, basepos, false);
+				basepos = new VPoint(basepos->x,ymin);
+				if (ymin == 0){
+					break;
+				}
+				if (ymin == w){
+					break;
+				}
+			}
 		}
-		*/
+		//*/
 	}
-	return pointsmap;  
+	return cpointsmap;  
 }
 #endif
