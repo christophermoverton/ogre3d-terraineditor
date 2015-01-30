@@ -1140,12 +1140,12 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 		double y = sitepos->y;
 		(*pointsmap)[sitepos] = 0.0f;
 		double x = sitepos->x;
-		while(y <= ymax){
+		while(y < ymax){
 			VPoint * o = new VPoint(x,y);
 			vor::Dvalues dvals = getMinMaxvalues(o, siteedgemap, true);
 			double dmax = dvals[1]; double dmin = dvals[0], dist; int l = x; int m = y; int k = y;
 			 
-			while (l < dmax){
+			while (l <= dmax){
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
 				(*pointsmap)[ipos] = dist;
@@ -1157,7 +1157,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				l += 1;
 			}
 			l = x;
-			while (l > dmin){
+			while (l >= dmin){
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
 				(*pointsmap)[ipos] = dist;
@@ -1172,11 +1172,11 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 		}
 		
 		y = sitepos->y;
-		while(y >= ymin){
+		while(y > ymin){
 			VPoint * o = new VPoint(x,y);
 			vor::Dvalues dvals = getMinMaxvalues(o, siteedgemap, true);
 			double dmax = dvals[1]; double dmin = dvals[0], dist; int l = x; int m = y; int k = y;
-			while (l < dmax){
+			while (l <= dmax){
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
 				(*pointsmap)[ipos] = dist;
@@ -1189,7 +1189,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				l += 1;
 			}
 			l = x;
-			while (l > dmin){
+			while (l >= dmin){
 				
 				VPoint * ipos = new VPoint(l, m);
 				dist = pow(pow(sitepos->y-m,2.0f) + pow(sitepos->x-l, 2.0f),.5f);
@@ -1209,7 +1209,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 		vor::Coordpair * coordpair = new vor::Coordpair(w+1, w+1);
 		(*cpointsmap)[(*coordpair)] = maxval;
                 ///*  This code block causing issues on finishing Voronoi cell...need to resolve this.
-		VPoint * basepos = new VPoint(sitepos->x, ymax);
+		VPoint * basepos = new VPoint(sitepos->x, ymax-1);
 		VPoint * ymaxvert = getMaxYVertex(bvertedges);
 		ss5 << "Cell site: " << sitepos->x << " , " << sitepos->y << "\n";
 		ss5 << "Max Vertex: " << ymaxvert->x << " , " << ymaxvert->y << "\n";
@@ -1239,7 +1239,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				ct += 1;
 			}
 		}
-		basepos = new VPoint(sitepos->x, ymin);
+		basepos = new VPoint(sitepos->x, ymin+1);
 		VPoint * yminvert = getMinYVertex(bvertedges);
 		ct = 0;
 		ss5 << "Min Vertex: " << yminvert->x << " , " << yminvert->y << "\n";

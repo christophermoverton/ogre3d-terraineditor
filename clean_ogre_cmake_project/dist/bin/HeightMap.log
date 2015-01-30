@@ -1,6 +1,6 @@
-21:52:15: Test
+01:45:29: Test
 
-21:52:15: Test
+01:45:29: Test
 Test
 width: 513
 depth: 513
@@ -8,7 +8,7 @@ Ogre::PF_R8G8B8A8: 28
 format: 12
 size: 513
 
-21:52:16: Red: 255
+01:45:29: Red: 255
 Green: 255
 Blue: 255
 Alpha: 255

@@ -50,10 +50,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
 
 #=============================================================================
 # Target rules for target CMakeFiles/OgreApp.dir
@@ -62,7 +62,7 @@ CMAKE_BINARY_DIR = /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_proj
 CMakeFiles/OgreApp.dir/all: Voronoi/CMakeFiles/Voronoi.dir/all
 	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/depend
 	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles  1 2
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles  1 2
 	@echo "Built target OgreApp"
 .PHONY : CMakeFiles/OgreApp.dir/all
 
@@ -72,9 +72,9 @@ all: CMakeFiles/OgreApp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OgreApp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OgreApp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
 .PHONY : CMakeFiles/OgreApp.dir/rule
 
 # Convenience name for target.
@@ -121,7 +121,7 @@ Voronoi/preinstall:
 Voronoi/CMakeFiles/Voronoi.dir/all:
 	$(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/depend
 	$(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles  3 4
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles  3 4
 	@echo "Built target Voronoi"
 .PHONY : Voronoi/CMakeFiles/Voronoi.dir/all
 
@@ -131,9 +131,9 @@ all: Voronoi/CMakeFiles/Voronoi.dir/all
 
 # Build rule for subdir invocation for target.
 Voronoi/CMakeFiles/Voronoi.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 Voronoi/CMakeFiles/Voronoi.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
 .PHONY : Voronoi/CMakeFiles/Voronoi.dir/rule
 
 # Convenience name for target.
