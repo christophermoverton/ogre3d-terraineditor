@@ -20,7 +20,7 @@ namespace vor{
 		Useful data containers for Vertices (places) and Edges of Voronoi diagram
 	*/
  	typedef std::pair<VPoint *, VPoint *>			     Vertpair      ;
-	typedef std::pair<double, double>                            Coordpair     ;
+	typedef std::pair<int, int>                            	     Coordpair     ;
 	typedef std::list<VPoint *>		                     Vertices	   ;
 	typedef std::list<VEdge *>				     Edges	   ;
 	typedef std::map<Vertpair, VEdge *>                          VEdgemap      ;
@@ -30,6 +30,7 @@ namespace vor{
 	typedef std::map<VPoint *, double>                            PointsMap    ;
 	typedef std::vector<double>                                     Dvalues      ;
 	typedef std::map<Coordpair, double>                           CPointsMap   ;
+	typedef std::map<Coordpair, VPoint *>                          CoordtoCellMap ;  
 	//typedef std::map<Vpoint *, Vertices>                      CellPolyPoints   ;
 
 	/*

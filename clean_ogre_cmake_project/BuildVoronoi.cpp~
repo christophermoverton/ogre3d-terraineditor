@@ -64,6 +64,9 @@ at the outset of any ray's construction.  Since we know where intersection is to
 a given edge, we can therefore limit any ray casting iterator to such maximum/minimum position
 and forgo the necessity of edge testing.
 
+I've added one second layered points building pass to the algorithm ensuring that any point
+not covered are covered. 2nd pass avoids generally much added computational pass making use
+of iterated maps and work done in the first pass.
 
 */
 class BuildVoronoi{
@@ -79,6 +82,7 @@ class BuildVoronoi{
 		vor::Cells * cells;      //voronoi cell data gathered prior to edges data return
 		vor::Cells * cellspost;  //post processed voronoi cell edges data container.
 		VoronoiCell * cell;  //temporary cell map container for internal use
+		vor::CoordtoCellMap * coordtocell;
 		Ogre::Log* tlog3;
 		//vor::VPoint * cellpoint;                //temporary vertex point for internal use
 		void rayCastLine(double f, double g, VPoint * start, VPoint * end);
@@ -578,7 +582,7 @@ BuildVoronoi::BuildVoronoi(){
 	for (int j = 0; j<size; j++){
 		for (int k = 0; k<size; k++){
 			//ss5<<"Color value: "<<noisevals[i][j]<<"\n";
-			double mult = w/size; int jmn = j*mult; int kmn = k*mult; double jmm = j*mult, kmm = k*mult; 
+			double mult = w/size; int jmn = j*mult; int kmn = k*mult; double jmm = (double)j*mult, kmm = (double)k*mult; 
 			double jdiff = jmm-jmn, kdiff = kmm-kmn;
 			if (jdiff >= .5){
 				jmn += 1;
@@ -595,7 +599,27 @@ BuildVoronoi::BuildVoronoi(){
 				fill->setPixl((size_t)j, (size_t)k, col);
 			}
 			else{
-				Ogre::ColourValue col = Ogre::ColourValue(1.0f,1.0f,1.0f);
+				vor::Coordpair * mcoordpair = new vor::Coordpair(w+1, w+1);
+				coordpair = new vor::Coordpair(jmn+1, kmn);
+				Ogre::ColourValue col;
+				if ((*coordtocell).find((*coordpair)) != (*coordtocell).end()){
+					VPoint * sitepos = (*coordtocell)[(*coordpair)];
+					double colval = pow(pow(sitepos->y-kmn,2.0f) + pow(sitepos->x-jmn, 2.0f),.5f);
+					double div = (*pointsmap)[(*mcoordpair)];
+					col = Ogre::ColourValue(colval/div,colval/div,colval/div);
+				}
+				else {
+					coordpair = new vor::Coordpair(jmn, kmn+1);
+					if ((*coordtocell).find((*coordpair)) != (*coordtocell).end()){
+						VPoint * sitepos = (*coordtocell)[(*coordpair)];
+						double colval = pow(pow(sitepos->y-kmn,2.0f) + pow(sitepos->x-jmn, 2.0f),.5f);
+						double div = (*pointsmap)[(*mcoordpair)];
+						col = Ogre::ColourValue(colval/div,colval/div,colval/div);
+					}
+					else{
+						col = Ogre::ColourValue(1.0f,1.0f,1.0f);
+					}
+				     }
 				fill->setPixl((size_t)j, (size_t)k, col);
 			}
 
@@ -999,11 +1023,12 @@ vor::CPointsMap * BuildVoronoi::fillpoints(vor::CPointsMap * cpointsmap, vor::VE
 			VPoint * o = new VPoint(x,y);
 			vor::Dvalues dvals = getMinMaxvalues(o, siteedgemap, true);
 			double dmax = dvals[1]; double dmin = dvals[0]; int i = x; int j = y; int k = y;
-			while (i < dmax){
+			while (i <= dmax){
 				VPoint * ipos = new VPoint(i, j);
 				dist = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
 				vor::Coordpair * coordpair = new vor::Coordpair(i, j);
 				(*cpointsmap)[(*coordpair)] = dist;
+				(*coordtocell)[(*coordpair)] = sitepos;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1011,11 +1036,12 @@ vor::CPointsMap * BuildVoronoi::fillpoints(vor::CPointsMap * cpointsmap, vor::VE
 				i += 1;
 			}
 			i = x;
-			while (i > dmin){
+			while (i >= dmin){
 				VPoint * ipos = new VPoint(i, j);
 				dist = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
 				vor::Coordpair * coordpair = new vor::Coordpair(i, j);
 				(*cpointsmap)[(*coordpair)] = dist;
+				(*coordtocell)[(*coordpair)] = sitepos;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1031,11 +1057,12 @@ vor::CPointsMap * BuildVoronoi::fillpoints(vor::CPointsMap * cpointsmap, vor::VE
 			VPoint * o = new VPoint(x,y);
 			vor::Dvalues dvals = getMinMaxvalues(o, siteedgemap, true);
 			double dmax = dvals[1]; double dmin = dvals[0]; int i = x; int j = y; int k = y;
-			while (i < dmax){
+			while (i <= dmax){
 				VPoint * ipos = new VPoint(i, j);
 				dist = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
 				vor::Coordpair * coordpair = new vor::Coordpair(i, j);
 				(*cpointsmap)[(*coordpair)] = dist;
+				(*coordtocell)[(*coordpair)] = sitepos;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1043,11 +1070,12 @@ vor::CPointsMap * BuildVoronoi::fillpoints(vor::CPointsMap * cpointsmap, vor::VE
 				i += 1;
 			}
 			i = x;
-			while (i > dmin){
+			while (i >= dmin){
 				VPoint * ipos = new VPoint(i, j);
 				dist = pow(pow(sitepos->y-j,2.0f) + pow(sitepos->x-i, 2.0f),.5f);
 				vor::Coordpair * coordpair = new vor::Coordpair(i, j);
 				(*cpointsmap)[(*coordpair)] = dist;
+				(*coordtocell)[(*coordpair)] = sitepos;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1095,6 +1123,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 	std::ostringstream ss5;
 	vor::PointsMap * pointsmap = new vor::PointsMap();
 	vor::CPointsMap * cpointsmap = new vor::CPointsMap();
+	coordtocell = new vor::CoordtoCellMap();
 	double maxval = 0.0f;
 	for(vor::Cells::iterator i = cellsone->begin(); i != cellsone->end(); i++) {
 		VoronoiCell * cellp = (*i).second;
@@ -1151,6 +1180,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				(*pointsmap)[ipos] = dist;
 				vor::Coordpair * coordpair = new vor::Coordpair(l, m);
 				(*cpointsmap)[(*coordpair)] = dist;
+				(*coordtocell)[(*coordpair)] = sitepos;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1163,6 +1193,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				(*pointsmap)[ipos] = dist;
 				vor::Coordpair * coordpair = new vor::Coordpair(l, m);
 				(*cpointsmap)[(*coordpair)] = dist;
+				(*coordtocell)[(*coordpair)] = sitepos;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1182,6 +1213,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				(*pointsmap)[ipos] = dist;
 				vor::Coordpair * coordpair = new vor::Coordpair(l, m);
 				(*cpointsmap)[(*coordpair)] = dist;
+				(*coordtocell)[(*coordpair)] = sitepos;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1196,6 +1228,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				(*pointsmap)[ipos] = dist;
 				vor::Coordpair * coordpair = new vor::Coordpair(l, m);
 				(*cpointsmap)[(*coordpair)] = dist;
+				(*coordtocell)[(*coordpair)] = sitepos;
 				if (maxval < dist){
 					maxval = dist;
 				}
@@ -1209,7 +1242,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 		vor::Coordpair * coordpair = new vor::Coordpair(w+1, w+1);
 		(*cpointsmap)[(*coordpair)] = maxval;
                 ///*  This code block causing issues on finishing Voronoi cell...need to resolve this.
-		VPoint * basepos = new VPoint(sitepos->x, ymax);
+		VPoint * basepos = new VPoint(sitepos->x, ymax-1);
 		VPoint * ymaxvert = getMaxYVertex(bvertedges);
 		ss5 << "Cell site: " << sitepos->x << " , " << sitepos->y << "\n";
 		ss5 << "Max Vertex: " << ymaxvert->x << " , " << ymaxvert->y << "\n";
@@ -1233,7 +1266,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				if (ymax <= 0){
 					break;
 				}
-				if (ct > 10){
+				if (ct > 5){
 					break;
 				}
 				ct += 1;
@@ -1258,7 +1291,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				if (ymin == w){
 					break;
 				}
-				if (ct > 10){
+				if (ct > 5){
 					break;
 				}
 				ct += 1;
