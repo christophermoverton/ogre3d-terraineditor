@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_SOURCE_DIR = /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_BINARY_DIR = /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -103,14 +103,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/CMakeFiles/progress.marks
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Voronoi/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/CMakeFiles/progress.marks
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Voronoi/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Voronoi/clean
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Voronoi/clean
 .PHONY : clean
 
 # The main clean target
@@ -119,22 +119,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Voronoi/preinstall
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Voronoi/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Voronoi/preinstall
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Voronoi/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Voronoi/CMakeFiles/Voronoi.dir/rule:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Voronoi/CMakeFiles/Voronoi.dir/rule
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Voronoi/CMakeFiles/Voronoi.dir/rule
 .PHONY : Voronoi/CMakeFiles/Voronoi.dir/rule
 
 # Convenience name for target.
@@ -143,7 +143,7 @@ Voronoi: Voronoi/CMakeFiles/Voronoi.dir/rule
 
 # fast build rule for target.
 Voronoi/fast:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/build
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/build
 .PHONY : Voronoi/fast
 
 VParabola.o: VParabola.cpp.o
@@ -151,7 +151,7 @@ VParabola.o: VParabola.cpp.o
 
 # target to build an object file
 VParabola.cpp.o:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.o
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.o
 .PHONY : VParabola.cpp.o
 
 VParabola.i: VParabola.cpp.i
@@ -159,7 +159,7 @@ VParabola.i: VParabola.cpp.i
 
 # target to preprocess a source file
 VParabola.cpp.i:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.i
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.i
 .PHONY : VParabola.cpp.i
 
 VParabola.s: VParabola.cpp.s
@@ -167,7 +167,7 @@ VParabola.s: VParabola.cpp.s
 
 # target to generate assembly for a file
 VParabola.cpp.s:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.s
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.s
 .PHONY : VParabola.cpp.s
 
 Voronoi.o: Voronoi.cpp.o
@@ -175,7 +175,7 @@ Voronoi.o: Voronoi.cpp.o
 
 # target to build an object file
 Voronoi.cpp.o:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.o
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.o
 .PHONY : Voronoi.cpp.o
 
 Voronoi.i: Voronoi.cpp.i
@@ -183,7 +183,7 @@ Voronoi.i: Voronoi.cpp.i
 
 # target to preprocess a source file
 Voronoi.cpp.i:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.i
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.i
 .PHONY : Voronoi.cpp.i
 
 Voronoi.s: Voronoi.cpp.s
@@ -191,7 +191,7 @@ Voronoi.s: Voronoi.cpp.s
 
 # target to generate assembly for a file
 Voronoi.cpp.s:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.s
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.s
 .PHONY : Voronoi.cpp.s
 
 # Help Target
@@ -223,6 +223,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/strangequark/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

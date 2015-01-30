@@ -814,7 +814,7 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 	else{
 		vmin = origin->y;
 	}
-	double vmax = 0; int ct = 0; bool siteapr = false;
+	double vmax = 0; int ct = 0; bool siteapl = false, siteapr = false;
 	for (vor::VEdgemap::iterator j = siteedgemap->begin(); j!=siteedgemap->end(); j++){
 		vor::Vertpair vpair = (*j).first;
 		VPoint * v1 = vpair.first; VPoint * v2 = vpair.second;
@@ -822,7 +822,10 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 		if (xaxis){
 			if ((v1->y <= origin->y) and (v2->y >= origin->y)){
 				double x = solveX(origin->y,(*j).second);
-				if (abs(x-origin->x) < 1){
+				if ((abs(x-origin->x) < 1) and (x <= origin->x)){
+					siteapl = true;
+				}
+				if ((abs(x-origin->x) < 1) and (x >= origin->x)){
 					siteapr = true;
 				}
 				if (x > origin->x){
@@ -839,7 +842,10 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 			}
 			else if ((v1->y >= origin->y) and (v2->y <= origin->y)) {
 				double x = solveX(origin->y,(*j).second);
-				if (abs(x-origin->x) < 1){
+				if (abs(x-origin->x) < 1 and (x <= origin->x)){
+					siteapl = true;
+				}
+				if (abs(x-origin->x) < 1 and (x >= origin->x)){
 					siteapr = true;
 				}
 				if (x > origin->x){
@@ -903,7 +909,7 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 		if (vmin > origin->x){
 			vmin = origin->x;
 		}
-		if ((vmin == origin->x) and (!siteapr)){
+		if ((vmin == origin->x) and (!siteapl)){
 			vmin = 0;
 		}
 		if ((vmax == origin->x) and (!siteapr)){
@@ -1086,6 +1092,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 	//until choosing a point in the polygon and then repeating this process until honing on 
 	//the poly's absolute y max.  A similar approach is used in hitting the poly's vertices y
 	//min.
+	std::ostringstream ss5;
 	vor::PointsMap * pointsmap = new vor::PointsMap();
 	vor::CPointsMap * cpointsmap = new vor::CPointsMap();
 	double maxval = 0.0f;
@@ -1204,9 +1211,12 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
                 ///*  This code block causing issues on finishing Voronoi cell...need to resolve this.
 		VPoint * basepos = new VPoint(sitepos->x, ymax);
 		VPoint * ymaxvert = getMaxYVertex(bvertedges);
+		ss5 << "Cell site: " << sitepos->x << " , " << sitepos->y << "\n";
+		ss5 << "Max Vertex: " << ymaxvert->x << " , " << ymaxvert->y << "\n";
 		//VPoint * bpoint = getBase(basepos, ymaxvert, siteedgemap);
 
 		///*
+
 		ct = 0;
 		if (!(ymax == w)){
 
@@ -1214,6 +1224,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 				basepos = getBase(basepos, ymaxvert, siteedgemap);
 				vor::Dvalues dvals = getMinMaxvalues(basepos, siteedgemap, false);
 				ymax = dvals[1];
+				ss5 << "y max Vertex: " << ymax << "\n";
 				cpointsmap = fillpoints(cpointsmap, siteedgemap, sitepos, basepos, true);
 				basepos = new VPoint(basepos->x,ymax);
 				if (ymax >= w){
@@ -1231,12 +1242,14 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 		basepos = new VPoint(sitepos->x, ymin);
 		VPoint * yminvert = getMinYVertex(bvertedges);
 		ct = 0;
+		ss5 << "Min Vertex: " << yminvert->x << " , " << yminvert->y << "\n";
 		///*
 		if (!(ymin == 0)){
 			while (basepos->y > yminvert->y){
 				basepos = getBase(basepos, yminvert, siteedgemap);
 				vor::Dvalues dvals = getMinMaxvalues(basepos, siteedgemap, false);
 				ymin = dvals[0];
+				ss5 << "y min Vertex: " << ymin << "\n";
 				cpointsmap = fillpoints(cpointsmap, siteedgemap, sitepos, basepos, false);
 				basepos = new VPoint(basepos->x,ymin);
 				if (ymin == 0){
@@ -1253,6 +1266,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 		}
 		//*/
 	}
+	tlog3->logMessage(ss5.str());
 	return cpointsmap;  
 }
 #endif
