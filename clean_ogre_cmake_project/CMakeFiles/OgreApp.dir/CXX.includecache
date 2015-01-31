@@ -151,12 +151,18 @@ vector
 -
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinGenerator.cpp
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+TPoint3.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
 Perlin.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Perlin.cpp
 vector
 -
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinTest.cpp
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
 PerlinGenerator.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinGenerator.cpp
 ColorGet.cpp
@@ -170,6 +176,26 @@ vector
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ScaleHeights.cpp
 vector
+-
+
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+TPoint3.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+list
+-
+queue
+-
+set
+-
+functional
+-
+vector
+-
+map
+-
+utility
 -
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Terrainheightselection.cpp

@@ -245,6 +245,8 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinTest.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PlaneIntersection.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ScaleHeights.cpp
+ /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+ /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Terrainheightselection.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/cspline.cpp

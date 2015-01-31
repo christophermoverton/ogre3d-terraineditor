@@ -11,10 +11,10 @@ class PerlinTest{
 		PerlinTest(float size, float scale, float zdepth);
 		PerlinTest(float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain, int imagemap);
 		vector<vector<vector<double> > > getNoisevalues();
-		terr::3dCPointsMap               getNoisevalues();
+		terr::T3dCPointsMap               getNoisevaluesT();
 	private:
 		vector<vector<vector<double> > > cnoisevals;
-		terr::3dCPointsMap              tcnoisevals;		
+		terr::T3dCPointsMap              tcnoisevals;		
 };
 
 PerlinTest::PerlinTest(float size, float scale){
@@ -78,7 +78,7 @@ PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, f
 	//ss5<<"Test2 " <<"\n";
 	//tlog->logMessage(ss5.str());
 	vector<vector<vector<double> > > noisevals = pgen->getNoisevalues3d();
-	tcnoisevals = pgen->getNoisevalues3d();
+	tcnoisevals = pgen->getNoisevalues3dT();
 	cnoisevals = noisevals;
 	ImageBuffer buffer(size);
     	FillColour* fill = new FillColour (&buffer);
@@ -105,7 +105,7 @@ vector<vector<vector<double> > > PerlinTest::getNoisevalues(){
 	return cnoisevals;
 }
 
-terr::3dCPointsMap PerlinTest::getNoisevalues(){
+terr::T3dCPointsMap PerlinTest::getNoisevaluesT(){
 	return tcnoisevals;
 }
 #endif

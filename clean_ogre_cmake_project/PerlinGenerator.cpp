@@ -1,6 +1,7 @@
 #ifndef __PerlinGenerator_CPP
 #define __PerlinGenerator_CPP
 #include "TerrainStruct.h"
+#include "TPoint3.h"
 #include "Perlin.cpp"
 #include <vector>
 using namespace std;
@@ -12,7 +13,7 @@ class PerlinGenerator{
 		PerlinGenerator(float size, float scale, float zdepth, float frequency ,float amplitude,float octaves, float gain);
 		vector<vector<double> > getNoisevalues(void);
 		vector<vector<vector<double> > > getNoisevalues3d(void);
-		terr::3dCPointsMap getNoisevalues3d(void);
+		terr::T3dCPointsMap getNoisevalues3dT(void);
 	private:  
 		double cscale;
 		// 513 x 513 
@@ -21,7 +22,7 @@ class PerlinGenerator{
 		double zdepth;
 		vector<vector<double> > cnoisevals;
 		vector<vector<vector<double> > > cnoisevals3d;
-		terr::3dCPointsMap * tcnoisevals3d;
+		terr::T3dCPointsMap * tcnoisevals3d;
 		vector<vector<vector<vector<double> > > > cnoisepartials;				
 };
 
@@ -214,7 +215,7 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth){
 PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float frequency, float amplitude, float octaves=6, float gain = 1.5f){
 	//frequency is typically a number ranging inside the set (0,1].
 	//default size = 513
-	tcnoisevals3d = new terr::3dCPointsMap(); 
+	tcnoisevals3d = new terr::T3dCPointsMap(); 
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("Perlin.log");
 	csize = (double)size;
 	cscale = (double)scale; //could be values likely ranging from 1.0f to size
@@ -342,9 +343,9 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float fr
 		for(int j = 0; j < size; j++){
 		   for(int k = 0; k < (int)zdepth-1; k++){
 			//noiseval[i][j][k] = (noiseval[i][j][k]/scaleceiling)/2 + .5;
-			terr::3dCoord * coord = new terr::3dCoord(i,j,k);
+			TPoint3 * coord = new TPoint3(i,j,k);
 			noiseval[i][j][k] = (noiseval[i][j][k]/scaleceiling);
-			(*tcnoisevals3d)[(*coord)] = (noiseval[i][j][k]/scaleceiling);
+			(*tcnoisevals3d)[coord] = (noiseval[i][j][k]/scaleceiling);
 			
 		   }
 		}
@@ -362,7 +363,7 @@ vector<vector<vector<double> > > PerlinGenerator::getNoisevalues3d(){
 	return cnoisevals3d;
 }
 
-terr::3dCPointsMap PerlinGenerator::getNoisevalues3d(){
+terr::T3dCPointsMap PerlinGenerator::getNoisevalues3dT(){
 	return (*tcnoisevals3d);
 }
 

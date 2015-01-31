@@ -1,15 +1,17 @@
-#ifndef __m_h
-#define __VoronoiCell_h
 
-#include <list>
-#include <queue>
-#include <set>
+struct TPoint3
+{
+	public:
+	    
+		double x, y;
+	
+		/*
+			Constructor for structure; x, y - coordinates
+		*/
 
-#include "VPoint.h"
-#include "VEdge.h"
-#include "VParabola.h"
-#include "VEvent.h"
-#include <functional>
-#include <vector>
-#include <map>
-#include <utility>
+	    	VPoint(double nx, double ny) 
+		{
+			x = nx; 
+			y = ny;
+		}
+};

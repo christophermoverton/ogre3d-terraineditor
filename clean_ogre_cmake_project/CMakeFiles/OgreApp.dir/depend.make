@@ -244,6 +244,8 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: PerlinGenerator.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: PerlinTest.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: PlaneIntersection.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ScaleHeights.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TPoint3.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainStruct.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Terrainheightselection.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: cspline.cpp
