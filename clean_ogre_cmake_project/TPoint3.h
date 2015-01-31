@@ -30,6 +30,10 @@ struct TPoint3
 	        {
     	    		return (x == a.x && y == a.y && z == a.z);
     		}
+		
+		bool operator!=(const TPoint3 & a) const{
+			return (x != a.x || y != a.y || z != a.z);
+		}
 };
 
 #endif

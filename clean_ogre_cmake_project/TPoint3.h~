@@ -17,10 +17,18 @@ struct TPoint3
 			y = ny;
 			z = nz;
 		}
-    		
-		bool operator==(const pos& a) const
+
+	        TPoint3 & operator=(const TPoint3 & a)
+    		{
+        		x=a.x;
+        		y=a.y;
+			z=a.z;
+        		return *this;
+    		}    		
+
+		bool operator==(const TPoint3 & a) const
 	        {
-    	    		return (x == a.x && y == a.y);
+    	    		return (x == a.x && y == a.y && z == a.z);
     		}
 };
 
