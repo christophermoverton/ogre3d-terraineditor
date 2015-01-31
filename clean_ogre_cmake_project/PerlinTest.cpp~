@@ -1,6 +1,6 @@
 #ifndef __PerlinTest_CPP
 #define __PerlinTest_CPP
-
+#include "TerrainStruct.h"
 #include "PerlinGenerator.cpp"
 #include "ColorGet.cpp"
 #include "Imagestuff.cpp"
@@ -11,8 +11,10 @@ class PerlinTest{
 		PerlinTest(float size, float scale, float zdepth);
 		PerlinTest(float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain, int imagemap);
 		vector<vector<vector<double> > > getNoisevalues();
+		terr::3dCPointsMap               getNoisevalues();
 	private:
-		vector<vector<vector<double> > > cnoisevals;		
+		vector<vector<vector<double> > > cnoisevals;
+		terr::3dCPointsMap              tcnoisevals;		
 };
 
 PerlinTest::PerlinTest(float size, float scale){
@@ -76,6 +78,7 @@ PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, f
 	//ss5<<"Test2 " <<"\n";
 	//tlog->logMessage(ss5.str());
 	vector<vector<vector<double> > > noisevals = pgen->getNoisevalues3d();
+	tcnoisevals = pgen->getNoisevalues3d();
 	cnoisevals = noisevals;
 	ImageBuffer buffer(size);
     	FillColour* fill = new FillColour (&buffer);
@@ -102,4 +105,6 @@ vector<vector<vector<double> > > PerlinTest::getNoisevalues(){
 	return cnoisevals;
 }
 
+terr::3dCPointsMap PerlinTest::getNoisevalues(){
+}
 #endif

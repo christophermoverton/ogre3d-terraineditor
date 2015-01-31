@@ -1,0 +1,5158 @@
+12:58:23: Cell: 128.202,1016.48
+x: 239.075, y: 1169.71
+x: 0, y: 10369.3
+x: 116.968, y: 976.117
+x: 0, y: 1419.06
+x: 180.563, y: 999.149
+Vertex x: 239.075 , y: 1169.71
+neighbor point x: 0 , y: 10369.3
+neighbor point x: 180.563 , y: 999.149
+Vertex x: 180.563 , y: 999.149
+neighbor point x: 239.075 , y: 1169.71
+neighbor point x: 116.968 , y: 976.117
+Vertex x: 116.968 , y: 976.117
+neighbor point x: 0 , y: 1419.06
+neighbor point x: 180.563 , y: 999.149
+Vertex x: 0 , y: 10369.3
+neighbor point x: 239.075 , y: 1169.71
+neighbor point x: 239.075 , y: 1169.71
+neighbor point x: 180.563 , y: 999.149
+Vertex x: 0 , y: 1419.06
+neighbor point x: 116.968 , y: 976.117
+Duplicates coordinate x: 0, y: 10369.3
+Duplicates coordinate x: 239.075, y: 1169.71
+Path coordinate x: 239.075, y: 1169.71
+Path coordinate x: 180.563, y: 999.149
+Path coordinate x: 116.968, y: 976.117
+Path coordinate x: 0, y: 1419.06
+Centroid coordinate x: 117.817, y: 1103.3
+1rst x: 239.075 1rst y: 1169.71
+2nd x: 180.563 2nd y: 999.149
+1rst x: 239.075 1rst y: 1169.71
+2nd x: 0 2nd y: 10369.3
+1rst x: 180.563 1rst y: 999.149
+2nd x: 116.968 2nd y: 976.117
+1rst x: 116.968 1rst y: 976.117
+2nd x: 0 2nd y: 1419.06
+Cell: 87.2734,1005.67
+x: 116.968, y: 976.117
+x: 0, y: 1419.06
+x: 73.7964, y: 924.197
+x: 0, y: 957.147
+Vertex x: 116.968 , y: 976.117
+neighbor point x: 0 , y: 1419.06
+neighbor point x: 73.7964 , y: 924.197
+Vertex x: 73.7964 , y: 924.197
+neighbor point x: 116.968 , y: 976.117
+neighbor point x: 0 , y: 957.147
+Vertex x: 0 , y: 1419.06
+neighbor point x: 116.968 , y: 976.117
+neighbor point x: 116.968 , y: 976.117
+neighbor point x: 73.7964 , y: 924.197
+Vertex x: 0 , y: 957.147
+neighbor point x: 73.7964 , y: 924.197
+Duplicates coordinate x: 0, y: 1419.06
+Duplicates coordinate x: 116.968, y: 976.117
+Path coordinate x: 116.968, y: 976.117
+Path coordinate x: 73.7964, y: 924.197
+Path coordinate x: 0, y: 957.147
+Centroid coordinate x: 60.6736, y: 963.47
+1rst x: 116.968 1rst y: 976.117
+2nd x: 73.7964 2nd y: 924.197
+1rst x: 116.968 1rst y: 976.117
+2nd x: 0 2nd y: 1419.06
+1rst x: 73.7964 1rst y: 924.197
+2nd x: 0 2nd y: 957.147
+Cell: 357.756,1022.44
+x: 239.075, y: 1169.71
+x: 0, y: 10369.3
+x: 327.71, y: 903.901
+x: 1577.04, y: 5036.29
+x: 653.505, y: 1264.57
+x: 627.22, y: 1182.98
+x: 382.656, y: 879.863
+x: 1587.04, y: 5082.14
+Vertex x: 239.075 , y: 1169.71
+neighbor point x: 0 , y: 10369.3
+neighbor point x: 327.71 , y: 903.901
+Vertex x: 653.505 , y: 1264.57
+neighbor point x: 1577.04 , y: 5036.29
+neighbor point x: 627.22 , y: 1182.98
+Vertex x: 627.22 , y: 1182.98
+neighbor point x: 382.656 , y: 879.863
+neighbor point x: 653.505 , y: 1264.57
+Vertex x: 1577.04 , y: 5036.29
+neighbor point x: 653.505 , y: 1264.57
+neighbor point x: 1587.04 , y: 5082.14
+Vertex x: 327.71 , y: 903.901
+neighbor point x: 239.075 , y: 1169.71
+neighbor point x: 382.656 , y: 879.863
+Vertex x: 382.656 , y: 879.863
+neighbor point x: 627.22 , y: 1182.98
+neighbor point x: 327.71 , y: 903.901
+Vertex x: 0 , y: 10369.3
+neighbor point x: 239.075 , y: 1169.71
+neighbor point x: 239.075 , y: 1169.71
+neighbor point x: 327.71 , y: 903.901
+Vertex x: 1587.04 , y: 5082.14
+neighbor point x: 1577.04 , y: 5036.29
+Duplicates coordinate x: 0, y: 10369.3
+Duplicates coordinate x: 239.075, y: 1169.71
+Path coordinate x: 239.075, y: 1169.71
+Path coordinate x: 327.71, y: 903.901
+Path coordinate x: 382.656, y: 879.863
+Path coordinate x: 627.22, y: 1182.98
+Path coordinate x: 653.505, y: 1264.57
+Path coordinate x: 1577.04, y: 5036.29
+Path coordinate x: 1587.04, y: 5082.14
+Centroid coordinate x: 836.024, y: 2362.28
+1rst x: 239.075 1rst y: 1169.71
+2nd x: 327.71 2nd y: 903.901
+1rst x: 239.075 1rst y: 1169.71
+2nd x: 0 2nd y: 10369.3
+1rst x: 653.505 1rst y: 1264.57
+2nd x: 627.22 2nd y: 1182.98
+1rst x: 627.22 1rst y: 1182.98
+2nd x: 382.656 2nd y: 879.863
+1rst x: 1577.04 1rst y: 5036.29
+2nd x: 653.505 2nd y: 1264.57
+1rst x: 1577.04 1rst y: 5036.29
+2nd x: 1587.04 2nd y: 5082.14
+1rst x: 327.71 1rst y: 903.901
+2nd x: 382.656 2nd y: 879.863
+Cell: 371.195,620.421
+x: 420.397, y: 550.291
+x: 326.218, y: 717.047
+x: 215.427, y: 649.609
+x: 214.69, y: 647.076
+x: 225.916, y: 559.429
+x: 361.829, y: 500.343
+Vertex x: 326.218 , y: 717.047
+neighbor point x: 420.397 , y: 550.291
+neighbor point x: 215.427 , y: 649.609
+neighbor point x: 420.397 , y: 550.291
+neighbor point x: 361.829 , y: 500.343
+Vertex x: 215.427 , y: 649.609
+neighbor point x: 326.218 , y: 717.047
+neighbor point x: 214.69 , y: 647.076
+Vertex x: 214.69 , y: 647.076
+neighbor point x: 215.427 , y: 649.609
+neighbor point x: 225.916 , y: 559.429
+Vertex x: 420.397 , y: 550.291
+neighbor point x: 326.218 , y: 717.047
+neighbor point x: 326.218 , y: 717.047
+neighbor point x: 215.427 , y: 649.609
+neighbor point x: 361.829 , y: 500.343
+Vertex x: 225.916 , y: 559.429
+neighbor point x: 214.69 , y: 647.076
+neighbor point x: 361.829 , y: 500.343
+Vertex x: 361.829 , y: 500.343
+neighbor point x: 420.397 , y: 550.291
+neighbor point x: 225.916 , y: 559.429
+Duplicates coordinate x: 326.218, y: 717.047
+Duplicates coordinate x: 420.397, y: 550.291
+Path coordinate x: 326.218, y: 717.047
+Path coordinate x: 215.427, y: 649.609
+Path coordinate x: 214.69, y: 647.076
+Path coordinate x: 225.916, y: 559.429
+Path coordinate x: 361.829, y: 500.343
+Centroid coordinate x: 305.115, y: 594.222
+1rst x: 326.218 1rst y: 717.047
+2nd x: 215.427 2nd y: 649.609
+1rst x: 215.427 1rst y: 649.609
+2nd x: 214.69 2nd y: 647.076
+1rst x: 214.69 1rst y: 647.076
+2nd x: 225.916 2nd y: 559.429
+1rst x: 420.397 1rst y: 550.291
+2nd x: 326.218 2nd y: 717.047
+1rst x: 420.397 1rst y: 550.291
+2nd x: 361.829 2nd y: 500.343
+1rst x: 361.829 1rst y: 500.343
+2nd x: 225.916 2nd y: 559.429
+Cell: 875.005,8.73134
+x: 1026, y: -32.858
+x: 775.046, y: 75.0766
+x: 662.157, y: -262.133
+x: 890.319, y: -48332.7
+x: 1026, y: -69570.5
+Vertex x: 775.046 , y: 75.0766
+neighbor point x: 1026 , y: -32.858
+neighbor point x: 662.157 , y: -262.133
+Vertex x: 662.157 , y: -262.133
+neighbor point x: 775.046 , y: 75.0766
+neighbor point x: 890.319 , y: -48332.7
+Vertex x: 890.319 , y: -48332.7
+neighbor point x: 662.157 , y: -262.133
+neighbor point x: 1026 , y: -69570.5
+Vertex x: 1026 , y: -69570.5
+neighbor point x: 890.319 , y: -48332.7
+Vertex x: 1026 , y: -32.858
+neighbor point x: 775.046 , y: 75.0766
+neighbor point x: 775.046 , y: 75.0766
+neighbor point x: 662.157 , y: -262.133
+Duplicates coordinate x: 1026, y: -32.858
+Duplicates coordinate x: 775.046, y: 75.0766
+Path coordinate x: 775.046, y: 75.0766
+Path coordinate x: 662.157, y: -262.133
+Path coordinate x: 890.319, y: -48332.7
+Path coordinate x: 1026, y: -69570.5
+Centroid coordinate x: 854.55, y: -24104
+1rst x: 775.046 1rst y: 75.0766
+2nd x: 662.157 2nd y: -262.133
+1rst x: 662.157 1rst y: -262.133
+2nd x: 890.319 2nd y: -48332.7
+1rst x: 890.319 1rst y: -48332.7
+2nd x: 1026 2nd y: -69570.5
+1rst x: 1026 1rst y: -32.858
+2nd x: 775.046 2nd y: 75.0766
+Cell: 56.8777,776.965
+x: 124.121, y: 853.873
+x: 13.948, y: 807.648
+x: 76.756, y: 745.09
+x: 20.4166, y: 793.098
+x: 153.093, y: 838.249
+x: 162.524, y: 759.387
+Vertex x: 13.948 , y: 807.648
+neighbor point x: 124.121 , y: 853.873
+neighbor point x: 20.4166 , y: 793.098
+neighbor point x: 124.121 , y: 853.873
+neighbor point x: 153.093 , y: 838.249
+Vertex x: 20.4166 , y: 793.098
+neighbor point x: 76.756 , y: 745.09
+neighbor point x: 13.948 , y: 807.648
+Vertex x: 124.121 , y: 853.873
+neighbor point x: 13.948 , y: 807.648
+neighbor point x: 13.948 , y: 807.648
+neighbor point x: 20.4166 , y: 793.098
+neighbor point x: 153.093 , y: 838.249
+Vertex x: 153.093 , y: 838.249
+neighbor point x: 124.121 , y: 853.873
+neighbor point x: 162.524 , y: 759.387
+Vertex x: 76.756 , y: 745.09
+neighbor point x: 20.4166 , y: 793.098
+neighbor point x: 162.524 , y: 759.387
+Vertex x: 162.524 , y: 759.387
+neighbor point x: 153.093 , y: 838.249
+neighbor point x: 76.756 , y: 745.09
+Duplicates coordinate x: 13.948, y: 807.648
+Duplicates coordinate x: 124.121, y: 853.873
+Path coordinate x: 13.948, y: 807.648
+Path coordinate x: 20.4166, y: 793.098
+Path coordinate x: 76.756, y: 745.09
+Path coordinate x: 162.524, y: 759.387
+Path coordinate x: 153.093, y: 838.249
+Centroid coordinate x: 106.208, y: 783.744
+1rst x: 13.948 1rst y: 807.648
+2nd x: 20.4166 2nd y: 793.098
+1rst x: 124.121 1rst y: 853.873
+2nd x: 13.948 2nd y: 807.648
+1rst x: 124.121 1rst y: 853.873
+2nd x: 153.093 2nd y: 838.249
+1rst x: 153.093 1rst y: 838.249
+2nd x: 162.524 2nd y: 759.387
+1rst x: 76.756 1rst y: 745.09
+2nd x: 20.4166 2nd y: 793.098
+1rst x: 76.756 1rst y: 745.09
+2nd x: 162.524 2nd y: 759.387
+Cell: 151.441,952.312
+x: 180.563, y: 999.149
+x: 116.968, y: 976.117
+x: 219.887, y: 886.754
+x: 73.7964, y: 924.197
+x: 124.121, y: 853.873
+x: 153.093, y: 838.249
+Vertex x: 180.563 , y: 999.149
+neighbor point x: 116.968 , y: 976.117
+neighbor point x: 219.887 , y: 886.754
+neighbor point x: 116.968 , y: 976.117
+neighbor point x: 73.7964 , y: 924.197
+Vertex x: 116.968 , y: 976.117
+neighbor point x: 180.563 , y: 999.149
+neighbor point x: 180.563 , y: 999.149
+neighbor point x: 219.887 , y: 886.754
+neighbor point x: 73.7964 , y: 924.197
+Vertex x: 73.7964 , y: 924.197
+neighbor point x: 116.968 , y: 976.117
+neighbor point x: 124.121 , y: 853.873
+Vertex x: 219.887 , y: 886.754
+neighbor point x: 180.563 , y: 999.149
+neighbor point x: 153.093 , y: 838.249
+Vertex x: 124.121 , y: 853.873
+neighbor point x: 73.7964 , y: 924.197
+neighbor point x: 153.093 , y: 838.249
+Vertex x: 153.093 , y: 838.249
+neighbor point x: 219.887 , y: 886.754
+neighbor point x: 124.121 , y: 853.873
+Duplicates coordinate x: 180.563, y: 999.149
+Duplicates coordinate x: 116.968, y: 976.117
+Path coordinate x: 180.563, y: 999.149
+Path coordinate x: 219.887, y: 886.754
+Path coordinate x: 153.093, y: 838.249
+Path coordinate x: 124.121, y: 853.873
+Path coordinate x: 73.7964, y: 924.197
+Centroid coordinate x: 145.982, y: 908.577
+1rst x: 180.563 1rst y: 999.149
+2nd x: 116.968 2nd y: 976.117
+1rst x: 180.563 1rst y: 999.149
+2nd x: 219.887 2nd y: 886.754
+1rst x: 116.968 1rst y: 976.117
+2nd x: 73.7964 2nd y: 924.197
+1rst x: 73.7964 1rst y: 924.197
+2nd x: 124.121 2nd y: 853.873
+1rst x: 219.887 1rst y: 886.754
+2nd x: 153.093 2nd y: 838.249
+1rst x: 124.121 1rst y: 853.873
+2nd x: 153.093 2nd y: 838.249
+Cell: 546.733,112.065
+x: 577.147, y: 210.878
+x: 518.492, y: 193.268
+x: 613.944, y: 144.32
+x: 473.041, y: 81.8708
+x: 571.249, y: -11.3239
+Vertex x: 577.147 , y: 210.878
+neighbor point x: 518.492 , y: 193.268
+neighbor point x: 613.944 , y: 144.32
+neighbor point x: 518.492 , y: 193.268
+neighbor point x: 473.041 , y: 81.8708
+Vertex x: 518.492 , y: 193.268
+neighbor point x: 577.147 , y: 210.878
+neighbor point x: 577.147 , y: 210.878
+neighbor point x: 613.944 , y: 144.32
+neighbor point x: 473.041 , y: 81.8708
+Vertex x: 613.944 , y: 144.32
+neighbor point x: 577.147 , y: 210.878
+neighbor point x: 571.249 , y: -11.3239
+Vertex x: 473.041 , y: 81.8708
+neighbor point x: 518.492 , y: 193.268
+neighbor point x: 571.249 , y: -11.3239
+Vertex x: 571.249 , y: -11.3239
+neighbor point x: 613.944 , y: 144.32
+neighbor point x: 473.041 , y: 81.8708
+Duplicates coordinate x: 577.147, y: 210.878
+Duplicates coordinate x: 518.492, y: 193.268
+Path coordinate x: 577.147, y: 210.878
+Path coordinate x: 613.944, y: 144.32
+Path coordinate x: 571.249, y: -11.3239
+Path coordinate x: 473.041, y: 81.8708
+Centroid coordinate x: 558.97, y: 90.4169
+1rst x: 577.147 1rst y: 210.878
+2nd x: 518.492 2nd y: 193.268
+1rst x: 577.147 1rst y: 210.878
+2nd x: 613.944 2nd y: 144.32
+1rst x: 518.492 1rst y: 193.268
+2nd x: 473.041 2nd y: 81.8708
+1rst x: 613.944 1rst y: 144.32
+2nd x: 571.249 2nd y: -11.3239
+1rst x: 473.041 1rst y: 81.8708
+2nd x: 571.249 2nd y: -11.3239
+Cell: 69.9558,581.837
+x: 214.69, y: 647.076
+x: -30.0337, y: 643.861
+x: -572.243, y: 450.007
+x: 225.916, y: 559.429
+x: 138.443, y: 451.297
+x: -252.247, y: 404.753
+Vertex x: -30.0337 , y: 643.861
+neighbor point x: 214.69 , y: 647.076
+neighbor point x: -572.243 , y: 450.007
+neighbor point x: 214.69 , y: 647.076
+neighbor point x: 225.916 , y: 559.429
+Vertex x: 214.69 , y: 647.076
+neighbor point x: -30.0337 , y: 643.861
+neighbor point x: -30.0337 , y: 643.861
+neighbor point x: -572.243 , y: 450.007
+neighbor point x: 225.916 , y: 559.429
+Vertex x: 225.916 , y: 559.429
+neighbor point x: 214.69 , y: 647.076
+neighbor point x: 138.443 , y: 451.297
+Vertex x: 138.443 , y: 451.297
+neighbor point x: 225.916 , y: 559.429
+neighbor point x: -252.247 , y: 404.753
+Vertex x: -252.247 , y: 404.753
+neighbor point x: 138.443 , y: 451.297
+neighbor point x: -572.243 , y: 450.007
+Vertex x: -572.243 , y: 450.007
+neighbor point x: -30.0337 , y: 643.861
+neighbor point x: -252.247 , y: 404.753
+Duplicates coordinate x: -30.0337, y: 643.861
+Duplicates coordinate x: 214.69, y: 647.076
+Path coordinate x: -30.0337, y: 643.861
+Path coordinate x: -572.243, y: 450.007
+Path coordinate x: -252.247, y: 404.753
+Path coordinate x: 138.443, y: 451.297
+Path coordinate x: 225.916, y: 559.429
+Centroid coordinate x: -107.217, y: 506.861
+1rst x: -30.0337 1rst y: 643.861
+2nd x: -572.243 2nd y: 450.007
+1rst x: 214.69 1rst y: 647.076
+2nd x: -30.0337 2nd y: 643.861
+1rst x: 214.69 1rst y: 647.076
+2nd x: 225.916 2nd y: 559.429
+1rst x: 225.916 1rst y: 559.429
+2nd x: 138.443 2nd y: 451.297
+1rst x: 138.443 1rst y: 451.297
+2nd x: -252.247 2nd y: 404.753
+1rst x: -252.247 1rst y: 404.753
+2nd x: -572.243 2nd y: 450.007
+Cell: 441.506,154.999
+x: 518.492, y: 193.268
+x: 410.365, y: 242.911
+x: 393.407, y: 234.113
+x: 296.378, y: 149.954
+x: 473.041, y: 81.8708
+x: 366.585, y: 78.109
+Vertex x: 410.365 , y: 242.911
+neighbor point x: 518.492 , y: 193.268
+neighbor point x: 393.407 , y: 234.113
+neighbor point x: 518.492 , y: 193.268
+neighbor point x: 473.041 , y: 81.8708
+Vertex x: 393.407 , y: 234.113
+neighbor point x: 410.365 , y: 242.911
+neighbor point x: 296.378 , y: 149.954
+Vertex x: 518.492 , y: 193.268
+neighbor point x: 410.365 , y: 242.911
+neighbor point x: 410.365 , y: 242.911
+neighbor point x: 393.407 , y: 234.113
+neighbor point x: 473.041 , y: 81.8708
+Vertex x: 296.378 , y: 149.954
+neighbor point x: 393.407 , y: 234.113
+neighbor point x: 366.585 , y: 78.109
+Vertex x: 473.041 , y: 81.8708
+neighbor point x: 518.492 , y: 193.268
+neighbor point x: 366.585 , y: 78.109
+Vertex x: 366.585 , y: 78.109
+neighbor point x: 473.041 , y: 81.8708
+neighbor point x: 296.378 , y: 149.954
+Duplicates coordinate x: 410.365, y: 242.911
+Duplicates coordinate x: 518.492, y: 193.268
+Path coordinate x: 410.365, y: 242.911
+Path coordinate x: 393.407, y: 234.113
+Path coordinate x: 296.378, y: 149.954
+Path coordinate x: 366.585, y: 78.109
+Path coordinate x: 473.041, y: 81.8708
+Centroid coordinate x: 392.264, y: 141.432
+1rst x: 410.365 1rst y: 242.911
+2nd x: 393.407 2nd y: 234.113
+1rst x: 393.407 1rst y: 234.113
+2nd x: 296.378 2nd y: 149.954
+1rst x: 518.492 1rst y: 193.268
+2nd x: 410.365 2nd y: 242.911
+1rst x: 518.492 1rst y: 193.268
+2nd x: 473.041 2nd y: 81.8708
+1rst x: 296.378 1rst y: 149.954
+2nd x: 366.585 2nd y: 78.109
+1rst x: 473.041 1rst y: 81.8708
+2nd x: 366.585 2nd y: 78.109
+Cell: 891.958,48.1464
+x: 1065.26, y: 138.962
+x: 803.171, y: 134.646
+x: 779.51, y: 106.022
+x: 1026, y: -32.858
+x: 775.046, y: 75.0766
+x: 1075.26, y: 134.82
+Vertex x: 803.171 , y: 134.646
+neighbor point x: 1065.26 , y: 138.962
+neighbor point x: 779.51 , y: 106.022
+neighbor point x: 1065.26 , y: 138.962
+neighbor point x: 1075.26 , y: 134.82
+Vertex x: 779.51 , y: 106.022
+neighbor point x: 803.171 , y: 134.646
+neighbor point x: 775.046 , y: 75.0766
+Vertex x: 775.046 , y: 75.0766
+neighbor point x: 1026 , y: -32.858
+neighbor point x: 779.51 , y: 106.022
+Vertex x: 1065.26 , y: 138.962
+neighbor point x: 803.171 , y: 134.646
+neighbor point x: 803.171 , y: 134.646
+neighbor point x: 779.51 , y: 106.022
+neighbor point x: 1075.26 , y: 134.82
+Vertex x: 1075.26 , y: 134.82
+neighbor point x: 1065.26 , y: 138.962
+Vertex x: 1026 , y: -32.858
+neighbor point x: 775.046 , y: 75.0766
+Duplicates coordinate x: 803.171, y: 134.646
+Duplicates coordinate x: 1065.26, y: 138.962
+Path coordinate x: 1075.26, y: 134.82
+Path coordinate x: 803.171, y: 134.646
+Path coordinate x: 779.51, y: 106.022
+Path coordinate x: 775.046, y: 75.0766
+Path coordinate x: 1026, y: -32.858
+Centroid coordinate x: 896.897, y: 81.9703
+1rst x: 803.171 1rst y: 134.646
+2nd x: 779.51 2nd y: 106.022
+1rst x: 779.51 1rst y: 106.022
+2nd x: 775.046 2nd y: 75.0766
+1rst x: 1065.26 1rst y: 138.962
+2nd x: 803.171 2nd y: 134.646
+1rst x: 1065.26 1rst y: 138.962
+2nd x: 1075.26 2nd y: 134.82
+1rst x: 1026 1rst y: -32.858
+2nd x: 775.046 2nd y: 75.0766
+Cell: 356.42,318.991
+x: 375.739, y: 412.345
+x: 303.553, y: 353.091
+x: 441.592, y: 346.706
+x: 393.407, y: 234.113
+x: 410.365, y: 242.911
+Vertex x: 375.739 , y: 412.345
+neighbor point x: 303.553 , y: 353.091
+neighbor point x: 441.592 , y: 346.706
+neighbor point x: 393.407 , y: 234.113
+neighbor point x: 303.553 , y: 353.091
+Vertex x: 303.553 , y: 353.091
+neighbor point x: 375.739 , y: 412.345
+neighbor point x: 375.739 , y: 412.345
+neighbor point x: 441.592 , y: 346.706
+neighbor point x: 393.407 , y: 234.113
+Vertex x: 441.592 , y: 346.706
+neighbor point x: 375.739 , y: 412.345
+neighbor point x: 410.365 , y: 242.911
+Vertex x: 410.365 , y: 242.911
+neighbor point x: 441.592 , y: 346.706
+neighbor point x: 393.407 , y: 234.113
+Vertex x: 393.407 , y: 234.113
+neighbor point x: 303.553 , y: 353.091
+neighbor point x: 410.365 , y: 242.911
+Duplicates coordinate x: 375.739, y: 412.345
+Duplicates coordinate x: 303.553, y: 353.091
+Path coordinate x: 375.739, y: 412.345
+Path coordinate x: 441.592, y: 346.706
+Path coordinate x: 410.365, y: 242.911
+Path coordinate x: 393.407, y: 234.113
+Centroid coordinate x: 395.272, y: 318.004
+1rst x: 375.739 1rst y: 412.345
+2nd x: 303.553 2nd y: 353.091
+1rst x: 375.739 1rst y: 412.345
+2nd x: 441.592 2nd y: 346.706
+1rst x: 441.592 1rst y: 346.706
+2nd x: 410.365 2nd y: 242.911
+1rst x: 410.365 1rst y: 242.911
+2nd x: 393.407 2nd y: 234.113
+1rst x: 393.407 1rst y: 234.113
+2nd x: 303.553 2nd y: 353.091
+Cell: 527.275,885.668
+x: 627.22, y: 1182.98
+x: 382.656, y: 879.863
+x: 637.056, y: 954.086
+x: 446.298, y: 762.776
+x: 414.115, y: 780.497
+Vertex x: 627.22 , y: 1182.98
+neighbor point x: 382.656 , y: 879.863
+neighbor point x: 637.056 , y: 954.086
+neighbor point x: 382.656 , y: 879.863
+neighbor point x: 414.115 , y: 780.497
+Vertex x: 637.056 , y: 954.086
+neighbor point x: 627.22 , y: 1182.98
+neighbor point x: 446.298 , y: 762.776
+Vertex x: 382.656 , y: 879.863
+neighbor point x: 627.22 , y: 1182.98
+neighbor point x: 627.22 , y: 1182.98
+neighbor point x: 637.056 , y: 954.086
+neighbor point x: 414.115 , y: 780.497
+Vertex x: 414.115 , y: 780.497
+neighbor point x: 382.656 , y: 879.863
+neighbor point x: 446.298 , y: 762.776
+Vertex x: 446.298 , y: 762.776
+neighbor point x: 637.056 , y: 954.086
+neighbor point x: 414.115 , y: 780.497
+Duplicates coordinate x: 627.22, y: 1182.98
+Duplicates coordinate x: 382.656, y: 879.863
+Path coordinate x: 627.22, y: 1182.98
+Path coordinate x: 637.056, y: 954.086
+Path coordinate x: 446.298, y: 762.776
+Path coordinate x: 414.115, y: 780.497
+Centroid coordinate x: 566.395, y: 951.87
+1rst x: 627.22 1rst y: 1182.98
+2nd x: 637.056 2nd y: 954.086
+1rst x: 627.22 1rst y: 1182.98
+2nd x: 382.656 2nd y: 879.863
+1rst x: 637.056 1rst y: 954.086
+2nd x: 446.298 2nd y: 762.776
+1rst x: 382.656 1rst y: 879.863
+2nd x: 414.115 2nd y: 780.497
+1rst x: 414.115 1rst y: 780.497
+2nd x: 446.298 2nd y: 762.776
+Cell: 102.541,308.32
+x: 138.443, y: 451.297
+x: -252.247, y: 404.753
+x: 213.694, y: 321.686
+x: 202.408, y: 161.018
+x: 186.204, y: 151.112
+Vertex x: 138.443 , y: 451.297
+neighbor point x: -252.247 , y: 404.753
+neighbor point x: 213.694 , y: 321.686
+neighbor point x: 186.204 , y: 151.112
+neighbor point x: -252.247 , y: 404.753
+Vertex x: 213.694 , y: 321.686
+neighbor point x: 138.443 , y: 451.297
+neighbor point x: 202.408 , y: 161.018
+Vertex x: -252.247 , y: 404.753
+neighbor point x: 138.443 , y: 451.297
+neighbor point x: 138.443 , y: 451.297
+neighbor point x: 213.694 , y: 321.686
+neighbor point x: 186.204 , y: 151.112
+Vertex x: 202.408 , y: 161.018
+neighbor point x: 213.694 , y: 321.686
+neighbor point x: 186.204 , y: 151.112
+Vertex x: 186.204 , y: 151.112
+neighbor point x: -252.247 , y: 404.753
+neighbor point x: 202.408 , y: 161.018
+Duplicates coordinate x: 138.443, y: 451.297
+Duplicates coordinate x: -252.247, y: 404.753
+Path coordinate x: 138.443, y: 451.297
+Path coordinate x: 213.694, y: 321.686
+Path coordinate x: 202.408, y: 161.018
+Path coordinate x: 186.204, y: 151.112
+Centroid coordinate x: 163.087, y: 291.447
+1rst x: 138.443 1rst y: 451.297
+2nd x: 213.694 2nd y: 321.686
+1rst x: 138.443 1rst y: 451.297
+2nd x: -252.247 2nd y: 404.753
+1rst x: 213.694 1rst y: 321.686
+2nd x: 202.408 2nd y: 161.018
+1rst x: 202.408 1rst y: 161.018
+2nd x: 186.204 2nd y: 151.112
+1rst x: 186.204 1rst y: 151.112
+2nd x: -252.247 2nd y: 404.753
+Cell: 287.987,4.9811
+x: 296.378, y: 149.954
+x: 202.408, y: 161.018
+x: 366.585, y: 78.109
+x: 186.204, y: 151.112
+x: 157.015, y: 92.9009
+x: 890.319, y: -48332.7
+x: 0, y: -1866.26
+x: 1026, y: -69570.5
+Vertex x: 296.378 , y: 149.954
+neighbor point x: 202.408 , y: 161.018
+neighbor point x: 366.585 , y: 78.109
+neighbor point x: 202.408 , y: 161.018
+neighbor point x: 186.204 , y: 151.112
+Vertex x: 202.408 , y: 161.018
+neighbor point x: 296.378 , y: 149.954
+neighbor point x: 296.378 , y: 149.954
+neighbor point x: 366.585 , y: 78.109
+neighbor point x: 186.204 , y: 151.112
+Vertex x: 186.204 , y: 151.112
+neighbor point x: 202.408 , y: 161.018
+neighbor point x: 157.015 , y: 92.9009
+Vertex x: 366.585 , y: 78.109
+neighbor point x: 296.378 , y: 149.954
+neighbor point x: 890.319 , y: -48332.7
+Vertex x: 157.015 , y: 92.9009
+neighbor point x: 186.204 , y: 151.112
+neighbor point x: 0 , y: -1866.26
+Vertex x: 890.319 , y: -48332.7
+neighbor point x: 366.585 , y: 78.109
+neighbor point x: 1026 , y: -69570.5
+Vertex x: 1026 , y: -69570.5
+neighbor point x: 890.319 , y: -48332.7
+Vertex x: 0 , y: -1866.26
+neighbor point x: 157.015 , y: 92.9009
+Duplicates coordinate x: 296.378, y: 149.954
+Duplicates coordinate x: 202.408, y: 161.018
+Path coordinate x: 0, y: -1866.26
+Path coordinate x: 157.015, y: 92.9009
+Path coordinate x: 186.204, y: 151.112
+Path coordinate x: 296.378, y: 149.954
+Path coordinate x: 366.585, y: 78.109
+Path coordinate x: 890.319, y: -48332.7
+Path coordinate x: 1026, y: -69570.5
+Centroid coordinate x: 568.426, y: -26578.4
+1rst x: 296.378 1rst y: 149.954
+2nd x: 202.408 2nd y: 161.018
+1rst x: 296.378 1rst y: 149.954
+2nd x: 366.585 2nd y: 78.109
+1rst x: 202.408 1rst y: 161.018
+2nd x: 186.204 2nd y: 151.112
+1rst x: 186.204 1rst y: 151.112
+2nd x: 157.015 2nd y: 92.9009
+1rst x: 366.585 1rst y: 78.109
+2nd x: 890.319 2nd y: -48332.7
+1rst x: 157.015 1rst y: 92.9009
+2nd x: 0 2nd y: -1866.26
+1rst x: 890.319 1rst y: -48332.7
+2nd x: 1026 2nd y: -69570.5
+Cell: 13.7124,26.9627
+x: 157.015, y: 92.9009
+x: 0, y: 85.6058
+x: 0, y: -1866.26
+Vertex x: 157.015 , y: 92.9009
+neighbor point x: 0 , y: 85.6058
+neighbor point x: 0 , y: -1866.26
+Vertex x: 0 , y: -1866.26
+neighbor point x: 157.015 , y: 92.9009
+Vertex x: 0 , y: 85.6058
+neighbor point x: 157.015 , y: 92.9009
+neighbor point x: 157.015 , y: 92.9009
+neighbor point x: 0 , y: -1866.26
+Duplicates coordinate x: 0, y: 85.6058
+Duplicates coordinate x: 157.015, y: 92.9009
+Path coordinate x: 157.015, y: 92.9009
+Path coordinate x: 0, y: -1866.26
+Centroid coordinate x: 56.9093, y: -582.131
+1rst x: 157.015 1rst y: 92.9009
+2nd x: 0 2nd y: -1866.26
+1rst x: 157.015 1rst y: 92.9009
+2nd x: 0 2nd y: 85.6058
+Cell: 803.928,913.193
+x: 1577.04, y: 5036.29
+x: 653.505, y: 1264.57
+x: 823.657, y: 772.578
+x: 884.662, y: 744.371
+Vertex x: 653.505 , y: 1264.57
+neighbor point x: 1577.04 , y: 5036.29
+neighbor point x: 823.657 , y: 772.578
+neighbor point x: 1577.04 , y: 5036.29
+neighbor point x: 884.662 , y: 744.371
+Vertex x: 1577.04 , y: 5036.29
+neighbor point x: 653.505 , y: 1264.57
+neighbor point x: 823.657 , y: 772.578
+neighbor point x: 653.505 , y: 1264.57
+neighbor point x: 884.662 , y: 744.371
+Vertex x: 823.657 , y: 772.578
+neighbor point x: 653.505 , y: 1264.57
+neighbor point x: 884.662 , y: 744.371
+Vertex x: 884.662 , y: 744.371
+neighbor point x: 1577.04 , y: 5036.29
+neighbor point x: 823.657 , y: 772.578
+Duplicates coordinate x: 653.505, y: 1264.57
+Duplicates coordinate x: 1577.04, y: 5036.29
+Path coordinate x: 653.505, y: 1264.57
+Path coordinate x: 823.657, y: 772.578
+Path coordinate x: 884.662, y: 744.371
+Centroid coordinate x: 801.212, y: 891.521
+1rst x: 1577.04 1rst y: 5036.29
+2nd x: 653.505 2nd y: 1264.57
+1rst x: 1577.04 1rst y: 5036.29
+2nd x: 884.662 2nd y: 744.371
+1rst x: 823.657 1rst y: 772.578
+2nd x: 653.505 2nd y: 1264.57
+1rst x: 823.657 1rst y: 772.578
+2nd x: 884.662 2nd y: 744.371
+Cell: 469.03,431.967
+x: 517.234, y: 452.151
+x: 367.906, y: 484.855
+x: 482.886, y: 354.228
+x: 375.739, y: 412.345
+x: 441.592, y: 346.706
+Vertex x: 517.234 , y: 452.151
+neighbor point x: 367.906 , y: 484.855
+neighbor point x: 482.886 , y: 354.228
+neighbor point x: 367.906 , y: 484.855
+neighbor point x: 375.739 , y: 412.345
+Vertex x: 367.906 , y: 484.855
+neighbor point x: 517.234 , y: 452.151
+neighbor point x: 517.234 , y: 452.151
+neighbor point x: 482.886 , y: 354.228
+neighbor point x: 375.739 , y: 412.345
+Vertex x: 375.739 , y: 412.345
+neighbor point x: 367.906 , y: 484.855
+neighbor point x: 441.592 , y: 346.706
+Vertex x: 482.886 , y: 354.228
+neighbor point x: 517.234 , y: 452.151
+neighbor point x: 441.592 , y: 346.706
+Vertex x: 441.592 , y: 346.706
+neighbor point x: 375.739 , y: 412.345
+neighbor point x: 482.886 , y: 354.228
+Duplicates coordinate x: 517.234, y: 452.151
+Duplicates coordinate x: 367.906, y: 484.855
+Path coordinate x: 517.234, y: 452.151
+Path coordinate x: 482.886, y: 354.228
+Path coordinate x: 441.592, y: 346.706
+Path coordinate x: 375.739, y: 412.345
+Centroid coordinate x: 449.76, y: 397.822
+1rst x: 517.234 1rst y: 452.151
+2nd x: 367.906 2nd y: 484.855
+1rst x: 517.234 1rst y: 452.151
+2nd x: 482.886 2nd y: 354.228
+1rst x: 367.906 1rst y: 484.855
+2nd x: 375.739 2nd y: 412.345
+1rst x: 375.739 1rst y: 412.345
+2nd x: 441.592 2nd y: 346.706
+1rst x: 482.886 1rst y: 354.228
+2nd x: 441.592 2nd y: 346.706
+Cell: 586.967,710.93
+x: 613.636, y: 766.664
+x: 586.64, y: 778.693
+x: 449.406, y: 760.133
+x: 645.657, y: 706.158
+x: 638.4, y: 647.31
+x: 491.837, y: 656.382
+Vertex x: 586.64 , y: 778.693
+neighbor point x: 613.636 , y: 766.664
+neighbor point x: 449.406 , y: 760.133
+neighbor point x: 613.636 , y: 766.664
+neighbor point x: 645.657 , y: 706.158
+Vertex x: 613.636 , y: 766.664
+neighbor point x: 586.64 , y: 778.693
+neighbor point x: 586.64 , y: 778.693
+neighbor point x: 449.406 , y: 760.133
+neighbor point x: 645.657 , y: 706.158
+Vertex x: 645.657 , y: 706.158
+neighbor point x: 613.636 , y: 766.664
+neighbor point x: 638.4 , y: 647.31
+Vertex x: 449.406 , y: 760.133
+neighbor point x: 586.64 , y: 778.693
+neighbor point x: 491.837 , y: 656.382
+Vertex x: 638.4 , y: 647.31
+neighbor point x: 645.657 , y: 706.158
+neighbor point x: 491.837 , y: 656.382
+Vertex x: 491.837 , y: 656.382
+neighbor point x: 449.406 , y: 760.133
+neighbor point x: 638.4 , y: 647.31
+Duplicates coordinate x: 586.64, y: 778.693
+Duplicates coordinate x: 613.636, y: 766.664
+Path coordinate x: 586.64, y: 778.693
+Path coordinate x: 449.406, y: 760.133
+Path coordinate x: 491.837, y: 656.382
+Path coordinate x: 638.4, y: 647.31
+Path coordinate x: 645.657, y: 706.158
+Centroid coordinate x: 553.593, y: 706.46
+1rst x: 586.64 1rst y: 778.693
+2nd x: 449.406 2nd y: 760.133
+1rst x: 613.636 1rst y: 766.664
+2nd x: 586.64 2nd y: 778.693
+1rst x: 613.636 1rst y: 766.664
+2nd x: 645.657 2nd y: 706.158
+1rst x: 645.657 1rst y: 706.158
+2nd x: 638.4 2nd y: 647.31
+1rst x: 449.406 1rst y: 760.133
+2nd x: 491.837 2nd y: 656.382
+1rst x: 638.4 1rst y: 647.31
+2nd x: 491.837 2nd y: 656.382
+Cell: 637.243,823.762
+x: 637.947, y: 950.897
+x: 586.64, y: 778.693
+x: 716.451, y: 824.7
+x: 613.636, y: 766.664
+Vertex x: 637.947 , y: 950.897
+neighbor point x: 586.64 , y: 778.693
+neighbor point x: 716.451 , y: 824.7
+neighbor point x: 613.636 , y: 766.664
+neighbor point x: 586.64 , y: 778.693
+Vertex x: 716.451 , y: 824.7
+neighbor point x: 637.947 , y: 950.897
+neighbor point x: 613.636 , y: 766.664
+Vertex x: 586.64 , y: 778.693
+neighbor point x: 637.947 , y: 950.897
+neighbor point x: 637.947 , y: 950.897
+neighbor point x: 716.451 , y: 824.7
+neighbor point x: 613.636 , y: 766.664
+Vertex x: 613.636 , y: 766.664
+neighbor point x: 716.451 , y: 824.7
+neighbor point x: 586.64 , y: 778.693
+Duplicates coordinate x: 637.947, y: 950.897
+Duplicates coordinate x: 586.64, y: 778.693
+Path coordinate x: 637.947, y: 950.897
+Path coordinate x: 716.451, y: 824.7
+Path coordinate x: 613.636, y: 766.664
+Centroid coordinate x: 655.936, y: 841.051
+1rst x: 637.947 1rst y: 950.897
+2nd x: 716.451 2nd y: 824.7
+1rst x: 637.947 1rst y: 950.897
+2nd x: 586.64 2nd y: 778.693
+1rst x: 716.451 1rst y: 824.7
+2nd x: 613.636 2nd y: 766.664
+1rst x: 613.636 1rst y: 766.664
+2nd x: 586.64 2nd y: 778.693
+Cell: 935.827,395.429
+x: 944.716, y: 642.27
+x: 762.527, y: 501.843
+x: 1205.89, y: 599.86
+x: 922.245, y: 310.432
+x: 759.765, y: 496.799
+x: 757.29, y: 486.517
+x: 800.22, y: 365.08
+Vertex x: 944.716 , y: 642.27
+neighbor point x: 762.527 , y: 501.843
+neighbor point x: 1205.89 , y: 599.86
+neighbor point x: 762.527 , y: 501.843
+neighbor point x: 759.765 , y: 496.799
+Vertex x: 762.527 , y: 501.843
+neighbor point x: 944.716 , y: 642.27
+neighbor point x: 944.716 , y: 642.27
+neighbor point x: 1205.89 , y: 599.86
+neighbor point x: 759.765 , y: 496.799
+Vertex x: 759.765 , y: 496.799
+neighbor point x: 762.527 , y: 501.843
+neighbor point x: 757.29 , y: 486.517
+Vertex x: 757.29 , y: 486.517
+neighbor point x: 759.765 , y: 496.799
+neighbor point x: 800.22 , y: 365.08
+Vertex x: 1205.89 , y: 599.86
+neighbor point x: 944.716 , y: 642.27
+neighbor point x: 922.245 , y: 310.432
+Vertex x: 800.22 , y: 365.08
+neighbor point x: 757.29 , y: 486.517
+neighbor point x: 922.245 , y: 310.432
+Vertex x: 922.245 , y: 310.432
+neighbor point x: 1205.89 , y: 599.86
+neighbor point x: 800.22 , y: 365.08
+Duplicates coordinate x: 944.716, y: 642.27
+Duplicates coordinate x: 762.527, y: 501.843
+Path coordinate x: 944.716, y: 642.27
+Path coordinate x: 1205.89, y: 599.86
+Path coordinate x: 922.245, y: 310.432
+Path coordinate x: 800.22, y: 365.08
+Path coordinate x: 757.29, y: 486.517
+Path coordinate x: 759.765, y: 496.799
+Centroid coordinate x: 958.887, y: 477.425
+1rst x: 944.716 1rst y: 642.27
+2nd x: 762.527 2nd y: 501.843
+1rst x: 944.716 1rst y: 642.27
+2nd x: 1205.89 2nd y: 599.86
+1rst x: 762.527 1rst y: 501.843
+2nd x: 759.765 2nd y: 496.799
+1rst x: 759.765 1rst y: 496.799
+2nd x: 757.29 2nd y: 486.517
+1rst x: 757.29 1rst y: 486.517
+2nd x: 800.22 2nd y: 365.08
+1rst x: 1205.89 1rst y: 599.86
+2nd x: 922.245 2nd y: 310.432
+1rst x: 922.245 1rst y: 310.432
+2nd x: 800.22 2nd y: 365.08
+Cell: 703.748,696.529
+x: 797.998, y: 778.844
+x: 645.657, y: 706.158
+x: 823.657, y: 772.578
+x: 638.4, y: 647.31
+x: 884.662, y: 744.371
+x: 762.527, y: 501.843
+x: 944.716, y: 642.27
+Vertex x: 797.998 , y: 778.844
+neighbor point x: 645.657 , y: 706.158
+neighbor point x: 823.657 , y: 772.578
+neighbor point x: 645.657 , y: 706.158
+neighbor point x: 638.4 , y: 647.31
+Vertex x: 645.657 , y: 706.158
+neighbor point x: 797.998 , y: 778.844
+neighbor point x: 797.998 , y: 778.844
+neighbor point x: 823.657 , y: 772.578
+neighbor point x: 638.4 , y: 647.31
+Vertex x: 823.657 , y: 772.578
+neighbor point x: 797.998 , y: 778.844
+neighbor point x: 884.662 , y: 744.371
+Vertex x: 638.4 , y: 647.31
+neighbor point x: 645.657 , y: 706.158
+neighbor point x: 762.527 , y: 501.843
+Vertex x: 884.662 , y: 744.371
+neighbor point x: 823.657 , y: 772.578
+neighbor point x: 944.716 , y: 642.27
+Vertex x: 944.716 , y: 642.27
+neighbor point x: 884.662 , y: 744.371
+neighbor point x: 762.527 , y: 501.843
+Vertex x: 762.527 , y: 501.843
+neighbor point x: 638.4 , y: 647.31
+neighbor point x: 944.716 , y: 642.27
+Duplicates coordinate x: 797.998, y: 778.844
+Duplicates coordinate x: 645.657, y: 706.158
+Path coordinate x: 797.998, y: 778.844
+Path coordinate x: 823.657, y: 772.578
+Path coordinate x: 884.662, y: 744.371
+Path coordinate x: 944.716, y: 642.27
+Path coordinate x: 762.527, y: 501.843
+Path coordinate x: 638.4, y: 647.31
+Centroid coordinate x: 790.21, y: 649.71
+1rst x: 797.998 1rst y: 778.844
+2nd x: 645.657 2nd y: 706.158
+1rst x: 797.998 1rst y: 778.844
+2nd x: 823.657 2nd y: 772.578
+1rst x: 645.657 1rst y: 706.158
+2nd x: 638.4 2nd y: 647.31
+1rst x: 823.657 1rst y: 772.578
+2nd x: 884.662 2nd y: 744.371
+1rst x: 638.4 1rst y: 647.31
+2nd x: 762.527 2nd y: 501.843
+1rst x: 884.662 1rst y: 744.371
+2nd x: 944.716 2nd y: 642.27
+1rst x: 944.716 1rst y: 642.27
+2nd x: 762.527 2nd y: 501.843
+Cell: 701.51,205.57
+x: 772.753, y: 276.733
+x: 646.637, y: 243.439
+x: 761.046, y: 112.944
+x: 801.556, y: 151.061
+x: 803.171, y: 134.646
+x: 779.51, y: 106.022
+Vertex x: 646.637 , y: 243.439
+neighbor point x: 772.753 , y: 276.733
+neighbor point x: 761.046 , y: 112.944
+neighbor point x: 772.753 , y: 276.733
+neighbor point x: 801.556 , y: 151.061
+Vertex x: 772.753 , y: 276.733
+neighbor point x: 646.637 , y: 243.439
+neighbor point x: 761.046 , y: 112.944
+neighbor point x: 646.637 , y: 243.439
+neighbor point x: 801.556 , y: 151.061
+Vertex x: 801.556 , y: 151.061
+neighbor point x: 772.753 , y: 276.733
+neighbor point x: 803.171 , y: 134.646
+Vertex x: 803.171 , y: 134.646
+neighbor point x: 801.556 , y: 151.061
+neighbor point x: 779.51 , y: 106.022
+Vertex x: 761.046 , y: 112.944
+neighbor point x: 646.637 , y: 243.439
+neighbor point x: 779.51 , y: 106.022
+Vertex x: 779.51 , y: 106.022
+neighbor point x: 803.171 , y: 134.646
+neighbor point x: 761.046 , y: 112.944
+Duplicates coordinate x: 646.637, y: 243.439
+Duplicates coordinate x: 772.753, y: 276.733
+Path coordinate x: 646.637, y: 243.439
+Path coordinate x: 761.046, y: 112.944
+Path coordinate x: 779.51, y: 106.022
+Path coordinate x: 803.171, y: 134.646
+Path coordinate x: 801.556, y: 151.061
+Centroid coordinate x: 748.378, y: 159.174
+1rst x: 772.753 1rst y: 276.733
+2nd x: 646.637 2nd y: 243.439
+1rst x: 772.753 1rst y: 276.733
+2nd x: 801.556 2nd y: 151.061
+1rst x: 801.556 1rst y: 151.061
+2nd x: 803.171 2nd y: 134.646
+1rst x: 803.171 1rst y: 134.646
+2nd x: 779.51 2nd y: 106.022
+1rst x: 761.046 1rst y: 112.944
+2nd x: 646.637 2nd y: 243.439
+1rst x: 761.046 1rst y: 112.944
+2nd x: 779.51 2nd y: 106.022
+Cell: 232.533,980.685
+x: 239.075, y: 1169.71
+x: 180.563, y: 999.149
+x: 327.71, y: 903.901
+x: 219.887, y: 886.754
+Vertex x: 239.075 , y: 1169.71
+neighbor point x: 180.563 , y: 999.149
+neighbor point x: 327.71 , y: 903.901
+neighbor point x: 180.563 , y: 999.149
+neighbor point x: 219.887 , y: 886.754
+Vertex x: 180.563 , y: 999.149
+neighbor point x: 239.075 , y: 1169.71
+neighbor point x: 239.075 , y: 1169.71
+neighbor point x: 327.71 , y: 903.901
+neighbor point x: 219.887 , y: 886.754
+Vertex x: 219.887 , y: 886.754
+neighbor point x: 180.563 , y: 999.149
+neighbor point x: 327.71 , y: 903.901
+Vertex x: 327.71 , y: 903.901
+neighbor point x: 239.075 , y: 1169.71
+neighbor point x: 219.887 , y: 886.754
+Duplicates coordinate x: 239.075, y: 1169.71
+Duplicates coordinate x: 180.563, y: 999.149
+Path coordinate x: 239.075, y: 1169.71
+Path coordinate x: 327.71, y: 903.901
+Path coordinate x: 219.887, y: 886.754
+Centroid coordinate x: 264.208, y: 985.188
+1rst x: 239.075 1rst y: 1169.71
+2nd x: 180.563 2nd y: 999.149
+1rst x: 239.075 1rst y: 1169.71
+2nd x: 327.71 2nd y: 903.901
+1rst x: 180.563 1rst y: 999.149
+2nd x: 219.887 2nd y: 886.754
+1rst x: 327.71 1rst y: 903.901
+2nd x: 219.887 2nd y: 886.754
+Cell: 867.877,243.7
+x: 922.245, y: 310.432
+x: 800.22, y: 365.08
+x: 772.753, y: 276.733
+x: 932.867, y: 292.422
+x: 801.556, y: 151.061
+Vertex x: 800.22 , y: 365.08
+neighbor point x: 922.245 , y: 310.432
+neighbor point x: 772.753 , y: 276.733
+neighbor point x: 922.245 , y: 310.432
+neighbor point x: 932.867 , y: 292.422
+Vertex x: 922.245 , y: 310.432
+neighbor point x: 800.22 , y: 365.08
+neighbor point x: 800.22 , y: 365.08
+neighbor point x: 772.753 , y: 276.733
+neighbor point x: 932.867 , y: 292.422
+Vertex x: 932.867 , y: 292.422
+neighbor point x: 922.245 , y: 310.432
+neighbor point x: 801.556 , y: 151.061
+Vertex x: 772.753 , y: 276.733
+neighbor point x: 800.22 , y: 365.08
+neighbor point x: 801.556 , y: 151.061
+Vertex x: 801.556 , y: 151.061
+neighbor point x: 932.867 , y: 292.422
+neighbor point x: 772.753 , y: 276.733
+Duplicates coordinate x: 800.22, y: 365.08
+Duplicates coordinate x: 922.245, y: 310.432
+Path coordinate x: 800.22, y: 365.08
+Path coordinate x: 772.753, y: 276.733
+Path coordinate x: 801.556, y: 151.061
+Path coordinate x: 932.867, y: 292.422
+Centroid coordinate x: 828.837, y: 257.239
+1rst x: 800.22 1rst y: 365.08
+2nd x: 772.753 2nd y: 276.733
+1rst x: 922.245 1rst y: 310.432
+2nd x: 800.22 2nd y: 365.08
+1rst x: 922.245 1rst y: 310.432
+2nd x: 932.867 2nd y: 292.422
+1rst x: 932.867 1rst y: 292.422
+2nd x: 801.556 2nd y: 151.061
+1rst x: 772.753 1rst y: 276.733
+2nd x: 801.556 2nd y: 151.061
+Cell: 675.668,303.458
+x: 680.289, y: 436.584
+x: 582.84, y: 314.326
+x: 757.29, y: 486.517
+x: 800.22, y: 365.08
+x: 772.753, y: 276.733
+x: 593.607, y: 242.845
+x: 646.637, y: 243.439
+Vertex x: 680.289 , y: 436.584
+neighbor point x: 582.84 , y: 314.326
+neighbor point x: 757.29 , y: 486.517
+neighbor point x: 582.84 , y: 314.326
+neighbor point x: 593.607 , y: 242.845
+Vertex x: 757.29 , y: 486.517
+neighbor point x: 680.289 , y: 436.584
+neighbor point x: 800.22 , y: 365.08
+Vertex x: 800.22 , y: 365.08
+neighbor point x: 757.29 , y: 486.517
+neighbor point x: 772.753 , y: 276.733
+Vertex x: 582.84 , y: 314.326
+neighbor point x: 680.289 , y: 436.584
+neighbor point x: 680.289 , y: 436.584
+neighbor point x: 757.29 , y: 486.517
+neighbor point x: 593.607 , y: 242.845
+Vertex x: 646.637 , y: 243.439
+neighbor point x: 772.753 , y: 276.733
+neighbor point x: 593.607 , y: 242.845
+Vertex x: 772.753 , y: 276.733
+neighbor point x: 800.22 , y: 365.08
+neighbor point x: 646.637 , y: 243.439
+Vertex x: 593.607 , y: 242.845
+neighbor point x: 582.84 , y: 314.326
+neighbor point x: 646.637 , y: 243.439
+Duplicates coordinate x: 680.289, y: 436.584
+Duplicates coordinate x: 582.84, y: 314.326
+Path coordinate x: 680.289, y: 436.584
+Path coordinate x: 757.29, y: 486.517
+Path coordinate x: 800.22, y: 365.08
+Path coordinate x: 772.753, y: 276.733
+Path coordinate x: 646.637, y: 243.439
+Path coordinate x: 593.607, y: 242.845
+Centroid coordinate x: 717.889, y: 346.792
+1rst x: 680.289 1rst y: 436.584
+2nd x: 757.29 2nd y: 486.517
+1rst x: 680.289 1rst y: 436.584
+2nd x: 582.84 2nd y: 314.326
+1rst x: 757.29 1rst y: 486.517
+2nd x: 800.22 2nd y: 365.08
+1rst x: 800.22 1rst y: 365.08
+2nd x: 772.753 2nd y: 276.733
+1rst x: 582.84 1rst y: 314.326
+2nd x: 593.607 2nd y: 242.845
+1rst x: 646.637 1rst y: 243.439
+2nd x: 593.607 2nd y: 242.845
+1rst x: 772.753 1rst y: 276.733
+2nd x: 646.637 2nd y: 243.439
+Cell: 1014.39,879.241
+x: 1577.04, y: 5036.29
+x: 884.662, y: 744.371
+x: 1587.04, y: 5082.14
+x: 944.716, y: 642.27
+x: 1205.89, y: 599.86
+x: 1215.89, y: 599.726
+Vertex x: 1577.04 , y: 5036.29
+neighbor point x: 884.662 , y: 744.371
+neighbor point x: 1587.04 , y: 5082.14
+neighbor point x: 884.662 , y: 744.371
+neighbor point x: 944.716 , y: 642.27
+Vertex x: 884.662 , y: 744.371
+neighbor point x: 1577.04 , y: 5036.29
+neighbor point x: 1577.04 , y: 5036.29
+neighbor point x: 1587.04 , y: 5082.14
+neighbor point x: 944.716 , y: 642.27
+Vertex x: 944.716 , y: 642.27
+neighbor point x: 884.662 , y: 744.371
+neighbor point x: 1205.89 , y: 599.86
+Vertex x: 1205.89 , y: 599.86
+neighbor point x: 944.716 , y: 642.27
+neighbor point x: 1215.89 , y: 599.726
+Vertex x: 1587.04 , y: 5082.14
+neighbor point x: 1577.04 , y: 5036.29
+Vertex x: 1215.89 , y: 599.726
+neighbor point x: 1205.89 , y: 599.86
+Duplicates coordinate x: 1577.04, y: 5036.29
+Duplicates coordinate x: 884.662, y: 744.371
+Path coordinate x: 1215.89, y: 599.726
+Path coordinate x: 1205.89, y: 599.86
+Path coordinate x: 944.716, y: 642.27
+Path coordinate x: 1577.04, y: 5036.29
+Path coordinate x: 1587.04, y: 5082.14
+Centroid coordinate x: 1247.19, y: 2123.19
+1rst x: 1577.04 1rst y: 5036.29
+2nd x: 884.662 2nd y: 744.371
+1rst x: 1577.04 1rst y: 5036.29
+2nd x: 1587.04 2nd y: 5082.14
+1rst x: 884.662 1rst y: 744.371
+2nd x: 944.716 2nd y: 642.27
+1rst x: 944.716 1rst y: 642.27
+2nd x: 1205.89 2nd y: 599.86
+1rst x: 1205.89 1rst y: 599.86
+2nd x: 1215.89 2nd y: 599.726
+Cell: 677.003,184.085
+x: 761.046, y: 112.944
+x: 646.637, y: 243.439
+x: 593.607, y: 242.845
+x: 577.147, y: 210.878
+x: 613.944, y: 144.32
+Vertex x: 646.637 , y: 243.439
+neighbor point x: 761.046 , y: 112.944
+neighbor point x: 593.607 , y: 242.845
+neighbor point x: 761.046 , y: 112.944
+neighbor point x: 613.944 , y: 144.32
+Vertex x: 593.607 , y: 242.845
+neighbor point x: 646.637 , y: 243.439
+neighbor point x: 577.147 , y: 210.878
+Vertex x: 577.147 , y: 210.878
+neighbor point x: 593.607 , y: 242.845
+neighbor point x: 613.944 , y: 144.32
+Vertex x: 613.944 , y: 144.32
+neighbor point x: 577.147 , y: 210.878
+neighbor point x: 761.046 , y: 112.944
+Vertex x: 761.046 , y: 112.944
+neighbor point x: 646.637 , y: 243.439
+neighbor point x: 646.637 , y: 243.439
+neighbor point x: 593.607 , y: 242.845
+neighbor point x: 613.944 , y: 144.32
+Duplicates coordinate x: 646.637, y: 243.439
+Duplicates coordinate x: 761.046, y: 112.944
+Path coordinate x: 646.637, y: 243.439
+Path coordinate x: 593.607, y: 242.845
+Path coordinate x: 577.147, y: 210.878
+Path coordinate x: 613.944, y: 144.32
+Centroid coordinate x: 624.884, y: 200.44
+1rst x: 646.637 1rst y: 243.439
+2nd x: 593.607 2nd y: 242.845
+1rst x: 593.607 1rst y: 242.845
+2nd x: 577.147 2nd y: 210.878
+1rst x: 577.147 1rst y: 210.878
+2nd x: 613.944 2nd y: 144.32
+1rst x: 761.046 1rst y: 112.944
+2nd x: 646.637 2nd y: 243.439
+1rst x: 761.046 1rst y: 112.944
+2nd x: 613.944 2nd y: 144.32
+Cell: 579.513,590.518
+x: 638.4, y: 647.31
+x: 491.837, y: 656.382
+x: 762.527, y: 501.843
+x: 478.996, y: 591.112
+x: 522.537, y: 548.552
+x: 759.765, y: 496.799
+Vertex x: 638.4 , y: 647.31
+neighbor point x: 491.837 , y: 656.382
+neighbor point x: 762.527 , y: 501.843
+neighbor point x: 491.837 , y: 656.382
+neighbor point x: 478.996 , y: 591.112
+Vertex x: 491.837 , y: 656.382
+neighbor point x: 638.4 , y: 647.31
+neighbor point x: 638.4 , y: 647.31
+neighbor point x: 762.527 , y: 501.843
+neighbor point x: 478.996 , y: 591.112
+Vertex x: 478.996 , y: 591.112
+neighbor point x: 491.837 , y: 656.382
+neighbor point x: 522.537 , y: 548.552
+Vertex x: 522.537 , y: 548.552
+neighbor point x: 478.996 , y: 591.112
+neighbor point x: 759.765 , y: 496.799
+Vertex x: 762.527 , y: 501.843
+neighbor point x: 638.4 , y: 647.31
+neighbor point x: 759.765 , y: 496.799
+Vertex x: 759.765 , y: 496.799
+neighbor point x: 522.537 , y: 548.552
+neighbor point x: 762.527 , y: 501.843
+Duplicates coordinate x: 638.4, y: 647.31
+Duplicates coordinate x: 491.837, y: 656.382
+Path coordinate x: 638.4, y: 647.31
+Path coordinate x: 762.527, y: 501.843
+Path coordinate x: 759.765, y: 496.799
+Path coordinate x: 522.537, y: 548.552
+Path coordinate x: 478.996, y: 591.112
+Centroid coordinate x: 625.126, y: 563.9
+1rst x: 638.4 1rst y: 647.31
+2nd x: 491.837 2nd y: 656.382
+1rst x: 638.4 1rst y: 647.31
+2nd x: 762.527 2nd y: 501.843
+1rst x: 491.837 1rst y: 656.382
+2nd x: 478.996 2nd y: 591.112
+1rst x: 522.537 1rst y: 548.552
+2nd x: 478.996 2nd y: 591.112
+1rst x: 762.527 1rst y: 501.843
+2nd x: 759.765 2nd y: 496.799
+1rst x: 759.765 1rst y: 496.799
+2nd x: 522.537 2nd y: 548.552
+Cell: 261.046,801.38
+x: 327.71, y: 903.901
+x: 219.887, y: 886.754
+x: 153.093, y: 838.249
+x: 382.656, y: 879.863
+x: 414.115, y: 780.497
+x: 162.524, y: 759.387
+x: 215.427, y: 649.609
+x: 326.218, y: 717.047
+Vertex x: 219.887 , y: 886.754
+neighbor point x: 327.71 , y: 903.901
+neighbor point x: 153.093 , y: 838.249
+neighbor point x: 327.71 , y: 903.901
+neighbor point x: 382.656 , y: 879.863
+Vertex x: 327.71 , y: 903.901
+neighbor point x: 219.887 , y: 886.754
+neighbor point x: 219.887 , y: 886.754
+neighbor point x: 153.093 , y: 838.249
+neighbor point x: 382.656 , y: 879.863
+Vertex x: 382.656 , y: 879.863
+neighbor point x: 327.71 , y: 903.901
+neighbor point x: 414.115 , y: 780.497
+Vertex x: 153.093 , y: 838.249
+neighbor point x: 219.887 , y: 886.754
+neighbor point x: 162.524 , y: 759.387
+Vertex x: 162.524 , y: 759.387
+neighbor point x: 153.093 , y: 838.249
+neighbor point x: 215.427 , y: 649.609
+Vertex x: 414.115 , y: 780.497
+neighbor point x: 382.656 , y: 879.863
+neighbor point x: 326.218 , y: 717.047
+Vertex x: 326.218 , y: 717.047
+neighbor point x: 414.115 , y: 780.497
+neighbor point x: 215.427 , y: 649.609
+Vertex x: 215.427 , y: 649.609
+neighbor point x: 162.524 , y: 759.387
+neighbor point x: 326.218 , y: 717.047
+Duplicates coordinate x: 219.887, y: 886.754
+Duplicates coordinate x: 327.71, y: 903.901
+Path coordinate x: 219.887, y: 886.754
+Path coordinate x: 153.093, y: 838.249
+Path coordinate x: 162.524, y: 759.387
+Path coordinate x: 215.427, y: 649.609
+Path coordinate x: 326.218, y: 717.047
+Path coordinate x: 414.115, y: 780.497
+Path coordinate x: 382.656, y: 879.863
+Centroid coordinate x: 280.639, y: 780.229
+1rst x: 219.887 1rst y: 886.754
+2nd x: 153.093 2nd y: 838.249
+1rst x: 327.71 1rst y: 903.901
+2nd x: 219.887 2nd y: 886.754
+1rst x: 327.71 1rst y: 903.901
+2nd x: 382.656 2nd y: 879.863
+1rst x: 382.656 1rst y: 879.863
+2nd x: 414.115 2nd y: 780.497
+1rst x: 153.093 1rst y: 838.249
+2nd x: 162.524 2nd y: 759.387
+1rst x: 162.524 1rst y: 759.387
+2nd x: 215.427 2nd y: 649.609
+1rst x: 414.115 1rst y: 780.497
+2nd x: 326.218 2nd y: 717.047
+1rst x: 326.218 1rst y: 717.047
+2nd x: 215.427 2nd y: 649.609
+Cell: 1006.95,325.726
+x: 1205.89, y: 599.86
+x: 922.245, y: 310.432
+x: 1215.89, y: 599.726
+x: 932.867, y: 292.422
+x: 1065.26, y: 138.962
+x: 1075.26, y: 134.82
+Vertex x: 1205.89 , y: 599.86
+neighbor point x: 922.245 , y: 310.432
+neighbor point x: 1215.89 , y: 599.726
+neighbor point x: 922.245 , y: 310.432
+neighbor point x: 932.867 , y: 292.422
+Vertex x: 922.245 , y: 310.432
+neighbor point x: 1205.89 , y: 599.86
+neighbor point x: 1205.89 , y: 599.86
+neighbor point x: 1215.89 , y: 599.726
+neighbor point x: 932.867 , y: 292.422
+Vertex x: 932.867 , y: 292.422
+neighbor point x: 922.245 , y: 310.432
+neighbor point x: 1065.26 , y: 138.962
+Vertex x: 1065.26 , y: 138.962
+neighbor point x: 932.867 , y: 292.422
+neighbor point x: 1075.26 , y: 134.82
+Vertex x: 1215.89 , y: 599.726
+neighbor point x: 1205.89 , y: 599.86
+Vertex x: 1075.26 , y: 134.82
+neighbor point x: 1065.26 , y: 138.962
+Duplicates coordinate x: 1205.89, y: 599.86
+Duplicates coordinate x: 922.245, y: 310.432
+Path coordinate x: 1075.26, y: 134.82
+Path coordinate x: 1065.26, y: 138.962
+Path coordinate x: 932.867, y: 292.422
+Path coordinate x: 1205.89, y: 599.86
+Path coordinate x: 1215.89, y: 599.726
+Centroid coordinate x: 1072.57, y: 346.45
+1rst x: 1205.89 1rst y: 599.86
+2nd x: 922.245 2nd y: 310.432
+1rst x: 1205.89 1rst y: 599.86
+2nd x: 1215.89 2nd y: 599.726
+1rst x: 922.245 1rst y: 310.432
+2nd x: 932.867 2nd y: 292.422
+1rst x: 932.867 1rst y: 292.422
+2nd x: 1065.26 2nd y: 138.962
+1rst x: 1065.26 1rst y: 138.962
+2nd x: 1075.26 2nd y: 134.82
+Cell: 280.41,411.59
+x: 361.829, y: 500.343
+x: 225.916, y: 559.429
+x: 138.443, y: 451.297
+x: 367.906, y: 484.855
+x: 375.739, y: 412.345
+x: 303.553, y: 353.091
+x: 213.694, y: 321.686
+Vertex x: 225.916 , y: 559.429
+neighbor point x: 361.829 , y: 500.343
+neighbor point x: 138.443 , y: 451.297
+neighbor point x: 361.829 , y: 500.343
+neighbor point x: 367.906 , y: 484.855
+Vertex x: 361.829 , y: 500.343
+neighbor point x: 225.916 , y: 559.429
+neighbor point x: 225.916 , y: 559.429
+neighbor point x: 138.443 , y: 451.297
+neighbor point x: 367.906 , y: 484.855
+Vertex x: 367.906 , y: 484.855
+neighbor point x: 361.829 , y: 500.343
+neighbor point x: 375.739 , y: 412.345
+Vertex x: 375.739 , y: 412.345
+neighbor point x: 367.906 , y: 484.855
+neighbor point x: 303.553 , y: 353.091
+Vertex x: 138.443 , y: 451.297
+neighbor point x: 225.916 , y: 559.429
+neighbor point x: 213.694 , y: 321.686
+Vertex x: 303.553 , y: 353.091
+neighbor point x: 375.739 , y: 412.345
+neighbor point x: 213.694 , y: 321.686
+Vertex x: 213.694 , y: 321.686
+neighbor point x: 138.443 , y: 451.297
+neighbor point x: 303.553 , y: 353.091
+Duplicates coordinate x: 225.916, y: 559.429
+Duplicates coordinate x: 361.829, y: 500.343
+Path coordinate x: 225.916, y: 559.429
+Path coordinate x: 138.443, y: 451.297
+Path coordinate x: 213.694, y: 321.686
+Path coordinate x: 303.553, y: 353.091
+Path coordinate x: 375.739, y: 412.345
+Path coordinate x: 367.906, y: 484.855
+Centroid coordinate x: 255.254, y: 423.673
+1rst x: 225.916 1rst y: 559.429
+2nd x: 138.443 2nd y: 451.297
+1rst x: 361.829 1rst y: 500.343
+2nd x: 225.916 2nd y: 559.429
+1rst x: 361.829 1rst y: 500.343
+2nd x: 367.906 2nd y: 484.855
+1rst x: 367.906 1rst y: 484.855
+2nd x: 375.739 2nd y: 412.345
+1rst x: 375.739 1rst y: 412.345
+2nd x: 303.553 2nd y: 353.091
+1rst x: 138.443 1rst y: 451.297
+2nd x: 213.694 2nd y: 321.686
+1rst x: 303.553 1rst y: 353.091
+2nd x: 213.694 2nd y: 321.686
+Cell: 655.29,82.2867
+x: 761.046, y: 112.944
+x: 613.944, y: 144.32
+x: 571.249, y: -11.3239
+x: 779.51, y: 106.022
+x: 775.046, y: 75.0766
+x: 662.157, y: -262.133
+Vertex x: 613.944 , y: 144.32
+neighbor point x: 761.046 , y: 112.944
+neighbor point x: 571.249 , y: -11.3239
+neighbor point x: 761.046 , y: 112.944
+neighbor point x: 779.51 , y: 106.022
+Vertex x: 761.046 , y: 112.944
+neighbor point x: 613.944 , y: 144.32
+neighbor point x: 613.944 , y: 144.32
+neighbor point x: 571.249 , y: -11.3239
+neighbor point x: 779.51 , y: 106.022
+Vertex x: 779.51 , y: 106.022
+neighbor point x: 761.046 , y: 112.944
+neighbor point x: 775.046 , y: 75.0766
+Vertex x: 775.046 , y: 75.0766
+neighbor point x: 779.51 , y: 106.022
+neighbor point x: 662.157 , y: -262.133
+Vertex x: 571.249 , y: -11.3239
+neighbor point x: 613.944 , y: 144.32
+neighbor point x: 662.157 , y: -262.133
+Vertex x: 662.157 , y: -262.133
+neighbor point x: 775.046 , y: 75.0766
+neighbor point x: 571.249 , y: -11.3239
+Duplicates coordinate x: 613.944, y: 144.32
+Duplicates coordinate x: 761.046, y: 112.944
+Path coordinate x: 613.944, y: 144.32
+Path coordinate x: 571.249, y: -11.3239
+Path coordinate x: 662.157, y: -262.133
+Path coordinate x: 775.046, y: 75.0766
+Path coordinate x: 779.51, y: 106.022
+Centroid coordinate x: 666.348, y: -19.0454
+1rst x: 613.944 1rst y: 144.32
+2nd x: 571.249 2nd y: -11.3239
+1rst x: 761.046 1rst y: 112.944
+2nd x: 613.944 2nd y: 144.32
+1rst x: 761.046 1rst y: 112.944
+2nd x: 779.51 2nd y: 106.022
+1rst x: 779.51 1rst y: 106.022
+2nd x: 775.046 2nd y: 75.0766
+1rst x: 775.046 1rst y: 75.0766
+2nd x: 662.157 2nd y: -262.133
+1rst x: 571.249 1rst y: -11.3239
+2nd x: 662.157 2nd y: -262.133
+Cell: 385.744,628.638
+x: 414.115, y: 780.497
+x: 326.218, y: 717.047
+x: 446.298, y: 762.776
+x: 420.397, y: 550.291
+x: 449.406, y: 760.133
+x: 491.837, y: 656.382
+x: 478.996, y: 591.112
+Vertex x: 414.115 , y: 780.497
+neighbor point x: 326.218 , y: 717.047
+neighbor point x: 446.298 , y: 762.776
+neighbor point x: 420.397 , y: 550.291
+neighbor point x: 326.218 , y: 717.047
+Vertex x: 446.298 , y: 762.776
+neighbor point x: 414.115 , y: 780.497
+neighbor point x: 449.406 , y: 760.133
+Vertex x: 449.406 , y: 760.133
+neighbor point x: 446.298 , y: 762.776
+neighbor point x: 491.837 , y: 656.382
+Vertex x: 326.218 , y: 717.047
+neighbor point x: 414.115 , y: 780.497
+neighbor point x: 414.115 , y: 780.497
+neighbor point x: 446.298 , y: 762.776
+neighbor point x: 420.397 , y: 550.291
+Vertex x: 491.837 , y: 656.382
+neighbor point x: 449.406 , y: 760.133
+neighbor point x: 478.996 , y: 591.112
+Vertex x: 478.996 , y: 591.112
+neighbor point x: 491.837 , y: 656.382
+neighbor point x: 420.397 , y: 550.291
+Vertex x: 420.397 , y: 550.291
+neighbor point x: 326.218 , y: 717.047
+neighbor point x: 478.996 , y: 591.112
+Duplicates coordinate x: 414.115, y: 780.497
+Duplicates coordinate x: 326.218, y: 717.047
+Path coordinate x: 414.115, y: 780.497
+Path coordinate x: 446.298, y: 762.776
+Path coordinate x: 449.406, y: 760.133
+Path coordinate x: 491.837, y: 656.382
+Path coordinate x: 478.996, y: 591.112
+Path coordinate x: 420.397, y: 550.291
+Centroid coordinate x: 435.339, y: 648.413
+1rst x: 414.115 1rst y: 780.497
+2nd x: 446.298 2nd y: 762.776
+1rst x: 414.115 1rst y: 780.497
+2nd x: 326.218 2nd y: 717.047
+1rst x: 446.298 1rst y: 762.776
+2nd x: 449.406 2nd y: 760.133
+1rst x: 449.406 1rst y: 760.133
+2nd x: 491.837 2nd y: 656.382
+1rst x: 491.837 1rst y: 656.382
+2nd x: 478.996 2nd y: 591.112
+1rst x: 478.996 1rst y: 591.112
+2nd x: 420.397 2nd y: 550.291
+1rst x: 420.397 1rst y: 550.291
+2nd x: 326.218 2nd y: 717.047
+Cell: 481.879,490.634
+x: 522.537, y: 548.552
+x: 478.996, y: 591.112
+x: 420.397, y: 550.291
+x: 517.446, y: 452.303
+x: 361.829, y: 500.343
+x: 517.234, y: 452.151
+x: 367.906, y: 484.855
+Vertex x: 478.996 , y: 591.112
+neighbor point x: 522.537 , y: 548.552
+neighbor point x: 420.397 , y: 550.291
+neighbor point x: 522.537 , y: 548.552
+neighbor point x: 517.446 , y: 452.303
+Vertex x: 522.537 , y: 548.552
+neighbor point x: 478.996 , y: 591.112
+neighbor point x: 478.996 , y: 591.112
+neighbor point x: 420.397 , y: 550.291
+neighbor point x: 517.446 , y: 452.303
+Vertex x: 420.397 , y: 550.291
+neighbor point x: 478.996 , y: 591.112
+neighbor point x: 361.829 , y: 500.343
+Vertex x: 517.446 , y: 452.303
+neighbor point x: 522.537 , y: 548.552
+neighbor point x: 517.234 , y: 452.151
+Vertex x: 517.234 , y: 452.151
+neighbor point x: 367.906 , y: 484.855
+neighbor point x: 517.446 , y: 452.303
+Vertex x: 361.829 , y: 500.343
+neighbor point x: 420.397 , y: 550.291
+neighbor point x: 367.906 , y: 484.855
+Vertex x: 367.906 , y: 484.855
+neighbor point x: 517.234 , y: 452.151
+neighbor point x: 361.829 , y: 500.343
+Duplicates coordinate x: 478.996, y: 591.112
+Duplicates coordinate x: 522.537, y: 548.552
+Path coordinate x: 478.996, y: 591.112
+Path coordinate x: 420.397, y: 550.291
+Path coordinate x: 361.829, y: 500.343
+Path coordinate x: 367.906, y: 484.855
+Path coordinate x: 517.234, y: 452.151
+Path coordinate x: 517.446, y: 452.303
+Centroid coordinate x: 442.863, y: 506.391
+1rst x: 478.996 1rst y: 591.112
+2nd x: 420.397 2nd y: 550.291
+1rst x: 522.537 1rst y: 548.552
+2nd x: 478.996 2nd y: 591.112
+1rst x: 522.537 1rst y: 548.552
+2nd x: 517.446 2nd y: 452.303
+1rst x: 420.397 1rst y: 550.291
+2nd x: 361.829 2nd y: 500.343
+1rst x: 517.446 1rst y: 452.303
+2nd x: 517.234 2nd y: 452.151
+1rst x: 517.234 1rst y: 452.151
+2nd x: 367.906 2nd y: 484.855
+1rst x: 361.829 1rst y: 500.343
+2nd x: 367.906 2nd y: 484.855
+Cell: 674.719,757.37
+x: 716.451, y: 824.7
+x: 613.636, y: 766.664
+x: 797.998, y: 778.844
+x: 645.657, y: 706.158
+Vertex x: 716.451 , y: 824.7
+neighbor point x: 613.636 , y: 766.664
+neighbor point x: 797.998 , y: 778.844
+neighbor point x: 613.636 , y: 766.664
+neighbor point x: 645.657 , y: 706.158
+Vertex x: 613.636 , y: 766.664
+neighbor point x: 716.451 , y: 824.7
+neighbor point x: 716.451 , y: 824.7
+neighbor point x: 797.998 , y: 778.844
+neighbor point x: 645.657 , y: 706.158
+Vertex x: 797.998 , y: 778.844
+neighbor point x: 716.451 , y: 824.7
+neighbor point x: 645.657 , y: 706.158
+Vertex x: 645.657 , y: 706.158
+neighbor point x: 613.636 , y: 766.664
+neighbor point x: 797.998 , y: 778.844
+Duplicates coordinate x: 716.451, y: 824.7
+Duplicates coordinate x: 613.636, y: 766.664
+Path coordinate x: 716.451, y: 824.7
+Path coordinate x: 797.998, y: 778.844
+Path coordinate x: 645.657, y: 706.158
+Centroid coordinate x: 715.427, y: 763.034
+1rst x: 716.451 1rst y: 824.7
+2nd x: 613.636 2nd y: 766.664
+1rst x: 716.451 1rst y: 824.7
+2nd x: 797.998 2nd y: 778.844
+1rst x: 613.636 1rst y: 766.664
+2nd x: 645.657 2nd y: 706.158
+1rst x: 797.998 1rst y: 778.844
+2nd x: 645.657 2nd y: 706.158
+Cell: 321.888,292.912
+x: 393.407, y: 234.113
+x: 303.553, y: 353.091
+x: 213.694, y: 321.686
+x: 202.408, y: 161.018
+x: 296.378, y: 149.954
+Vertex x: 303.553 , y: 353.091
+neighbor point x: 393.407 , y: 234.113
+neighbor point x: 213.694 , y: 321.686
+neighbor point x: 393.407 , y: 234.113
+neighbor point x: 296.378 , y: 149.954
+Vertex x: 213.694 , y: 321.686
+neighbor point x: 303.553 , y: 353.091
+neighbor point x: 202.408 , y: 161.018
+Vertex x: 393.407 , y: 234.113
+neighbor point x: 303.553 , y: 353.091
+neighbor point x: 303.553 , y: 353.091
+neighbor point x: 213.694 , y: 321.686
+neighbor point x: 296.378 , y: 149.954
+Vertex x: 296.378 , y: 149.954
+neighbor point x: 393.407 , y: 234.113
+neighbor point x: 202.408 , y: 161.018
+Vertex x: 202.408 , y: 161.018
+neighbor point x: 213.694 , y: 321.686
+neighbor point x: 296.378 , y: 149.954
+Duplicates coordinate x: 303.553, y: 353.091
+Duplicates coordinate x: 393.407, y: 234.113
+Path coordinate x: 303.553, y: 353.091
+Path coordinate x: 213.694, y: 321.686
+Path coordinate x: 202.408, y: 161.018
+Path coordinate x: 296.378, y: 149.954
+Centroid coordinate x: 261.495, y: 247.79
+1rst x: 303.553 1rst y: 353.091
+2nd x: 213.694 2nd y: 321.686
+1rst x: 213.694 1rst y: 321.686
+2nd x: 202.408 2nd y: 161.018
+1rst x: 393.407 1rst y: 234.113
+2nd x: 303.553 2nd y: 353.091
+1rst x: 393.407 1rst y: 234.113
+2nd x: 296.378 2nd y: 149.954
+1rst x: 296.378 1rst y: 149.954
+2nd x: 202.408 2nd y: 161.018
+Cell: 68.2922,708.49
+x: 76.756, y: 745.09
+x: 29.7732, y: 721.068
+x: 162.524, y: 759.387
+x: -30.0337, y: 643.861
+x: 215.427, y: 649.609
+x: 214.69, y: 647.076
+Vertex x: 76.756 , y: 745.09
+neighbor point x: 29.7732 , y: 721.068
+neighbor point x: 162.524 , y: 759.387
+neighbor point x: 29.7732 , y: 721.068
+neighbor point x: -30.0337 , y: 643.861
+Vertex x: 29.7732 , y: 721.068
+neighbor point x: 76.756 , y: 745.09
+neighbor point x: 76.756 , y: 745.09
+neighbor point x: 162.524 , y: 759.387
+neighbor point x: -30.0337 , y: 643.861
+Vertex x: 162.524 , y: 759.387
+neighbor point x: 76.756 , y: 745.09
+neighbor point x: 215.427 , y: 649.609
+Vertex x: -30.0337 , y: 643.861
+neighbor point x: 29.7732 , y: 721.068
+neighbor point x: 214.69 , y: 647.076
+Vertex x: 215.427 , y: 649.609
+neighbor point x: 162.524 , y: 759.387
+neighbor point x: 214.69 , y: 647.076
+Vertex x: 214.69 , y: 647.076
+neighbor point x: -30.0337 , y: 643.861
+neighbor point x: 215.427 , y: 649.609
+Duplicates coordinate x: 76.756, y: 745.09
+Duplicates coordinate x: 29.7732, y: 721.068
+Path coordinate x: 76.756, y: 745.09
+Path coordinate x: 162.524, y: 759.387
+Path coordinate x: 215.427, y: 649.609
+Path coordinate x: 214.69, y: 647.076
+Path coordinate x: -30.0337, y: 643.861
+Centroid coordinate x: 104.049, y: 682.164
+1rst x: 76.756 1rst y: 745.09
+2nd x: 29.7732 2nd y: 721.068
+1rst x: 76.756 1rst y: 745.09
+2nd x: 162.524 2nd y: 759.387
+1rst x: 29.7732 1rst y: 721.068
+2nd x: -30.0337 2nd y: 643.861
+1rst x: 162.524 1rst y: 759.387
+2nd x: 215.427 2nd y: 649.609
+1rst x: 215.427 1rst y: 649.609
+2nd x: 214.69 2nd y: 647.076
+1rst x: 214.69 1rst y: 647.076
+2nd x: -30.0337 2nd y: 643.861
+Cell: 8.21587,145.268
+x: 186.204, y: 151.112
+x: -252.247, y: 404.753
+x: -572.243, y: 450.007
+x: 157.015, y: 92.9009
+x: 0, y: 85.6058
+x: -582.243, y: 450.003
+Vertex x: -252.247 , y: 404.753
+neighbor point x: 186.204 , y: 151.112
+neighbor point x: -572.243 , y: 450.007
+neighbor point x: 186.204 , y: 151.112
+neighbor point x: 157.015 , y: 92.9009
+Vertex x: 186.204 , y: 151.112
+neighbor point x: -252.247 , y: 404.753
+neighbor point x: -252.247 , y: 404.753
+neighbor point x: -572.243 , y: 450.007
+neighbor point x: 157.015 , y: 92.9009
+Vertex x: 157.015 , y: 92.9009
+neighbor point x: 0 , y: 85.6058
+neighbor point x: 186.204 , y: 151.112
+Vertex x: -572.243 , y: 450.007
+neighbor point x: -252.247 , y: 404.753
+neighbor point x: -582.243 , y: 450.003
+Vertex x: -582.243 , y: 450.003
+neighbor point x: -572.243 , y: 450.007
+Vertex x: 0 , y: 85.6058
+neighbor point x: 157.015 , y: 92.9009
+Duplicates coordinate x: -252.247, y: 404.753
+Duplicates coordinate x: 186.204, y: 151.112
+Path coordinate x: 0, y: 85.6058
+Path coordinate x: 157.015, y: 92.9009
+Path coordinate x: -252.247, y: 404.753
+Path coordinate x: -572.243, y: 450.007
+Path coordinate x: -582.243, y: 450.003
+Centroid coordinate x: -185.102, y: 280.302
+1rst x: -252.247 1rst y: 404.753
+2nd x: -572.243 2nd y: 450.007
+1rst x: 186.204 1rst y: 151.112
+2nd x: -252.247 2nd y: 404.753
+1rst x: 186.204 1rst y: 151.112
+2nd x: 157.015 2nd y: 92.9009
+1rst x: 157.015 1rst y: 92.9009
+2nd x: 0 2nd y: 85.6058
+1rst x: -572.243 1rst y: 450.007
+2nd x: -582.243 2nd y: 450.003
+Cell: 556.858,486.669
+x: 759.765, y: 496.799
+x: 522.537, y: 548.552
+x: 517.446, y: 452.303
+x: 563.494, y: 443.945
+x: 680.289, y: 436.584
+x: 757.29, y: 486.517
+Vertex x: 522.537 , y: 548.552
+neighbor point x: 759.765 , y: 496.799
+neighbor point x: 517.446 , y: 452.303
+neighbor point x: 759.765 , y: 496.799
+neighbor point x: 757.29 , y: 486.517
+Vertex x: 563.494 , y: 443.945
+neighbor point x: 517.446 , y: 452.303
+neighbor point x: 680.289 , y: 436.584
+Vertex x: 517.446 , y: 452.303
+neighbor point x: 522.537 , y: 548.552
+neighbor point x: 563.494 , y: 443.945
+Vertex x: 680.289 , y: 436.584
+neighbor point x: 563.494 , y: 443.945
+neighbor point x: 757.29 , y: 486.517
+Vertex x: 759.765 , y: 496.799
+neighbor point x: 522.537 , y: 548.552
+neighbor point x: 522.537 , y: 548.552
+neighbor point x: 517.446 , y: 452.303
+neighbor point x: 757.29 , y: 486.517
+Vertex x: 757.29 , y: 486.517
+neighbor point x: 680.289 , y: 436.584
+neighbor point x: 759.765 , y: 496.799
+Duplicates coordinate x: 522.537, y: 548.552
+Duplicates coordinate x: 759.765, y: 496.799
+Path coordinate x: 522.537, y: 548.552
+Path coordinate x: 517.446, y: 452.303
+Path coordinate x: 563.494, y: 443.945
+Path coordinate x: 680.289, y: 436.584
+Path coordinate x: 757.29, y: 486.517
+Centroid coordinate x: 621.739, y: 472.048
+1rst x: 522.537 1rst y: 548.552
+2nd x: 517.446 2nd y: 452.303
+1rst x: 563.494 1rst y: 443.945
+2nd x: 517.446 2nd y: 452.303
+1rst x: 563.494 1rst y: 443.945
+2nd x: 680.289 2nd y: 436.584
+1rst x: 680.289 1rst y: 436.584
+2nd x: 757.29 2nd y: 486.517
+1rst x: 759.765 1rst y: 496.799
+2nd x: 522.537 2nd y: 548.552
+1rst x: 759.765 1rst y: 496.799
+2nd x: 757.29 2nd y: 486.517
+Cell: 568.955,844.108
+x: 637.056, y: 954.086
+x: 446.298, y: 762.776
+x: 637.947, y: 950.897
+x: 586.64, y: 778.693
+x: 449.406, y: 760.133
+Vertex x: 637.056 , y: 954.086
+neighbor point x: 446.298 , y: 762.776
+neighbor point x: 637.947 , y: 950.897
+neighbor point x: 446.298 , y: 762.776
+neighbor point x: 449.406 , y: 760.133
+Vertex x: 637.947 , y: 950.897
+neighbor point x: 637.056 , y: 954.086
+neighbor point x: 586.64 , y: 778.693
+Vertex x: 586.64 , y: 778.693
+neighbor point x: 637.947 , y: 950.897
+neighbor point x: 449.406 , y: 760.133
+Vertex x: 446.298 , y: 762.776
+neighbor point x: 637.056 , y: 954.086
+neighbor point x: 637.056 , y: 954.086
+neighbor point x: 637.947 , y: 950.897
+neighbor point x: 449.406 , y: 760.133
+Vertex x: 449.406 , y: 760.133
+neighbor point x: 586.64 , y: 778.693
+neighbor point x: 446.298 , y: 762.776
+Duplicates coordinate x: 637.056, y: 954.086
+Duplicates coordinate x: 446.298, y: 762.776
+Path coordinate x: 637.056, y: 954.086
+Path coordinate x: 637.947, y: 950.897
+Path coordinate x: 586.64, y: 778.693
+Path coordinate x: 449.406, y: 760.133
+Centroid coordinate x: 559.124, y: 820.968
+1rst x: 637.056 1rst y: 954.086
+2nd x: 637.947 2nd y: 950.897
+1rst x: 637.056 1rst y: 954.086
+2nd x: 446.298 2nd y: 762.776
+1rst x: 637.947 1rst y: 950.897
+2nd x: 586.64 2nd y: 778.693
+1rst x: 586.64 1rst y: 778.693
+2nd x: 449.406 2nd y: 760.133
+1rst x: 446.298 1rst y: 762.776
+2nd x: 449.406 2nd y: 760.133
+Cell: 446.746,6.69864
+x: 473.041, y: 81.8708
+x: 366.585, y: 78.109
+x: 571.249, y: -11.3239
+x: 890.319, y: -48332.7
+x: 662.157, y: -262.133
+Vertex x: 473.041 , y: 81.8708
+neighbor point x: 366.585 , y: 78.109
+neighbor point x: 571.249 , y: -11.3239
+neighbor point x: 366.585 , y: 78.109
+neighbor point x: 890.319 , y: -48332.7
+Vertex x: 366.585 , y: 78.109
+neighbor point x: 473.041 , y: 81.8708
+neighbor point x: 473.041 , y: 81.8708
+neighbor point x: 571.249 , y: -11.3239
+neighbor point x: 890.319 , y: -48332.7
+Vertex x: 571.249 , y: -11.3239
+neighbor point x: 473.041 , y: 81.8708
+neighbor point x: 662.157 , y: -262.133
+Vertex x: 662.157 , y: -262.133
+neighbor point x: 571.249 , y: -11.3239
+neighbor point x: 890.319 , y: -48332.7
+Vertex x: 890.319 , y: -48332.7
+neighbor point x: 366.585 , y: 78.109
+neighbor point x: 662.157 , y: -262.133
+Duplicates coordinate x: 473.041, y: 81.8708
+Duplicates coordinate x: 366.585, y: 78.109
+Path coordinate x: 473.041, y: 81.8708
+Path coordinate x: 571.249, y: -11.3239
+Path coordinate x: 662.157, y: -262.133
+Path coordinate x: 890.319, y: -48332.7
+Centroid coordinate x: 666.174, y: -16165.2
+1rst x: 473.041 1rst y: 81.8708
+2nd x: 366.585 2nd y: 78.109
+1rst x: 473.041 1rst y: 81.8708
+2nd x: 571.249 2nd y: -11.3239
+1rst x: 366.585 1rst y: 78.109
+2nd x: 890.319 2nd y: -48332.7
+1rst x: 571.249 1rst y: -11.3239
+2nd x: 662.157 2nd y: -262.133
+1rst x: 662.157 1rst y: -262.133
+2nd x: 890.319 2nd y: -48332.7
+Cell: 497.333,276.596
+x: 520.469, y: 341.206
+x: 482.886, y: 354.228
+x: 441.592, y: 346.706
+x: 582.84, y: 314.326
+x: 410.365, y: 242.911
+x: 593.607, y: 242.845
+x: 518.492, y: 193.268
+x: 577.147, y: 210.878
+Vertex x: 482.886 , y: 354.228
+neighbor point x: 520.469 , y: 341.206
+neighbor point x: 441.592 , y: 346.706
+neighbor point x: 520.469 , y: 341.206
+neighbor point x: 582.84 , y: 314.326
+Vertex x: 520.469 , y: 341.206
+neighbor point x: 482.886 , y: 354.228
+neighbor point x: 482.886 , y: 354.228
+neighbor point x: 441.592 , y: 346.706
+neighbor point x: 582.84 , y: 314.326
+Vertex x: 441.592 , y: 346.706
+neighbor point x: 482.886 , y: 354.228
+neighbor point x: 410.365 , y: 242.911
+Vertex x: 582.84 , y: 314.326
+neighbor point x: 520.469 , y: 341.206
+neighbor point x: 593.607 , y: 242.845
+Vertex x: 410.365 , y: 242.911
+neighbor point x: 441.592 , y: 346.706
+neighbor point x: 518.492 , y: 193.268
+Vertex x: 593.607 , y: 242.845
+neighbor point x: 582.84 , y: 314.326
+neighbor point x: 577.147 , y: 210.878
+Vertex x: 577.147 , y: 210.878
+neighbor point x: 593.607 , y: 242.845
+neighbor point x: 518.492 , y: 193.268
+Vertex x: 518.492 , y: 193.268
+neighbor point x: 410.365 , y: 242.911
+neighbor point x: 577.147 , y: 210.878
+Duplicates coordinate x: 482.886, y: 354.228
+Duplicates coordinate x: 520.469, y: 341.206
+Path coordinate x: 482.886, y: 354.228
+Path coordinate x: 441.592, y: 346.706
+Path coordinate x: 410.365, y: 242.911
+Path coordinate x: 518.492, y: 193.268
+Path coordinate x: 577.147, y: 210.878
+Path coordinate x: 593.607, y: 242.845
+Path coordinate x: 582.84, y: 314.326
+Centroid coordinate x: 511.871, y: 264.952
+1rst x: 482.886 1rst y: 354.228
+2nd x: 441.592 2nd y: 346.706
+1rst x: 520.469 1rst y: 341.206
+2nd x: 482.886 2nd y: 354.228
+1rst x: 520.469 1rst y: 341.206
+2nd x: 582.84 2nd y: 314.326
+1rst x: 441.592 1rst y: 346.706
+2nd x: 410.365 2nd y: 242.911
+1rst x: 582.84 1rst y: 314.326
+2nd x: 593.607 2nd y: 242.845
+1rst x: 593.607 1rst y: 242.845
+2nd x: 577.147 2nd y: 210.878
+1rst x: 577.147 1rst y: 210.878
+2nd x: 518.492 2nd y: 193.268
+1rst x: 518.492 1rst y: 193.268
+2nd x: 410.365 2nd y: 242.911
+Cell: 7.96654,755.221
+x: 13.948, y: 807.648
+x: -2.03346, y: 809.813
+x: 20.4166, y: 793.098
+x: 29.7732, y: 721.068
+x: -30.0337, y: 643.861
+x: -572.243, y: 450.007
+x: -582.243, y: 450.003
+Vertex x: 13.948 , y: 807.648
+neighbor point x: -2.03346 , y: 809.813
+neighbor point x: 20.4166 , y: 793.098
+Vertex x: 20.4166 , y: 793.098
+neighbor point x: 13.948 , y: 807.648
+neighbor point x: 29.7732 , y: 721.068
+Vertex x: 29.7732 , y: 721.068
+neighbor point x: 20.4166 , y: 793.098
+neighbor point x: -30.0337 , y: 643.861
+Vertex x: -30.0337 , y: 643.861
+neighbor point x: 29.7732 , y: 721.068
+neighbor point x: -572.243 , y: 450.007
+Vertex x: -572.243 , y: 450.007
+neighbor point x: -30.0337 , y: 643.861
+neighbor point x: -582.243 , y: 450.003
+Vertex x: -582.243 , y: 450.003
+neighbor point x: -572.243 , y: 450.007
+Vertex x: -2.03346 , y: 809.813
+neighbor point x: 13.948 , y: 807.648
+neighbor point x: 13.948 , y: 807.648
+neighbor point x: 20.4166 , y: 793.098
+Duplicates coordinate x: -2.03346, y: 809.813
+Duplicates coordinate x: 13.948, y: 807.648
+Path coordinate x: 13.948, y: 807.648
+Path coordinate x: 20.4166, y: 793.098
+Path coordinate x: 29.7732, y: 721.068
+Path coordinate x: -30.0337, y: 643.861
+Path coordinate x: -572.243, y: 450.007
+Path coordinate x: -582.243, y: 450.003
+Centroid coordinate x: -188.117, y: 632.732
+1rst x: 13.948 1rst y: 807.648
+2nd x: 20.4166 2nd y: 793.098
+1rst x: 13.948 1rst y: 807.648
+2nd x: -2.03346 2nd y: 809.813
+1rst x: 20.4166 1rst y: 793.098
+2nd x: 29.7732 2nd y: 721.068
+1rst x: 29.7732 1rst y: 721.068
+2nd x: -30.0337 2nd y: 643.861
+1rst x: -30.0337 1rst y: 643.861
+2nd x: -572.243 2nd y: 450.007
+1rst x: -572.243 1rst y: 450.007
+2nd x: -582.243 2nd y: 450.003
+Cell: 22.1324,859.777
+x: 73.7964, y: 924.197
+x: 0, y: 957.147
+x: 124.121, y: 853.873
+x: 13.948, y: 807.648
+x: -2.03346, y: 809.813
+Vertex x: 73.7964 , y: 924.197
+neighbor point x: 0 , y: 957.147
+neighbor point x: 124.121 , y: 853.873
+Vertex x: 13.948 , y: 807.648
+neighbor point x: 124.121 , y: 853.873
+neighbor point x: -2.03346 , y: 809.813
+Vertex x: 124.121 , y: 853.873
+neighbor point x: 73.7964 , y: 924.197
+neighbor point x: 13.948 , y: 807.648
+Vertex x: 0 , y: 957.147
+neighbor point x: 73.7964 , y: 924.197
+neighbor point x: 73.7964 , y: 924.197
+neighbor point x: 124.121 , y: 853.873
+Vertex x: -2.03346 , y: 809.813
+neighbor point x: 13.948 , y: 807.648
+Duplicates coordinate x: 0, y: 957.147
+Duplicates coordinate x: 73.7964, y: 924.197
+Path coordinate x: 73.7964, y: 924.197
+Path coordinate x: 124.121, y: 853.873
+Path coordinate x: 13.948, y: 807.648
+Path coordinate x: -2.03346, y: 809.813
+Centroid coordinate x: 58.1058, y: 857.798
+1rst x: 73.7964 1rst y: 924.197
+2nd x: 124.121 2nd y: 853.873
+1rst x: 73.7964 1rst y: 924.197
+2nd x: 0 2nd y: 957.147
+1rst x: 13.948 1rst y: 807.648
+2nd x: -2.03346 2nd y: 809.813
+1rst x: 124.121 1rst y: 853.873
+2nd x: 13.948 2nd y: 807.648
+Cell: 542.267,406.278
+x: 563.494, y: 443.945
+x: 517.446, y: 452.303
+x: 520.469, y: 341.206
+x: 517.234, y: 452.151
+x: 482.886, y: 354.228
+Vertex x: 563.494 , y: 443.945
+neighbor point x: 517.446 , y: 452.303
+neighbor point x: 520.469 , y: 341.206
+neighbor point x: 517.446 , y: 452.303
+neighbor point x: 517.234 , y: 452.151
+Vertex x: 517.446 , y: 452.303
+neighbor point x: 563.494 , y: 443.945
+neighbor point x: 563.494 , y: 443.945
+neighbor point x: 520.469 , y: 341.206
+neighbor point x: 517.234 , y: 452.151
+Vertex x: 517.234 , y: 452.151
+neighbor point x: 517.446 , y: 452.303
+neighbor point x: 482.886 , y: 354.228
+Vertex x: 482.886 , y: 354.228
+neighbor point x: 517.234 , y: 452.151
+neighbor point x: 520.469 , y: 341.206
+Vertex x: 520.469 , y: 341.206
+neighbor point x: 563.494 , y: 443.945
+neighbor point x: 482.886 , y: 354.228
+Duplicates coordinate x: 563.494, y: 443.945
+Duplicates coordinate x: 517.446, y: 452.303
+Path coordinate x: 563.494, y: 443.945
+Path coordinate x: 520.469, y: 341.206
+Path coordinate x: 482.886, y: 354.228
+Path coordinate x: 517.234, y: 452.151
+Centroid coordinate x: 515.769, y: 394.971
+1rst x: 563.494 1rst y: 443.945
+2nd x: 517.446 2nd y: 452.303
+1rst x: 563.494 1rst y: 443.945
+2nd x: 520.469 2nd y: 341.206
+1rst x: 517.446 1rst y: 452.303
+2nd x: 517.234 2nd y: 452.151
+1rst x: 517.234 1rst y: 452.151
+2nd x: 482.886 2nd y: 354.228
+1rst x: 520.469 1rst y: 341.206
+2nd x: 482.886 2nd y: 354.228
+Cell: 551.546,402.393
+x: 563.494, y: 443.945
+x: 520.469, y: 341.206
+x: 680.289, y: 436.584
+x: 582.84, y: 314.326
+Vertex x: 563.494 , y: 443.945
+neighbor point x: 520.469 , y: 341.206
+neighbor point x: 680.289 , y: 436.584
+neighbor point x: 520.469 , y: 341.206
+neighbor point x: 582.84 , y: 314.326
+Vertex x: 680.289 , y: 436.584
+neighbor point x: 563.494 , y: 443.945
+neighbor point x: 582.84 , y: 314.326
+Vertex x: 520.469 , y: 341.206
+neighbor point x: 563.494 , y: 443.945
+neighbor point x: 563.494 , y: 443.945
+neighbor point x: 680.289 , y: 436.584
+neighbor point x: 582.84 , y: 314.326
+Vertex x: 582.84 , y: 314.326
+neighbor point x: 680.289 , y: 436.584
+neighbor point x: 520.469 , y: 341.206
+Duplicates coordinate x: 563.494, y: 443.945
+Duplicates coordinate x: 520.469, y: 341.206
+Path coordinate x: 563.494, y: 443.945
+Path coordinate x: 680.289, y: 436.584
+Path coordinate x: 582.84, y: 314.326
+Centroid coordinate x: 592.18, y: 387.416
+1rst x: 563.494 1rst y: 443.945
+2nd x: 680.289 2nd y: 436.584
+1rst x: 563.494 1rst y: 443.945
+2nd x: 520.469 2nd y: 341.206
+1rst x: 680.289 1rst y: 436.584
+2nd x: 582.84 2nd y: 314.326
+1rst x: 520.469 1rst y: 341.206
+2nd x: 582.84 2nd y: 314.326
+Cell: 889.061,224.022
+x: 932.867, y: 292.422
+x: 801.556, y: 151.061
+x: 1065.26, y: 138.962
+x: 803.171, y: 134.646
+Vertex x: 932.867 , y: 292.422
+neighbor point x: 801.556 , y: 151.061
+neighbor point x: 1065.26 , y: 138.962
+neighbor point x: 801.556 , y: 151.061
+neighbor point x: 803.171 , y: 134.646
+Vertex x: 801.556 , y: 151.061
+neighbor point x: 932.867 , y: 292.422
+neighbor point x: 932.867 , y: 292.422
+neighbor point x: 1065.26 , y: 138.962
+neighbor point x: 803.171 , y: 134.646
+Vertex x: 803.171 , y: 134.646
+neighbor point x: 1065.26 , y: 138.962
+neighbor point x: 801.556 , y: 151.061
+Vertex x: 1065.26 , y: 138.962
+neighbor point x: 932.867 , y: 292.422
+neighbor point x: 803.171 , y: 134.646
+Duplicates coordinate x: 932.867, y: 292.422
+Duplicates coordinate x: 801.556, y: 151.061
+Path coordinate x: 932.867, y: 292.422
+Path coordinate x: 1065.26, y: 138.962
+Path coordinate x: 803.171, y: 134.646
+Centroid coordinate x: 936.729, y: 187.246
+1rst x: 932.867 1rst y: 292.422
+2nd x: 801.556 2nd y: 151.061
+1rst x: 932.867 1rst y: 292.422
+2nd x: 1065.26 2nd y: 138.962
+1rst x: 801.556 1rst y: 151.061
+2nd x: 803.171 2nd y: 134.646
+1rst x: 1065.26 1rst y: 138.962
+2nd x: 803.171 2nd y: 134.646
+Cell: 42.1305,759.658
+x: 76.756, y: 745.09
+x: 20.4166, y: 793.098
+x: 29.7732, y: 721.068
+Vertex x: 20.4166 , y: 793.098
+neighbor point x: 76.756 , y: 745.09
+neighbor point x: 29.7732 , y: 721.068
+neighbor point x: 76.756 , y: 745.09
+neighbor point x: 29.7732 , y: 721.068
+Vertex x: 76.756 , y: 745.09
+neighbor point x: 20.4166 , y: 793.098
+neighbor point x: 20.4166 , y: 793.098
+neighbor point x: 29.7732 , y: 721.068
+neighbor point x: 29.7732 , y: 721.068
+Vertex x: 29.7732 , y: 721.068
+neighbor point x: 20.4166 , y: 793.098
+neighbor point x: 76.756 , y: 745.09
+Duplicates coordinate x: 20.4166, y: 793.098
+Duplicates coordinate x: 76.756, y: 745.09
+Duplicates coordinate x: 20.4166, y: 793.098
+Duplicates coordinate x: 29.7732, y: 721.068
+Path coordinate x: 20.4166, y: 793.098
+Centroid coordinate x: 46.4344, y: 765.949
+1rst x: 20.4166 1rst y: 793.098
+2nd x: 29.7732 2nd y: 721.068
+1rst x: 76.756 1rst y: 745.09
+2nd x: 20.4166 2nd y: 793.098
+1rst x: 76.756 1rst y: 745.09
+2nd x: 29.7732 2nd y: 721.068
+Cell: 752.301,895.338
+x: 823.657, y: 772.578
+x: 653.505, y: 1264.57
+x: 627.22, y: 1182.98
+x: 637.056, y: 954.086
+x: 637.947, y: 950.897
+x: 716.451, y: 824.7
+x: 797.998, y: 778.844
+Vertex x: 653.505 , y: 1264.57
+neighbor point x: 823.657 , y: 772.578
+neighbor point x: 627.22 , y: 1182.98
+neighbor point x: 797.998 , y: 778.844
+neighbor point x: 823.657 , y: 772.578
+Vertex x: 627.22 , y: 1182.98
+neighbor point x: 653.505 , y: 1264.57
+neighbor point x: 637.056 , y: 954.086
+Vertex x: 637.056 , y: 954.086
+neighbor point x: 627.22 , y: 1182.98
+neighbor point x: 637.947 , y: 950.897
+Vertex x: 637.947 , y: 950.897
+neighbor point x: 637.056 , y: 954.086
+neighbor point x: 716.451 , y: 824.7
+Vertex x: 716.451 , y: 824.7
+neighbor point x: 637.947 , y: 950.897
+neighbor point x: 797.998 , y: 778.844
+Vertex x: 797.998 , y: 778.844
+neighbor point x: 716.451 , y: 824.7
+neighbor point x: 823.657 , y: 772.578
+Vertex x: 823.657 , y: 772.578
+neighbor point x: 653.505 , y: 1264.57
+neighbor point x: 653.505 , y: 1264.57
+neighbor point x: 627.22 , y: 1182.98
+neighbor point x: 797.998 , y: 778.844
+Duplicates coordinate x: 653.505, y: 1264.57
+Duplicates coordinate x: 823.657, y: 772.578
+Path coordinate x: 653.505, y: 1264.57
+Path coordinate x: 627.22, y: 1182.98
+Path coordinate x: 637.056, y: 954.086
+Path coordinate x: 637.947, y: 950.897
+Path coordinate x: 716.451, y: 824.7
+Path coordinate x: 797.998, y: 778.844
+Centroid coordinate x: 688.792, y: 999.137
+1rst x: 653.505 1rst y: 1264.57
+2nd x: 627.22 2nd y: 1182.98
+1rst x: 627.22 1rst y: 1182.98
+2nd x: 637.056 2nd y: 954.086
+1rst x: 637.056 1rst y: 954.086
+2nd x: 637.947 2nd y: 950.897
+1rst x: 637.947 1rst y: 950.897
+2nd x: 716.451 2nd y: 824.7
+1rst x: 716.451 1rst y: 824.7
+2nd x: 797.998 2nd y: 778.844
+1rst x: 797.998 1rst y: 778.844
+2nd x: 823.657 2nd y: 772.578
+1rst x: 823.657 1rst y: 772.578
+2nd x: 653.505 2nd y: 1264.57
+Point 1 equals Point 2 1
+Number of cells: 50
+
+12:58:23: Cell site: 128.202,1016.48
+ymax: 1026
+ymin: 980.186
+
+12:58:23: Cell site: 116.968,981.186
+ymax: 1026
+ymin: 976.117
+
+12:58:23: Cell site: 116.968,981.186
+ymax: 1026
+ymin: 976.117
+
+12:58:23: Cell site: 87.2734,1005.67
+ymax: 1026
+ymin: 940.405
+
+12:58:23: Cell site: 73.7964,941.405
+ymax: 1026
+ymin: 924.197
+
+12:58:23: Cell site: 73.7964,941.405
+ymax: 1026
+ymin: 924.197
+
+12:58:23: Vmax equals origin, Cell site: 357.756,1022.44
+
+12:58:23: Vmax equals origin, Cell site: 357.756,1022.44
+Cell site: 357.756,1022.44
+ymax: 1026
+ymin: 890.756
+
+12:58:23: Vmax equals origin, Cell site: 382.656,891.756
+
+12:58:23: Vmax equals origin, Cell site: 382.656,891.756
+Cell site: 382.656,891.756
+ymax: 1026
+ymin: 879.863
+
+12:58:23: Vmax equals origin, Cell site: 382.656,891.756
+
+12:58:23: Vmax equals origin, Cell site: 382.656,891.756
+Cell site: 382.656,891.756
+ymax: 1026
+ymin: 879.863
+
+12:58:23: Cell site: 371.195,620.421
+ymax: 637.411
+ymin: 508.33
+
+12:58:23: Cell site: 326.218,636.411
+ymax: 717.047
+ymin: 515.825
+
+12:58:23: Cell site: 326.218,636.411
+ymax: 717.047
+ymin: 515.825
+
+12:58:23: Cell site: 361.829,509.33
+ymax: 653.993
+ymin: 500.343
+
+12:58:23: Cell site: 361.829,509.33
+ymax: 653.993
+ymin: 500.343
+
+12:58:23: Cell site: 875.005,8.73134
+ymax: 32.0845
+ymin: 0
+
+12:58:23: Cell site: 775.046,31.0845
+ymax: 75.0766
+ymin: 0
+
+12:58:23: Cell site: 775.046,31.0845
+ymax: 75.0766
+ymin: 0
+
+12:58:23: Cell site: 56.8777,776.965
+ymax: 825.66
+ymin: 762.029
+
+12:58:23: Cell site: 124.121,824.66
+ymax: 853.873
+ymin: 752.985
+
+12:58:23: Cell site: 124.121,824.66
+ymax: 853.873
+ymin: 752.985
+
+12:58:23: Cell site: 76.756,763.029
+ymax: 834
+ymin: 745.09
+
+12:58:23: Cell site: 76.756,763.029
+ymax: 834
+ymin: 745.09
+
+12:58:23: Cell site: 151.441,952.312
+ymax: 988.602
+ymin: 839.14
+
+12:58:23: Cell site: 180.563,987.602
+ymax: 999.149
+ymin: 858.197
+
+12:58:23: Cell site: 180.563,987.602
+ymax: 999.149
+ymin: 858.197
+
+12:58:23: Cell site: 153.093,840.14
+ymax: 989.201
+ymin: 838.249
+
+12:58:23: Cell site: 153.093,840.14
+ymax: 989.201
+ymin: 838.249
+
+12:58:23: Cell site: 546.733,112.065
+ymax: 201.747
+ymin: 11.9408
+
+12:58:23: Cell site: 577.147,200.747
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Cell site: 577.147,200.747
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+
+12:58:23: Vmax equals origin, Cell site: 577.147,210.878
+Cell site: 577.147,210.878
+ymax: 210.878
+ymin: 10.1775
+
+12:58:23: Cell site: 571.249,12.9408
+ymax: 209.108
+ymin: 0
+
+12:58:23: Cell site: 571.249,12.9408
+ymax: 209.108
+ymin: 0
+
+12:58:23: Cell site: 69.9558,581.837
+ymax: 645.175
+ymin: 443.138
+
+12:58:23: Cell site: 214.69,644.175
+ymax: 647.076
+ymin: 545.551
+
+12:58:23: Cell site: 214.69,644.175
+ymax: 647.076
+ymin: 545.551
+
+12:58:23: Cell site: 0,444.138
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,444.138
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 0,434.804
+ymax: 644.256
+ymin: 434.804
+
+12:58:23: Cell site: 441.506,154.999
+ymax: 228.614
+ymin: 80.7565
+
+12:58:23: Cell site: 410.365,227.614
+ymax: 242.911
+ymin: 79.6561
+
+12:58:23: Cell site: 410.365,227.614
+ymax: 242.911
+ymin: 79.6561
+
+12:58:23: Cell site: 366.585,81.7565
+ymax: 210.848
+ymin: 78.109
+
+12:58:23: Cell site: 366.585,81.7565
+ymax: 210.848
+ymin: 78.109
+
+12:58:23: Cell site: 891.958,48.1464
+ymax: 136.108
+ymin: 24.7933
+
+12:58:23: Cell site: 1026,135.108
+ymax: 138.316
+ymin: 0
+
+12:58:23: Cell site: 1026,135.108
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+
+12:58:23: Vmax equals origin, Cell site: 1026,138.316
+Cell site: 1026,138.316
+ymax: 138.316
+ymin: 0
+
+12:58:23: Cell site: 1026,25.7933
+ymax: 138.316
+ymin: 0
+
+12:58:23: Cell site: 1026,25.7933
+ymax: 138.316
+ymin: 0
+
+12:58:23: Cell site: 356.42,318.991
+ymax: 396.487
+ymin: 283.089
+
+12:58:23: Cell site: 375.739,395.487
+ymax: 412.345
+ymin: 257.507
+
+12:58:23: Cell site: 375.739,395.487
+ymax: 412.345
+ymin: 257.507
+
+12:58:23: Cell site: 393.407,284.089
+ymax: 394.734
+ymin: 234.113
+
+12:58:23: Cell site: 393.407,284.089
+ymax: 394.734
+ymin: 234.113
+
+12:58:23: Cell site: 527.275,885.668
+ymax: 1026
+ymin: 843.988
+
+12:58:23: Cell site: 446.298,844.988
+ymax: 958.743
+ymin: 762.776
+
+12:58:23: Cell site: 446.298,844.988
+ymax: 958.743
+ymin: 762.776
+
+12:58:23: Cell site: 102.541,308.32
+ymax: 447.02
+ymin: 199.511
+
+12:58:23: Cell site: 138.443,446.02
+ymax: 451.297
+ymin: 178.741
+
+12:58:23: Cell site: 138.443,446.02
+ymax: 451.297
+ymin: 178.741
+
+12:58:23: Cell site: 186.204,200.511
+ymax: 369.034
+ymin: 151.112
+
+12:58:23: Cell site: 186.204,200.511
+ymax: 369.034
+ymin: 151.112
+
+12:58:23: Cell site: 287.987,4.9811
+ymax: 150.942
+ymin: 0
+
+12:58:23: Cell site: 202.408,149.942
+ymax: 161.018
+ymin: 0
+
+12:58:23: Cell site: 202.408,149.942
+ymax: 161.018
+ymin: 0
+
+12:58:23: Cell site: 13.7124,26.9627
+ymax: 86.2429
+ymin: 0
+
+12:58:23: Cell site: 156.402,85.2429
+ymax: 92.8724
+ymin: 85.2429
+
+12:58:23: Cell site: 156.402,85.2429
+ymax: 92.8724
+ymin: 85.2429
+
+12:58:23: Cell site: 157.013,92.8724
+ymax: 92.9008
+ymin: 92.8724
+
+12:58:23: Cell site: 157.013,92.8724
+ymax: 92.9008
+ymin: 92.8724
+
+12:58:23: Cell site: 157.015,92.9008
+ymax: 92.9009
+ymin: 92.9008
+
+12:58:23: Cell site: 157.015,92.9008
+ymax: 92.9009
+ymin: 92.9008
+
+12:58:23: Cell site: 157.015,92.9009
+ymax: 92.9009
+ymin: 92.9009
+
+12:58:23: Cell site: 157.015,92.9009
+ymax: 92.9009
+ymin: 92.9009
+
+12:58:23: Cell site: 157.015,92.9009
+ymax: 92.9009
+ymin: 92.9009
+
+12:58:23: Cell site: 157.015,92.9009
+ymax: 92.9009
+ymin: 92.9009
+
+12:58:23: Cell site: 157.015,92.9009
+ymax: 92.9009
+ymin: 92.9009
+
+12:58:23: Cell site: 157.015,92.9009
+ymax: 92.9009
+ymin: 92.9009
+
+12:58:23: Cell site: 157.015,92.9009
+ymax: 92.9009
+ymin: 92.9009
+
+12:58:23: Cell site: 157.015,92.9009
+ymax: 92.9009
+ymin: 92.9009
+
+12:58:23: Cell site: 803.928,913.193
+ymax: 1026
+ymin: 829.626
+
+12:58:23: Cell site: 884.662,830.626
+ymax: 1026
+ymin: 744.371
+
+12:58:23: Cell site: 884.662,830.626
+ymax: 1026
+ymin: 744.371
+
+12:58:23: Cell site: 469.03,431.967
+ymax: 462.708
+ymin: 351.704
+
+12:58:23: Cell site: 370.406,461.708
+ymax: 484.308
+ymin: 461.708
+
+12:58:23: Cell site: 370.406,461.708
+ymax: 484.308
+ymin: 461.708
+
+12:58:23: Cell site: 367.965,484.308
+ymax: 484.842
+ymin: 484.308
+
+12:58:23: Cell site: 367.965,484.308
+ymax: 484.842
+ymin: 484.308
+
+12:58:23: Cell site: 367.907,484.842
+ymax: 484.855
+ymin: 484.842
+
+12:58:23: Cell site: 367.907,484.842
+ymax: 484.855
+ymin: 484.842
+
+12:58:23: Cell site: 367.906,484.855
+ymax: 484.855
+ymin: 484.855
+
+12:58:23: Cell site: 367.906,484.855
+ymax: 484.855
+ymin: 484.855
+
+12:58:23: Cell site: 367.906,484.855
+ymax: 484.855
+ymin: 484.855
+
+12:58:23: Cell site: 367.906,484.855
+ymax: 484.855
+ymin: 484.855
+
+12:58:23: Cell site: 367.906,484.855
+ymax: 484.855
+ymin: 484.855
+
+12:58:23: Cell site: 367.906,484.855
+ymax: 484.855
+ymin: 484.855
+
+12:58:23: Cell site: 367.906,484.855
+ymax: 484.855
+ymin: 484.855
+
+12:58:23: Cell site: 367.906,484.855
+ymax: 484.855
+ymin: 484.855
+
+12:58:23: Cell site: 441.592,352.704
+ymax: 468.717
+ymin: 346.706
+
+12:58:23: Cell site: 441.592,352.704
+ymax: 468.717
+ymin: 346.706
+
+12:58:23: Cell site: 586.967,710.93
+ymax: 778.547
+ymin: 650.493
+
+12:58:23: Cell site: 586.64,777.547
+ymax: 778.693
+ymin: 650.514
+
+12:58:23: Cell site: 586.64,777.547
+ymax: 778.693
+ymin: 650.514
+
+12:58:23: Cell site: 638.4,651.493
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,651.493
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 638.4,647.31
+ymax: 719.871
+ymin: 647.31
+
+12:58:23: Cell site: 637.243,823.762
+ymax: 948.534
+ymin: 779.989
+
+12:58:23: Cell site: 637.947,947.534
+ymax: 950.897
+ymin: 780.387
+
+12:58:23: Cell site: 637.947,947.534
+ymax: 950.897
+ymin: 780.387
+
+12:58:23: Cell site: 613.636,780.989
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,780.989
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 613.636,766.664
+ymax: 869.301
+ymin: 766.664
+
+12:58:23: Cell site: 935.827,395.429
+ymax: 635.418
+ymin: 324.291
+
+12:58:23: Cell site: 944.716,634.418
+ymax: 642.27
+ymin: 333.361
+
+12:58:23: Cell site: 944.716,634.418
+ymax: 642.27
+ymin: 333.361
+
+12:58:23: Cell site: 922.245,325.291
+ymax: 624.949
+ymin: 310.432
+
+12:58:23: Cell site: 922.245,325.291
+ymax: 624.949
+ymin: 310.432
+
+12:58:23: Cell site: 703.748,696.529
+ymax: 733.875
+ymin: 570.727
+
+12:58:23: Cell site: 797.998,732.875
+ymax: 778.844
+ymin: 529.184
+
+12:58:23: Cell site: 797.998,732.875
+ymax: 778.844
+ymin: 529.184
+
+12:58:23: Cell site: 762.527,571.727
+ymax: 761.92
+ymin: 501.843
+
+12:58:23: Cell site: 762.527,571.727
+ymax: 761.92
+ymin: 501.843
+
+12:58:23: Cell site: 701.51,205.57
+ymax: 257.925
+ymin: 180.851
+
+12:58:23: Cell site: 772.753,256.925
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Cell site: 772.753,256.925
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+
+12:58:23: Vmax equals origin, Cell site: 772.753,276.733
+Cell site: 772.753,276.733
+ymax: 276.733
+ymin: 108.555
+
+12:58:23: Cell site: 779.51,181.851
+ymax: 247.249
+ymin: 106.022
+
+12:58:23: Cell site: 779.51,181.851
+ymax: 247.249
+ymin: 106.022
+
+12:58:23: Cell site: 232.533,980.685
+ymax: 1026
+ymin: 888.765
+
+12:58:23: Cell site: 219.887,889.765
+ymax: 1026
+ymin: 886.754
+
+12:58:23: Cell site: 219.887,889.765
+ymax: 1026
+ymin: 886.754
+
+12:58:23: Cell site: 867.877,243.7
+ymax: 334.78
+ymin: 222.459
+
+12:58:23: Cell site: 800.22,333.78
+ymax: 365.08
+ymin: 156.892
+
+12:58:23: Cell site: 800.22,333.78
+ymax: 365.08
+ymin: 156.892
+
+12:58:23: Cell site: 801.556,223.459
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,223.459
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 801.556,151.061
+ymax: 364.481
+ymin: 151.061
+
+12:58:23: Cell site: 675.668,303.458
+ymax: 430.785
+ymin: 251.103
+
+12:58:23: Cell site: 757.29,429.785
+ymax: 486.517
+ymin: 272.651
+
+12:58:23: Cell site: 757.29,429.785
+ymax: 486.517
+ymin: 272.651
+
+12:58:23: Cell site: 593.607,252.103
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,252.103
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 593.607,242.845
+ymax: 327.834
+ymin: 242.845
+
+12:58:23: Cell site: 1014.39,879.241
+ymax: 1026
+ymin: 630.956
+
+12:58:23: Cell site: 1026,631.956
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,631.956
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 1026,629.071
+ymax: 1026
+ymin: 629.071
+
+12:58:23: Cell site: 677.003,184.085
+ymax: 208.803
+ymin: 130.87
+
+12:58:23: Cell site: 646.637,207.803
+ymax: 243.439
+ymin: 137.347
+
+12:58:23: Cell site: 646.637,207.803
+ymax: 243.439
+ymin: 137.347
+
+12:58:23: Cell site: 744.453,131.87
+ymax: 131.87
+ymin: 116.483
+
+12:58:23: Cell site: 744.453,131.87
+ymax: 131.87
+ymin: 116.483
+
+12:58:23: Vmax equals origin, Cell site: 757.943,116.483
+
+12:58:23: Vmax equals origin, Cell site: 757.943,116.483
+Cell site: 757.943,116.483
+ymax: 116.483
+ymin: 113.606
+
+12:58:23: Vmax equals origin, Cell site: 757.943,116.483
+
+12:58:23: Vmax equals origin, Cell site: 757.943,116.483
+Cell site: 757.943,116.483
+ymax: 116.483
+ymin: 113.606
+
+12:58:23: Cell site: 760.466,113.606
+ymax: 113.606
+ymin: 113.068
+
+12:58:23: Cell site: 760.466,113.606
+ymax: 113.606
+ymin: 113.068
+
+12:58:23: Vmax equals origin, Cell site: 760.938,113.068
+
+12:58:23: Vmax equals origin, Cell site: 760.938,113.068
+Cell site: 760.938,113.068
+ymax: 113.068
+ymin: 112.967
+
+12:58:23: Vmax equals origin, Cell site: 760.938,113.068
+
+12:58:23: Vmax equals origin, Cell site: 760.938,113.068
+Cell site: 760.938,113.068
+ymax: 113.068
+ymin: 112.967
+
+12:58:23: Cell site: 761.026,112.967
+ymax: 112.967
+ymin: 112.948
+
+12:58:23: Cell site: 761.026,112.967
+ymax: 112.967
+ymin: 112.948
+
+12:58:23: Cell site: 761.042,112.948
+ymax: 112.948
+ymin: 112.945
+
+12:58:23: Cell site: 761.042,112.948
+ymax: 112.948
+ymin: 112.945
+
+12:58:23: Vmax equals origin, Cell site: 761.045,112.945
+
+12:58:23: Vmax equals origin, Cell site: 761.045,112.945
+Cell site: 761.045,112.945
+ymax: 112.945
+ymin: 112.944
+
+12:58:23: Vmax equals origin, Cell site: 761.045,112.945
+
+12:58:23: Vmax equals origin, Cell site: 761.045,112.945
+Cell site: 761.045,112.945
+ymax: 112.945
+ymin: 112.944
+
+12:58:23: Cell site: 579.513,590.518
+ymax: 650.955
+ymin: 536.122
+
+12:58:23: Cell site: 491.837,649.955
+ymax: 656.382
+ymin: 578.56
+
+12:58:23: Cell site: 491.837,649.955
+ymax: 656.382
+ymin: 578.56
+
+12:58:23: Vmax equals origin, Cell site: 732.424,537.122
+
+12:58:23: Vmax equals origin, Cell site: 732.424,537.122
+Cell site: 732.424,537.122
+ymax: 537.122
+ymin: 502.764
+
+12:58:23: Vmax equals origin, Cell site: 732.424,537.122
+
+12:58:23: Vmax equals origin, Cell site: 732.424,537.122
+Cell site: 732.424,537.122
+ymax: 537.122
+ymin: 502.764
+
+12:58:23: Cell site: 759.765,502.764
+ymax: 505.08
+ymin: 496.799
+
+12:58:23: Cell site: 759.765,502.764
+ymax: 505.08
+ymin: 496.799
+
+12:58:23: Cell site: 261.046,801.38
+ymax: 893.3
+ymin: 677.377
+
+12:58:24: Cell site: 327.71,892.3
+ymax: 903.901
+ymin: 718.124
+
+12:58:24: Cell site: 327.71,892.3
+ymax: 903.901
+ymin: 718.124
+
+12:58:24: Cell site: 215.427,678.377
+ymax: 883.515
+ymin: 649.609
+
+12:58:24: Cell site: 215.427,678.377
+ymax: 883.515
+ymin: 649.609
+
+12:58:24: Cell site: 1006.95,325.726
+ymax: 396.863
+ymin: 206.548
+
+12:58:24: Cell site: 1026,395.863
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,395.863
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+
+12:58:24: Vmax equals origin, Cell site: 1026,416.301
+Cell site: 1026,416.301
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,207.548
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,207.548
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 1026,184.467
+ymax: 416.301
+ymin: 184.467
+
+12:58:24: Cell site: 280.41,411.59
+ymax: 535.739
+ymin: 345.003
+
+12:58:24: Cell site: 225.916,534.739
+ymax: 559.429
+ymin: 325.957
+
+12:58:24: Cell site: 225.916,534.739
+ymax: 559.429
+ymin: 325.957
+
+12:58:24: Cell site: 213.694,346.003
+ymax: 544.32
+ymin: 321.686
+
+12:58:24: Cell site: 213.694,346.003
+ymax: 544.32
+ymin: 321.686
+
+12:58:24: Cell site: 655.29,82.2867
+ymax: 135.501
+ymin: 0
+
+12:58:24: Cell site: 613.944,134.501
+ymax: 144.32
+ymin: 0
+
+12:58:24: Cell site: 613.944,134.501
+ymax: 144.32
+ymin: 0
+
+12:58:24: Cell site: 385.744,628.638
+ymax: 760.017
+ymin: 611.648
+
+12:58:24: Cell site: 414.115,759.017
+ymax: 780.497
+ymin: 561.414
+
+12:58:24: Cell site: 414.115,759.017
+ymax: 780.497
+ymin: 561.414
+
+12:58:24: Cell site: 420.397,612.648
+ymax: 777.038
+ymin: 550.291
+
+12:58:24: Cell site: 420.397,612.648
+ymax: 777.038
+ymin: 550.291
+
+12:58:24: Cell site: 481.879,490.634
+ymax: 588.294
+ymin: 459.894
+
+12:58:24: Cell site: 478.996,587.294
+ymax: 591.112
+ymin: 460.525
+
+12:58:24: Cell site: 478.996,587.294
+ymax: 591.112
+ymin: 460.525
+
+12:58:24: Cell site: 517.234,460.894
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,460.894
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 517.234,452.151
+ymax: 553.735
+ymin: 452.151
+
+12:58:24: Cell site: 674.719,757.37
+ymax: 801.143
+ymin: 720.024
+
+12:58:24: Cell site: 716.451,800.143
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Cell site: 716.451,800.143
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+
+12:58:24: Vmax equals origin, Cell site: 716.451,824.7
+Cell site: 716.451,824.7
+ymax: 824.7
+ymin: 739.936
+
+12:58:24: Cell site: 645.657,721.024
+ymax: 784.739
+ymin: 706.158
+
+12:58:24: Cell site: 645.657,721.024
+ymax: 784.739
+ymin: 706.158
+
+12:58:24: Cell site: 321.888,292.912
+ymax: 328.814
+ymin: 172.081
+
+12:58:24: Cell site: 303.553,327.814
+ymax: 353.091
+ymin: 156.178
+
+12:58:24: Cell site: 303.553,327.814
+ymax: 353.091
+ymin: 156.178
+
+12:58:24: Cell site: 296.378,173.081
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,173.081
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 296.378,149.954
+ymax: 350.583
+ymin: 149.954
+
+12:58:24: Cell site: 68.2922,708.49
+ymax: 740.762
+ymin: 645.153
+
+12:58:24: Cell site: 162.524,739.762
+ymax: 759.387
+ymin: 646.391
+
+12:58:24: Cell site: 162.524,739.762
+ymax: 759.387
+ymin: 646.391
+
+12:58:24: Cell site: 0,646.153
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,646.153
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 0,644.256
+ymax: 682.633
+ymin: 644.256
+
+12:58:24: Cell site: 8.21587,145.268
+ymax: 254.077
+ymin: 85.9875
+
+12:58:24: Cell site: 0,253.077
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Cell site: 0,253.077
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+
+12:58:24: Vmax equals origin, Cell site: 0,258.83
+Cell site: 0,258.83
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Cell site: 0,86.9875
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Cell site: 0,86.9875
+ymax: 258.83
+ymin: 85.6058
+
+12:58:24: Cell site: 556.858,486.669
+ymax: 541.064
+ymin: 445.149
+
+12:58:24: Cell site: 522.537,540.064
+ymax: 548.552
+ymin: 451.379
+
+12:58:24: Cell site: 522.537,540.064
+ymax: 548.552
+ymin: 451.379
+
+12:58:24: Cell site: 680.289,446.149
+ymax: 514.137
+ymin: 436.584
+
+12:58:24: Cell site: 680.289,446.149
+ymax: 514.137
+ymin: 436.584
+
+12:58:24: Cell site: 568.955,844.108
+ymax: 885.789
+ymin: 776.301
+
+12:58:24: Cell site: 618.25,884.789
+ymax: 935.226
+ymin: 884.789
+
+12:58:24: Cell site: 618.25,884.789
+ymax: 935.226
+ymin: 884.789
+
+12:58:24: Cell site: 633.278,935.226
+ymax: 950.297
+ymin: 935.226
+
+12:58:24: Cell site: 633.278,935.226
+ymax: 950.297
+ymin: 935.226
+
+12:58:24: Cell site: 637.056,950.297
+ymax: 954.086
+ymin: 947.906
+
+12:58:24: Cell site: 637.056,950.297
+ymax: 954.086
+ymin: 947.906
+
+12:58:24: Vmax equals origin, Cell site: 460.781,777.301
+
+12:58:24: Vmax equals origin, Cell site: 460.781,777.301
+Cell site: 460.781,777.301
+ymax: 777.301
+ymin: 761.671
+
+12:58:24: Vmax equals origin, Cell site: 460.781,777.301
+
+12:58:24: Vmax equals origin, Cell site: 460.781,777.301
+Cell site: 460.781,777.301
+ymax: 777.301
+ymin: 761.671
+
+12:58:24: Cell site: 449.406,761.671
+ymax: 765.894
+ymin: 760.133
+
+12:58:24: Cell site: 449.406,761.671
+ymax: 765.894
+ymin: 760.133
+
+12:58:24: Cell site: 446.746,6.69864
+ymax: 80.9417
+ymin: 0
+
+12:58:24: Cell site: 473.041,79.9417
+ymax: 81.8708
+ymin: 0
+
+12:58:24: Cell site: 473.041,79.9417
+ymax: 81.8708
+ymin: 0
+
+12:58:24: Cell site: 497.333,276.596
+ymax: 349.222
+ymin: 202.982
+
+12:58:24: Cell site: 482.886,348.222
+ymax: 354.228
+ymin: 209.615
+
+12:58:24: Cell site: 482.886,348.222
+ymax: 354.228
+ymin: 209.615
+
+12:58:24: Cell site: 518.492,203.982
+ymax: 341.89
+ymin: 193.268
+
+12:58:24: Cell site: 518.492,203.982
+ymax: 341.89
+ymin: 193.268
+
+12:58:24: Cell site: 7.96654,755.221
+ymax: 808.458
+ymin: 692.917
+
+12:58:24: Cell site: 0,807.458
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,807.458
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+
+12:58:24: Vmax equals origin, Cell site: 0,809.538
+Cell site: 0,809.538
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,693.917
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,693.917
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 0,682.633
+ymax: 809.538
+ymin: 682.633
+
+12:58:24: Cell site: 22.1324,859.777
+ymax: 947.265
+ymin: 811.082
+
+12:58:24: Cell site: 0,946.265
+ymax: 957.147
+ymin: 809.538
+
+12:58:24: Cell site: 0,946.265
+ymax: 957.147
+ymin: 809.538
+
+12:58:24: Cell site: 13.948,812.082
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,812.082
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 13.948,807.648
+ymax: 950.919
+ymin: 807.648
+
+12:58:24: Cell site: 542.267,406.278
+ymax: 447.798
+ymin: 393.257
+
+12:58:24: Cell site: 517.446,446.798
+ymax: 452.303
+ymin: 342.253
+
+12:58:24: Cell site: 517.446,446.798
+ymax: 452.303
+ymin: 342.253
+
+12:58:24: Cell site: 520.469,394.257
+ymax: 451.754
+ymin: 341.206
+
+12:58:24: Cell site: 520.469,394.257
+ymax: 451.754
+ymin: 341.206
+
+12:58:24: Cell site: 551.546,402.393
+ymax: 415.414
+ymin: 327.813
+
+12:58:24: Cell site: 563.494,414.414
+ymax: 443.945
+ymin: 322.663
+
+12:58:24: Cell site: 563.494,414.414
+ymax: 443.945
+ymin: 322.663
+
+12:58:24: Cell site: 582.84,328.813
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,328.813
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 582.84,314.326
+ymax: 442.726
+ymin: 314.326
+
+12:58:24: Cell site: 889.061,224.022
+ymax: 245.264
+ymin: 136.061
+
+12:58:24: Cell site: 932.867,244.264
+ymax: 292.422
+ymin: 136.782
+
+12:58:24: Cell site: 932.867,244.264
+ymax: 292.422
+ymin: 136.782
+
+12:58:24: Cell site: 803.171,137.061
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,137.061
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 803.171,134.646
+ymax: 152.8
+ymin: 134.646
+
+12:58:24: Cell site: 42.1305,759.658
+ymax: 774.595
+ymin: 727.386
+
+12:58:24: Cell site: 22.95,773.595
+ymax: 790.939
+ymin: 773.595
+
+12:58:24: Cell site: 22.95,773.595
+ymax: 790.939
+ymin: 773.595
+
+12:58:24: Cell site: 20.697,790.939
+ymax: 792.859
+ymin: 790.939
+
+12:58:24: Cell site: 20.697,790.939
+ymax: 792.859
+ymin: 790.939
+
+12:58:24: Cell site: 20.4476,792.859
+ymax: 793.071
+ymin: 792.859
+
+12:58:24: Cell site: 20.4476,792.859
+ymax: 793.071
+ymin: 792.859
+
+12:58:24: Cell site: 20.42,793.071
+ymax: 793.095
+ymin: 793.071
+
+12:58:24: Cell site: 20.42,793.071
+ymax: 793.095
+ymin: 793.071
+
+12:58:24: Cell site: 20.4169,793.095
+ymax: 793.098
+ymin: 793.095
+
+12:58:24: Cell site: 20.4169,793.095
+ymax: 793.098
+ymin: 793.095
+
+12:58:24: Cell site: 20.4166,793.098
+ymax: 793.098
+ymin: 793.098
+
+12:58:24: Cell site: 20.4166,793.098
+ymax: 793.098
+ymin: 793.098
+
+12:58:24: Cell site: 20.4166,793.098
+ymax: 793.098
+ymin: 793.098
+
+12:58:24: Cell site: 20.4166,793.098
+ymax: 793.098
+ymin: 793.098
+
+12:58:24: Cell site: 29.7732,728.386
+ymax: 785.125
+ymin: 721.068
+
+12:58:24: Cell site: 29.7732,728.386
+ymax: 785.125
+ymin: 721.068
+
+12:58:24: Cell site: 752.301,895.338
+ymax: 978.904
+ymin: 804.541
+
+12:58:24: Cell site: 653.505,977.904
+ymax: 1026
+ymin: 925.887
+
+12:58:24: Cell site: 653.505,977.904
+ymax: 1026
+ymin: 925.887
+
+12:58:24: Cell site: 812.257,805.541
+ymax: 805.541
+ymin: 775.362
+
+12:58:24: Cell site: 812.257,805.541
+ymax: 805.541
+ymin: 775.362
+
+12:58:24: Vmax equals origin, Cell site: 822.694,775.362
+
+12:58:24: Vmax equals origin, Cell site: 822.694,775.362
+Cell site: 822.694,775.362
+ymax: 775.362
+ymin: 772.813
+
+12:58:24: Vmax equals origin, Cell site: 822.694,775.362
+
+12:58:24: Vmax equals origin, Cell site: 822.694,775.362
+Cell site: 822.694,775.362
+ymax: 775.362
+ymin: 772.813
+
+12:58:24: Cell site: 823.576,772.813
+ymax: 772.813
+ymin: 772.598
+
+12:58:24: Cell site: 823.576,772.813
+ymax: 772.813
+ymin: 772.598
+
+12:58:24: Cell site: 823.65,772.598
+ymax: 772.598
+ymin: 772.58
+
+12:58:24: Cell site: 823.65,772.598
+ymax: 772.598
+ymin: 772.58
+
+12:58:24: Vmax equals origin, Cell site: 823.657,772.58
+
+12:58:24: Vmax equals origin, Cell site: 823.657,772.58
+Cell site: 823.657,772.58
+ymax: 772.58
+ymin: 772.578
+
+12:58:24: Vmax equals origin, Cell site: 823.657,772.58
+
+12:58:24: Vmax equals origin, Cell site: 823.657,772.58
+Cell site: 823.657,772.58
+ymax: 772.58
+ymin: 772.578
+
+12:58:24: Vmax equals origin, Cell site: 823.657,772.578
+
+12:58:24: Vmax equals origin, Cell site: 823.657,772.578
+Cell site: 823.657,772.578
+ymax: 772.578
+ymin: 772.578
+
+12:58:24: Vmax equals origin, Cell site: 823.657,772.578
+
+12:58:24: Vmax equals origin, Cell site: 823.657,772.578
+Cell site: 823.657,772.578
+ymax: 772.578
+ymin: 772.578
+
+12:58:24: Cell site: 823.657,772.578
+ymax: 772.578
+ymin: 772.578
+
+12:58:24: Cell site: 823.657,772.578
+ymax: 772.578
+ymin: 772.578
+
+12:58:24: Cell site: 128.202 , 1016.48
+Max Vertex: 0 , 10369.3
+Min Vertex: 116.968 , 976.117
+y min Vertex: 976.117
+Cell site: 87.2734 , 1005.67
+Max Vertex: 0 , 1419.06
+Min Vertex: 73.7964 , 924.197
+y min Vertex: 924.197
+Cell site: 357.756 , 1022.44
+Max Vertex: 0 , 10369.3
+Min Vertex: 382.656 , 879.863
+y min Vertex: 879.863
+Cell site: 371.195 , 620.421
+Max Vertex: 326.218 , 717.047
+y max Vertex: 717.047
+Min Vertex: 361.829 , 500.343
+y min Vertex: 500.343
+Cell site: 875.005 , 8.73134
+Max Vertex: 775.046 , 75.0766
+y max Vertex: 75.0766
+Min Vertex: 1026 , -69570.5
+Cell site: 56.8777 , 776.965
+Max Vertex: 124.121 , 853.873
+y max Vertex: 853.873
+Min Vertex: 76.756 , 745.09
+y min Vertex: 745.09
+Cell site: 151.441 , 952.312
+Max Vertex: 180.563 , 999.149
+y max Vertex: 999.149
+Min Vertex: 153.093 , 838.249
+y min Vertex: 838.249
+Cell site: 546.733 , 112.065
+Max Vertex: 577.147 , 210.878
+y max Vertex: 210.878
+y max Vertex: 210.878
+y max Vertex: 210.878
+y max Vertex: 210.878
+y max Vertex: 210.878
+y max Vertex: 210.878
+y max Vertex: 210.878
+Min Vertex: 571.249 , -11.3239
+y min Vertex: 0
+Cell site: 69.9558 , 581.837
+Max Vertex: 214.69 , 647.076
+y max Vertex: 647.076
+Min Vertex: -252.247 , 404.753
+y min Vertex: 434.804
+y min Vertex: 434.804
+y min Vertex: 434.804
+y min Vertex: 434.804
+y min Vertex: 434.804
+y min Vertex: 434.804
+y min Vertex: 434.804
+Cell site: 441.506 , 154.999
+Max Vertex: 410.365 , 242.911
+y max Vertex: 242.911
+Min Vertex: 366.585 , 78.109
+y min Vertex: 78.109
+Cell site: 891.958 , 48.1464
+Max Vertex: 1065.26 , 138.962
+y max Vertex: 138.316
+y max Vertex: 138.316
+y max Vertex: 138.316
+y max Vertex: 138.316
+y max Vertex: 138.316
+y max Vertex: 138.316
+y max Vertex: 138.316
+Min Vertex: 1026 , -32.858
+y min Vertex: 0
+Cell site: 356.42 , 318.991
+Max Vertex: 375.739 , 412.345
+y max Vertex: 412.345
+Min Vertex: 393.407 , 234.113
+y min Vertex: 234.113
+Cell site: 527.275 , 885.668
+Max Vertex: 627.22 , 1182.98
+Min Vertex: 446.298 , 762.776
+y min Vertex: 762.776
+Cell site: 102.541 , 308.32
+Max Vertex: 138.443 , 451.297
+y max Vertex: 451.297
+Min Vertex: 186.204 , 151.112
+y min Vertex: 151.112
+Cell site: 287.987 , 4.9811
+Max Vertex: 202.408 , 161.018
+y max Vertex: 161.018
+Min Vertex: 1026 , -69570.5
+Cell site: 13.7124 , 26.9627
+Max Vertex: 157.015 , 92.9009
+y max Vertex: 92.8724
+y max Vertex: 92.9008
+y max Vertex: 92.9009
+y max Vertex: 92.9009
+y max Vertex: 92.9009
+y max Vertex: 92.9009
+y max Vertex: 92.9009
+Min Vertex: 0 , -1866.26
+Cell site: 803.928 , 913.193
+Max Vertex: 1577.04 , 5036.29
+Min Vertex: 884.662 , 744.371
+y min Vertex: 744.371
+Cell site: 469.03 , 431.967
+Max Vertex: 367.906 , 484.855
+y max Vertex: 484.308
+y max Vertex: 484.842
+y max Vertex: 484.855
+y max Vertex: 484.855
+y max Vertex: 484.855
+y max Vertex: 484.855
+y max Vertex: 484.855
+Min Vertex: 441.592 , 346.706
+y min Vertex: 346.706
+Cell site: 586.967 , 710.93
+Max Vertex: 586.64 , 778.693
+y max Vertex: 778.693
+Min Vertex: 638.4 , 647.31
+y min Vertex: 647.31
+y min Vertex: 647.31
+y min Vertex: 647.31
+y min Vertex: 647.31
+y min Vertex: 647.31
+y min Vertex: 647.31
+y min Vertex: 647.31
+Cell site: 637.243 , 823.762
+Max Vertex: 637.947 , 950.897
+y max Vertex: 950.897
+Min Vertex: 613.636 , 766.664
+y min Vertex: 766.664
+y min Vertex: 766.664
+y min Vertex: 766.664
+y min Vertex: 766.664
+y min Vertex: 766.664
+y min Vertex: 766.664
+y min Vertex: 766.664
+Cell site: 935.827 , 395.429
+Max Vertex: 944.716 , 642.27
+y max Vertex: 642.27
+Min Vertex: 922.245 , 310.432
+y min Vertex: 310.432
+Cell site: 703.748 , 696.529
+Max Vertex: 797.998 , 778.844
+y max Vertex: 778.844
+Min Vertex: 762.527 , 501.843
+y min Vertex: 501.843
+Cell site: 701.51 , 205.57
+Max Vertex: 772.753 , 276.733
+y max Vertex: 276.733
+y max Vertex: 276.733
+y max Vertex: 276.733
+y max Vertex: 276.733
+y max Vertex: 276.733
+y max Vertex: 276.733
+y max Vertex: 276.733
+Min Vertex: 779.51 , 106.022
+y min Vertex: 106.022
+Cell site: 232.533 , 980.685
+Max Vertex: 239.075 , 1169.71
+Min Vertex: 219.887 , 886.754
+y min Vertex: 886.754
+Cell site: 867.877 , 243.7
+Max Vertex: 800.22 , 365.08
+y max Vertex: 365.08
+Min Vertex: 801.556 , 151.061
+y min Vertex: 151.061
+y min Vertex: 151.061
+y min Vertex: 151.061
+y min Vertex: 151.061
+y min Vertex: 151.061
+y min Vertex: 151.061
+y min Vertex: 151.061
+Cell site: 675.668 , 303.458
+Max Vertex: 757.29 , 486.517
+y max Vertex: 486.517
+Min Vertex: 593.607 , 242.845
+y min Vertex: 242.845
+y min Vertex: 242.845
+y min Vertex: 242.845
+y min Vertex: 242.845
+y min Vertex: 242.845
+y min Vertex: 242.845
+y min Vertex: 242.845
+Cell site: 1014.39 , 879.241
+Max Vertex: 1587.04 , 5082.14
+Min Vertex: 1215.89 , 599.726
+y min Vertex: 629.071
+y min Vertex: 629.071
+y min Vertex: 629.071
+y min Vertex: 629.071
+y min Vertex: 629.071
+y min Vertex: 629.071
+y min Vertex: 629.071
+Cell site: 677.003 , 184.085
+Max Vertex: 646.637 , 243.439
+y max Vertex: 243.439
+Min Vertex: 761.046 , 112.944
+y min Vertex: 116.483
+y min Vertex: 113.606
+y min Vertex: 113.068
+y min Vertex: 112.967
+y min Vertex: 112.948
+y min Vertex: 112.945
+y min Vertex: 112.944
+Cell site: 579.513 , 590.518
+Max Vertex: 491.837 , 656.382
+y max Vertex: 656.382
+Min Vertex: 759.765 , 496.799
+y min Vertex: 502.764
+y min Vertex: 496.799
+Cell site: 261.046 , 801.38
+Max Vertex: 327.71 , 903.901
+y max Vertex: 903.901
+Min Vertex: 215.427 , 649.609
+y min Vertex: 649.609
+Cell site: 1006.95 , 325.726
+Max Vertex: 1205.89 , 599.86
+y max Vertex: 416.301
+y max Vertex: 416.301
+y max Vertex: 416.301
+y max Vertex: 416.301
+y max Vertex: 416.301
+y max Vertex: 416.301
+y max Vertex: 416.301
+Min Vertex: 1075.26 , 134.82
+y min Vertex: 184.467
+y min Vertex: 184.467
+y min Vertex: 184.467
+y min Vertex: 184.467
+y min Vertex: 184.467
+y min Vertex: 184.467
+y min Vertex: 184.467
+Cell site: 280.41 , 411.59
+Max Vertex: 225.916 , 559.429
+y max Vertex: 559.429
+Min Vertex: 213.694 , 321.686
+y min Vertex: 321.686
+Cell site: 655.29 , 82.2867
+Max Vertex: 613.944 , 144.32
+y max Vertex: 144.32
+Min Vertex: 662.157 , -262.133
+Cell site: 385.744 , 628.638
+Max Vertex: 414.115 , 780.497
+y max Vertex: 780.497
+Min Vertex: 420.397 , 550.291
+y min Vertex: 550.291
+Cell site: 481.879 , 490.634
+Max Vertex: 478.996 , 591.112
+y max Vertex: 591.112
+Min Vertex: 517.234 , 452.151
+y min Vertex: 452.151
+y min Vertex: 452.151
+y min Vertex: 452.151
+y min Vertex: 452.151
+y min Vertex: 452.151
+y min Vertex: 452.151
+y min Vertex: 452.151
+Cell site: 674.719 , 757.37
+Max Vertex: 716.451 , 824.7
+y max Vertex: 824.7
+y max Vertex: 824.7
+y max Vertex: 824.7
+y max Vertex: 824.7
+y max Vertex: 824.7
+y max Vertex: 824.7
+y max Vertex: 824.7
+Min Vertex: 645.657 , 706.158
+y min Vertex: 706.158
+Cell site: 321.888 , 292.912
+Max Vertex: 303.553 , 353.091
+y max Vertex: 353.091
+Min Vertex: 296.378 , 149.954
+y min Vertex: 149.954
+y min Vertex: 149.954
+y min Vertex: 149.954
+y min Vertex: 149.954
+y min Vertex: 149.954
+y min Vertex: 149.954
+y min Vertex: 149.954
+Cell site: 68.2922 , 708.49
+Max Vertex: 162.524 , 759.387
+y max Vertex: 759.387
+Min Vertex: -30.0337 , 643.861
+y min Vertex: 644.256
+y min Vertex: 644.256
+y min Vertex: 644.256
+y min Vertex: 644.256
+y min Vertex: 644.256
+y min Vertex: 644.256
+y min Vertex: 644.256
+Cell site: 8.21587 , 145.268
+Max Vertex: -572.243 , 450.007
+y max Vertex: 258.83
+y max Vertex: 258.83
+y max Vertex: 258.83
+y max Vertex: 258.83
+y max Vertex: 258.83
+y max Vertex: 258.83
+y max Vertex: 258.83
+Min Vertex: 0 , 85.6058
+y min Vertex: 85.6058
+Cell site: 556.858 , 486.669
+Max Vertex: 522.537 , 548.552
+y max Vertex: 548.552
+Min Vertex: 680.289 , 436.584
+y min Vertex: 436.584
+Cell site: 568.955 , 844.108
+Max Vertex: 637.056 , 954.086
+y max Vertex: 935.226
+y max Vertex: 950.297
+y max Vertex: 954.086
+Min Vertex: 449.406 , 760.133
+y min Vertex: 761.671
+y min Vertex: 760.133
+Cell site: 446.746 , 6.69864
+Max Vertex: 473.041 , 81.8708
+y max Vertex: 81.8708
+Min Vertex: 890.319 , -48332.7
+Cell site: 497.333 , 276.596
+Max Vertex: 482.886 , 354.228
+y max Vertex: 354.228
+Min Vertex: 518.492 , 193.268
+y min Vertex: 193.268
+Cell site: 7.96654 , 755.221
+Max Vertex: -2.03346 , 809.813
+y max Vertex: 809.538
+y max Vertex: 809.538
+y max Vertex: 809.538
+y max Vertex: 809.538
+y max Vertex: 809.538
+y max Vertex: 809.538
+y max Vertex: 809.538
+Min Vertex: -582.243 , 450.003
+y min Vertex: 682.633
+y min Vertex: 682.633
+y min Vertex: 682.633
+y min Vertex: 682.633
+y min Vertex: 682.633
+y min Vertex: 682.633
+y min Vertex: 682.633
+Cell site: 22.1324 , 859.777
+Max Vertex: 0 , 957.147
+y max Vertex: 957.147
+Min Vertex: 13.948 , 807.648
+y min Vertex: 807.648
+y min Vertex: 807.648
+y min Vertex: 807.648
+y min Vertex: 807.648
+y min Vertex: 807.648
+y min Vertex: 807.648
+y min Vertex: 807.648
+Cell site: 542.267 , 406.278
+Max Vertex: 517.446 , 452.303
+y max Vertex: 452.303
+Min Vertex: 520.469 , 341.206
+y min Vertex: 341.206
+Cell site: 551.546 , 402.393
+Max Vertex: 563.494 , 443.945
+y max Vertex: 443.945
+Min Vertex: 582.84 , 314.326
+y min Vertex: 314.326
+y min Vertex: 314.326
+y min Vertex: 314.326
+y min Vertex: 314.326
+y min Vertex: 314.326
+y min Vertex: 314.326
+y min Vertex: 314.326
+Cell site: 889.061 , 224.022
+Max Vertex: 932.867 , 292.422
+y max Vertex: 292.422
+Min Vertex: 803.171 , 134.646
+y min Vertex: 134.646
+y min Vertex: 134.646
+y min Vertex: 134.646
+y min Vertex: 134.646
+y min Vertex: 134.646
+y min Vertex: 134.646
+y min Vertex: 134.646
+Cell site: 42.1305 , 759.658
+Max Vertex: 20.4166 , 793.098
+y max Vertex: 790.939
+y max Vertex: 792.859
+y max Vertex: 793.071
+y max Vertex: 793.095
+y max Vertex: 793.098
+y max Vertex: 793.098
+y max Vertex: 793.098
+Min Vertex: 29.7732 , 721.068
+y min Vertex: 721.068
+Cell site: 752.301 , 895.338
+Max Vertex: 653.505 , 1264.57
+y max Vertex: 1026
+Min Vertex: 823.657 , 772.578
+y min Vertex: 775.362
+y min Vertex: 772.813
+y min Vertex: 772.598
+y min Vertex: 772.58
+y min Vertex: 772.578
+y min Vertex: 772.578
+y min Vertex: 772.578
+
