@@ -51,12 +51,22 @@ Voronoi.h
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi.h
 VPoint.h
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/VPoint.h
+TPoint3.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ColorGet.cpp
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Combiner.cpp
 vector
 -
+algorithm
+-
+TPoint3.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Falloffinterpolate.cpp
 OgreMatrix4.h

@@ -9,6 +9,8 @@
 
 #include "Voronoi.h"
 #include "VPoint.h"
+#include "TPoint3.h"
+#include "TerrainStruct.h"
 
 /*
 

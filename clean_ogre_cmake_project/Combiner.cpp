@@ -1,4 +1,7 @@
 #include <vector>
+#include <algorithm>
+#include "TPoint3.h"
+#include "TerrainStruct.h"
 
 using namespace std;
 enum COMBINER_TYPE {ADD, MULTIPLY, DIVIDE, DIFFERENCE
@@ -22,6 +25,7 @@ class Combiner{
 							float weight3);
 		vector<vector<vector<double> > > Combine(vector<vector<vector<vector<double> > > > vals,
 							vector<float> weights);
+		terr::T3dCPointsMap * Combine(terr::T3dCPointsMaps * vals, vector<float> weights);
 	private:
 		COMBINER_TYPE ctype;
 };
@@ -164,5 +168,74 @@ vector<vector<vector<double> > > Combiner::Combine(vector<vector<vector<vector<d
 			}
 		}
 	}
+	return combinevals;
+}
+
+terr::T3dCPointsMap * Combiner::Combine(terr::T3dCPointsMaps * vals, vector<float> weights){
+
+	terr::T3dCPointsMap * combinevals = new terr::T3dCPointsMap();
+	double maxval = (double) 0.0f;
+	double minval = (double) 1000000.0f;
+	for (terr::T3dCPointsMaps::iterator i = vals->begin(); i != vals->end(); i++) {
+		terr::T3dCPointsMap * pointmap = (*i).second;
+		int weightparam = (*i).first; 
+		for (terr::T3dCPointsMap::iterator j = pointmap->begin(); j != pointmap->end(); j++){
+			TPoint3 * coord = (*j).first;
+			double val = (*j).second;
+			if ((*combinevals).find(coord) != (*combinevals).end()){
+				if (ctype == ADD){
+					(*combinevals)[coord] += val*weights[weightparam];
+				}
+				else if (ctype == MULTIPLY){
+					(*combinevals)[coord] *= val;
+				}
+				else if (ctype == DIFFERENCE){
+					(*combinevals)[coord] -= val*weights[weightparam];
+				}
+				else if (ctype == DIVIDE){
+					(*combinevals)[coord] /= val;
+				}
+				double tval = (*combinevals)[coord]; 
+				if (tval < minval){
+					minval = tval;
+				}
+				else if (tval > maxval){
+					maxval = tval;
+				}
+			}
+			else {
+				if (ctype == ADD){
+					(*combinevals)[coord] = val*weights[weightparam];
+				}
+				else if (ctype == MULTIPLY){
+					(*combinevals)[coord] = val;
+				}
+				else if (ctype == DIFFERENCE){
+					(*combinevals)[coord] = val*weights[weightparam];
+				}
+				else if (ctype == DIVIDE){
+					(*combinevals)[coord] = val;
+				}
+				double tval = (*combinevals)[coord]; 
+				if (tval < minval){
+					minval = tval;
+				}
+				else if (tval > maxval){
+					maxval = tval;
+				}
+			}
+		}
+	}
+	double scalediv;
+	if (abs(minval) < abs(maxval)){
+		scalediv = abs(maxval);
+	}
+	else{
+		scalediv = abs(minval);
+	}
+	for (terr::T3dCPointsMap::iterator i = combinevals->begin(); i != combinevals->end(); i++){
+		(*i).second /= scalediv;
+	}
+
 	return combinevals;
 }
