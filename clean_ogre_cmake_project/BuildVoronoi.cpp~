@@ -106,7 +106,7 @@ class BuildVoronoi{
 };
 
 BuildVoronoi::BuildVoronoi(){
-	w = 1026;
+	w = 513;
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
 	Ogre::Log* tlog2 = Ogre::LogManager::getSingleton().createLog("Voronoi3.log");
 	tlog3 = Ogre::LogManager::getSingleton().getLog("Voronoi3.log");
@@ -578,7 +578,7 @@ BuildVoronoi::BuildVoronoi(){
 	vor::CPointsMap * pointsmap = buildPoints(cellspost);
 	
 	
-	double size = 1026.0f;
+	double size = 513.0f;
 	ImageBuffer buffer(size);
     	FillColour* fill = new FillColour (&buffer);
     	//buffer.saveImage("test1.png");
@@ -1315,7 +1315,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 	return cpointsmap;  
 }
 
-terr::T3dCPointsMap BuildVoronoi::getHeightMapradial(void){
+terr::T3dCPointsMap * BuildVoronoi::getHeightMapradial(void){
 	return rtnmap;
 }
 #endif

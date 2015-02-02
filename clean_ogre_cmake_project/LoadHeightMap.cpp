@@ -127,6 +127,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr
 	for (terr::T3dCPointsMap::iterator i = heightmapvalues->begin(); i != heightmapvalues->end(); i++){
 		TPoint3 * hcoord = (*i).first;
 		double posheight = (*i).second*maxheightscale;
+		ss5<< "posheigh: " << posheight << "\n";
 		mterrain->setHeightAtPoint((long) hcoord->x, (long) hcoord->y, posheight);
 	}
 	mterrain->update();
@@ -141,7 +142,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr
 		}
 	}
 	*/
-	//tlog->logMessage(ss5.str());
-	mterrain->update();
+	tlog->logMessage(ss5.str());
+	//mterrain->update();
 }
 #endif

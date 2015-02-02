@@ -371,12 +371,12 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			ss5 << "2 on noise !!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
-			Voronoi* test = new Voronoi(tc["Scale"], 513);
+			//Voronoi* test = new Voronoi(tc["Scale"], 513);
 			BuildVoronoi * testm = new BuildVoronoi();  //fortune algorithim implementation (faster)
 			ss5 << "21 on noise !!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
-			tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
+			//tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
 			(*tnoisevalsm)[i] = testm->getHeightMapradial();
 		}
 		ss5 << "weights!!!!!!! " << tc["Weight"]<< "\n";
@@ -393,12 +393,13 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	tlog->logMessage(ss5.str());
 	int nameid = (int)litem->getID();
 	Combiner* cmb = new Combiner(nameid);
-	vector<vector<vector<double> > > heightmapvalues = cmb -> Combine(tnoisevals, weights);
+	//vector<vector<vector<double> > > heightmapvalues = cmb -> Combine(tnoisevals, weights);
 	terr::T3dCPointsMap * heightmapvaluesm = cmb->Combine(tnoisevalsm,weights);
 //	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);
 	new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm);
+	//new LoadHeightMap(cterrain, 513.0f*1.0f, (*tnoisevalsm)[0]);
 }
 
 void FreqAmpOctEventReg::updateBB(const CEGUI::EventArgs &e){
