@@ -77,6 +77,8 @@ vector
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/FreqAmpOctEventReg.cpp
 PerlinTest.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinTest.cpp
+BuildVoronoi.cpp
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildVoronoi.cpp
 iostream
 -
 string
@@ -155,6 +157,10 @@ vector
 -
 ColorGet.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ColorGet.cpp
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+TPoint3.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Perlin.cpp
 vector

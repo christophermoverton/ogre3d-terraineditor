@@ -329,7 +329,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("ScaleHeight.log");
 	std::ostringstream ss5;
 	vector<vector<vector<vector<double> > > > tnoisevals;
-	T3dCPointsMaps * tnoisevalsm = new T3dCPointsMaps();
+	terr::T3dCPointsMaps * tnoisevalsm = new terr::T3dCPointsMaps();
 	vector<float> weights(config.size());
 	tnoisevals.resize(config.size()); 
 	ss5 << "Hitting update button!!!!!!!" << "\n";
@@ -397,7 +397,8 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	terr::T3dCPointsMap * heightmapvaluesm = cmb->Combine(tnoisevalsm,weights);
 //	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
-	new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);
+	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);
+	new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm);
 }
 
 void FreqAmpOctEventReg::updateBB(const CEGUI::EventArgs &e){

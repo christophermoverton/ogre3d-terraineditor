@@ -75,7 +75,7 @@ class BuildVoronoi{
 
 	public:
 		BuildVoronoi();
-		T3dCPointsMap getHeightMapradial();
+		terr::T3dCPointsMap * getHeightMapradial(void);
 	private:
 		double w        ;
 		vor::Voronoi * v;
@@ -86,7 +86,7 @@ class BuildVoronoi{
 		vor::Cells * cellspost;  //post processed voronoi cell edges data container.
 		VoronoiCell * cell;  //temporary cell map container for internal use
 		vor::CoordtoCellMap * coordtocell;
-		T3dCPointsMap * rtnmap  //voronoi cell map with radial normalized heightmap values.
+		terr::T3dCPointsMap * rtnmap;  //voronoi cell map with radial normalized heightmap values.
 		Ogre::Log* tlog3;
 		//vor::VPoint * cellpoint;                //temporary vertex point for internal use
 		void rayCastLine(double f, double g, VPoint * start, VPoint * end);
@@ -583,7 +583,7 @@ BuildVoronoi::BuildVoronoi(){
     	FillColour* fill = new FillColour (&buffer);
     	//buffer.saveImage("test1.png");
 	///*
-	T3dCPointsMap * rtnmap = new T3dCPointsMap();
+	terr::T3dCPointsMap * rtnmap = new terr::T3dCPointsMap();
 	vor::Coordpair * mcoordpair = new vor::Coordpair(w+1, w+1);
 	//TPoint3 * rmcoordpair = new TPoint3(w+1,w+1, 0);
 	//(*rtnmap)[rmcoordpair] = (*pointsmap)[(*mcoordpair)];
@@ -1315,7 +1315,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 	return cpointsmap;  
 }
 
-T3dCPointsMap getHeightMapradial(){
-	return (*rtnmap);
+terr::T3dCPointsMap * BuildVoronoi::getHeightMapradial(void){
+	return rtnmap;
 }
 #endif
