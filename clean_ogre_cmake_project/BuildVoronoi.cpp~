@@ -585,8 +585,8 @@ BuildVoronoi::BuildVoronoi(){
 	///*
 	T3dCPointsMap * rtnmap = new T3dCPointsMap();
 	vor::Coordpair * mcoordpair = new vor::Coordpair(w+1, w+1);
-	TPoint3 * rmcoordpair = new TPoint3(w+1,w+1, 0);
-	(*rtnmap)[rmcoordpair] = (*pointsmap)[(*mcoordpair)];
+	//TPoint3 * rmcoordpair = new TPoint3(w+1,w+1, 0);
+	//(*rtnmap)[rmcoordpair] = (*pointsmap)[(*mcoordpair)];
 	double div = (*pointsmap)[(*mcoordpair)];
 	for (int j = 0; j<size; j++){
 		for (int k = 0; k<size; k++){

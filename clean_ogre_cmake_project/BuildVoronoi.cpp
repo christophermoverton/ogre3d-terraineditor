@@ -600,7 +600,7 @@ BuildVoronoi::BuildVoronoi(){
 				kmn += 1;
 			}
 			vor::Coordpair * coordpair = new vor::Coordpair(jmn, kmn);
-			vor::TPoint3 * rtnmapcoord = new TPoint3(jmn, kmn, 0);
+			TPoint3 * rtnmapcoord = new TPoint3(jmn, kmn, 0);
 			if ((*pointsmap).find((*coordpair)) != (*pointsmap).end()){
 				double colval = (*pointsmap)[(*coordpair)];
 				

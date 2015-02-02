@@ -394,7 +394,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	int nameid = (int)litem->getID();
 	Combiner* cmb = new Combiner(nameid);
 	vector<vector<vector<double> > > heightmapvalues = cmb -> Combine(tnoisevals, weights);
-	T3dCPointsMap * heightmapvaluesm = cmb -> Combine(tnoisevalsm,weights);
+	terr::T3dCPointsMap * heightmapvaluesm = cmb->Combine(tnoisevalsm,weights);
 //	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
 	new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);

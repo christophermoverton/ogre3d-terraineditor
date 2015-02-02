@@ -3,11 +3,14 @@
 #include <vector>
 //#include "Imagestuff.cpp"
 #include "ColorGet.cpp"
+#include "TerrainStruct.h"
+#include "TPoint3.h"
 
 class LoadHeightMap{
 	public:
 		LoadHeightMap(Ogre::Terrain* mterrain, Ogre::String filename, float maxheightscale);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vector<vector<vector<double> > > heightmapvalues);
+		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::T3dCPointsMap * heightmapvalues);
 	
 };
 
@@ -113,6 +116,31 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vect
 			}
 		}
 	}
+	//tlog->logMessage(ss5.str());
+	mterrain->update();
+}
+
+LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::T3dCPointsMap * heightmapvalues){
+	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("HeightMap.log");
+	std::ostringstream ss5;
+	mterrain->dirty();
+	for (terr::T3dCPointsMap::iterator i = heightmapvalues->begin(); i != heightmapvalues->end(); i++){
+		TPoint3 * hcoord = (*i).first;
+		double posheight = (*i).second*maxheightscale;
+		mterrain->setHeightAtPoint((long) hcoord->x, (long) hcoord->y, posheight);
+	}
+	mterrain->update();
+	/*
+	for (int i = 0; i<heightmapvalues.size();i++){
+		for(int j = 0; j<heightmapvalues[i].size(); j++){
+			for(int k = 0; k < heightmapvalues[i][j].size()-1; k++){
+				double posheight = heightmapvalues[i][j][k]*maxheightscale;
+				mterrain->setHeightAtPoint ((long) i, (long) j, posheight);
+				//ss5<< "posheigh: " << posheight << "\n";
+			}
+		}
+	}
+	*/
 	//tlog->logMessage(ss5.str());
 	mterrain->update();
 }
