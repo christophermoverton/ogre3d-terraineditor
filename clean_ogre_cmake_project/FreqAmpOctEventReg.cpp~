@@ -2,6 +2,7 @@
 #define __FreqAmpOctEventReg_CPP
 
 #include "PerlinTest.cpp"
+#include "BuildVoronoi.cpp"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -328,6 +329,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("ScaleHeight.log");
 	std::ostringstream ss5;
 	vector<vector<vector<vector<double> > > > tnoisevals;
+	T3dCPointsMaps * tnoisevalsm = new T3dCPointsMaps();
 	vector<float> weights(config.size());
 	tnoisevals.resize(config.size()); 
 	ss5 << "Hitting update button!!!!!!!" << "\n";
@@ -360,6 +362,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			
 			PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Gain"], int(3.0f));
 			tnoisevals[i] = test->getNoisevalues();
+			(*tnoisevalsm)[i] = test->getNoisevaluesT();
 			ss5 << "Hitting update button!!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
@@ -369,10 +372,12 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
 			Voronoi* test = new Voronoi(tc["Scale"], 513);
+			BuildVoronoi * testm = new BuildVoronoi();  //fortune algorithim implementation (faster)
 			ss5 << "21 on noise !!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
 			tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
+			(*tnoisevalsm)[i] = testm->getHeightMapradial();
 		}
 		ss5 << "weights!!!!!!! " << tc["Weight"]<< "\n";
 		tlog->logMessage(ss5.str());
@@ -389,6 +394,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	int nameid = (int)litem->getID();
 	Combiner* cmb = new Combiner(nameid);
 	vector<vector<vector<double> > > heightmapvalues = cmb -> Combine(tnoisevals, weights);
+	T3dCPointsMap * heightmapvaluesm = cmb -> Combine((*tnoisevals),weights);
 //	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
 	new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);

@@ -18,7 +18,7 @@ namespace terr{
 	typedef std::map<Coordpair, double>                           CPointsMap   ;
 	typedef std::map<TPoint3 *, double>                             T3dCPointsMap ;
 	typedef std::map<int, CPointsMap>                             CPointsMaps  ;
-	typedef std::map<int, T3dCPointsMap>                           T3dCPointsMaps;
+	typedef std::map<int, T3dCPointsMap*>                           T3dCPointsMaps;
 	
 
 
