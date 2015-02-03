@@ -11,6 +11,7 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/2.8.12.2/CMakeCXXCompiler.cmake"
   "CMakeFiles/2.8.12.2/CMakeSystem.cmake"
   "CMakeLists.txt"
+  "Simplex/CMakeLists.txt"
   "Voronoi/CMakeLists.txt"
   "/usr/local/lib/OGRE/cmake/CompareVersionStrings.cmake"
   "/usr/local/lib/OGRE/cmake/DetermineVersion.cmake"
@@ -53,10 +54,12 @@ SET(CMAKE_MAKEFILE_OUTPUTS
 SET(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "Voronoi/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "Simplex/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/OgreApp.dir/DependInfo.cmake"
   "Voronoi/CMakeFiles/Voronoi.dir/DependInfo.cmake"
+  "Simplex/CMakeFiles/Simplex.dir/DependInfo.cmake"
   )

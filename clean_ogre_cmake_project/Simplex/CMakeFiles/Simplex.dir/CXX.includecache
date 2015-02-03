@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex/Array2D.h
+string
+-
+iostream
+-
+
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex/SimplexNoise.cpp
+SimplexNoise.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex/SimplexNoise.h
+Array2D.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex/Array2D.h
+cmath
+-
+cstdlib
+-
+iostream
+-
+
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex/SimplexNoise.h
+Array2D.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex/Array2D.h
+

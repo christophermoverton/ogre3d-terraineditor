@@ -89,9 +89,9 @@ PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, f
 		for (int j = 0; j<size; j++){
 		   for(int k = 0; k<(int)zdepth-1;k++){
 			//ss5<<"Color value: "<<noisevals[i][j]<<"\n";
-			ColorGet* cget = new ColorGet(noisevals[i][j][k]);
-			Ogre::ColourValue acol = cget->getCol();
-			//Ogre::ColourValue col = Ogre::ColourValue(noisevals[i][j][k],noisevals[i][j][k],noisevals[i][j][k]);
+			//ColorGet* cget = new ColorGet(noisevals[i][j][k]);
+			//Ogre::ColourValue acol = cget->getCol();
+			Ogre::ColourValue acol = Ogre::ColourValue(noisevals[i][j][k],noisevals[i][j][k],noisevals[i][j][k]);
 			fill->setPixl((size_t)i, (size_t)j, acol);
 		   }
 		}

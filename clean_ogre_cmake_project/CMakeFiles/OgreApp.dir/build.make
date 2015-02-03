@@ -122,6 +122,7 @@ dist/bin/OgreApp: /usr/local/lib/libOgreOverlay.so
 dist/bin/OgreApp: /usr/local/lib/libCEGUIBase-0.so
 dist/bin/OgreApp: /usr/local/lib/libCEGUIOgreRenderer-0.so
 dist/bin/OgreApp: Voronoi/libVoronoi.a
+dist/bin/OgreApp: Simplex/libSimplex.a
 dist/bin/OgreApp: CMakeFiles/OgreApp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable dist/bin/OgreApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OgreApp.dir/link.txt --verbose=$(VERBOSE)
@@ -154,6 +155,7 @@ CMakeFiles/CMakeRelink.dir/OgreApp: /usr/local/lib/libOgreOverlay.so
 CMakeFiles/CMakeRelink.dir/OgreApp: /usr/local/lib/libCEGUIBase-0.so
 CMakeFiles/CMakeRelink.dir/OgreApp: /usr/local/lib/libCEGUIOgreRenderer-0.so
 CMakeFiles/CMakeRelink.dir/OgreApp: Voronoi/libVoronoi.a
+CMakeFiles/CMakeRelink.dir/OgreApp: Simplex/libSimplex.a
 CMakeFiles/CMakeRelink.dir/OgreApp: CMakeFiles/OgreApp.dir/relink.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable CMakeFiles/CMakeRelink.dir/OgreApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OgreApp.dir/relink.txt --verbose=$(VERBOSE)

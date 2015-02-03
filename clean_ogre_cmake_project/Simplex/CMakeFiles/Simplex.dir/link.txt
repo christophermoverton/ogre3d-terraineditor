@@ -1,0 +1,2 @@
+/usr/bin/ar cr libSimplex.a  CMakeFiles/Simplex.dir/SimplexNoise.cpp.o
+/usr/bin/ranlib libSimplex.a

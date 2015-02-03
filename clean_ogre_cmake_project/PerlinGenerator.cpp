@@ -234,7 +234,7 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float fr
 	ss5<< "MaxNode: "<< maxnode << "\n";
 	tlog->logMessage(ss5.str());
 */
-	double maxval = (double)0.0f, minval = (double)0.0f;
+	double maxval = (double)0.0f, minval = (double)100000000.0f;
 	vector<vector<vector<double> > > noiseval((int)size);
 	vector<vector<vector<vector<double> > > > noisepartials((int)size);
 	//vector<float> retval(4); 
@@ -259,11 +259,11 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float fr
 			//implementing Fbm here
 			double val = (double)0;
 //			float frequency = 1.0f/((float)maxnode-1.0f);
-			double frequency = cfreq;
+			double freq = cfreq;
 			double lacunarity = 2.0f; //ranges from (1.8715 to 2.1042) in dealing with artifacts
 //			float gain = 1.5f; //standard .5
 //			float amplitude = gain;
-			double amplitude = camp;
+			double amp = camp;
 			double initval = 0.0f;
 			double dx = 0.0f;
 			double dy = 0.0f;
@@ -276,14 +276,14 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float fr
 				ss5<< "pos fbm: " << x*frequency << ","<< y*frequency <<"\n";
 				tlog->logMessage(ss5.str());				
 */
-				initval = perlina->getNoiseValue(x * frequency, y * frequency, z*frequency);
-				partvalx = perlina->get3dNoisePartials()[0];
-				partvaly = perlina->get3dNoisePartials()[1];
-				dx += partvalx;
-				dy += partvaly;
-			        val += perlina->getNoiseValue(x * frequency, y * frequency, z*frequency) * amplitude/(1+dx*dx+dy*dy);         
-        			frequency *= lacunarity;
-        			amplitude *= gain;
+				//initval = perlina->getNoiseValue(x * frequency, y * frequency, z*frequency);
+				//partvalx = perlina->get3dNoisePartials()[0];
+				//partvaly = perlina->get3dNoisePartials()[1];
+				//dx += partvalx;
+				//dy += partvaly;
+			        val += perlina->getNoiseValue(x * freq, y * freq, z*freq) * amp;//(1+dx*dx+dy*dy);         
+        			freq *= lacunarity;
+        			amp *= gain;
 			}
 			//float val = perlina->getNoiseValue(x,y,z);
 			

@@ -17,6 +17,7 @@ SET(CMAKE_TARGET_DEFINITIONS
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/CMakeFiles/Voronoi.dir/DependInfo.cmake"
+  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex/CMakeFiles/Simplex.dir/DependInfo.cmake"
   )
 
 # The include file search paths:
@@ -28,6 +29,7 @@ SET(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/include/OGRE/Overlay"
   "/usr/local/include/cegui-0"
   "Voronoi"
+  "Simplex"
   )
 SET(CMAKE_CXX_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})
 SET(CMAKE_Fortran_TARGET_INCLUDE_PATH ${CMAKE_C_TARGET_INCLUDE_PATH})

@@ -69,8 +69,8 @@ Ogre::Vector3 Perlin::randomPointUnitSphere(){
 	double dec2 = (rand() % 999)/1000;
 	
 	//Generated from Spherical Coordinates
-	Ogre::Real y = Ogre::Math::Sin(Ogre::Math::DegreesToRadians(theta+dec1))*Ogre::Math::Sin(Ogre::Math::DegreesToRadians(phi));
-	Ogre::Real x = Ogre::Math::Cos(Ogre::Math::DegreesToRadians(theta+dec1))*Ogre::Math::Sin(Ogre::Math::DegreesToRadians(phi));
+	Ogre::Real y = Ogre::Math::Sin(Ogre::Math::DegreesToRadians(theta+dec1))*Ogre::Math::Sin(Ogre::Math::DegreesToRadians(phi+dec2));
+	Ogre::Real x = Ogre::Math::Cos(Ogre::Math::DegreesToRadians(theta+dec1))*Ogre::Math::Sin(Ogre::Math::DegreesToRadians(phi+dec2));
 	Ogre::Real z = Ogre::Math::Cos(Ogre::Math::DegreesToRadians(phi+dec2));
 	return Ogre::Vector3(x,y,z);
 }

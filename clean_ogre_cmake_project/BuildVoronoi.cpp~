@@ -583,7 +583,7 @@ BuildVoronoi::BuildVoronoi(){
     	FillColour* fill = new FillColour (&buffer);
     	//buffer.saveImage("test1.png");
 	///*
-	terr::T3dCPointsMap * rtnmap = new terr::T3dCPointsMap();
+	rtnmap = new terr::T3dCPointsMap();
 	vor::Coordpair * mcoordpair = new vor::Coordpair(w+1, w+1);
 	//TPoint3 * rmcoordpair = new TPoint3(w+1,w+1, 0);
 	//(*rtnmap)[rmcoordpair] = (*pointsmap)[(*mcoordpair)];

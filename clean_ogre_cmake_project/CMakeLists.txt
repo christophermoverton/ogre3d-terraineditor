@@ -135,15 +135,17 @@ include_directories( ${OIS_INCLUDE_DIRS}
 	${CEGUI_INCLUDE_DIR}
 	${CEGUIOGRE_INCLUDE_DIR}
 	${CMAKE_CURRENT_BINARY_DIR}/Voronoi
+	${CMAKE_CURRENT_BINARY_DIR}/Simplex
 )
 
 add_subdirectory (Voronoi) 
+add_subdirectory (Simplex)
  
 add_executable(OgreApp WIN32 ${HDRS} ${SRCS})
  
 set_target_properties(OgreApp PROPERTIES DEBUG_POSTFIX _d)
  
-target_link_libraries(OgreApp ${OGRE_LIBRARIES} ${OIS_LIBRARIES} ${OGRE_Overlay_LIBRARIES} ${CEGUI_LIBRARY} ${CEGUIOGRE_LIBRARY_OPTIMIZED} Voronoi)
+target_link_libraries(OgreApp ${OGRE_LIBRARIES} ${OIS_LIBRARIES} ${OGRE_Overlay_LIBRARIES} ${CEGUI_LIBRARY} ${CEGUIOGRE_LIBRARY_OPTIMIZED} Voronoi Simplex)
  
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/bin)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/media)
