@@ -30,9 +30,9 @@
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
         </Window>
         <Window type="AlfiskoSkin/HorizontalSlider" name="FrequencySlider" >
-            <Property name="Area" value="{{0,165},{0,145},{0,334},{0,177}}" />
+            <Property name="Area" value="{{0,165},{0,143},{0,334},{0,175}}" />
             <Property name="CurrentValue" value="0.00194932" />
-            <Property name="ClickStepSize" value="0.001" />
+            <Property name="ClickStepSize" value="1e-08" />
         </Window>
         <Window type="TaharezLook/Label" name="Label2" >
             <Property name="Area" value="{{0,16},{0,193},{0,144},{0,225}}" />
@@ -41,8 +41,7 @@
         </Window>
         <Window type="AlfiskoSkin/HorizontalSlider" name="AmplitudeSlider" >
             <Property name="Area" value="{{0,161},{0,194},{0,334},{0,226}}" />
-            <Property name="CurrentValue" value="0.5" />
-            <Property name="MaximumValue" value="5" />
+            <Property name="MaximumValue" value="100" />
             <Property name="ClickStepSize" value="0.1" />
         </Window>
         <Window type="TaharezLook/Label" name="Label3" >

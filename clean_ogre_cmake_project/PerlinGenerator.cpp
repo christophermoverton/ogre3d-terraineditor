@@ -212,7 +212,7 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth){
 	//cnoisepartials = noisepartials;		
 }
 
-PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float frequency, float amplitude, float octaves=6, float gain = 1.5f){
+PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float frequency, float amplitude, float octaves=6, float gain = .5f){
 	//frequency is typically a number ranging inside the set (0,1].
 	//default size = 513
 	tcnoisevals3d = new terr::T3dCPointsMap(); 

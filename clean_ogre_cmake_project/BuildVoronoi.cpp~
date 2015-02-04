@@ -106,7 +106,7 @@ class BuildVoronoi{
 };
 
 BuildVoronoi::BuildVoronoi(){
-	w = 513;
+	w = 1026;
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
 	Ogre::Log* tlog2 = Ogre::LogManager::getSingleton().createLog("Voronoi3.log");
 	tlog3 = Ogre::LogManager::getSingleton().getLog("Voronoi3.log");

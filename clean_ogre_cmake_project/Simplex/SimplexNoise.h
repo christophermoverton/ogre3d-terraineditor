@@ -3,6 +3,7 @@
 
 #include "Array2D.h"
 
+
 class SimplexNoise{
         unsigned        xgrid,//size variables, width and height
                                 ygrid;

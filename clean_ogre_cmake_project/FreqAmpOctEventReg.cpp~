@@ -3,6 +3,7 @@
 
 #include "PerlinTest.cpp"
 #include "BuildVoronoi.cpp"
+#include "BuildSimplex.cpp"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -116,6 +117,8 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	combobox->addItem(itemCombobox);
 	combobox->setItemSelectState 	(itemCombobox,true); 
 	itemCombobox = new CEGUI::ListboxTextItem("Voronoi", 2);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Simplex", 3);
 	combobox->addItem(itemCombobox);
 
 	Frequencyslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateF, this));
@@ -239,8 +242,11 @@ void FreqAmpOctEventReg::loadConfig(){
 	if ((int)nval == 1){
 		itemCombobox = new CEGUI::ListboxTextItem("Advanced Perlin", 1);
 	}
-	else{
+	else if ((int)nval == 2){
 		itemCombobox = new CEGUI::ListboxTextItem("Voronoi", 2);
+	}
+	else if ((int)nval == 3){
+		itemCombobox = new CEGUI::ListboxTextItem("Simplex", 3);
 	}
 	ncombobox->setItemSelectState 	((int)nval,true);
 	
@@ -359,8 +365,8 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 		ss5.str(std::string());		
 		map<string, float> tc = miter3->second;
 		if ((int)tc["NoiseType"] == 0){
-			
-			PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Gain"], int(3.0f));
+			//float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain = .5f, int imagemap = (int)3.0f
+			PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Octaves"], tc["Gain"], int(3.0f));
 			tnoisevals[i] = test->getNoisevalues();
 			(*tnoisevalsm)[i] = test->getNoisevaluesT();
 			ss5 << "Hitting update button!!!!!!!" << "\n";
@@ -379,6 +385,18 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			//tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
 			(*tnoisevalsm)[i] = testm->getHeightMapradial();
 		}
+		else if ((int)tc["NoiseType"]==2){
+			ss5 << "Simplex" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
+			//Voronoi* test = new Voronoi(tc["Scale"], 513);
+			BuildSimplex * testm = new BuildSimplex(tc["Frequency"]/1000.f, tc["Amplitude"]);  //perlin derivative
+			//ss5 << "!!!!!!!" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
+			//tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
+			(*tnoisevalsm)[i] = testm->getHeightMap();
+		}
 		ss5 << "weights!!!!!!! " << tc["Weight"]<< "\n";
 		tlog->logMessage(ss5.str());
 		ss5.str(std::string());
@@ -394,12 +412,13 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	int nameid = (int)litem->getID();
 	Combiner* cmb = new Combiner(nameid);
 	//vector<vector<vector<double> > > heightmapvalues = cmb -> Combine(tnoisevals, weights);
-	//terr::T3dCPointsMap * heightmapvaluesm = cmb->Combine(tnoisevalsm,weights);
+	terr::T3dCPointsMap * heightmapvaluesm = cmb->Combine(tnoisevalsm,weights);
 //	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm);
-	new LoadHeightMap(cterrain, 513.0f*1.0f, (*tnoisevalsm)[0]);
+	new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm, 513.0f);
+	//new LoadHeightMap(cterrain, 513.0f*1.0f, (*tnoisevalsm)[0]);
 }
 
 void FreqAmpOctEventReg::updateBB(const CEGUI::EventArgs &e){

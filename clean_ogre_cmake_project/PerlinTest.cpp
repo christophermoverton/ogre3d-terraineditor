@@ -69,7 +69,7 @@ PerlinTest::PerlinTest(float size, float scale, float zdepth){
 	buffer.saveImage("test2.png");
 }
 
-PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain = 1.5f, int imagemap = (int)3.0f){
+PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain = .5f, int imagemap = (int)3.0f){
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("Perlin.log");
 	std::ostringstream ss5, filename;
 	ss5<< "Test" << "\n";

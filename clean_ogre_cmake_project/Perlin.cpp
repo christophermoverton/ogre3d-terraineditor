@@ -172,9 +172,9 @@ Finally we interpolate these values along z(walking through a line):
  \ c = c_0(1 - z_d) + c_1z_d .
 
 */
-     int x0 = (x > 0.0 ? (int)x : (int)x );
+     int x0 = (x >= 0.0 ? (int)x : (int)x-1 );
      int x1 = x0 + 1;
-     int y0 = (y > 0.0 ? (int)y : (int)y );
+     int y0 = (y >= 0.0 ? (int)y : (int)y-1 );
      int y1 = y0 + 1;
      int z0 = (int)z;
      int z1 = z0 + 1;

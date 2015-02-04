@@ -230,6 +230,7 @@ CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: /usr/local/include/OGRE/Threading/
 CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: /usr/local/include/OGRE/Threading/OgreThreadHeadersTBB.h
 
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BaseApplication.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildSimplex.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildVoronoi.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ColorGet.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Combiner.cpp
@@ -688,6 +689,8 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/widge
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/widgets/All.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/widgets/ButtonBase.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/widgets/ToggleButton.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Simplex/Array2D.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Simplex/SimplexNoise.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi/VEdge.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi/VEvent.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi/VParabola.h

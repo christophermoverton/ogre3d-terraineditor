@@ -31,6 +31,7 @@ This source file is part of the
 #include "LoadHeightMap.cpp"
 #include "FreqAmpOctEventReg.cpp"
 #include "BuildVoronoi.cpp"
+#include "BuildSimplex.cpp"
  
 //-------------------------------------------------------------------------------------
 ITutorial02::ITutorial02(void)
@@ -56,7 +57,7 @@ void ITutorial02::destroyScene(void)
 }
 void getTerrainImage(bool flipX, bool flipY, Ogre::Image& img)
 {
-    img.load("terrain.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    img.load("terrain2.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
     if (flipX)
         img.flipAroundY();
     if (flipY)
@@ -73,9 +74,10 @@ void ITutorial02::defineTerrain(long x, long y)
     }
     else
     {
-        Ogre::Image img;
-        getTerrainImage(x % 2 != 0, y % 2 != 0, img);
-        mTerrainGroup->defineTerrain(x, y, &img);
+        //Ogre::Image img;
+        //getTerrainImage(x % 2 != 0, y % 2 != 0, img);
+        //mTerrainGroup->defineTerrain(x, y, &img);
+	mTerrainGroup->defineTerrain(x, y, 0.0f);
         mTerrainsImported = true;
     } 
 }
@@ -127,7 +129,7 @@ void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
  
     // Configure default import settings for if we use imported image
     Ogre::Terrain::ImportData& defaultimp = mTerrainGroup->getDefaultImportSettings();
-    defaultimp.terrainSize = 513;
+    defaultimp.terrainSize = 1026;
     defaultimp.worldSize = 12000.0f;
     defaultimp.inputScale = 600;
     defaultimp.minBatchSize = 33;
@@ -208,7 +210,7 @@ void ITutorial02::createScene(void)
  
     mTerrainGlobals = OGRE_NEW Ogre::TerrainGlobalOptions();
  
-    mTerrainGroup = OGRE_NEW Ogre::TerrainGroup(mSceneMgr, Ogre::Terrain::ALIGN_X_Z, 513, 12000.0f);
+    mTerrainGroup = OGRE_NEW Ogre::TerrainGroup(mSceneMgr, Ogre::Terrain::ALIGN_X_Z, 513, 12000.0f); //513  12000.0f default
     mTerrainGroup->setFilenameConvention(Ogre::String("BasicTutorial3Terrain"), Ogre::String("dat"));
     mTerrainGroup->setOrigin(Ogre::Vector3::ZERO);
  
@@ -283,9 +285,10 @@ void ITutorial02::createScene(void)
     //ImageBuffer buffer(256);
     //FillColour (&buffer).setColour(Ogre::ColourValue(0.0f, 1.0f, 1.0f)).process();
     //buffer.saveImage("test1.png");
-    PerlinTest* test = new PerlinTest(513.0f,20.0f, 2.0f,0.001949318f, .90f, 7.0f, (int)3.0f); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
-    new LoadHeightMap(cterrain, Ogre::String("test3.png"), 3.0f);
-    new BuildVoronoi();
+    //PerlinTest* test = new PerlinTest(1026.0f,20.0f, 2.0f,0.001949318f, .90f, 7.0f, (int)3.0f); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
+    //new LoadHeightMap(cterrain, Ogre::String("test3.png"), 3.0f);
+    //new BuildVoronoi();
+    new BuildSimplex();
     //CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
     //cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
 }
