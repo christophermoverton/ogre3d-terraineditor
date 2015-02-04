@@ -11,10 +11,15 @@ class PerlinTest{
 		PerlinTest(float size, float scale, float zdepth);
 		PerlinTest(float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain, int imagemap);
 		vector<vector<vector<double> > > getNoisevalues();
-		terr::T3dCPointsMap *            getNoisevaluesT();
+		terr::T3dCPointsMap *            getNoisevaluesT();  //likely to reformulate this since coordinate pointer addressing
+								     //is not the best for coorindate value searching on the same 
+								     //map.  Likely it may be better to re write with template 
+								     //class??
+		terr::CPointsMap    *            getNoisevaluesV();  //alternate to coordinate pointer addressing
 	private:
 		vector<vector<vector<double> > > cnoisevals;
-		terr::T3dCPointsMap             tcnoisevals;		
+		terr::T3dCPointsMap             tcnoisevals;
+		terr::CPointsMap                vcnoisevals;		
 };
 
 PerlinTest::PerlinTest(float size, float scale){
@@ -74,6 +79,7 @@ PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, f
 	std::ostringstream ss5, filename;
 	ss5<< "Test" << "\n";
 	tlog->logMessage(ss5.str());
+	vcnoisevals = new terr::CPointsMap(); 
 	PerlinGenerator* pgen = new PerlinGenerator(size, scale, zdepth, frequency, amplitude, octaves, gain);
 	//ss5<<"Test2 " <<"\n";
 	//tlog->logMessage(ss5.str());
@@ -92,6 +98,8 @@ PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, f
 			//ColorGet* cget = new ColorGet(noisevals[i][j][k]);
 			//Ogre::ColourValue acol = cget->getCol();
 			Ogre::ColourValue acol = Ogre::ColourValue(noisevals[i][j][k],noisevals[i][j][k],noisevals[i][j][k]);
+			terr::Coordpair * coordpair = new terr::Coordpair(i,j);
+			(*vcnoisevals)[(*coordpair)] = noisevals[i][j][k];
 			fill->setPixl((size_t)i, (size_t)j, acol);
 		   }
 		}
@@ -107,5 +115,9 @@ vector<vector<vector<double> > > PerlinTest::getNoisevalues(){
 
 terr::T3dCPointsMap * PerlinTest::getNoisevaluesT(){
 	return & tcnoisevals;
+}
+
+terr::CPointsMap * PerlinTest::getNoisevaluesV(){
+	return  vcnoisevals;
 }
 #endif

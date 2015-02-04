@@ -74,10 +74,10 @@ void ITutorial02::defineTerrain(long x, long y)
     }
     else
     {
-        //Ogre::Image img;
-        //getTerrainImage(x % 2 != 0, y % 2 != 0, img);
-        //mTerrainGroup->defineTerrain(x, y, &img);
-	mTerrainGroup->defineTerrain(x, y, 0.0f);
+        Ogre::Image img;
+        getTerrainImage(x % 2 != 0, y % 2 != 0, img);
+        mTerrainGroup->defineTerrain(x, y, &img);
+	//mTerrainGroup->defineTerrain(x, y, 0.0f);
         mTerrainsImported = true;
     } 
 }
@@ -129,7 +129,7 @@ void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
  
     // Configure default import settings for if we use imported image
     Ogre::Terrain::ImportData& defaultimp = mTerrainGroup->getDefaultImportSettings();
-    defaultimp.terrainSize = 1026;
+    defaultimp.terrainSize = 513;
     defaultimp.worldSize = 12000.0f;
     defaultimp.inputScale = 600;
     defaultimp.minBatchSize = 33;

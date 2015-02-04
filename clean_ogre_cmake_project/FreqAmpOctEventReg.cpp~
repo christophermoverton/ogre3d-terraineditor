@@ -336,6 +336,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	std::ostringstream ss5;
 	vector<vector<vector<vector<double> > > > tnoisevals;
 	terr::T3dCPointsMaps * tnoisevalsm = new terr::T3dCPointsMaps();
+	terr::CPointsMaps * vnoisevalsm    = new terr::CPointsMaps();
 	vector<float> weights(config.size());
 	tnoisevals.resize(config.size()); 
 	ss5 << "Hitting update button!!!!!!!" << "\n";
@@ -366,9 +367,10 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 		map<string, float> tc = miter3->second;
 		if ((int)tc["NoiseType"] == 0){
 			//float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain = .5f, int imagemap = (int)3.0f
-			PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Octaves"], tc["Gain"], int(3.0f));
+			PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Octaves"], int(3.0f));
 			tnoisevals[i] = test->getNoisevalues();
 			(*tnoisevalsm)[i] = test->getNoisevaluesT();
+			(*vnoisevalsm)[i] = test->getNoisevaluesV();
 			ss5 << "Hitting update button!!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
@@ -384,6 +386,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			ss5.str(std::string());
 			//tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
 			(*tnoisevalsm)[i] = testm->getHeightMapradial();
+			(*vnoisevalsm)[i] = testm->getHeightMapradial2();
 		}
 		else if ((int)tc["NoiseType"]==2){
 			ss5 << "Simplex" << "\n";
@@ -396,6 +399,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			ss5.str(std::string());
 			//tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
 			(*tnoisevalsm)[i] = testm->getHeightMap();
+			(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
 		ss5 << "weights!!!!!!! " << tc["Weight"]<< "\n";
 		tlog->logMessage(ss5.str());
@@ -412,12 +416,13 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	int nameid = (int)litem->getID();
 	Combiner* cmb = new Combiner(nameid);
 	//vector<vector<vector<double> > > heightmapvalues = cmb -> Combine(tnoisevals, weights);
-	terr::T3dCPointsMap * heightmapvaluesm = cmb->Combine(tnoisevalsm,weights);
+	//terr::T3dCPointsMap * heightmapvaluesm = cmb->Combine(tnoisevalsm,weights);
+	terr::CPointsMap * cheightmapvaluesm = cmb->Combine(vnoisevalsm,weights);
 //	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);
-	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm);
-	new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm, 513.0f);
+	new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm);
+	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm, 513.0f);
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, (*tnoisevalsm)[0]);
 }
 

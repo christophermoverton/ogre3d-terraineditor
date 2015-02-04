@@ -1,3 +1,5 @@
+#ifndef __Combiner_cpp
+#define __Combiner_cpp
 #include <vector>
 #include <algorithm>
 #include "TPoint3.h"
@@ -26,6 +28,7 @@ class Combiner{
 		vector<vector<vector<double> > > Combine(vector<vector<vector<vector<double> > > > vals,
 							vector<float> weights);
 		terr::T3dCPointsMap * Combine(terr::T3dCPointsMaps * vals, vector<float> weights);
+		terr::CPointsMaps * Combine(terr::CPointsMaps * vals, vector<float> weights);
 	private:
 		COMBINER_TYPE ctype;
 };
@@ -177,7 +180,7 @@ terr::T3dCPointsMap * Combiner::Combine(terr::T3dCPointsMaps * vals, vector<floa
 	double maxval = (double) 0.0f;
 	double minval = (double) 1000000.0f;
 	for (terr::T3dCPointsMaps::iterator i = vals->begin(); i != vals->end(); i++) {
-		T3dCPointsMap * pointmap = (*i).second;
+		terr::T3dCPointsMap * pointmap = (*i).second;
 		int weightparam = (*i).first; 
 		for (terr::T3dCPointsMap::iterator j = pointmap->begin(); j != pointmap->end(); j++){
 			TPoint3 * coord = (*j).first;
@@ -239,3 +242,73 @@ terr::T3dCPointsMap * Combiner::Combine(terr::T3dCPointsMaps * vals, vector<floa
 
 	return combinevals;
 }
+
+terr::CPointsMap * Combiner::Combine(terr::CPointsMaps * vals, vector<float> weights){
+
+	terr::CPointsMap * combinevals = new terr::CPointsMap();
+	double maxval = (double) 0.0f;
+	double minval = (double) 1000000.0f;
+	for (terr::CPointsMaps::iterator i = vals->begin(); i != vals->end(); i++) {
+		terr::CPointsMap * pointmap = (*i).second;
+		int weightparam = (*i).first; 
+		for (terr::CPointsMap::iterator j = pointmap->begin(); j != pointmap->end(); j++){
+			terr::Coordpair coord = (*j).first;
+			double val = (*j).second;
+			if ((*combinevals).find(coord) != (*combinevals).end()){
+				if (ctype == ADD){
+					(*combinevals)[coord] += val*weights[weightparam];
+				}
+				else if (ctype == MULTIPLY){
+					(*combinevals)[coord] *= val;
+				}
+				else if (ctype == DIFFERENCE){
+					(*combinevals)[coord] -= val*weights[weightparam];
+				}
+				else if (ctype == DIVIDE){
+					(*combinevals)[coord] /= val;
+				}
+				double tval = (*combinevals)[coord]; 
+				if (tval < minval){
+					minval = tval;
+				}
+				else if (tval > maxval){
+					maxval = tval;
+				}
+			}
+			else {
+				if (ctype == ADD){
+					(*combinevals)[coord] = val*weights[weightparam];
+				}
+				else if (ctype == MULTIPLY){
+					(*combinevals)[coord] = val;
+				}
+				else if (ctype == DIFFERENCE){
+					(*combinevals)[coord] = val*weights[weightparam];
+				}
+				else if (ctype == DIVIDE){
+					(*combinevals)[coord] = val;
+				}
+				double tval = (*combinevals)[coord]; 
+				if (tval < minval){
+					minval = tval;
+				}
+				else if (tval > maxval){
+					maxval = tval;
+				}
+			}
+		}
+	}
+	double scalediv;
+	if (abs(minval) < abs(maxval)){
+		scalediv = abs(maxval);
+	}
+	else{
+		scalediv = abs(minval);
+	}
+	for (terr::CPointsMap::iterator i = combinevals->begin(); i != combinevals->end(); i++){
+		(*i).second /= scalediv;
+	}
+
+	return combinevals;
+}
+#endif

@@ -11,6 +11,7 @@ class LoadHeightMap{
 		LoadHeightMap(Ogre::Terrain* mterrain, Ogre::String filename, float maxheightscale);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vector<vector<vector<double> > > heightmapvalues);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::T3dCPointsMap * heightmapvalues);
+		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::CPointsMap * heightmapvalues);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::T3dCPointsMap * heightmapvalues, float terrsize);
 	
 };
@@ -119,6 +120,32 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vect
 	}
 	//tlog->logMessage(ss5.str());
 	mterrain->update();
+}
+
+LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::CPointsMap * heightmapvalues){
+	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("HeightMap.log");
+	std::ostringstream ss5;
+	mterrain->dirty();
+	for (terr::CPointsMap::iterator i = heightmapvalues->begin(); i != heightmapvalues->end(); i++){
+		terr::Coordpair hcoord = (*i).first;
+		double posheight = (*i).second*maxheightscale;
+		ss5<< "posheigh: " << posheight << "\n";
+		mterrain->setHeightAtPoint((long) hcoord.first, (long) hcoord.second, posheight);
+	}
+	mterrain->update();
+	/*
+	for (int i = 0; i<heightmapvalues.size();i++){
+		for(int j = 0; j<heightmapvalues[i].size(); j++){
+			for(int k = 0; k < heightmapvalues[i][j].size()-1; k++){
+				double posheight = heightmapvalues[i][j][k]*maxheightscale;
+				mterrain->setHeightAtPoint ((long) i, (long) j, posheight);
+				//ss5<< "posheigh: " << posheight << "\n";
+			}
+		}
+	}
+	*/
+	tlog->logMessage(ss5.str());
+	//mterrain->update();
 }
 
 LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::T3dCPointsMap * heightmapvalues){

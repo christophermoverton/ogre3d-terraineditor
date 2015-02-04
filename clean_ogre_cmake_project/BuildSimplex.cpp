@@ -19,14 +19,16 @@ class BuildSimplex{
 	public:
 		BuildSimplex(float frequency, float amplitude, unsigned octaves);
 		terr::T3dCPointsMap * rtnmap;
+		terr::CPointsMap    * crtnmap;
 		terr::T3dCPointsMap * getHeightMap();
+		terr::CPointsMap    * getHeightMap2();
 };
 
 BuildSimplex::BuildSimplex(float frequency = .00002f, float amplitude = 10.0f, unsigned octaves = 16.0) {
         //get the command line arguments
 	unsigned i;
-        unsigned xgrid = 1026;
-        unsigned ygrid = 1026;
+        unsigned xgrid = 513;
+        unsigned ygrid = 513;
         unsigned zgrid = 500;
         //unsigned octaves = 16;
         unsigned rseed = unsigned(time(NULL));
@@ -75,13 +77,13 @@ BuildSimplex::BuildSimplex(float frequency = .00002f, float amplitude = 10.0f, u
 
 
         }
-	double size = 1026.0f;
+	double size = 513.0f;
 	ImageBuffer buffer(size);
     	FillColour* fill = new FillColour (&buffer);
     	//buffer.saveImage("test1.png");
 	///*
 	rtnmap = new terr::T3dCPointsMap();
-	
+	crtnmap = new terr::CPointsMap();
 	//TPoint3 * rmcoordpair = new TPoint3(w+1,w+1, 0);
 	//(*rtnmap)[rmcoordpair] = (*pointsmap)[(*mcoordpair)];
 	
@@ -90,11 +92,11 @@ BuildSimplex::BuildSimplex(float frequency = .00002f, float amplitude = 10.0f, u
 			//ss5<<"Color value: "<<noisevals[i][j]<<"\n";
 
 			TPoint3 * rtnmapcoord = new TPoint3(x, y, 0);
-				
+			terr::Coordpair * coordpair = new terr::Coordpair(x,y);	
 			double colval = (double)height_map(x,y);
 				
 			(*rtnmap)[rtnmapcoord] = colval;
-				
+			(*crtnmap)[(*coordpair)] = colval;	
 			Ogre::ColourValue col = Ogre::ColourValue(colval,colval,colval);
 			fill->setPixl((size_t)x, (size_t)y, col);
 			
@@ -108,5 +110,9 @@ BuildSimplex::BuildSimplex(float frequency = .00002f, float amplitude = 10.0f, u
 
 terr::T3dCPointsMap * BuildSimplex::getHeightMap(){
 	return rtnmap;
+}
+
+terr::CPointsMap * BuildSimplex::getHeightMap2(){
+	return crtnmap;
 }
 #endif

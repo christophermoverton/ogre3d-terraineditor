@@ -76,6 +76,7 @@ class BuildVoronoi{
 	public:
 		BuildVoronoi();
 		terr::T3dCPointsMap * getHeightMapradial(void);
+		terr::CPointsMap * getHeightMapradial2(void); //alternate coordinate addressing system
 	private:
 		double w        ;
 		vor::Voronoi * v;
@@ -87,6 +88,7 @@ class BuildVoronoi{
 		VoronoiCell * cell;  //temporary cell map container for internal use
 		vor::CoordtoCellMap * coordtocell;
 		terr::T3dCPointsMap * rtnmap;  //voronoi cell map with radial normalized heightmap values.
+		terr::CPointsMap * crtnmap;  // non pointer coordinate addressing
 		Ogre::Log* tlog3;
 		//vor::VPoint * cellpoint;                //temporary vertex point for internal use
 		void rayCastLine(double f, double g, VPoint * start, VPoint * end);
@@ -103,10 +105,11 @@ class BuildVoronoi{
 		VPoint * getMaxYVertex(vor::VertEdges * bvertedges);
 		VPoint * getMinYVertex(vor::VertEdges * bvertedges);
 		vor::CPointsMap * buildPoints(vor::Cells * cellsone);
+		
 };
 
 BuildVoronoi::BuildVoronoi(){
-	w = 1026;
+	w = 513;
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
 	Ogre::Log* tlog2 = Ogre::LogManager::getSingleton().createLog("Voronoi3.log");
 	tlog3 = Ogre::LogManager::getSingleton().getLog("Voronoi3.log");
@@ -116,7 +119,7 @@ BuildVoronoi::BuildVoronoi(){
     	ss5.str(std::string());
 	v = new vor::Voronoi();
 	cellspost = new vor::Cells();
-
+	crtnmap = new terr::CPointsMap();
 	ver = new vor::Vertices();
 	dir = new vor::Vertices();
 	for(int i=0; i<50; i++) 
@@ -578,7 +581,7 @@ BuildVoronoi::BuildVoronoi(){
 	vor::CPointsMap * pointsmap = buildPoints(cellspost);
 	
 	
-	double size = 1026.0f;
+	double size = 513.0f;
 	ImageBuffer buffer(size);
     	FillColour* fill = new FillColour (&buffer);
     	//buffer.saveImage("test1.png");
@@ -600,12 +603,13 @@ BuildVoronoi::BuildVoronoi(){
 				kmn += 1;
 			}
 			vor::Coordpair * coordpair = new vor::Coordpair(jmn, kmn);
+			terr::Coordpair * coordpair2 = new terr::Coordpair(jmn, kmn);
 			TPoint3 * rtnmapcoord = new TPoint3(jmn, kmn, 0);
 			if ((*pointsmap).find((*coordpair)) != (*pointsmap).end()){
 				double colval = (*pointsmap)[(*coordpair)];
 				
 				(*rtnmap)[rtnmapcoord] = colval/div;
-				
+				(*crtnmap)[(*coordpair2)] = colval/div;
 				Ogre::ColourValue col = Ogre::ColourValue(colval/div,colval/div,colval/div);
 				fill->setPixl((size_t)j, (size_t)k, col);
 			}
@@ -617,6 +621,7 @@ BuildVoronoi::BuildVoronoi(){
 					VPoint * sitepos = (*coordtocell)[(*coordpair)];
 					double colval = pow(pow(sitepos->y-kmn,2.0f) + pow(sitepos->x-jmn, 2.0f),.5f);
 					(*rtnmap)[rtnmapcoord] = colval/div;
+					(*crtnmap)[(*coordpair2)] = colval/div;
 					col = Ogre::ColourValue(colval/div,colval/div,colval/div);
 				}
 				else {
@@ -625,10 +630,12 @@ BuildVoronoi::BuildVoronoi(){
 						VPoint * sitepos = (*coordtocell)[(*coordpair)];
 						double colval = pow(pow(sitepos->y-kmn,2.0f) + pow(sitepos->x-jmn, 2.0f),.5f);
 						(*rtnmap)[rtnmapcoord] = colval/div;
+						(*crtnmap)[(*coordpair2)] = colval/div;
 						col = Ogre::ColourValue(colval/div,colval/div,colval/div);
 					}
 					else{
 						(*rtnmap)[rtnmapcoord] = 1.0f;
+						(*crtnmap)[(*coordpair2)] = 1.0f;
 						col = Ogre::ColourValue(1.0f,1.0f,1.0f);
 					}
 				     }
@@ -1317,5 +1324,9 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 
 terr::T3dCPointsMap * BuildVoronoi::getHeightMapradial(void){
 	return rtnmap;
+}
+
+terr::CPointsMap * BuildVoronoi::getHeightMapradial2(void){
+	return crtnmap;
 }
 #endif

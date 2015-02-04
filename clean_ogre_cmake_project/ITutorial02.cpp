@@ -57,7 +57,7 @@ void ITutorial02::destroyScene(void)
 }
 void getTerrainImage(bool flipX, bool flipY, Ogre::Image& img)
 {
-    img.load("terrain2.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    img.load("terrain.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
     if (flipX)
         img.flipAroundY();
     if (flipY)
@@ -74,10 +74,10 @@ void ITutorial02::defineTerrain(long x, long y)
     }
     else
     {
-        //Ogre::Image img;
-        //getTerrainImage(x % 2 != 0, y % 2 != 0, img);
-        //mTerrainGroup->defineTerrain(x, y, &img);
-	mTerrainGroup->defineTerrain(x, y, 0.0f);
+        Ogre::Image img;
+        getTerrainImage(x % 2 != 0, y % 2 != 0, img);
+        mTerrainGroup->defineTerrain(x, y, &img);
+	//mTerrainGroup->defineTerrain(x, y, 0.0f);
         mTerrainsImported = true;
     } 
 }
