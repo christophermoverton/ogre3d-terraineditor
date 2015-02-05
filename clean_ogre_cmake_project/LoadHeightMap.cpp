@@ -154,10 +154,11 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
                 imageOgre.getWidth(),
                 imageOgre.getHeight(),
                 0,
-                Ogre::PF_R8G8B8A8);
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
 	Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
-        renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
-        Ogre::TextureUnitState* lTextureUnit = renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture");
+	m_texture->loadImage(imageOgre);
+        //renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+        renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture");
         //lTextureUnit->setTextureName("test6.png", Ogre::TEX_TYPE_2D);
         //lTextureUnit->setTextureCoordSet(0);
         mMiniScreen->setMaterial("RttMat");
