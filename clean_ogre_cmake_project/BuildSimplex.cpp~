@@ -112,7 +112,7 @@ terr::T3dCPointsMap * BuildSimplex::getHeightMap(){
 	return rtnmap;
 }
 
-terr::CPointsMap * BuildSimplex::getHeightMap2(){
-	return crtnmap;
+terr::CPointsMap  BuildSimplex::getHeightMap2(){
+	return (*crtnmap);
 }
 #endif

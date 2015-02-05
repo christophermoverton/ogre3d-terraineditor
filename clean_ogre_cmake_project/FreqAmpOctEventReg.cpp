@@ -23,7 +23,7 @@ using namespace std;
 
 class FreqAmpOctEventReg{
 	public:
-		FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera);
+		FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera, Ogre::Rectangle2D* mMiniScreen);
 		void updateF(const CEGUI::EventArgs &e);
 		void updateA(const CEGUI::EventArgs &e);
 		void updateO(const CEGUI::EventArgs &e);
@@ -54,6 +54,7 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *NoiseTypebox;
 		Ogre::Terrain* cterrain;
 		Ogre::Camera* mCamera;
+		Ogre::Rectangle2D* cmMiniScreen;
 		map<int,CEGUI::String> csel;
 		map<int,map<string, float> > config; 
 		void addconfig(int nameID);
@@ -63,11 +64,12 @@ class FreqAmpOctEventReg{
 
 
 
-FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera){
+FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera, Ogre::Rectangle2D* mMiniScreen){
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("ScaleHeight.log");
 	Ogre::Log* slog = Ogre::LogManager::getSingleton().createLog("Voronoi.log");
 	cterrain = terrain;
 	mCamera = Camera;
+	cmMiniScreen = mMiniScreen;
 	cnewWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
 	Frequencyslider = cnewWindow ->getChild("FrequencySlider");
 	Amplitudeslider = cnewWindow ->getChild("AmplitudeSlider");
@@ -456,7 +458,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm);
-	new LoadHeightMap(cterrain, 513.0f*1.0f, cheightmapvaluesm);
+	new LoadHeightMap(cterrain, cmMiniScreen,513.0f*1.0f, cheightmapvaluesm);
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm, 513.0f);
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, (*tnoisevalsm)[0]);
 }

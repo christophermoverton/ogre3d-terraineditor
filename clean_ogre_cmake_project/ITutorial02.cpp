@@ -245,6 +245,26 @@ void ITutorial02::createScene(void)
  
     //mSceneMgr->setSkyDome(true, "Examples/CloudySky", 5, 8, 500);
     mSceneMgr->setSkyPlane(true, plane, "Examples/CloudyNoonSkyBox", 500, 20, true, 0.5, 150, 150);
+
+    // adding miniscreen lower right corner
+    mMiniScreen = new Ogre::Rectangle2D(true);
+    mMiniScreen->setCorners(0.5f, -0.25f, 1.0f, -1.0f);
+    mMiniScreen->setBoundingBox(Ogre::AxisAlignedBox::BOX_INFINITE);
+
+    Ogre::SceneNode* miniScreenNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("MiniScreenNode");
+    miniScreenNode->attachObject(mMiniScreen);
+    // done adding miniscreen
+
+    //add material to miniscreen
+    Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+    Ogre::TextureUnitState* lTextureUnit = renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState();
+    lTextureUnit->setTextureName("test6.png", Ogre::TEX_TYPE_2D);
+    lTextureUnit->setTextureCoordSet(0);
+    mMiniScreen->setMaterial("RttMat");
+    //lTextureUnit->addListener(this);
+    // finished material add
+
     Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("test.log");
     tlog->logMessage("blahblah");
     std::vector<double> twopoints(2);
@@ -256,7 +276,7 @@ void ITutorial02::createScene(void)
     //Ogre::Vector3 trheight = planeint->getHeight();
     std::ostringstream ss5;
     Ogre::Terrain* cterrain = mTerrainGroup->getTerrain(0,0);
-    FreqAmpOctEventReg* reg = new FreqAmpOctEventReg(cterrain, mCamera); //registering event handlers
+    FreqAmpOctEventReg* reg = new FreqAmpOctEventReg(cterrain, mCamera,  mMiniScreen); //registering event handlers
     ss5<<"Terrain Size: "<< cterrain->getSize()<<"\n";
     ss5<<"Maximum Height: "<< cterrain->getMaxHeight()<<"\n";
     ss5<<"World Size: " << cterrain->getWorldSize()<<"\n";

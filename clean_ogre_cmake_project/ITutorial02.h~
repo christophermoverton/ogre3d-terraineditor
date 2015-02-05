@@ -74,7 +74,7 @@ protected:
     CEGUI::OgreRenderer* mGUIRenderer;
     //CEGUI::Renderer *mGUIRenderer;		// CEGUI renderer
     float mRotateSpeed;		
- 
+    Ogre::Rectangle2D* mMiniScreen; 
  
 };
  
