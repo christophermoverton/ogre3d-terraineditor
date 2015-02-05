@@ -21,7 +21,7 @@ class BuildSimplex{
 		terr::T3dCPointsMap * rtnmap;
 		terr::CPointsMap    * crtnmap;
 		terr::T3dCPointsMap * getHeightMap();
-		terr::CPointsMap    * getHeightMap2();
+		terr::CPointsMap      getHeightMap2();
 };
 
 BuildSimplex::BuildSimplex(float frequency = .00002f, float amplitude = 10.0f, unsigned octaves = 16.0) {
@@ -112,7 +112,7 @@ terr::T3dCPointsMap * BuildSimplex::getHeightMap(){
 	return rtnmap;
 }
 
-terr::CPointsMap * BuildSimplex::getHeightMap2(){
-	return crtnmap;
+terr::CPointsMap  BuildSimplex::getHeightMap2(){
+	return (*crtnmap);
 }
 #endif

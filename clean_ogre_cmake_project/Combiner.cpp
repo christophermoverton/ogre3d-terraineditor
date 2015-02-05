@@ -249,9 +249,9 @@ terr::CPointsMap * Combiner::Combine(terr::CPointsMaps * vals, vector<float> wei
 	double maxval = (double) 0.0f;
 	double minval = (double) 1000000.0f;
 	for (terr::CPointsMaps::iterator i = vals->begin(); i != vals->end(); i++) {
-		terr::CPointsMap * pointmap = (*i).second;
+		terr::CPointsMap  pointmap = (*i).second;
 		int weightparam = (*i).first; 
-		for (terr::CPointsMap::iterator j = pointmap->begin(); j != pointmap->end(); j++){
+		for (terr::CPointsMap::iterator j = pointmap.begin(); j != pointmap.end(); j++){
 			terr::Coordpair coord = (*j).first;
 			double val = (*j).second;
 			if ((*combinevals).find(coord) != (*combinevals).end()){

@@ -76,7 +76,7 @@ class BuildVoronoi{
 	public:
 		BuildVoronoi();
 		terr::T3dCPointsMap * getHeightMapradial(void);
-		terr::CPointsMap * getHeightMapradial2(void); //alternate coordinate addressing system
+		terr::CPointsMap      getHeightMapradial2(void); //alternate coordinate addressing system
 	private:
 		double w        ;
 		vor::Voronoi * v;
@@ -1326,7 +1326,7 @@ terr::T3dCPointsMap * BuildVoronoi::getHeightMapradial(void){
 	return rtnmap;
 }
 
-terr::CPointsMap * BuildVoronoi::getHeightMapradial2(void){
-	return crtnmap;
+terr::CPointsMap  BuildVoronoi::getHeightMapradial2(void){
+	return (*crtnmap);
 }
 #endif

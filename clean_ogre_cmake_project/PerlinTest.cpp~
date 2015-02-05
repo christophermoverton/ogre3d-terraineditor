@@ -19,7 +19,7 @@ class PerlinTest{
 	private:
 		vector<vector<vector<double> > > cnoisevals;
 		terr::T3dCPointsMap             tcnoisevals;
-		terr::CPointsMap                vcnoisevals;		
+		terr::CPointsMap    *            vcnoisevals;		
 };
 
 PerlinTest::PerlinTest(float size, float scale){
@@ -117,7 +117,7 @@ terr::T3dCPointsMap * PerlinTest::getNoisevaluesT(){
 	return & tcnoisevals;
 }
 
-terr::CPointsMap * PerlinTest::getNoisevaluesV(){
-	return  vcnoisevals;
+terr::CPointsMap  PerlinTest::getNoisevaluesV(){
+	return  (*vcnoisevals);
 }
 #endif

@@ -36,6 +36,7 @@ class FreqAmpOctEventReg{
 		void updateTD(const CEGUI::EventArgs &e);
 		void updateW(const CEGUI::EventArgs &e);
 		void updateN(const CEGUI::EventArgs &e);
+		void updateFD(const CEGUI::EventArgs &e);
 	private:
 		CEGUI::Window *cnewWindow;
 		CEGUI::Window *Frequencyslider;
@@ -43,6 +44,7 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *Octavesslider;
 		CEGUI::Window *Gainslider;
 		CEGUI::Window *Scaleslider;
+		CEGUI::Window *Freqdivslider;
 		CEGUI::Window *Maxheightslider;
 		CEGUI::Window *UpdateButton;
 		CEGUI::Window *UpdateButton2;
@@ -73,6 +75,7 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	UpdateButton = cnewWindow ->getChild("UpdateButton");
 	Gainslider = cnewWindow ->getChild("GainSlider");
 	Scaleslider = cnewWindow ->getChild("ScaleSlider");
+	Freqdivslider = cnewWindow ->getChild("FreqDivSlider");
 	Maxheightslider = cnewWindow ->getChild("MaxHeightSlider");
 	Weightslider = cnewWindow ->getChild("WeightSlider");
 	UpdateButton2 = cnewWindow ->getChild("UpdateButton2");
@@ -126,6 +129,7 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	Octavesslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateO, this));
 	Gainslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateG, this));
 	Scaleslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateS, this));
+	Freqdivslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateFD, this));
 	Maxheightslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateM, this));
 	Weightslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateW, this));
 	Terrainbox->subscribeEvent(CEGUI::Combobox::EventListSelectionAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateT, this));	//EventDropListDisplayed
@@ -143,6 +147,7 @@ void FreqAmpOctEventReg::addconfig(int nameID){
 	settings["Octaves"] = 2.0f;
 	settings["Gain"] = .5f;
 	settings["Scale"] = 1.0f/513.0f;
+	settings["Freqdiv"] = 1.0f;
 	settings["Maxheight"] = 1500.0f;
 	settings["Weight"] = .5f;
 	settings["NoiseType"] = 0.0f;
@@ -164,6 +169,8 @@ void FreqAmpOctEventReg::updateConfig(){
 	float gval = GSlider->getCurrentValue();
 	CEGUI::Slider* SSlider = static_cast<CEGUI::Slider*>(Scaleslider);
 	float sval = SSlider->getCurrentValue();
+	CEGUI::Slider* FdSlider = static_cast<CEGUI::Slider*>(Freqdivslider);
+	float fdval = FdSlider->getCurrentValue();
 	CEGUI::Slider* MSlider = static_cast<CEGUI::Slider*>(Maxheightslider);
 	float mval = MSlider->getCurrentValue();
 	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Weightslider);
@@ -181,6 +188,8 @@ void FreqAmpOctEventReg::updateConfig(){
 	settings["Octaves"] = oval;
 	settings["Gain"] = gval;
 	settings["Scale"] = sval;
+	if (fdval == 0.0f) {fdval = 1.0f;}
+	settings["Freqdiv"] = fdval;
 	settings["Maxheight"] = mval;
 	settings["Weight"] = wval;
 	settings["NoiseType"] = nameID-1;
@@ -211,12 +220,13 @@ void FreqAmpOctEventReg::loadConfig(){
 	ss5 << "Test load config at name" << "\n";
 	tlog->logMessage(ss5.str());
 	map<string, float> settings = config[nameID];
-	float fval, aval, oval, gval, sval, mval, wval, nval;
+	float fval, aval, oval, gval, sval, fdval, mval, wval, nval;
 	fval = settings["Frequency"];
 	aval = settings["Amplitude"];
 	oval = settings["Octaves"];
 	gval = settings["Gain"];
 	sval = settings["Scale"];
+	fdval = settings["Freqdiv"];
 	mval = settings["Maxheight"];
 	wval = settings["Weight"];
 	nval = settings["NoiseType"];
@@ -232,6 +242,8 @@ void FreqAmpOctEventReg::loadConfig(){
 	GSlider->setCurrentValue(gval);
 	CEGUI::Slider* SSlider = static_cast<CEGUI::Slider*>(Scaleslider);
 	SSlider->setCurrentValue(sval);
+	CEGUI::Slider* FdSlider = static_cast<CEGUI::Slider*>(Freqdivslider);
+	FdSlider->setCurrentValue(fdval);
 	CEGUI::Slider* MSlider = static_cast<CEGUI::Slider*>(Maxheightslider);
 	MSlider->setCurrentValue(mval);
 	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Weightslider);
@@ -256,8 +268,27 @@ void FreqAmpOctEventReg::updateF(const CEGUI::EventArgs &e){
 	CEGUI::Window* flabel = cnewWindow ->getChild("Freqlabel");
 	CEGUI::Slider* FSlider = static_cast<CEGUI::Slider*>(Frequencyslider);
 	float val = FSlider->getCurrentValue();
+	CEGUI::Slider* FdSlider = static_cast<CEGUI::Slider*>(Freqdivslider);
+	float dval = FdSlider->getCurrentValue();
+	if (dval == 0.0f){
+		dval = 1.0f;
+	}
 	std::ostringstream ss5;
-	ss5<<val;
+	ss5<<val/dval;
+	flabel->setText(ss5.str());
+}
+
+void FreqAmpOctEventReg::updateFD(const CEGUI::EventArgs &e){
+	CEGUI::Window* flabel = cnewWindow ->getChild("Freqlabel");
+	CEGUI::Slider* FSlider = static_cast<CEGUI::Slider*>(Frequencyslider);
+	float val = FSlider->getCurrentValue();
+	CEGUI::Slider* FdSlider = static_cast<CEGUI::Slider*>(Freqdivslider);
+	float dval = FdSlider->getCurrentValue();
+	if (dval == 0.0f){
+		dval = 1.0f;
+	}
+	std::ostringstream ss5;
+	ss5<<val/dval;
 	flabel->setText(ss5.str());
 }
 
@@ -292,10 +323,12 @@ void FreqAmpOctEventReg::updateS(const CEGUI::EventArgs &e){
 	CEGUI::Window* slabel = cnewWindow ->getChild("Scalelabel");
 	CEGUI::Slider* SSlider = static_cast<CEGUI::Slider*>(Scaleslider);
 	float val = SSlider->getCurrentValue();
+
 	std::ostringstream ss5;
 	ss5<<val;
 	slabel->setText(ss5.str());
 }
+
 
 void FreqAmpOctEventReg::updateM(const CEGUI::EventArgs &e){
 	CEGUI::Window* mlabel = cnewWindow ->getChild("MHeightlabel");
@@ -365,9 +398,10 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 		tlog->logMessage(ss5.str());
 		ss5.str(std::string());		
 		map<string, float> tc = miter3->second;
+		if (tc["Freqdiv"] == 0){tc["Freqdiv"] = 1.0f;}
 		if ((int)tc["NoiseType"] == 0){
 			//float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain = .5f, int imagemap = (int)3.0f
-			PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"], tc["Amplitude"], tc["Octaves"], int(3.0f));
+			PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], tc["Octaves"], int(3.0f));
 			tnoisevals[i] = test->getNoisevalues();
 			(*tnoisevalsm)[i] = test->getNoisevaluesT();
 			(*vnoisevalsm)[i] = test->getNoisevaluesV();
@@ -393,7 +427,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
 			//Voronoi* test = new Voronoi(tc["Scale"], 513);
-			BuildSimplex * testm = new BuildSimplex(tc["Frequency"]/1000.f, tc["Amplitude"]);  //perlin derivative
+			BuildSimplex * testm = new BuildSimplex(tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"]);  //perlin derivative
 			//ss5 << "!!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());

@@ -28,7 +28,7 @@ class Combiner{
 		vector<vector<vector<double> > > Combine(vector<vector<vector<vector<double> > > > vals,
 							vector<float> weights);
 		terr::T3dCPointsMap * Combine(terr::T3dCPointsMaps * vals, vector<float> weights);
-		terr::CPointsMaps * Combine(terr::CPointsMaps * vals, vector<float> weights);
+		terr::CPointsMap * Combine(terr::CPointsMaps * vals, vector<float> weights);
 	private:
 		COMBINER_TYPE ctype;
 };

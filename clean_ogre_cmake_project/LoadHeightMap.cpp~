@@ -11,6 +11,7 @@ class LoadHeightMap{
 		LoadHeightMap(Ogre::Terrain* mterrain, Ogre::String filename, float maxheightscale);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vector<vector<vector<double> > > heightmapvalues);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::T3dCPointsMap * heightmapvalues);
+		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::CPointsMap * heightmapvalues);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::T3dCPointsMap * heightmapvalues, float terrsize);
 	
 };

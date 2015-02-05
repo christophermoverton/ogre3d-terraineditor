@@ -635,7 +635,7 @@ BuildVoronoi::BuildVoronoi(){
 					}
 					else{
 						(*rtnmap)[rtnmapcoord] = 1.0f;
-						(*crtnmap)[coordpair2] = 1.0f;
+						(*crtnmap)[(*coordpair2)] = 1.0f;
 						col = Ogre::ColourValue(1.0f,1.0f,1.0f);
 					}
 				     }
@@ -1326,7 +1326,7 @@ terr::T3dCPointsMap * BuildVoronoi::getHeightMapradial(void){
 	return rtnmap;
 }
 
-terr::CPointsMap * BuildVoronoi::getHeightMapradial2(void){
-	return crtnmap;
+terr::CPointsMap  BuildVoronoi::getHeightMapradial2(void){
+	return (*crtnmap);
 }
 #endif

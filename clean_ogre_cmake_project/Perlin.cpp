@@ -16,6 +16,7 @@ class Perlin{
 		double dotGridGradient(int ix, int iy, int iz, float x, float y, float z);
 		vector<vector<Ogre::Vector2> > Gradient;
 		vector<vector<vector<Ogre::Vector3> > > Gradient3d;
+		int cgx, cgy, cgz;
 		vector<double> cNoisePartials3d;  //temporary noise partial storage for 1 iteration point
 		double lerp(float a0, float a1, float w); 
 		Ogre::Vector2 randomPointUnitCircle(void);
@@ -41,6 +42,7 @@ Perlin::Perlin(int gridsizex, int gridsizey){
 Perlin::Perlin(int gridsizex, int gridsizey, int gridsizez){
 	Gradient3d.resize(gridsizex);
 	cNoisePartials3d.resize(3);
+	cgx = gridsizex; cgy = gridsizey; cgz = gridsizez;
 	for (int i = 0; i < gridsizex; i++){
 		Gradient3d[i].resize(gridsizey);
 		//cNoisePartials3d[i].resize(gridsizey);
@@ -91,7 +93,7 @@ Ogre::Vector3 Perlin::randomPointUnitSphere(){
      double dy = y - (double)iy;
  
      // Compute the dot-product
-     return (dx*Gradient[ix][iy][0] + dy*Gradient[ix][iy][1]);
+     return (dx*Gradient[ix % cgx][iy % cgy][0] + dy*Gradient[ix % cgx][iy % cgy][1]);
  }
  
  // Computes the dot product of the distance and gradient vectors.

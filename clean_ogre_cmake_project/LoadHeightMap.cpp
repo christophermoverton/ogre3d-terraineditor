@@ -129,7 +129,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr
 	for (terr::CPointsMap::iterator i = heightmapvalues->begin(); i != heightmapvalues->end(); i++){
 		terr::Coordpair hcoord = (*i).first;
 		double posheight = (*i).second*maxheightscale;
-		ss5<< "posheigh: " << posheight << "\n";
+		//ss5<< "posheigh: " << posheight << "\n";
 		mterrain->setHeightAtPoint((long) hcoord.first, (long) hcoord.second, posheight);
 	}
 	mterrain->update();

@@ -15,7 +15,7 @@ class PerlinTest{
 								     //is not the best for coorindate value searching on the same 
 								     //map.  Likely it may be better to re write with template 
 								     //class??
-		terr::CPointsMap    *            getNoisevaluesV();  //alternate to coordinate pointer addressing
+		terr::CPointsMap                getNoisevaluesV();  //alternate to coordinate pointer addressing
 	private:
 		vector<vector<vector<double> > > cnoisevals;
 		terr::T3dCPointsMap             tcnoisevals;
@@ -117,7 +117,7 @@ terr::T3dCPointsMap * PerlinTest::getNoisevaluesT(){
 	return & tcnoisevals;
 }
 
-terr::CPointsMap * PerlinTest::getNoisevaluesV(){
-	return  vcnoisevals;
+terr::CPointsMap  PerlinTest::getNoisevaluesV(){
+	return  (*vcnoisevals);
 }
 #endif
