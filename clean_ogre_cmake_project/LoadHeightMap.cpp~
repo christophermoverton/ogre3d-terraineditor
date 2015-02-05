@@ -140,6 +140,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	}
 	mterrain->update();
 	buffer.saveImage("../media/materials/textures/test6.png");
+	/*
 	Ogre::MaterialManager::getSingleton().remove("RttMat");
         Ogre::Image imageOgre;
         imageOgre.load("test6.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
@@ -156,11 +157,24 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
                 0,
                 Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
 	Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	
         //renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+	m_texture->loadImage(imageOgre);
         renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture");
         //lTextureUnit->setTextureName("test6.png", Ogre::TEX_TYPE_2D);
         //lTextureUnit->setTextureCoordSet(0);
         mMiniScreen->setMaterial("RttMat");
+	*/
+	Ogre::TexturePtr pResource = Ogre::TextureManager::getSingleton().getByName("maTexture");
+        Ogre::Image imageOgre;
+        imageOgre.load("test6.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	pResource->loadImage(imageOgre);
+	//pResource->reload();
+	Ogre::MaterialManager::getSingleton().remove("RttMat");
+	Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+	renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture");
+	mMiniScreen->setMaterial("RttMat");
 	tlog->logMessage(ss5.str());
 	//mterrain->update();
 }

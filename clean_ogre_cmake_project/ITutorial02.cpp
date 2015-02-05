@@ -256,12 +256,36 @@ void ITutorial02::createScene(void)
     // done adding miniscreen
 
     //add material to miniscreen
+/*
     Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
     renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
     Ogre::TextureUnitState* lTextureUnit = renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState();
     lTextureUnit->setTextureName("test6.png", Ogre::TEX_TYPE_2D);
     lTextureUnit->setTextureCoordSet(0);
     mMiniScreen->setMaterial("RttMat");
+*/
+    Ogre::Image imageOgre;
+    imageOgre.load("test6.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+
+    Ogre::TexturePtr m_texture;
+
+                // Texture creation 1
+    m_texture = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "maTexture",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	
+        renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+	m_texture->loadImage(imageOgre);
+        renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture");
+        //lTextureUnit->setTextureName("test6.png", Ogre::TEX_TYPE_2D);
+        //lTextureUnit->setTextureCoordSet(0);
+        mMiniScreen->setMaterial("RttMat");
     //lTextureUnit->addListener(this);
     // finished material add
 
