@@ -61,6 +61,7 @@ CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_pro
 # All Build rule for target.
 CMakeFiles/OgreApp.dir/all: Voronoi/CMakeFiles/Voronoi.dir/all
 CMakeFiles/OgreApp.dir/all: Simplex/CMakeFiles/Simplex.dir/all
+CMakeFiles/OgreApp.dir/all: libfbm/CMakeFiles/libfbm.dir/all
 	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/depend
 	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles  1 2
@@ -73,7 +74,7 @@ all: CMakeFiles/OgreApp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OgreApp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OgreApp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
 .PHONY : CMakeFiles/OgreApp.dir/rule
@@ -198,6 +199,56 @@ Simplex/CMakeFiles/Simplex.dir/clean:
 
 # clean rule for target.
 clean: Simplex/CMakeFiles/Simplex.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory libfbm
+
+# Convenience name for "all" pass in the directory.
+libfbm/all: libfbm/CMakeFiles/libfbm.dir/all
+.PHONY : libfbm/all
+
+# Convenience name for "clean" pass in the directory.
+libfbm/clean: libfbm/CMakeFiles/libfbm.dir/clean
+.PHONY : libfbm/clean
+
+# Convenience name for "preinstall" pass in the directory.
+libfbm/preinstall:
+.PHONY : libfbm/preinstall
+
+#=============================================================================
+# Target rules for target libfbm/CMakeFiles/libfbm.dir
+
+# All Build rule for target.
+libfbm/CMakeFiles/libfbm.dir/all:
+	$(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/depend
+	$(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles  6
+	@echo "Built target libfbm"
+.PHONY : libfbm/CMakeFiles/libfbm.dir/all
+
+# Include target in all.
+all: libfbm/CMakeFiles/libfbm.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+libfbm/CMakeFiles/libfbm.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 libfbm/CMakeFiles/libfbm.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
+.PHONY : libfbm/CMakeFiles/libfbm.dir/rule
+
+# Convenience name for target.
+libfbm: libfbm/CMakeFiles/libfbm.dir/rule
+.PHONY : libfbm
+
+# clean rule for target.
+libfbm/CMakeFiles/libfbm.dir/clean:
+	$(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/clean
+.PHONY : libfbm/CMakeFiles/libfbm.dir/clean
+
+# clean rule for target.
+clean: libfbm/CMakeFiles/libfbm.dir/clean
 .PHONY : clean
 
 #=============================================================================

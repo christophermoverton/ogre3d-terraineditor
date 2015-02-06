@@ -103,14 +103,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles/progress.marks
-	$(MAKE) -f CMakeFiles/Makefile2 all
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/CMakeFiles/progress.marks
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 libfbm/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) -f CMakeFiles/Makefile2 clean
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 libfbm/clean
 .PHONY : clean
 
 # The main clean target
@@ -119,123 +119,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 libfbm/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) -f CMakeFiles/Makefile2 preinstall
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 libfbm/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named OgreApp
+# Convenience name for target.
+libfbm/CMakeFiles/libfbm.dir/rule:
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 libfbm/CMakeFiles/libfbm.dir/rule
+.PHONY : libfbm/CMakeFiles/libfbm.dir/rule
 
-# Build rule for target.
-OgreApp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 OgreApp
-.PHONY : OgreApp
-
-# fast build rule for target.
-OgreApp/fast:
-	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/build
-.PHONY : OgreApp/fast
-
-# Manual pre-install relink rule for target.
-OgreApp/preinstall:
-	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/preinstall
-.PHONY : OgreApp/preinstall
-
-#=============================================================================
-# Target rules for targets named Voronoi
-
-# Build rule for target.
-Voronoi: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Voronoi
-.PHONY : Voronoi
-
-# fast build rule for target.
-Voronoi/fast:
-	$(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/build
-.PHONY : Voronoi/fast
-
-#=============================================================================
-# Target rules for targets named Simplex
-
-# Build rule for target.
-Simplex: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Simplex
-.PHONY : Simplex
-
-# fast build rule for target.
-Simplex/fast:
-	$(MAKE) -f Simplex/CMakeFiles/Simplex.dir/build.make Simplex/CMakeFiles/Simplex.dir/build
-.PHONY : Simplex/fast
-
-#=============================================================================
-# Target rules for targets named libfbm
-
-# Build rule for target.
-libfbm: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 libfbm
+# Convenience name for target.
+libfbm: libfbm/CMakeFiles/libfbm.dir/rule
 .PHONY : libfbm
 
 # fast build rule for target.
 libfbm/fast:
-	$(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/build
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/build
 .PHONY : libfbm/fast
 
-BaseApplication.o: BaseApplication.cpp.o
-.PHONY : BaseApplication.o
+libfbm.o: libfbm.cpp.o
+.PHONY : libfbm.o
 
 # target to build an object file
-BaseApplication.cpp.o:
-	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/BaseApplication.cpp.o
-.PHONY : BaseApplication.cpp.o
+libfbm.cpp.o:
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o
+.PHONY : libfbm.cpp.o
 
-BaseApplication.i: BaseApplication.cpp.i
-.PHONY : BaseApplication.i
-
-# target to preprocess a source file
-BaseApplication.cpp.i:
-	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/BaseApplication.cpp.i
-.PHONY : BaseApplication.cpp.i
-
-BaseApplication.s: BaseApplication.cpp.s
-.PHONY : BaseApplication.s
-
-# target to generate assembly for a file
-BaseApplication.cpp.s:
-	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/BaseApplication.cpp.s
-.PHONY : BaseApplication.cpp.s
-
-ITutorial02.o: ITutorial02.cpp.o
-.PHONY : ITutorial02.o
-
-# target to build an object file
-ITutorial02.cpp.o:
-	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
-.PHONY : ITutorial02.cpp.o
-
-ITutorial02.i: ITutorial02.cpp.i
-.PHONY : ITutorial02.i
+libfbm.i: libfbm.cpp.i
+.PHONY : libfbm.i
 
 # target to preprocess a source file
-ITutorial02.cpp.i:
-	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/ITutorial02.cpp.i
-.PHONY : ITutorial02.cpp.i
+libfbm.cpp.i:
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.i
+.PHONY : libfbm.cpp.i
 
-ITutorial02.s: ITutorial02.cpp.s
-.PHONY : ITutorial02.s
+libfbm.s: libfbm.cpp.s
+.PHONY : libfbm.s
 
 # target to generate assembly for a file
-ITutorial02.cpp.s:
-	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/ITutorial02.cpp.s
-.PHONY : ITutorial02.cpp.s
+libfbm.cpp.s:
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.s
+.PHONY : libfbm.cpp.s
 
 # Help Target
 help:
@@ -243,21 +176,15 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... OgreApp"
 	@echo "... edit_cache"
 	@echo "... install"
 	@echo "... install/local"
+	@echo "... libfbm"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... Voronoi"
-	@echo "... Simplex"
-	@echo "... libfbm"
-	@echo "... BaseApplication.o"
-	@echo "... BaseApplication.i"
-	@echo "... BaseApplication.s"
-	@echo "... ITutorial02.o"
-	@echo "... ITutorial02.i"
-	@echo "... ITutorial02.s"
+	@echo "... libfbm.o"
+	@echo "... libfbm.i"
+	@echo "... libfbm.s"
 .PHONY : help
 
 
@@ -269,6 +196,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

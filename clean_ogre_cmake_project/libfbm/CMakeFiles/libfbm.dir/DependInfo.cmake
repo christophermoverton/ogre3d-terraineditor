@@ -4,8 +4,7 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
-  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BaseApplication.cpp" "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles/OgreApp.dir/BaseApplication.cpp.o"
-  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ITutorial02.cpp" "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles/OgreApp.dir/ITutorial02.cpp.o"
+  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/libfbm.cpp" "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -16,9 +15,6 @@ SET(CMAKE_TARGET_DEFINITIONS
 
 # Targets to which this target links.
 SET(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/CMakeFiles/Voronoi.dir/DependInfo.cmake"
-  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex/CMakeFiles/Simplex.dir/DependInfo.cmake"
-  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/CMakeFiles/libfbm.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

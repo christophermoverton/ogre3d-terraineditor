@@ -13,6 +13,7 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "CMakeLists.txt"
   "Simplex/CMakeLists.txt"
   "Voronoi/CMakeLists.txt"
+  "libfbm/CMakeLists.txt"
   "/usr/local/lib/OGRE/cmake/CompareVersionStrings.cmake"
   "/usr/local/lib/OGRE/cmake/DetermineVersion.cmake"
   "/usr/local/lib/OGRE/cmake/FindCEGUI.cmake"
@@ -55,6 +56,7 @@ SET(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   "Voronoi/CMakeFiles/CMakeDirectoryInformation.cmake"
   "Simplex/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "libfbm/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -62,4 +64,5 @@ SET(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/OgreApp.dir/DependInfo.cmake"
   "Voronoi/CMakeFiles/Voronoi.dir/DependInfo.cmake"
   "Simplex/CMakeFiles/Simplex.dir/DependInfo.cmake"
+  "libfbm/CMakeFiles/libfbm.dir/DependInfo.cmake"
   )
