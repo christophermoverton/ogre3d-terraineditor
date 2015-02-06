@@ -18,6 +18,7 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "/usr/local/lib/OGRE/cmake/DetermineVersion.cmake"
   "/usr/local/lib/OGRE/cmake/FindCEGUI.cmake"
   "/usr/local/lib/OGRE/cmake/FindCEGUIOGRE.cmake"
+  "/usr/local/lib/OGRE/cmake/FindFFTW.cmake"
   "/usr/local/lib/OGRE/cmake/FindOGRE.cmake"
   "/usr/local/lib/OGRE/cmake/FindOIS.cmake"
   "/usr/local/lib/OGRE/cmake/FindPackageHandleAdvancedArgs.cmake"

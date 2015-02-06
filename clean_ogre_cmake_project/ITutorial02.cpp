@@ -32,6 +32,7 @@ This source file is part of the
 #include "FreqAmpOctEventReg.cpp"
 #include "BuildVoronoi.cpp"
 #include "BuildSimplex.cpp"
+#include "BuildFbm.cpp"
  
 //-------------------------------------------------------------------------------------
 ITutorial02::ITutorial02(void)
@@ -333,6 +334,7 @@ void ITutorial02::createScene(void)
     //new LoadHeightMap(cterrain, Ogre::String("test3.png"), 3.0f);
     //new BuildVoronoi();
     new BuildSimplex();
+    new BuildFbm();
     //CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
     //cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
 }

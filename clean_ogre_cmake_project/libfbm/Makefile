@@ -146,6 +146,30 @@ libfbm/fast:
 	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/build
 .PHONY : libfbm/fast
 
+SFMT.o: SFMT.c.o
+.PHONY : SFMT.o
+
+# target to build an object file
+SFMT.c.o:
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/SFMT.c.o
+.PHONY : SFMT.c.o
+
+SFMT.i: SFMT.c.i
+.PHONY : SFMT.i
+
+# target to preprocess a source file
+SFMT.c.i:
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/SFMT.c.i
+.PHONY : SFMT.c.i
+
+SFMT.s: SFMT.c.s
+.PHONY : SFMT.s
+
+# target to generate assembly for a file
+SFMT.c.s:
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/SFMT.c.s
+.PHONY : SFMT.c.s
+
 libfbm.o: libfbm.cpp.o
 .PHONY : libfbm.o
 
@@ -182,6 +206,9 @@ help:
 	@echo "... libfbm"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... SFMT.o"
+	@echo "... SFMT.i"
+	@echo "... SFMT.s"
 	@echo "... libfbm.o"
 	@echo "... libfbm.i"
 	@echo "... libfbm.s"

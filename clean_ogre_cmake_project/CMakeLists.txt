@@ -115,6 +115,18 @@ find_package(CEGUIOGRE REQUIRED)
 if(NOT CEGUIOGRE_FOUND)
 message(SEND_ERROR "Failed to find CEGUIOGRE.")
 endif()
+
+SET(USE_FFTW 1)
+find_package( FFTW )
+SET(FFTW3_LIBRARIES fftw3)
+#find_library(FFTW_LIBRARY
+#     NAMES fftw3 fftw)
+#set(FFTW_LIBRARIES "${FFTW_LIBRARY}")
+#if(UNIX AND NOT WIN32)
+#     find_library(FFTW_libm_LIBRARY
+#         NAMES m)
+#     list(APPEND FFTW_LIBRARIES "${FFTW_libm_LIBRARY}")
+#endif()
  
 set(HDRS
 	./BaseApplication.h
@@ -147,7 +159,7 @@ add_executable(OgreApp WIN32 ${HDRS} ${SRCS})
  
 set_target_properties(OgreApp PROPERTIES DEBUG_POSTFIX _d)
  
-target_link_libraries(OgreApp ${OGRE_LIBRARIES} ${OIS_LIBRARIES} ${OGRE_Overlay_LIBRARIES} ${CEGUI_LIBRARY} ${CEGUIOGRE_LIBRARY_OPTIMIZED} Voronoi Simplex libfbm)
+target_link_libraries(OgreApp ${OGRE_LIBRARIES} ${OIS_LIBRARIES} ${OGRE_Overlay_LIBRARIES} ${CEGUI_LIBRARY} ${CEGUIOGRE_LIBRARY_OPTIMIZED} Voronoi Simplex libfbm ${FFTW_LIBRARIES})
  
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/bin)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/media)

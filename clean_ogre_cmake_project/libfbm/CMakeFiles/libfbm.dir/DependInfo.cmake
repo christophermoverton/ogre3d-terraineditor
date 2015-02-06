@@ -1,8 +1,13 @@
 # The set of languages for which implicit dependencies are needed:
 SET(CMAKE_DEPENDS_LANGUAGES
+  "C"
   "CXX"
   )
 # The set of files for implicit dependencies of each language:
+SET(CMAKE_DEPENDS_CHECK_C
+  "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/SFMT.c" "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/CMakeFiles/libfbm.dir/SFMT.c.o"
+  )
+SET(CMAKE_C_COMPILER_ID "GNU")
 SET(CMAKE_DEPENDS_CHECK_CXX
   "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/libfbm.cpp" "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o"
   )

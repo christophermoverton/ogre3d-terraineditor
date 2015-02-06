@@ -1,4 +1,4 @@
-/** @mainpage
+/** @mainpage  dependices https://github.com/FFTW/fftw3  fast fourier transform libraries
   * @author Indrek Mandre indrek(at)mare.ee http://www.mare.ee/indrek/libfbm/
   *
   * This library generates (simulates) multi-dimensional random fields:
@@ -313,6 +313,7 @@ int main()
 #include <string>
 
 #include <stdint.h>
+#include "SFMT.h"
 
 /** Maximum allowed dimension of the library.
   * 8 ought to be enough for everyone ;)

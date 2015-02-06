@@ -314,6 +314,7 @@ int main()
 
 #include <stdint.h>
 
+
 /** Maximum allowed dimension of the library.
   * 8 ought to be enough for everyone ;)
   * You can change this but you must then recompile the library.

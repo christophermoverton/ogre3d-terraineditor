@@ -231,6 +231,7 @@ CMakeFiles/OgreApp.dir/BaseApplication.cpp.o
  /usr/local/include/OGRE/Threading/OgreThreadHeadersTBB.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BaseApplication.h
+ /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildFbm.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildSimplex.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildVoronoi.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ColorGet.cpp
@@ -698,3 +699,4 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  Voronoi/VPoint.h
  Voronoi/Voronoi.h
  Voronoi/VoronoiCell.h
+ libfbm/libfbm.hpp

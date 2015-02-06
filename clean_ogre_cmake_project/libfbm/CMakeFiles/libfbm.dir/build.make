@@ -75,14 +75,39 @@ libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o.provides: libfbm/CMakeFiles/libfbm.dir
 
 libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o.provides.build: libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o
 
+libfbm/CMakeFiles/libfbm.dir/SFMT.c.o: libfbm/CMakeFiles/libfbm.dir/flags.make
+libfbm/CMakeFiles/libfbm.dir/SFMT.c.o: libfbm/SFMT.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object libfbm/CMakeFiles/libfbm.dir/SFMT.c.o"
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/libfbm.dir/SFMT.c.o   -c /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/SFMT.c
+
+libfbm/CMakeFiles/libfbm.dir/SFMT.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/libfbm.dir/SFMT.c.i"
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/SFMT.c > CMakeFiles/libfbm.dir/SFMT.c.i
+
+libfbm/CMakeFiles/libfbm.dir/SFMT.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libfbm.dir/SFMT.c.s"
+	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/SFMT.c -o CMakeFiles/libfbm.dir/SFMT.c.s
+
+libfbm/CMakeFiles/libfbm.dir/SFMT.c.o.requires:
+.PHONY : libfbm/CMakeFiles/libfbm.dir/SFMT.c.o.requires
+
+libfbm/CMakeFiles/libfbm.dir/SFMT.c.o.provides: libfbm/CMakeFiles/libfbm.dir/SFMT.c.o.requires
+	$(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/SFMT.c.o.provides.build
+.PHONY : libfbm/CMakeFiles/libfbm.dir/SFMT.c.o.provides
+
+libfbm/CMakeFiles/libfbm.dir/SFMT.c.o.provides.build: libfbm/CMakeFiles/libfbm.dir/SFMT.c.o
+
 # Object files for target libfbm
 libfbm_OBJECTS = \
-"CMakeFiles/libfbm.dir/libfbm.cpp.o"
+"CMakeFiles/libfbm.dir/libfbm.cpp.o" \
+"CMakeFiles/libfbm.dir/SFMT.c.o"
 
 # External object files for target libfbm
 libfbm_EXTERNAL_OBJECTS =
 
 libfbm/liblibfbm.a: libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o
+libfbm/liblibfbm.a: libfbm/CMakeFiles/libfbm.dir/SFMT.c.o
 libfbm/liblibfbm.a: libfbm/CMakeFiles/libfbm.dir/build.make
 libfbm/liblibfbm.a: libfbm/CMakeFiles/libfbm.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library liblibfbm.a"
@@ -94,6 +119,7 @@ libfbm/CMakeFiles/libfbm.dir/build: libfbm/liblibfbm.a
 .PHONY : libfbm/CMakeFiles/libfbm.dir/build
 
 libfbm/CMakeFiles/libfbm.dir/requires: libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o.requires
+libfbm/CMakeFiles/libfbm.dir/requires: libfbm/CMakeFiles/libfbm.dir/SFMT.c.o.requires
 .PHONY : libfbm/CMakeFiles/libfbm.dir/requires
 
 libfbm/CMakeFiles/libfbm.dir/clean:

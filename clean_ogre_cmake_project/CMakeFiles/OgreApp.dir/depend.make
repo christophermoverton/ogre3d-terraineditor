@@ -230,6 +230,7 @@ CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: /usr/local/include/OGRE/Threading/
 CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: /usr/local/include/OGRE/Threading/OgreThreadHeadersTBB.h
 
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BaseApplication.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildFbm.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildSimplex.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildVoronoi.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ColorGet.cpp
@@ -697,4 +698,5 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi/VParabola.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi/VPoint.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi/Voronoi.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi/VoronoiCell.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: libfbm/libfbm.hpp
 
