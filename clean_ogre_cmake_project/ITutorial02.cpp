@@ -33,6 +33,7 @@ This source file is part of the
 #include "BuildVoronoi.cpp"
 #include "BuildSimplex.cpp"
 #include "BuildFbm.cpp"
+#include "DiamondSquare.cpp"
  
 //-------------------------------------------------------------------------------------
 ITutorial02::ITutorial02(void)
@@ -335,6 +336,7 @@ void ITutorial02::createScene(void)
     //new BuildVoronoi();
     //new BuildSimplex();
     //new BuildFbm();
+    new DiamondSquare();
     //CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
     //cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
 }

@@ -189,6 +189,19 @@ libfbm/fast:
 	$(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/build
 .PHONY : libfbm/fast
 
+#=============================================================================
+# Target rules for targets named DiamondSquare
+
+# Build rule for target.
+DiamondSquare: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DiamondSquare
+.PHONY : DiamondSquare
+
+# fast build rule for target.
+DiamondSquare/fast:
+	$(MAKE) -f DiamondSquare/CMakeFiles/DiamondSquare.dir/build.make DiamondSquare/CMakeFiles/DiamondSquare.dir/build
+.PHONY : DiamondSquare/fast
+
 BaseApplication.o: BaseApplication.cpp.o
 .PHONY : BaseApplication.o
 
@@ -252,6 +265,7 @@ help:
 	@echo "... Voronoi"
 	@echo "... Simplex"
 	@echo "... libfbm"
+	@echo "... DiamondSquare"
 	@echo "... BaseApplication.o"
 	@echo "... BaseApplication.i"
 	@echo "... BaseApplication.s"

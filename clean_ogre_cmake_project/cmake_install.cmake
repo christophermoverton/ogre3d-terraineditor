@@ -58,6 +58,7 @@ IF(NOT CMAKE_INSTALL_LOCAL_ONLY)
   INCLUDE("/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/cmake_install.cmake")
   INCLUDE("/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex/cmake_install.cmake")
   INCLUDE("/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/cmake_install.cmake")
+  INCLUDE("/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/DiamondSquare/cmake_install.cmake")
 
 ENDIF(NOT CMAKE_INSTALL_LOCAL_ONLY)
 

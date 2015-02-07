@@ -1,3 +1,4 @@
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/DiamondSquare/CMakeFiles/DiamondSquare.dir
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles/OgreApp.dir
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex/CMakeFiles/Simplex.dir
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/CMakeFiles/Voronoi.dir

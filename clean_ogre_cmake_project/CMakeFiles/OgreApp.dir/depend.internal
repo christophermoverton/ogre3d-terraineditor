@@ -691,6 +691,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /usr/local/include/cegui-0/CEGUI/widgets/All.h
  /usr/local/include/cegui-0/CEGUI/widgets/ButtonBase.h
  /usr/local/include/cegui-0/CEGUI/widgets/ToggleButton.h
+ DiamondSquare/DiamondSquare.cpp
  Simplex/Array2D.h
  Simplex/SimplexNoise.h
  Voronoi/VEdge.h

@@ -119,6 +119,8 @@ BuildSimplex.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildSimplex.cpp
 BuildFbm.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildFbm.cpp
+DiamondSquare.cpp
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/DiamondSquare.cpp
 iostream
 -
 string
@@ -177,6 +179,8 @@ BuildSimplex.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildSimplex.cpp
 BuildFbm.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildFbm.cpp
+DiamondSquare.cpp
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/DiamondSquare.cpp
 windows.h
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/windows.h
 
@@ -5245,6 +5249,22 @@ vector
 /usr/local/include/cegui-0/CEGUI/widgets/ToggleButton.h
 CEGUI/widgets/ButtonBase.h
 /usr/local/include/cegui-0/CEGUI/widgets/CEGUI/widgets/ButtonBase.h
+
+DiamondSquare/DiamondSquare.cpp
+cstdlib
+-
+iostream
+-
+fstream
+-
+string
+-
+cmath
+-
+ctime
+-
+TerrainStruct.h
+DiamondSquare/TerrainStruct.h
 
 Simplex/Array2D.h
 string
