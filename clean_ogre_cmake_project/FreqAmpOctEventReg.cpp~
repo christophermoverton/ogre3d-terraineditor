@@ -4,6 +4,7 @@
 #include "PerlinTest.cpp"
 #include "BuildVoronoi.cpp"
 #include "BuildSimplex.cpp"
+#include "BuildFbm.cpp"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -23,7 +24,7 @@ using namespace std;
 
 class FreqAmpOctEventReg{
 	public:
-		FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera);
+		FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera, Ogre::Rectangle2D* mMiniScreen);
 		void updateF(const CEGUI::EventArgs &e);
 		void updateA(const CEGUI::EventArgs &e);
 		void updateO(const CEGUI::EventArgs &e);
@@ -124,6 +125,8 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	itemCombobox = new CEGUI::ListboxTextItem("Voronoi", 2);
 	combobox->addItem(itemCombobox);
 	itemCombobox = new CEGUI::ListboxTextItem("Simplex", 3);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("SteinFbm", 4);
 	combobox->addItem(itemCombobox);
 
 	Frequencyslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateF, this));
@@ -261,6 +264,9 @@ void FreqAmpOctEventReg::loadConfig(){
 	}
 	else if ((int)nval == 3){
 		itemCombobox = new CEGUI::ListboxTextItem("Simplex", 3);
+	}
+	else if ((int)nval == 3){
+		itemCombobox = new CEGUI::ListboxTextItem("SteinFbm", 4);
 	}
 	ncombobox->setItemSelectState 	((int)nval,true);
 	
@@ -429,13 +435,26 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
 			//Voronoi* test = new Voronoi(tc["Scale"], 513);
-			BuildSimplex * testm = new BuildSimplex(tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"]);  //perlin derivative
+			BuildSimplex * tests = new BuildSimplex(tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"]);  //perlin derivative
 			//ss5 << "!!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
 			//tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
-			(*tnoisevalsm)[i] = testm->getHeightMap();
-			(*vnoisevalsm)[i] = testm->getHeightMap2();
+			(*tnoisevalsm)[i] = tests->getHeightMap();
+			(*vnoisevalsm)[i] = tests->getHeightMap2();
+		}
+		else if ((int)tc["NoiseType"]==3){
+			ss5 << "SteinFbm" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
+			//Voronoi* test = new Voronoi(tc["Scale"], 513);
+			BuildFbm * testf = new BuildFbm(tc["Frequency"], tc["Octaves"]);  //perlin derivative
+			//ss5 << "!!!!!!!" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
+			//tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
+			(*vnoisevalsm)[i] = testf->getHeightMap();
+			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
 		ss5 << "weights!!!!!!! " << tc["Weight"]<< "\n";
 		tlog->logMessage(ss5.str());

@@ -32,6 +32,7 @@ This source file is part of the
 #include "FreqAmpOctEventReg.cpp"
 #include "BuildVoronoi.cpp"
 #include "BuildSimplex.cpp"
+#include "BuildFbm.cpp"
  
 //-------------------------------------------------------------------------------------
 ITutorial02::ITutorial02(void)

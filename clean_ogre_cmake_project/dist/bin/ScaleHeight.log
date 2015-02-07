@@ -1,0 +1,546 @@
+04:49:46: Test update config
+
+04:49:46: Test update config
+Noise type nameID: 4
+
+04:49:46: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+
+04:49:46: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+
+04:49:46: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+
+04:49:46: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+Test update config settings updated
+
+04:49:47: Test load config
+
+04:49:47: Test load config
+Test load config at litem
+
+04:49:47: Test load config
+Test load config at litem
+Test load config at name
+
+04:49:47: Test load config
+Test load config at litem
+Test load config at name
+Test load config
+
+04:49:56: Test update config
+Noise type nameID: 1
+
+04:49:56: Test update config
+Noise type nameID: 1
+Test update config
+updated noise type: 0
+
+04:49:56: Test update config
+Noise type nameID: 1
+Test update config
+updated noise type: 0
+Test update config2
+
+04:49:56: Test update config
+Noise type nameID: 1
+Test update config
+updated noise type: 0
+Test update config2
+Test update config
+
+04:49:56: Test update config
+Noise type nameID: 1
+Test update config
+updated noise type: 0
+Test update config2
+Test update config
+Test update config settings updated
+
+04:49:56: Hitting update button!!!!!!!
+Second terrain noise type:  3
+Config size: 2
+
+04:49:56: Key: 1
+Values:
+ Amplitude,26.8293
+ Freqdiv,1
+ Frequency,0.875
+ Gain,0.5
+ Maxheight,0
+ NoiseType,3
+ Octaves,1
+ Scale,1
+ Weight,0.515337
+Key: 2
+Values:
+ Amplitude,0.5
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseType,0
+ Octaves,2
+ Scale,12.6667
+ Weight,0.5
+
+04:49:56: Starting noise gen loop!!!!!!!
+NoiseType: 3
+
+04:49:56: SteinFbm
+
+04:50:02: 
+04:50:03: weights!!!!!!! 0.515337
+
+04:50:03: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+04:50:03: Hitting update button!!!!!!!
+
+04:50:03: weights!!!!!!! 0.5
+
+04:50:03: Update 3!!!!!!!
+
+04:50:03: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+04:50:26: Test update config
+
+04:50:26: Test update config
+Noise type nameID: 1
+
+04:50:26: Test update config
+Noise type nameID: 1
+Test update config
+updated noise type: 0
+
+04:50:26: Test update config
+Noise type nameID: 1
+Test update config
+updated noise type: 0
+Test update config2
+
+04:50:26: Test update config
+Noise type nameID: 1
+Test update config
+updated noise type: 0
+Test update config2
+Test update config
+
+04:50:26: Test update config
+Noise type nameID: 1
+Test update config
+updated noise type: 0
+Test update config2
+Test update config
+Test update config settings updated
+
+04:50:26: Test load config
+
+04:50:26: Test load config
+Test load config at litem
+
+04:50:26: Test load config
+Test load config at litem
+Test load config at name
+
+04:50:26: Test load config
+Test load config at litem
+Test load config at name
+Test load config
+
+04:50:34: Test update config
+Noise type nameID: 4
+
+04:50:34: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+
+04:50:34: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+
+04:50:34: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+
+04:50:34: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+Test update config settings updated
+
+04:50:34: Hitting update button!!!!!!!
+Second terrain noise type:  3
+Config size: 2
+
+04:50:34: Key: 1
+Values:
+ Amplitude,53.6585
+ Freqdiv,1
+ Frequency,0.8125
+ Gain,0.5
+ Maxheight,0
+ NoiseType,3
+ Octaves,1
+ Scale,1
+ Weight,0.515337
+Key: 2
+Values:
+ Amplitude,0.5
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseType,0
+ Octaves,2
+ Scale,12.6667
+ Weight,0.5
+
+04:50:34: Starting noise gen loop!!!!!!!
+NoiseType: 3
+
+04:50:34: SteinFbm
+
+04:50:40: 
+04:50:40: weights!!!!!!! 0.515337
+
+04:50:40: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+04:50:41: Hitting update button!!!!!!!
+
+04:50:41: weights!!!!!!! 0.5
+
+04:50:41: Update 3!!!!!!!
+
+04:50:41: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+04:51:10: Test update config
+Noise type nameID: 4
+
+04:51:10: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+
+04:51:10: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+
+04:51:10: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+
+04:51:10: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+Test update config settings updated
+
+04:51:10: Hitting update button!!!!!!!
+Second terrain noise type:  3
+Config size: 2
+
+04:51:10: Key: 1
+Values:
+ Amplitude,72.561
+ Freqdiv,1
+ Frequency,0.65625
+ Gain,0.5
+ Maxheight,0
+ NoiseType,3
+ Octaves,1
+ Scale,1
+ Weight,0.515337
+Key: 2
+Values:
+ Amplitude,0.5
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseType,0
+ Octaves,2
+ Scale,12.6667
+ Weight,0.5
+
+04:51:10: Starting noise gen loop!!!!!!!
+NoiseType: 3
+
+04:51:10: SteinFbm
+
+04:51:15: 
+04:51:15: weights!!!!!!! 0.515337
+
+04:51:15: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+04:51:16: Hitting update button!!!!!!!
+
+04:51:16: weights!!!!!!! 0.5
+
+04:51:16: Update 3!!!!!!!
+
+04:51:16: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+04:51:37: Test update config
+Noise type nameID: 4
+
+04:51:37: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+
+04:51:37: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+
+04:51:37: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+
+04:51:37: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+Test update config settings updated
+
+04:51:37: Hitting update button!!!!!!!
+Second terrain noise type:  3
+Config size: 2
+
+04:51:37: Key: 1
+Values:
+ Amplitude,72.561
+ Freqdiv,1
+ Frequency,0.7
+ Gain,0.5
+ Maxheight,0
+ NoiseType,3
+ Octaves,1
+ Scale,1
+ Weight,0.515337
+Key: 2
+Values:
+ Amplitude,0.5
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseType,0
+ Octaves,2
+ Scale,12.6667
+ Weight,0.5
+
+04:51:37: Starting noise gen loop!!!!!!!
+NoiseType: 3
+
+04:51:37: SteinFbm
+
+04:51:38: 
+04:51:38: weights!!!!!!! 0.515337
+
+04:51:38: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+04:51:38: Hitting update button!!!!!!!
+
+04:51:38: weights!!!!!!! 0.5
+
+04:51:38: Update 3!!!!!!!
+
+04:51:38: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+04:52:02: Test update config
+Noise type nameID: 4
+
+04:52:02: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+
+04:52:02: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+
+04:52:02: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+
+04:52:02: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+Test update config settings updated
+
+04:52:02: Hitting update button!!!!!!!
+Second terrain noise type:  3
+Config size: 2
+
+04:52:02: Key: 1
+Values:
+ Amplitude,72.561
+ Freqdiv,1
+ Frequency,0.7625
+ Gain,0.5
+ Maxheight,0
+ NoiseType,3
+ Octaves,1
+ Scale,1
+ Weight,0.515337
+Key: 2
+Values:
+ Amplitude,0.5
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseType,0
+ Octaves,2
+ Scale,12.6667
+ Weight,0.5
+
+04:52:02: Starting noise gen loop!!!!!!!
+NoiseType: 3
+
+04:52:02: SteinFbm
+
+04:52:02: 
+04:52:03: weights!!!!!!! 0.515337
+
+04:52:03: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+04:52:03: Hitting update button!!!!!!!
+
+04:52:03: weights!!!!!!! 0.5
+
+04:52:03: Update 3!!!!!!!
+
+04:52:03: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+04:52:16: Test update config
+Noise type nameID: 4
+
+04:52:16: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+
+04:52:16: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+
+04:52:16: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+
+04:52:16: Test update config
+Noise type nameID: 4
+Test update config
+updated noise type: 3
+Test update config2
+Test update config
+Test update config settings updated
+
+04:52:16: Hitting update button!!!!!!!
+Second terrain noise type:  3
+Config size: 2
+
+04:52:16: Key: 1
+Values:
+ Amplitude,35.9756
+ Freqdiv,1
+ Frequency,0.84375
+ Gain,0.5
+ Maxheight,0
+ NoiseType,3
+ Octaves,1
+ Scale,1
+ Weight,0.515337
+Key: 2
+Values:
+ Amplitude,0.5
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseType,0
+ Octaves,2
+ Scale,12.6667
+ Weight,0.5
+
+04:52:16: Starting noise gen loop!!!!!!!
+NoiseType: 3
+
+04:52:16: SteinFbm
+
+04:52:22: 
+04:52:22: weights!!!!!!! 0.515337
+
+04:52:22: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+04:52:23: Hitting update button!!!!!!!
+
+04:52:23: weights!!!!!!! 0.5
+
+04:52:23: Update 3!!!!!!!
+
+04:52:23: Update 3!!!!!!!
+Hitting update button!!!!!!!
+

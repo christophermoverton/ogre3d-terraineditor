@@ -45,6 +45,10 @@ libfbm.hpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm.hpp
 Imagestuff.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
+math.h
+-
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildSimplex.cpp
 SimplexNoise.h
@@ -113,6 +117,8 @@ BuildVoronoi.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildVoronoi.cpp
 BuildSimplex.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildSimplex.cpp
+BuildFbm.cpp
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildFbm.cpp
 iostream
 -
 string
