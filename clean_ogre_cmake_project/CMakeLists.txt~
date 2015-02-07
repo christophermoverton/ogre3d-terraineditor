@@ -118,6 +118,7 @@ endif()
 
 SET(USE_FFTW 1)
 find_package( FFTW )
+SET(FFTW3_LIBRARIES fftw3)
 #find_library(FFTW_LIBRARY
 #     NAMES fftw3 fftw)
 #set(FFTW_LIBRARIES "${FFTW_LIBRARY}")
@@ -148,11 +149,13 @@ include_directories( ${OIS_INCLUDE_DIRS}
 	${CMAKE_CURRENT_BINARY_DIR}/Voronoi
 	${CMAKE_CURRENT_BINARY_DIR}/Simplex
 	${CMAKE_CURRENT_BINARY_DIR}/libfbm
+	${CMAKE_CURRENT_BINARY_DIR}/DiamondSquare
 )
 
 add_subdirectory (Voronoi) 
 add_subdirectory (Simplex)
 add_subdirectory (libfbm)
+add_subdirectory (DiamondSquare)
  
 add_executable(OgreApp WIN32 ${HDRS} ${SRCS})
  
