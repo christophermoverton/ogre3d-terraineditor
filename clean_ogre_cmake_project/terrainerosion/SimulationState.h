@@ -73,7 +73,7 @@ public:
             for (uint x=0; x<water.width(); x++)
             {
                 water(y,x) = 0.0f;
-		terr::Coordpair * coordpair = new terr::Coordpair(y,x);
+		terr::Coordpair * coordpair = new terr::Coordpair((int)y,(int)x);
 		terrain(y,x) = (*mterrain)[(*coordpair)];//->getHeightAtPoint((long)y, (long)x);
                 //terrain(y,x) = h*4*1.3;
                 suspendedSediment(y,x) = 0.0f;// 0.1*terrain(y,x);

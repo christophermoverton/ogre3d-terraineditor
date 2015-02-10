@@ -69,9 +69,10 @@ void FluidSimulation::makeRain(double dt)
 
     for (uint i=0; i<100; i++)
     {
-        uint x = (uint) ((water.width()-2)*(double)rand()/(double)RAND_MAX);
-        uint y = (uint) ((water.width()-2)*(double)rand()/(double)RAND_MAX);
-
+        uint x = (uint) rand() % (water.width()-2);//((water.width()-2)*(double)rand()/(double)RAND_MAX);
+        uint y = (uint) rand() % (water.width()-2);//((water.width()-2)*(double)rand()/(double)RAND_MAX);
+        x += (uint) 1;
+        y += (uint) 1;
 //        water(y,x) += 1;
         water(y-1, x-1)  += 1.0/16.0;
         water(y-1, x)  += 1.0/16.0;
@@ -151,12 +152,12 @@ void FluidSimulation::smoothTerrain()
 
             if ((abs(dl) > maxD || abs(dr) > maxD) && dr*dl > 0.0f)
             {
-                float avg = (h+hl+hr+ht+hb)/5;
+                float avg = (h+hl+hr+ht+hb)/5.0f;
                 tmpSediment(y,x) = avg;
             }
             else if ((abs(dt) > maxD || abs(db) > maxD) && dt*db > 0.0f)
             {
-                float avg = (h+hl+hr+ht+hb)/5;
+                float avg = (h+hl+hr+ht+hb)/5.0f;
                 tmpSediment(y,x) = avg;
             }
         }
@@ -290,7 +291,11 @@ void FluidSimulation::simulateFlow(double dt)
 
             // scaling
             float sumFlux = lFlux(y,x)+rFlux(y,x)+bFlux(y,x)+tFlux(y,x);
-            float K = std::min(1.0f,float((water(y,x)*dx*dy)/(sumFlux*dt)));
+	    float K;
+            if (sumFlux*dt != 0){
+            	K = std::min(1.0f,float((water(y,x)*dx*dy)/(sumFlux*dt)));
+	    } 
+	    else{ K = 1.0f;}
             rFlux(y,x) *= K;
             lFlux(y,x) *= K;
             tFlux(y,x) *= K;
@@ -522,6 +527,7 @@ void FluidSimulation::simulateEvaporation(double dt)
 
 void FluidSimulation::update(double dt, bool rain, bool flood)
 {
+
     // 1. Add water to the system
     if (rain)
         makeRain(dt);
@@ -531,6 +537,7 @@ void FluidSimulation::update(double dt, bool rain, bool flood)
 
     // 2. Simulate Flow
     simulateFlow(dt);
+
     // 3. Simulate Errosion-deposition
     simulateErosion(dt);
     // 4. Advection of suspended sediment

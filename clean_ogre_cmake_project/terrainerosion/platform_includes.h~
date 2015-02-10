@@ -38,7 +38,7 @@
 #include <GL/glew.h> // brew install glew
 
 #include <GL/glx.h>
-#include <GLFW/glfw.h>
+//#include <GLFW/glfw.h>
 
 
 
