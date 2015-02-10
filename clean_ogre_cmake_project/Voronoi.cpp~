@@ -669,7 +669,7 @@ vector<double> Voronoi::nearestNodes2radial(vector<double> pos){
 int Voronoi::nearestNodes2radial2(vector<double> pos){
 //simple set checking cell algorithm 
 		std::ostringstream ss5;
-		double minval = pow(2*pow(csize,2), (double).5f);
+		double minval = cmath::pow(2*cmath::pow(csize,2), (double).5f);
 		double minval2 = (double)0.0f;
 		vector<int> minvalis(6);
 		int minvali = 0;

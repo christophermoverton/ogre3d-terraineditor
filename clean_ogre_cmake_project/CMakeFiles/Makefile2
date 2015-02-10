@@ -60,9 +60,10 @@ CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_pro
 
 # All Build rule for target.
 CMakeFiles/OgreApp.dir/all: Voronoi/CMakeFiles/Voronoi.dir/all
-CMakeFiles/OgreApp.dir/all: Simplex/CMakeFiles/Simplex.dir/all
 CMakeFiles/OgreApp.dir/all: libfbm/CMakeFiles/libfbm.dir/all
+CMakeFiles/OgreApp.dir/all: Simplex/CMakeFiles/Simplex.dir/all
 CMakeFiles/OgreApp.dir/all: DiamondSquare/CMakeFiles/DiamondSquare.dir/all
+CMakeFiles/OgreApp.dir/all: terrainerosion/CMakeFiles/terrainerosion.dir/all
 	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/depend
 	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/build
 	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles  2 3
@@ -75,7 +76,7 @@ all: CMakeFiles/OgreApp.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/OgreApp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 10
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/OgreApp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
 .PHONY : CMakeFiles/OgreApp.dir/rule
@@ -300,6 +301,56 @@ DiamondSquare/CMakeFiles/DiamondSquare.dir/clean:
 
 # clean rule for target.
 clean: DiamondSquare/CMakeFiles/DiamondSquare.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory terrainerosion
+
+# Convenience name for "all" pass in the directory.
+terrainerosion/all: terrainerosion/CMakeFiles/terrainerosion.dir/all
+.PHONY : terrainerosion/all
+
+# Convenience name for "clean" pass in the directory.
+terrainerosion/clean: terrainerosion/CMakeFiles/terrainerosion.dir/clean
+.PHONY : terrainerosion/clean
+
+# Convenience name for "preinstall" pass in the directory.
+terrainerosion/preinstall:
+.PHONY : terrainerosion/preinstall
+
+#=============================================================================
+# Target rules for target terrainerosion/CMakeFiles/terrainerosion.dir
+
+# All Build rule for target.
+terrainerosion/CMakeFiles/terrainerosion.dir/all:
+	$(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/depend
+	$(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles  9 10
+	@echo "Built target terrainerosion"
+.PHONY : terrainerosion/CMakeFiles/terrainerosion.dir/all
+
+# Include target in all.
+all: terrainerosion/CMakeFiles/terrainerosion.dir/all
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+terrainerosion/CMakeFiles/terrainerosion.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 terrainerosion/CMakeFiles/terrainerosion.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
+.PHONY : terrainerosion/CMakeFiles/terrainerosion.dir/rule
+
+# Convenience name for target.
+terrainerosion: terrainerosion/CMakeFiles/terrainerosion.dir/rule
+.PHONY : terrainerosion
+
+# clean rule for target.
+terrainerosion/CMakeFiles/terrainerosion.dir/clean:
+	$(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/clean
+.PHONY : terrainerosion/CMakeFiles/terrainerosion.dir/clean
+
+# clean rule for target.
+clean: terrainerosion/CMakeFiles/terrainerosion.dir/clean
 .PHONY : clean
 
 #=============================================================================

@@ -247,6 +247,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: PerlinTest.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: PlaneIntersection.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ScaleHeights.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TPoint3.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainFluidSimulation.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainStruct.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Terrainheightselection.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi.cpp
@@ -700,4 +701,9 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi/VPoint.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi/Voronoi.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi/VoronoiCell.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: libfbm/libfbm.hpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: terrainerosion/Grid2D.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: terrainerosion/Math/PerlinNoise.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: terrainerosion/Simulation/FluidSimulation.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: terrainerosion/SimulationState.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: terrainerosion/platform_includes.h
 

@@ -202,6 +202,19 @@ DiamondSquare/fast:
 	$(MAKE) -f DiamondSquare/CMakeFiles/DiamondSquare.dir/build.make DiamondSquare/CMakeFiles/DiamondSquare.dir/build
 .PHONY : DiamondSquare/fast
 
+#=============================================================================
+# Target rules for targets named terrainerosion
+
+# Build rule for target.
+terrainerosion: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 terrainerosion
+.PHONY : terrainerosion
+
+# fast build rule for target.
+terrainerosion/fast:
+	$(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/build
+.PHONY : terrainerosion/fast
+
 BaseApplication.o: BaseApplication.cpp.o
 .PHONY : BaseApplication.o
 
@@ -266,6 +279,7 @@ help:
 	@echo "... Simplex"
 	@echo "... libfbm"
 	@echo "... DiamondSquare"
+	@echo "... terrainerosion"
 	@echo "... BaseApplication.o"
 	@echo "... BaseApplication.i"
 	@echo "... BaseApplication.s"

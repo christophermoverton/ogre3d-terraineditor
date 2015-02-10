@@ -23,6 +23,7 @@ This source file is part of the
 #include <cmath>
 //#include "TextRenderer.cpp"
 #include "Terrainheightselection.cpp"
+#include "TerrainFluidSimulation.cpp"
 #include "cspline.cpp"
 #include "Falloffinterpolate.cpp"
 #include "PlaneIntersection.cpp"
@@ -337,6 +338,7 @@ void ITutorial02::createScene(void)
     //new BuildSimplex();
     //new BuildFbm();
     new DiamondSquare();
+    new TerrainFluidSimulation(cterrain);
     //CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
     //cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
 }

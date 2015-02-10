@@ -15,6 +15,7 @@ SET(CMAKE_MAKEFILE_DEPENDS
   "Simplex/CMakeLists.txt"
   "Voronoi/CMakeLists.txt"
   "libfbm/CMakeLists.txt"
+  "terrainerosion/CMakeLists.txt"
   "/usr/local/lib/OGRE/cmake/CompareVersionStrings.cmake"
   "/usr/local/lib/OGRE/cmake/DetermineVersion.cmake"
   "/usr/local/lib/OGRE/cmake/FindCEGUI.cmake"
@@ -60,6 +61,7 @@ SET(CMAKE_MAKEFILE_PRODUCTS
   "Simplex/CMakeFiles/CMakeDirectoryInformation.cmake"
   "libfbm/CMakeFiles/CMakeDirectoryInformation.cmake"
   "DiamondSquare/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "terrainerosion/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -69,4 +71,5 @@ SET(CMAKE_DEPEND_INFO_FILES
   "Simplex/CMakeFiles/Simplex.dir/DependInfo.cmake"
   "libfbm/CMakeFiles/libfbm.dir/DependInfo.cmake"
   "DiamondSquare/CMakeFiles/DiamondSquare.dir/DependInfo.cmake"
+  "terrainerosion/CMakeFiles/terrainerosion.dir/DependInfo.cmake"
   )

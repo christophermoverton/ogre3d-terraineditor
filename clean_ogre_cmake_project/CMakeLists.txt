@@ -150,18 +150,20 @@ include_directories( ${OIS_INCLUDE_DIRS}
 	${CMAKE_CURRENT_BINARY_DIR}/Simplex
 	${CMAKE_CURRENT_BINARY_DIR}/libfbm
 	${CMAKE_CURRENT_BINARY_DIR}/DiamondSquare
+	${CMAKE_CURRENT_BINARY_DIR}/terrainerosion
 )
 
 add_subdirectory (Voronoi) 
 add_subdirectory (Simplex)
 add_subdirectory (libfbm)
 add_subdirectory (DiamondSquare)
+add_subdirectory (terrainerosion)
  
 add_executable(OgreApp WIN32 ${HDRS} ${SRCS})
  
 set_target_properties(OgreApp PROPERTIES DEBUG_POSTFIX _d)
  
-target_link_libraries(OgreApp ${OGRE_LIBRARIES} ${OIS_LIBRARIES} ${OGRE_Overlay_LIBRARIES} ${CEGUI_LIBRARY} ${CEGUIOGRE_LIBRARY_OPTIMIZED} Voronoi Simplex libfbm DiamondSquare ${FFTW_LIBRARIES})
+target_link_libraries(OgreApp ${OGRE_LIBRARIES} ${OIS_LIBRARIES} ${OGRE_Overlay_LIBRARIES} ${CEGUI_LIBRARY} ${CEGUIOGRE_LIBRARY_OPTIMIZED} Voronoi Simplex libfbm DiamondSquare terrainerosion ${FFTW_LIBRARIES})
  
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/bin)
 file(MAKE_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/dist/media)

@@ -248,6 +248,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PlaneIntersection.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ScaleHeights.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+ /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainFluidSimulation.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Terrainheightselection.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi.cpp
@@ -701,3 +702,8 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  Voronoi/Voronoi.h
  Voronoi/VoronoiCell.h
  libfbm/libfbm.hpp
+ terrainerosion/Grid2D.h
+ terrainerosion/Math/PerlinNoise.h
+ terrainerosion/Simulation/FluidSimulation.h
+ terrainerosion/SimulationState.h
+ terrainerosion/platform_includes.h

@@ -168,6 +168,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	Ogre::TexturePtr pResource = Ogre::TextureManager::getSingleton().getByName("maTexture");
         Ogre::Image imageOgre;
         imageOgre.load("test6.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	pResource->unload();
 	pResource->loadImage(imageOgre);
 	//pResource->reload();
 	Ogre::MaterialManager::getSingleton().remove("RttMat");

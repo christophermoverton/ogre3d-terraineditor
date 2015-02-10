@@ -325,6 +325,9 @@ int main()
 
 namespace libfbm
 {
+  typedef unsigned long int uint64_t;
+  
+  //using glm::uint64_t;
   /** Normally distributed random number generator interface.
     * You can provide your own by extending this class and
     * passing it to Field::generate().
