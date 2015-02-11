@@ -338,7 +338,7 @@ void ITutorial02::createScene(void)
     //new BuildSimplex();
     //new BuildFbm();
     new DiamondSquare();
-    new TerrainFluidSimulation(cterrain);
+    new TerrainFluidSimulation(cterrain,false);//(cterrain);
     //CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
     //cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
 }

@@ -310,7 +310,7 @@ void ITutorial02::createScene(void)
     for (int i=0; i<250; i++ ){
 	for (int j=0; j<250; j++){
 	   ss5 << "Terrain position("<<i<<","<<j<<")"<<cterrain->getHeightAtPoint(i,j)<<"\n" ;
-	   cterrain->setHeightAtPoint(i,j,cterrain->getHeightAtPoint(i,j)+100);
+	   //cterrain->setHeightAtPoint(i,j,cterrain->getHeightAtPoint(i,j)+100);
 	}
     }
     ss5 <<"Get terrain position (30.5,30.5): "<<cterrain->getHeightAtPoint(30.5,30.5)<<"\n";
@@ -338,7 +338,7 @@ void ITutorial02::createScene(void)
     //new BuildSimplex();
     //new BuildFbm();
     new DiamondSquare();
-    new TerrainFluidSimulation(cterrain);
+    new TerrainFluidSimulation(cterrain,false);//(cterrain);
     //CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
     //cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
 }

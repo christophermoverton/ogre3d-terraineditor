@@ -27,7 +27,7 @@ class TerrainFluidSimulation
 {
 public:
     TerrainFluidSimulation(uint dim=513);
-    TerrainFluidSimulation(Ogre::Terrain* mterrain, uint dim=513);
+    TerrainFluidSimulation(Ogre::Terrain* mterrain, bool iterr, uint dim=513);
 protected:
 
     /// Starts simulation main loop.
@@ -44,6 +44,8 @@ protected:
     bool _flood;
     uint _dim;
     glm::vec2 _rainPos;
+    bool _iterr;
+    double _scalediv;
 
     SimulationState * _simulationState;
     Simulation::FluidSimulation * _simulation;
@@ -82,7 +84,7 @@ TerrainFluidSimulation::TerrainFluidSimulation(uint dim)
     Run();
 }
 
-TerrainFluidSimulation::TerrainFluidSimulation(Ogre::Terrain* mterrain, uint dim)
+TerrainFluidSimulation::TerrainFluidSimulation(Ogre::Terrain* mterrain, bool iterr,uint dim)
 {
     _rain = true;
     _rainPos = vec2(dim/2,dim/2);
@@ -90,14 +92,27 @@ TerrainFluidSimulation::TerrainFluidSimulation(Ogre::Terrain* mterrain, uint dim
     _mterrain = mterrain;
     _dim = dim;
     _terrainHeightBuffer = new terr::CPointsMap();
-    
-    for (uint x = 0; x < _dim; x++){
-	for (uint y = 0; y < _dim; y++){
-		terr::Coordpair * coordpair = new terr::Coordpair(x,y);
+    _iterr = iterr;
+    if (!iterr){
+        double maxval = 0.0f, minval = 10000000.0f, scalediv, scalemult;
+        for (uint x = 0; x < _dim; x++){
+	    for (uint y = 0; y < _dim; y++){
+		terr::Coordpair * coordpair = new terr::Coordpair((int)x,(int)y);
 		double heightpos = (double) mterrain->getHeightAtPoint(x,y);
 		(*_terrainHeightBuffer)[(*coordpair)] = heightpos;
+	        if (heightpos > maxval){maxval = heightpos;}
+		if (heightpos < minval) {minval = heightpos;}
+	    }
+        }
+        if (abs(maxval) > abs(minval)){scalediv = abs(maxval); _scalediv = scalediv;}
+        else {scalediv = abs(minval); _scalediv = scalediv;}
+        for (uint x = 0; x < _dim; x++){
+	    for (uint y = 0; y < _dim; y++){
+		terr::Coordpair * coordpair = new terr::Coordpair((int)x,(int)y);
+		(*_terrainHeightBuffer)[(*coordpair)] /= scalediv;
 
-	}
+	    }
+        }
     }
     /*
     if (abs(maxval) > abs(minval)){scalediv = abs(maxval);}
@@ -111,8 +126,8 @@ TerrainFluidSimulation::TerrainFluidSimulation(Ogre::Terrain* mterrain, uint dim
 	}
     }
     //*/
-
-    _simulationState = new SimulationState(dim,dim, _terrainHeightBuffer);
+    if (!iterr){_simulationState = new SimulationState(dim,dim, _terrainHeightBuffer);}
+    else{_simulationState = new SimulationState(dim,dim);}
     _simulation = new Simulation::FluidSimulation((*_simulationState));
     _simulation->rainPos = _rainPos;  
     _waterHeightBuffer   = new terr::CPointsMap();
@@ -171,7 +186,7 @@ void TerrainFluidSimulation::runMainloop()
 {
     //using namespace std::chrono;
     // Settings
-    double dt = 1000.0;// *60.0f *60.0f * 24.0f*30.0f*12.0f*10000.0f; // 60 fps physics simulation
+    double dt = 1000.0f/60.0f;// *60.0f *60.0f * 24.0f*30.0f*12.0f*10000.0f; // 60 fps physics simulation
     // Setup
     //high_resolution_clock clock;
     //high_resolution_clock::time_point currentTime, newTime;
@@ -183,36 +198,43 @@ void TerrainFluidSimulation::runMainloop()
 
     _finished = false;
     //currentTime = clock.now();
-    for (int i = 0; i < 100; i++){
+    for (int i = 0; i < 1000; i++){
     	updatePhysics(dt);
     }
     ImageBuffer buffer((double)_dim);
     FillColour* fill = new FillColour (&buffer);
-    double maxval = 0.0f, minval = 10000000.0f, scalediv;
+    double maxval = 0.0f, minval = 10000000.0f, scalediv, scalemult = 20.0f;;
+    if(_iterr){scalemult = 20.0f;}
+    else{scalemult = _scalediv;}
     _mterrain->dirty();
     for (uint i = 0; i < _dim; i++){
     	for (uint j = 0; j < _dim; j++){
 		terr::Coordpair * coordpair = new terr::Coordpair((int)i,(int)j);	
 		double colval = _simulationState->terrain(i,j);
+		//double colval2 = _simulationState->suspendedSediment(i,j);
 		(*_terrainHeightBuffer)[(*coordpair)] = _simulationState->terrain(i,j);
 		(*_waterHeightBuffer)[(*coordpair)] = _simulationState->water(i,j);
 		(*_sedimentBuffer)[(*coordpair)] = _simulationState->suspendedSediment(i,j);
 
 	        if (colval > maxval){maxval = colval;}
 		if (colval < minval) {minval = colval;}
-		_mterrain->setHeightAtPoint((long) i, (long) j, colval);
+		_mterrain->setHeightAtPoint((long) i, (long) j, scalemult*colval);
 	}
     }
     _mterrain->update();
-
+    bool shift = false;
     if (abs(maxval) > abs(minval)){scalediv = abs(maxval);}
     else {scalediv = abs(minval);}
-
+    if (minval < 0){scalediv *= 2; shift = true;}
+    
     for (uint x = 0; x < _dim; x++){
 	for (uint y = 0; y < _dim; y++){
 		terr::Coordpair * coordpair = new terr::Coordpair((int)x,(int)y);
 		//double heightpos = (double) mterrain->getHeightAtPoint(x,y);
-		double colval = (*_terrainHeightBuffer)[(*coordpair)]/scalediv;
+		double colval;
+                if (shift){colval = ((*_terrainHeightBuffer)[(*coordpair)]/scalediv) + 0.5f;}
+		else{colval = (*_terrainHeightBuffer)[(*coordpair)]/scalediv;}
+		//double colval2 = (*_sedimentBuffer)[(*coordpair)]/scalediv;
 		Ogre::ColourValue col = Ogre::ColourValue(colval,colval,colval);
 		fill->setPixl((size_t)x, (size_t)y, col);
 		//(*_terrainHeightBuffer)[(*coordpair)] /= scalediv;
