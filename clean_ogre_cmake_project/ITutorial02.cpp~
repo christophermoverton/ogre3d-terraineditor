@@ -31,6 +31,7 @@ This source file is part of the
 #include "PerlinTest.cpp"
 #include "LoadHeightMap.cpp"
 #include "FreqAmpOctEventReg.cpp"
+#include "FluidErosionDReg.cpp"
 #include "BuildVoronoi.cpp"
 #include "BuildSimplex.cpp"
 #include "BuildFbm.cpp"
@@ -187,8 +188,11 @@ void ITutorial02::createScene(void)
     //myImageWindow->setText("Hello World!");
     //CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->addChild(myImageWindow);
     CEGUI::Window *newWindow = CEGUI::WindowManager::getSingleton().loadLayoutFromFile("TreeDemoTaharez2.layout");
+    CEGUI::Window *newWindow2 = CEGUI::WindowManager::getSingleton().loadLayoutFromFile("TreeDemoTaharez23.layout");
     CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->addChild(newWindow);
+    CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->addChild(newWindow2);
     newWindow ->setAlpha(.5);
+    newWindow2 ->setAlpha(.5);
     cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
     cMultiLineEditbox ->setText("Hello World!");
     CEGUI::Window *editbox = newWindow ->getChild("Editbox");
@@ -304,13 +308,14 @@ void ITutorial02::createScene(void)
     std::ostringstream ss5;
     Ogre::Terrain* cterrain = mTerrainGroup->getTerrain(0,0);
     FreqAmpOctEventReg* reg = new FreqAmpOctEventReg(cterrain, mCamera,  mMiniScreen); //registering event handlers
+    FluidErosionDReg* reg2 = new FluidErosionDReg(cterrain, mCamera,  mMiniScreen); //registering event handlers
     ss5<<"Terrain Size: "<< cterrain->getSize()<<"\n";
     ss5<<"Maximum Height: "<< cterrain->getMaxHeight()<<"\n";
     ss5<<"World Size: " << cterrain->getWorldSize()<<"\n";
     for (int i=0; i<250; i++ ){
 	for (int j=0; j<250; j++){
 	   ss5 << "Terrain position("<<i<<","<<j<<")"<<cterrain->getHeightAtPoint(i,j)<<"\n" ;
-	   cterrain->setHeightAtPoint(i,j,cterrain->getHeightAtPoint(i,j)+100);
+	   //cterrain->setHeightAtPoint(i,j,cterrain->getHeightAtPoint(i,j)+100);
 	}
     }
     ss5 <<"Get terrain position (30.5,30.5): "<<cterrain->getHeightAtPoint(30.5,30.5)<<"\n";
@@ -338,7 +343,7 @@ void ITutorial02::createScene(void)
     //new BuildSimplex();
     //new BuildFbm();
     new DiamondSquare();
-    new TerrainFluidSimulation(cterrain,false);//(cterrain);
+    new TerrainFluidSimulation(cterrain, mMiniScreen,false);//(cterrain);
     //CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
     //cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
 }

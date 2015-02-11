@@ -129,7 +129,7 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	combobox->addItem(itemCombobox);
 	itemCombobox = new CEGUI::ListboxTextItem("SteinFbm", 4);
 	combobox->addItem(itemCombobox);
-	itemCombobox = new CEGUI::ListboxTextItem("DiamondSquare", 4);
+	itemCombobox = new CEGUI::ListboxTextItem("DiamondSquare", 5);
 	combobox->addItem(itemCombobox);
 
 	Frequencyslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateF, this));

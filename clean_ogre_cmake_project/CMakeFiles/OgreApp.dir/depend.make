@@ -236,6 +236,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildVoronoi.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ColorGet.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Combiner.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Falloffinterpolate.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: FluidErosionDReg.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: FreqAmpOctEventReg.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ITutorial02.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ITutorial02.h

@@ -110,6 +110,14 @@ OgreMatrix4.h
 vector
 -
 
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/FluidErosionDReg.cpp
+TerrainFluidSimulation.cpp
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainFluidSimulation.cpp
+CEGUI/CEGUI.h
+-
+CEGUI/RendererModules/Ogre/Renderer.h
+-
+
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/FreqAmpOctEventReg.cpp
 PerlinTest.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinTest.cpp
@@ -175,6 +183,8 @@ LoadHeightMap.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/LoadHeightMap.cpp
 FreqAmpOctEventReg.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/FreqAmpOctEventReg.cpp
+FluidErosionDReg.cpp
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/FluidErosionDReg.cpp
 BuildVoronoi.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildVoronoi.cpp
 BuildSimplex.cpp

@@ -27,7 +27,7 @@ class TerrainFluidSimulation
 {
 public:
     TerrainFluidSimulation(uint dim=513);
-    TerrainFluidSimulation(Ogre::Terrain* mterrain, bool iterr, uint dim=513);
+    TerrainFluidSimulation(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniScreen, bool iterr, uint dim=513);
 protected:
 
     /// Starts simulation main loop.
@@ -40,6 +40,7 @@ protected:
 protected:
     bool _finished;
     Ogre::Terrain * _mterrain;
+    Ogre::Rectangle2D* _mMiniScreen;
     bool _rain;
     bool _flood;
     uint _dim;
@@ -84,12 +85,13 @@ TerrainFluidSimulation::TerrainFluidSimulation(uint dim)
     Run();
 }
 
-TerrainFluidSimulation::TerrainFluidSimulation(Ogre::Terrain* mterrain, bool iterr,uint dim)
+TerrainFluidSimulation::TerrainFluidSimulation(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniScreen, bool iterr,uint dim)
 {
     _rain = true;
     _rainPos = vec2(dim/2,dim/2);
     _flood = false;
     _mterrain = mterrain;
+    _mMiniScreen = mMiniScreen;
     _dim = dim;
     _terrainHeightBuffer = new terr::CPointsMap();
     _iterr = iterr;
@@ -198,7 +200,7 @@ void TerrainFluidSimulation::runMainloop()
 
     _finished = false;
     //currentTime = clock.now();
-    for (int i = 0; i < 1000; i++){
+    for (int i = 0; i < 100; i++){
     	updatePhysics(dt);
     }
     ImageBuffer buffer((double)_dim);
@@ -240,7 +242,18 @@ void TerrainFluidSimulation::runMainloop()
 		//(*_terrainHeightBuffer)[(*coordpair)] /= scalediv;
 	}
     }
-    buffer.saveImage("test8.png");
+    buffer.saveImage("../media/materials/textures/test8.png");
+    Ogre::TexturePtr pResource = Ogre::TextureManager::getSingleton().getByName("maTexture");
+    Ogre::Image imageOgre;
+    imageOgre.load("test8.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    pResource->unload();
+    pResource->loadImage(imageOgre);
+	//pResource->reload();
+    Ogre::MaterialManager::getSingleton().remove("RttMat");
+    Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+    renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture");
+    _mMiniScreen->setMaterial("RttMat");
 }
 
 
