@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="TaharezLook/FrameWindow" name="FluidErosionWindow" >
+        <Property name="Area" value="{{0,1027},{0,5},{0.5,638},{0.8,-440}}" />
+        <Property name="Text" value="Fluid and Thermal Erosion" />
+        <Property name="Alpha" value="0.5" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="MinSize" value="{{0,128},{0,128}}" />
+        <Property name="MouseInputPropagationEnabled" value="true" />
+        <Window type="TaharezLook/Button" name="UpdateButton" >
+            <Property name="Area" value="{{0,123},{0,31},{0,212},{0,63}}" />
+            <Property name="Text" value="Update" />
+        </Window>
+    </Window>
+</GUILayout>
