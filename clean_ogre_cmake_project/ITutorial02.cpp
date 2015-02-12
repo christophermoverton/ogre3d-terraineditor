@@ -635,9 +635,9 @@ bool ITutorial02::mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id
         {
 	CEGUI::System::getSingleton().getDefaultGUIContext().injectMouseButtonDown(convertButton(id));
 	CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
-	
+	CEGUI::Window *newWindow2 = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("FluidErosionWindow");
 	CEGUI::Vector2<float> mousePos = CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().getPosition();
-	if (newWindow->isHit(mousePos)){ 
+	if (newWindow->isHit(mousePos) or newWindow2->isHit(mousePos)){ 
 	return true;
 	}
 	//float posx = mousePos.d_x/float(arg.state.width);

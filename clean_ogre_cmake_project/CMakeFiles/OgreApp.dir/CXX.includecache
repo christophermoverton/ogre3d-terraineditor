@@ -129,6 +129,8 @@ BuildFbm.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildFbm.cpp
 DiamondSquare.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/DiamondSquare.cpp
+Musgrave.cpp
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Musgrave.cpp
 iostream
 -
 string
@@ -224,6 +226,14 @@ TPoint3.h
 Imagestuff.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
 
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Musgrave.cpp
+math.h
+-
+terrainerosion/Math/PerlinNoise.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/terrainerosion/Math/PerlinNoise.h
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Perlin.cpp
 vector
 -
@@ -316,6 +326,12 @@ vector
 OgreMatrix4.h
 -
 OgreVector4.h
+-
+
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/terrainerosion/Math/PerlinNoise.h
+platform_includes.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/terrainerosion/Math/platform_includes.h
+vector
 -
 
 /usr/include/ois/OIS.h

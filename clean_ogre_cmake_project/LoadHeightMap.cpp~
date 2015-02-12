@@ -124,6 +124,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vect
 }
 
 LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniScreen, float maxheightscale, terr::CPointsMap * heightmapvalues){
+        //assumed heightmap values are normalized between [0,1]  will renormalize to [-1,1] and then scale
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("HeightMap.log");
 	std::ostringstream ss5;
 	double size = 513.0f;
@@ -132,7 +133,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	mterrain->dirty();
 	for (terr::CPointsMap::iterator i = heightmapvalues->begin(); i != heightmapvalues->end(); i++){
 		terr::Coordpair hcoord = (*i).first;
-		double posheight = (*i).second*maxheightscale;
+		double posheight = 2*((*i).second-0.5f)*maxheightscale;
 		//ss5<< "posheigh: " << posheight << "\n";
 		mterrain->setHeightAtPoint((long) hcoord.first, (long) hcoord.second, posheight);
 		Ogre::ColourValue col = Ogre::ColourValue((*i).second,(*i).second,(*i).second);

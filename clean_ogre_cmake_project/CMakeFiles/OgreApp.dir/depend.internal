@@ -243,6 +243,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ITutorial02.h
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/LoadHeightMap.cpp
+ /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Musgrave.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Perlin.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinGenerator.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinTest.cpp
@@ -254,6 +255,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Terrainheightselection.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/cspline.cpp
+ /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/terrainerosion/Math/PerlinNoise.h
  /usr/include/ois/OIS.h
  /usr/include/ois/OISConfig.h
  /usr/include/ois/OISEffect.h

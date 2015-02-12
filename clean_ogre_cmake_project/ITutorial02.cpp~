@@ -307,8 +307,8 @@ void ITutorial02::createScene(void)
     //Ogre::Vector3 trheight = planeint->getHeight();
     std::ostringstream ss5;
     Ogre::Terrain* cterrain = mTerrainGroup->getTerrain(0,0);
-    FreqAmpOctEventReg* reg = new FreqAmpOctEventReg(cterrain, mCamera,  mMiniScreen); //registering event handlers
-    FluidErosionDReg* reg2 = new FluidErosionDReg(cterrain, mCamera,  mMiniScreen); //registering event handlers
+    FreqAmpOctEventReg* reg =  new FreqAmpOctEventReg(cterrain, mCamera,  mMiniScreen); //registering event handlers
+    FluidErosionDReg *  reg2 = new FluidErosionDReg(cterrain, mCamera,  mMiniScreen); //registering event handlers
     ss5<<"Terrain Size: "<< cterrain->getSize()<<"\n";
     ss5<<"Maximum Height: "<< cterrain->getMaxHeight()<<"\n";
     ss5<<"World Size: " << cterrain->getWorldSize()<<"\n";
@@ -635,7 +635,7 @@ bool ITutorial02::mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id
         {
 	CEGUI::System::getSingleton().getDefaultGUIContext().injectMouseButtonDown(convertButton(id));
 	CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
-	
+	CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("FluidErosionWindow");
 	CEGUI::Vector2<float> mousePos = CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().getPosition();
 	if (newWindow->isHit(mousePos)){ 
 	return true;

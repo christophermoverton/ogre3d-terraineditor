@@ -497,6 +497,9 @@ Voronoi_LIB_DEPENDS:STATIC=
 //Dependencies for target
 libfbm_LIB_DEPENDS:STATIC=
 
+//Dependencies for the target
+musgrave_LIB_DEPENDS:STATIC=optimized;/usr/local/lib/libOgreMain.so;debug;/usr/local/lib/libOgreMain.so;general;/usr/lib/x86_64-linux-gnu/libboost_thread.so;general;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;general;/usr/lib/x86_64-linux-gnu/libboost_system.so;general;/usr/lib/x86_64-linux-gnu/libboost_atomic.so;general;/usr/lib/x86_64-linux-gnu/libboost_chrono.so;general;/usr/lib/x86_64-linux-gnu/libpthread.so;optimized;/usr/local/lib/libOgreTerrain.so;debug;/usr/local/lib/libOgreTerrain.so;optimized;/usr/lib/x86_64-linux-gnu/libOIS.so;debug;/usr/lib/x86_64-linux-gnu/libOIS.so;optimized;/usr/local/lib/libOgreOverlay.so;debug;/usr/local/lib/libOgreOverlay.so;general;/usr/local/lib/libCEGUIBase-0.so;general;/usr/local/lib/libCEGUIOgreRenderer-0.so;
+
 //Dependencies for target
 terrainerosion_LIB_DEPENDS:STATIC=
 

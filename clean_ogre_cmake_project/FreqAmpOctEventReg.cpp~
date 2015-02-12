@@ -6,6 +6,7 @@
 #include "BuildSimplex.cpp"
 #include "BuildFbm.cpp"
 #include "DiamondSquare.cpp"
+#include "Musgrave.cpp"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -39,6 +40,7 @@ class FreqAmpOctEventReg{
 		void updateW(const CEGUI::EventArgs &e);
 		void updateN(const CEGUI::EventArgs &e);
 		void updateFD(const CEGUI::EventArgs &e);
+		void updateD(const CEGUI::EventArgs &e);
 	private:
 		CEGUI::Window *cnewWindow;
 		CEGUI::Window *Frequencyslider;
@@ -54,6 +56,7 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *FilterTypebox;
 		CEGUI::Window *Weightslider;
 		CEGUI::Window *NoiseTypebox;
+		CEGUI::Window *Depthslider;
 		Ogre::Terrain* cterrain;
 		Ogre::Camera* mCamera;
 		Ogre::Rectangle2D* cmMiniScreen;
@@ -80,6 +83,7 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	Gainslider = cnewWindow ->getChild("GainSlider");
 	Scaleslider = cnewWindow ->getChild("ScaleSlider");
 	Freqdivslider = cnewWindow ->getChild("FreqDivSlider");
+	Depthslider = cnewWindow ->getChild("DepthSlider");
 	Maxheightslider = cnewWindow ->getChild("MaxHeightSlider");
 	Weightslider = cnewWindow ->getChild("WeightSlider");
 	UpdateButton2 = cnewWindow ->getChild("UpdateButton2");
@@ -131,6 +135,14 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	combobox->addItem(itemCombobox);
 	itemCombobox = new CEGUI::ListboxTextItem("DiamondSquare", 5);
 	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("MmultiFractal", 6);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("MHetero", 7);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("MHybridmultiFractal", 8);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("MRigedFractal", 9);
+	combobox->addItem(itemCombobox);
 
 	Frequencyslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateF, this));
 	Amplitudeslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateA, this));
@@ -138,6 +150,7 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	Gainslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateG, this));
 	Scaleslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateS, this));
 	Freqdivslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateFD, this));
+	Depthslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateD, this));
 	Maxheightslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateM, this));
 	Weightslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateW, this));
 	Terrainbox->subscribeEvent(CEGUI::Combobox::EventListSelectionAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateT, this));	//EventDropListDisplayed
@@ -159,6 +172,7 @@ void FreqAmpOctEventReg::addconfig(int nameID){
 	settings["Maxheight"] = 1500.0f;
 	settings["Weight"] = .5f;
 	settings["NoiseType"] = 0.0f;
+	settings["Depth"] = 0.75f;
 	
 	config[nameID] = settings;
 }
@@ -179,6 +193,8 @@ void FreqAmpOctEventReg::updateConfig(){
 	float sval = SSlider->getCurrentValue();
 	CEGUI::Slider* FdSlider = static_cast<CEGUI::Slider*>(Freqdivslider);
 	float fdval = FdSlider->getCurrentValue();
+	CEGUI::Slider* DSlider = static_cast<CEGUI::Slider*>(Depthslider);
+	float dval = DSlider->getCurrentValue();
 	CEGUI::Slider* MSlider = static_cast<CEGUI::Slider*>(Maxheightslider);
 	float mval = MSlider->getCurrentValue();
 	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Weightslider);
@@ -198,6 +214,8 @@ void FreqAmpOctEventReg::updateConfig(){
 	settings["Scale"] = sval;
 	if (fdval == 0.0f) {fdval = 1.0f;}
 	settings["Freqdiv"] = fdval;
+	if (dval == 0.0f){dval = 0.01f;}
+	settings["Depth"] = dval;
 	settings["Maxheight"] = mval;
 	settings["Weight"] = wval;
 	settings["NoiseType"] = nameID-1;
@@ -228,7 +246,7 @@ void FreqAmpOctEventReg::loadConfig(){
 	ss5 << "Test load config at name" << "\n";
 	tlog->logMessage(ss5.str());
 	map<string, float> settings = config[nameID];
-	float fval, aval, oval, gval, sval, fdval, mval, wval, nval;
+	float fval, aval, oval, gval, sval, fdval, mval, wval, nval, dval;
 	fval = settings["Frequency"];
 	aval = settings["Amplitude"];
 	oval = settings["Octaves"];
@@ -238,6 +256,7 @@ void FreqAmpOctEventReg::loadConfig(){
 	mval = settings["Maxheight"];
 	wval = settings["Weight"];
 	nval = settings["NoiseType"];
+	dval = settings["Depth"];
 	ss5 << "Test load config" << "\n";
 	tlog->logMessage(ss5.str());
 	CEGUI::Slider* FSlider = static_cast<CEGUI::Slider*>(Frequencyslider);
@@ -252,6 +271,8 @@ void FreqAmpOctEventReg::loadConfig(){
 	SSlider->setCurrentValue(sval);
 	CEGUI::Slider* FdSlider = static_cast<CEGUI::Slider*>(Freqdivslider);
 	FdSlider->setCurrentValue(fdval);
+	CEGUI::Slider* DSlider = static_cast<CEGUI::Slider*>(Depthslider);
+	DSlider->setCurrentValue(dval);
 	CEGUI::Slider* MSlider = static_cast<CEGUI::Slider*>(Maxheightslider);
 	MSlider->setCurrentValue(mval);
 	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Weightslider);
@@ -274,6 +295,18 @@ void FreqAmpOctEventReg::loadConfig(){
 	else if ((int)nval == 4){
 		itemCombobox = new CEGUI::ListboxTextItem("DiamondSquare", 5);
 	}
+	else if ((int)nval == 5){
+		itemCombobox = new CEGUI::ListboxTextItem("MmultiFractal", 6);
+	}
+	else if ((int)nval == 6){
+		itemCombobox = new CEGUI::ListboxTextItem("MHetero", 7);
+	}
+	else if ((int)nval == 7){
+		itemCombobox = new CEGUI::ListboxTextItem("MHybridmultiFractal", 8);
+	}
+	else if ((int)nval == 8){
+		itemCombobox = new CEGUI::ListboxTextItem("MRigedFractal", 9);
+	}
 	ncombobox->setItemSelectState 	((int)nval,true);
 	
 }
@@ -290,6 +323,19 @@ void FreqAmpOctEventReg::updateF(const CEGUI::EventArgs &e){
 	std::ostringstream ss5;
 	ss5<<val/dval;
 	flabel->setText(ss5.str());
+}
+
+void FreqAmpOctEventReg::updateD(const CEGUI::EventArgs &e){
+	CEGUI::Window* dlabel = cnewWindow ->getChild("Depthlabel");
+	CEGUI::Slider* DSlider = static_cast<CEGUI::Slider*>(Depthslider);
+	float val = DSlider->getCurrentValue();
+
+	if (val == 0.0f){
+		val = .01f;
+	}
+	std::ostringstream ss5;
+	ss5<<val;
+	dlabel->setText(ss5.str());
 }
 
 void FreqAmpOctEventReg::updateFD(const CEGUI::EventArgs &e){
@@ -415,10 +461,11 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 		if (tc["Freqdiv"] == 0){tc["Freqdiv"] = 1.0f;}
 		if ((int)tc["NoiseType"] == 0){
 			//float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain = .5f, int imagemap = (int)3.0f
-			PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], tc["Octaves"], int(3.0f));
-			tnoisevals[i] = test->getNoisevalues();
-			(*tnoisevalsm)[i] = test->getNoisevaluesT();
-			(*vnoisevalsm)[i] = test->getNoisevaluesV();
+			//PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], tc["Octaves"], int(3.0f));
+			//tnoisevals[i] = test->getNoisevalues();
+			//(*tnoisevalsm)[i] = test->getNoisevaluesT();
+			(*vnoisevalsm)[i] = fbmbuild (513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
+				tc["Gain"])			
 			ss5 << "Hitting update button!!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
@@ -473,6 +520,50 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			ss5.str(std::string());
 			//tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
 			(*vnoisevalsm)[i] = testd->getHeightMap();
+			//(*vnoisevalsm)[i] = testm->getHeightMap2();
+		}
+		else if ((int)tc["NoiseType"]==5){
+			ss5 << "MmultiFractal" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
+			
+			//multiFractalbuild (double size, double scale, double H, double, lucunarity, double octaves,
+				//double offset)
+			(*vnoisevalsm)[i] = multiFractalbuild (513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
+				tc["Gain"]);
+			//(*vnoisevalsm)[i] = testm->getHeightMap2();
+		}
+		else if ((int)tc["NoiseType"]==6){
+			ss5 << "MHetero" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
+			//Heterobuild (double size, double scale, double H, double lucunarity, double octaves, 
+                          //double offset)
+
+			(*vnoisevalsm)[i] = Heterobuild(513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
+				tc["Gain"]);
+			//(*vnoisevalsm)[i] = testm->getHeightMap2();
+		}
+		else if ((int)tc["NoiseType"]==7){
+			ss5 << "MHybrid" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
+
+			//HybridMultifractalbuild (double size, double scale, double H, double lucunarity, double octaves, 
+                          //double offset)
+			(*vnoisevalsm)[i] = HybridMultifractalbuild(513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
+				tc["Gain"]);
+			//(*vnoisevalsm)[i] = testm->getHeightMap2();
+		}
+		else if ((int)tc["NoiseType"]==8){
+			ss5 << "MRiged" << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
+
+			//RidgedMultifractalbuild (double size, double scale, double H, double lucunarity, double octaves, 
+                          //double offset, double gain)
+			(*vnoisevalsm)[i] = RidgedMultifractalbuild(513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
+				tc["Gain"], tc["Gain"]*2);
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
 		ss5 << "weights!!!!!!! " << tc["Weight"]<< "\n";

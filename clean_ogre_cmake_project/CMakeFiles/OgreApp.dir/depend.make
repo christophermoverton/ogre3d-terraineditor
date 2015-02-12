@@ -242,6 +242,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ITutorial02.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ITutorial02.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Imagestuff.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: LoadHeightMap.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Musgrave.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Perlin.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: PerlinGenerator.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: PerlinTest.cpp
@@ -253,6 +254,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainStruct.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Terrainheightselection.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: cspline.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: terrainerosion/Math/PerlinNoise.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/include/ois/OIS.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/include/ois/OISConfig.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/include/ois/OISEffect.h

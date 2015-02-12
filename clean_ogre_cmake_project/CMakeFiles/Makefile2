@@ -60,8 +60,8 @@ CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_pro
 
 # All Build rule for target.
 CMakeFiles/OgreApp.dir/all: Voronoi/CMakeFiles/Voronoi.dir/all
-CMakeFiles/OgreApp.dir/all: libfbm/CMakeFiles/libfbm.dir/all
 CMakeFiles/OgreApp.dir/all: Simplex/CMakeFiles/Simplex.dir/all
+CMakeFiles/OgreApp.dir/all: libfbm/CMakeFiles/libfbm.dir/all
 CMakeFiles/OgreApp.dir/all: DiamondSquare/CMakeFiles/DiamondSquare.dir/all
 CMakeFiles/OgreApp.dir/all: terrainerosion/CMakeFiles/terrainerosion.dir/all
 	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/depend

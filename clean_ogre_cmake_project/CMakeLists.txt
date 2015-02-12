@@ -151,6 +151,7 @@ include_directories( ${OIS_INCLUDE_DIRS}
 	${CMAKE_CURRENT_BINARY_DIR}/libfbm
 	${CMAKE_CURRENT_BINARY_DIR}/DiamondSquare
 	${CMAKE_CURRENT_BINARY_DIR}/terrainerosion
+        
 )
 
 add_subdirectory (Voronoi) 
@@ -158,6 +159,7 @@ add_subdirectory (Simplex)
 add_subdirectory (libfbm)
 add_subdirectory (DiamondSquare)
 add_subdirectory (terrainerosion)
+
  
 add_executable(OgreApp WIN32 ${HDRS} ${SRCS})
  
