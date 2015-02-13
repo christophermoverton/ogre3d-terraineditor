@@ -21,7 +21,7 @@ TPoint3 * Lx = new TPoint3(1.0f,1.0f,1.0f);  //Light Color RGB
 TPoint3 * Ax = new TPoint3(0.15f,0.15f,0.15f);//Ax = ambient color 
 TPoint3 * Dx = new TPoint3(0.0f,0.0f,1.0f);//Dx = diffuse color 
 TPoint3 * Sx = new TPoint3(1.0f,1.0f,1.0f);//Sx = specular color 
-double Ka = 1.0f, Kd = 1.0f, Ks = 1.0f, Att = 1.5f, n = 2.0f; //phong coefficients
+double Ka = 1.0f, Kd = 1.0f, Ks = 1.0f, Att = 1.0f, n = 2.0f; //phong coefficients
 
 TPoint3 reflection(TPoint3 vec1, TPoint3 normal);
 double dotproduct(TPoint3 vec1, TPoint3 vec2);
