@@ -6,6 +6,7 @@
 #include "TerrainStruct.h"
 #include "TPoint3.h"
 #include "Imagestuff.cpp"
+#include "BumpMap.cpp"
 
 class LoadHeightMap{
 	public:
@@ -141,6 +142,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	}
 	mterrain->update();
 	buffer.saveImage("../media/materials/textures/test6.png");
+	bump(size, 513.0f, heightmapvalues);
 	/*
 	Ogre::MaterialManager::getSingleton().remove("RttMat");
         Ogre::Image imageOgre;

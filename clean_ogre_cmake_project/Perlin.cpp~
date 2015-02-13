@@ -93,7 +93,7 @@ Ogre::Vector3 Perlin::randomPointUnitSphere(){
      double dy = y - (double)iy;
  
      // Compute the dot-product
-     return (dx*Gradient[ix][iy][0] + dy*Gradient[ix][iy][1]);
+     return (dx*Gradient[ix % cgx][iy % cgy][0] + dy*Gradient[ix % cgx][iy % cgy][1]);
  }
  
  // Computes the dot product of the distance and gradient vectors.

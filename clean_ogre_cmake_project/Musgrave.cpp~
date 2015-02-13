@@ -61,7 +61,7 @@ terr::CPointsMap  fbmbuild (double size, double scale, double H, double lacunari
 		double y = (double) j / scale;
 		double z = 0.0f;
 		Vector  point; point.x = x; point.y = y; point.z = z;
-		(*points)[(*coordpair)] = fbm( point, H, lacunarity, octaves);
+		(*points)[(*coordpair)] = fBm( point, H, lacunarity, octaves);
 	}
    }
    return (*points);

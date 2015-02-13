@@ -234,6 +234,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildFbm.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildSimplex.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildVoronoi.cpp
+ /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BumpMap.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ColorGet.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Combiner.cpp
  /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Falloffinterpolate.cpp

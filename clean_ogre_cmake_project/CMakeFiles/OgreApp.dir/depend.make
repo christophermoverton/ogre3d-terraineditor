@@ -233,6 +233,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BaseApplication.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildFbm.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildSimplex.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildVoronoi.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BumpMap.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ColorGet.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Combiner.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Falloffinterpolate.cpp

@@ -92,6 +92,14 @@ TPoint3.h
 TerrainStruct.h
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
 
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BumpMap.cpp
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+TPoint3.h
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+Imagestuff.cpp
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
+
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ColorGet.cpp
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Combiner.cpp
@@ -225,6 +233,8 @@ TPoint3.h
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
 Imagestuff.cpp
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
+BumpMap.cpp
+/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BumpMap.cpp
 
 /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Musgrave.cpp
 math.h

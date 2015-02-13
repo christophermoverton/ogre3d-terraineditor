@@ -18,6 +18,11 @@ struct TPoint3
 			y = ny;
 			z = nz;
 		}
+		TPoint3(){
+			x = 0.0f;
+			y = 0.0f;
+			z = 0.0f;
+		}
 
 	        TPoint3 & operator=(const TPoint3 & a)
     		{
@@ -40,6 +45,10 @@ struct TPoint3
     		{
         		return TPoint3(a.x+x, a.y+y, a.z+z);
     		}
+		TPoint3 normalize(){
+			double dist = pow((x*x + y*y + z*z),0.5f);
+			return TPoint3(x/dist, y/dist, z/dist);
+		}
 };
 
 #endif
