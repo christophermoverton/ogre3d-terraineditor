@@ -59,7 +59,8 @@ void bump(double xzScale, double yScale, terr::CPointsMap * heightmap){
     double sy, sx; double x0 = xzScale-1; double y0 = xzScale-1;
     for (int x = 0; x < xzScale; x++){
 	for (int y = 0; y < xzScale; y++){
-	    //computing surface normals 
+	    //computing surface normals (forward difference equation) y' ~ delta f (x_i + 1)/( delta (x_i+1 - x_i) = 1) - f(x_i) 
+            //gradient is (f'(x), f'(y), f'(z)) = (h(x+1,y)-h(x), constant (shown below), h(x,y+1)-h(y)) 
            
 	    double sx = (*heightmap)[terr::Coordpair(x<xzScale-1 ? x+1 : x, y)] - 
 				(*heightmap)[terr::Coordpair(x0 ? x-1 : x, y)];

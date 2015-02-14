@@ -1,0 +1,7 @@
+Assuming you have installed Ogre locally on your system alongside CEGUI and the FFTW libraries, you'll need to copy these cmake files into 
+your local ogre cmake directory.  You can do this on Ubuntu from terminal by going to this directory, and using the following commands:
+
+sudo cp CompareVersionStrings.cmake DetermineVersion.cmake FindCEGUI.cmake FindCEGUIOGRE.cmake FindFFTW.cmake FindPackageHandleAdvancedArgs.cmake HandleLibraryTypes.cmake /usr/local/lib/OGRE/cmake/
+
+
+Thank you to sumwars for providing the cmake modules above in finding CEGUI and CEGUI Ogre libraries. 
