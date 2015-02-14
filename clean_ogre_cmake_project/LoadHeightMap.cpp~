@@ -142,7 +142,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	}
 	mterrain->update();
 	buffer.saveImage("../media/materials/textures/test6.png");
-	bump(size, 1.0f, heightmapvalues);
+	bump(size, 6.0f*513.0f, heightmapvalues);
 	/*
 	Ogre::MaterialManager::getSingleton().remove("RttMat");
         Ogre::Image imageOgre;

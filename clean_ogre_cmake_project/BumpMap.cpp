@@ -18,10 +18,10 @@
 // for x, z then the formula becomes
 // normal[y*width+x].set(-sx*yScale, 2*xScale, xScalesy*xScale*yScale/zScale);
 TPoint3 * Lx = new TPoint3(1.0f,1.0f,1.0f);  //Light Color RGB
-TPoint3 * Ax = new TPoint3(0.15f,0.15f,0.15f);//Ax = ambient color 
+TPoint3 * Ax = new TPoint3(0.25f,0.25f,.25f);//Ax = ambient color 
 TPoint3 * Dx = new TPoint3(0.0f,0.0f,1.0f);//Dx = diffuse color 
 TPoint3 * Sx = new TPoint3(1.0f,1.0f,1.0f);//Sx = specular color 
-double Ka = 1.0f, Kd = 1.0f, Ks = 1.0f, Att = 1.25f, n = 2.0f; //phong coefficients
+double Ka = 1.0f, Kd = 1.0f, Ks = 1.0f, Att = 1.0f, n = 1.0f; //phong coefficients
 
 TPoint3 reflection(TPoint3 vec1, TPoint3 normal);
 double dotproduct(TPoint3 vec1, TPoint3 vec2);
@@ -54,7 +54,7 @@ void bump(double xzScale, double yScale, terr::CPointsMap * heightmap){
     FillColour* fill = new FillColour (&buffer);
     terr::CVectorMaps * normal = new terr::CVectorMaps();
     //CVectorMaps * bump = new 
-    TPoint3 * V = new TPoint3(0,-1,0); TPoint3 * L = new TPoint3(.35f,1.0f,.35f);
+    TPoint3 * V = new TPoint3(0.0f,1.0f,0.0f); TPoint3 * L = new TPoint3(-.25f,-1.0f,-.25f);
     (*L) = (*L).normalize();
     double sy, sx; double x0 = xzScale-1; double y0 = xzScale-1;
     for (int x = 0; x < xzScale; x++){
@@ -69,8 +69,8 @@ void bump(double xzScale, double yScale, terr::CPointsMap * heightmap){
 	    if (y == 0 || y == xzScale -1) {sy *= 2;}
 	    TPoint3 * vec = new TPoint3(-sx*yScale, 2*xzScale, sy*yScale);
             (*vec) = (*vec).normalize();
-	    (*normal)[terr::Coordpair(x,y)] = TPoint3(lerp((*vec).x, 0, 0.5f), lerp((*vec).y, 1, 0.5f),
-						      lerp((*vec).z, 0, 0.5f));
+	    (*normal)[terr::Coordpair(x,y)] = TPoint3(lerp((*vec).x, 0, 0.25f), lerp((*vec).y, 1, 0.25f),
+						      lerp((*vec).z, 0, 0.25f));
 	    //the specialized surface normal is intended for producing the bump map using
 	    //a linear interpolation between a finite difference 'actual' approximated
 	    //surface normal mixed with its ideal planar 'geometric' form.
