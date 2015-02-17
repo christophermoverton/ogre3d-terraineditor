@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<GUILayout version="4" >
+    <Window type="TaharezLook/FrameWindow" name="TerrainWindow" >
+        <Property name="Area" value="{{0,6},{0,7},{0.5,-16},{0.8,125}}" />
+        <Property name="Text" value="Terrain Editor" />
+        <Property name="Alpha" value="0.5" />
+        <Property name="MaxSize" value="{{1,0},{1,0}}" />
+        <Property name="MinSize" value="{{0,128},{0,128}}" />
+        <Property name="MouseInputPropagationEnabled" value="true" />
+        <Window type="TaharezLook/Menubar" name="Menubar" >
+            <Property name="Area" value="{{0,0},{0,0},{1,0},{0,32}}" />
+            <Window type="TaharezLook/MenuItem" name="MenuItem" >
+                <Property name="Area" value="{{0,7},{0,0},{0,36},{0,19}}" />
+                <Property name="Text" value="File" />
+                <Property name="VerticalAlignment" value="Centre" />
+            </Window>
+            <Window type="TaharezLook/MenuItem" name="MenuItem2" >
+                <Property name="Area" value="{{0,46},{0,0},{0,89},{0,19}}" />
+                <Property name="Text" value="Show" />
+                <Property name="Selectable" value="true" />
+                <Property name="VerticalAlignment" value="Centre" />
+            </Window>
+        </Window>
+        <Window type="TaharezLook/FrameWindow" name="TerrainEditWindow" >
+            <Property name="Area" value="{{0,22},{0,68},{0.3,398},{0.3,321}}" />
+            <Property name="Text" value="Terrain Controls" />
+            <Window type="TaharezLook/Label" name="Label3" >
+                <Property name="Area" value="{{0,9},{0,115},{0,137},{0,147}}" />
+                <Property name="Text" value="Ocatves" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="AlfiskoSkin/HorizontalSlider" name="ScaleSlider" >
+                <Property name="Area" value="{{0,150},{0,204},{0,321},{0,226}}" />
+                <Property name="CurrentValue" value="1" />
+                <Property name="MaximumValue" value="513" />
+                <Property name="ClickStepSize" value="0.5" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label4" >
+                <Property name="Area" value="{{0,7},{0,156},{0,135},{0,188}}" />
+                <Property name="Text" value="Gain" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Combobox" name="Terrainbox" >
+                <Property name="Area" value="{{0,14},{0,295},{0,130},{0,390}}" />
+                <AutoWindow namePath="__auto_editbox__" >
+                    <Property name="ActiveSelectionColour" value="tl:FF6060FF tr:FF6060FF bl:FF6060FF br:FF6060FF" />
+                </AutoWindow>
+                <AutoWindow namePath="__auto_droplist__" >
+                    <AutoWindow namePath="__auto_hscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_vscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                </AutoWindow>
+            </Window>
+            <Window type="TaharezLook/Label" name="Label8" >
+                <Property name="Area" value="{{0,7},{0,248},{0,135},{0,280}}" />
+                <Property name="Text" value="Depth" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Octaveslabel" >
+                <Property name="Area" value="{{0,339},{0,114},{0,441},{0,146}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Combobox" name="NoiseTypebox" >
+                <Property name="Area" value="{{0,292},{0,294},{0,432},{0,392}}" />
+                <AutoWindow namePath="__auto_editbox__" >
+                    <Property name="ActiveSelectionColour" value="tl:FF6060FF tr:FF6060FF bl:FF6060FF br:FF6060FF" />
+                </AutoWindow>
+                <AutoWindow namePath="__auto_droplist__" >
+                    <AutoWindow namePath="__auto_hscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_vscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                </AutoWindow>
+            </Window>
+            <Window type="TaharezLook/Label" name="Freqlabel" >
+                <Property name="Area" value="{{0,341},{0,31},{0,444},{0,63}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Scalelabel" >
+                <Property name="Area" value="{{0,335},{0,200},{0,441},{0,232}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label2" >
+                <Property name="Area" value="{{0,9},{0,71},{0,137},{0,103}}" />
+                <Property name="Text" value="Amplitude" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Depthlabel" >
+                <Property name="Area" value="{{0,336},{0,243},{0,440},{0,275}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label6" >
+                <Property name="Area" value="{{0,7},{0,202},{0,135},{0,234}}" />
+                <Property name="Text" value="Scale" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="AlfiskoSkin/HorizontalSlider" name="DepthSlider" >
+                <Property name="Area" value="{{0,149},{0,248},{0,323},{0,273}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label" >
+                <Property name="Area" value="{{0,7},{0,29},{0,135},{0,61}}" />
+                <Property name="Text" value="Frequency" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Amplabel" >
+                <Property name="Area" value="{{0,342},{0,72},{0,441},{0,104}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="AlfiskoSkin/HorizontalSlider" name="FrequencySlider" >
+                <Property name="Area" value="{{0,158},{0,35},{0,327},{0,59}}" />
+                <Property name="CurrentValue" value="0.00194932" />
+                <Property name="ClickStepSize" value="1e-08" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Gainlabel" >
+                <Property name="Area" value="{{0,339},{0,156},{0,441},{0,188}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="AlfiskoSkin/HorizontalSlider" name="AmplitudeSlider" >
+                <Property name="Area" value="{{0,155},{0,78},{0,328},{0,102}}" />
+                <Property name="MaximumValue" value="100" />
+                <Property name="ClickStepSize" value="0.1" />
+            </Window>
+            <Window type="AlfiskoSkin/HorizontalSlider" name="GainSlider" >
+                <Property name="Area" value="{{0,153},{0,159},{0,323},{0,183}}" />
+                <Property name="CurrentValue" value="0.5" />
+                <Property name="MaximumValue" value="2" />
+                <Property name="ClickStepSize" value="0.1" />
+            </Window>
+            <Window type="AlfiskoSkin/VerticalSlider" name="FreqDivSlider" >
+                <Property name="Area" value="{{0,470},{0,14},{0,502},{0,75}}" />
+                <Property name="CurrentValue" value="1" />
+                <Property name="MaximumValue" value="100000" />
+                <Property name="ClickStepSize" value="10" />
+            </Window>
+            <Window type="AlfiskoSkin/HorizontalSlider" name="OctavesSlider" >
+                <Property name="Area" value="{{0,154},{0,119},{0,323},{0,142}}" />
+                <Property name="CurrentValue" value="1" />
+                <Property name="MaximumValue" value="20" />
+                <Property name="ClickStepSize" value="1" />
+            </Window>
+            <Window type="TaharezLook/Combobox" name="FilterTypebox" >
+                <Property name="Area" value="{{0,151},{0,292},{0,271},{0,389}}" />
+                <AutoWindow namePath="__auto_editbox__" >
+                    <Property name="ActiveSelectionColour" value="tl:FF6060FF tr:FF6060FF bl:FF6060FF br:FF6060FF" />
+                </AutoWindow>
+                <AutoWindow namePath="__auto_droplist__" >
+                    <AutoWindow namePath="__auto_hscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_vscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                </AutoWindow>
+            </Window>
+        </Window>
+        <Window type="DefaultWindow" name="DefaultWindow" >
+            <Property name="Area" value="{{0,0},{0,-1},{1,0},{1,-1}}" />
+            <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            <Window type="AlfiskoSkin/HorizontalSlider" name="MaxHeightSlider" >
+                <Property name="Area" value="{{0,131},{0,608},{0,272},{0,625}}" />
+                <Property name="MaximumValue" value="12000" />
+                <Property name="ClickStepSize" value="1" />
+            </Window>
+            <Window type="AlfiskoSkin/HorizontalSlider" name="WeightSlider" >
+                <Property name="Area" value="{{0,129},{0,582},{0,271},{0,601}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Weightlabel" >
+                <Property name="Area" value="{{0,278},{0,575},{0,386},{0,599}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label5" >
+                <Property name="Area" value="{{0,11},{0,607},{0,122},{0,625}}" />
+                <Property name="Text" value="Maximum Height:" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label7" >
+                <Property name="Area" value="{{0,61},{0,585},{0,122},{0,601}}" />
+                <Property name="Text" value="Weight" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="MHeightlabel" >
+                <Property name="Area" value="{{0,278},{0,605},{0,388},{0,629}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Button" name="UpdateButton2" >
+                <Property name="Area" value="{{0,410},{0,607},{0,496},{0,628}}" />
+                <Property name="Text" value="Update" />
+            </Window>
+            <Window type="TaharezLook/Button" name="UpdateButton" >
+                <Property name="Area" value="{{0,408},{0,574},{0,497},{0,595}}" />
+                <Property name="Text" value="Update" />
+            </Window>
+            <Window type="TaharezLook/TabControl" name="TabControl" >
+                <Property name="Area" value="{{0,15},{0,58},{0,590},{0,537}}" />
+                <Property name="Text" value="Console" />
+                <Property name="TabHeight" value="{0,-1}" />
+                <AutoWindow namePath="__auto_TabPane__" >
+                    <Property name="EnableBottom" value="1" />
+                </AutoWindow>
+                <AutoWindow namePath="__auto_TabPane__Buttons" >
+                    <Property name="EnableTop" value="0" />
+                </AutoWindow>
+                <AutoWindow namePath="__auto_TabPane__ScrollLeft" >
+                    <Property name="Visible" value="false" />
+                </AutoWindow>
+                <AutoWindow namePath="__auto_TabPane__ScrollRight" >
+                    <Property name="Visible" value="false" />
+                </AutoWindow>
+            </Window>
+        </Window>
+        <Window type="TaharezLook/FrameWindow" name="HydraulicWindow" >
+            <Property name="Area" value="{{0,23},{0,66},{0.3,400},{0.3,319}}" />
+            <Property name="Text" value="HT Erosion" />
+            <Window type="TaharezLook/Button" name="UpdateButton" >
+                <Property name="Area" value="{{0,425},{0,142},{0,514},{0,174}}" />
+                <Property name="Text" value="Update" />
+            </Window>
+        </Window>
+        <Window type="TaharezLook/FrameWindow" name="MarbleWindow" >
+            <Property name="Area" value="{{0,35},{0,72},{0.3,395},{0.3,320}}" />
+            <Property name="Text" value="Marble" />
+            <Window type="TaharezLook/Combobox" name="Biasbox" >
+                <Property name="Area" value="{{0,17},{0,43},{0,140},{0,119}}" />
+                <AutoWindow namePath="__auto_editbox__" >
+                    <Property name="ActiveSelectionColour" value="tl:FF6060FF tr:FF6060FF bl:FF6060FF br:FF6060FF" />
+                </AutoWindow>
+                <AutoWindow namePath="__auto_droplist__" >
+                    <AutoWindow namePath="__auto_hscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_vscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                </AutoWindow>
+            </Window>
+            <Window type="TaharezLook/Label" name="Label" >
+                <Property name="Area" value="{{0,20},{0,7},{0,82},{0,39}}" />
+                <Property name="Text" value="Bias" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Combobox" name="Shapebox" >
+                <Property name="Area" value="{{0,157},{0,43},{0,269},{0,119}}" />
+                <AutoWindow namePath="__auto_editbox__" >
+                    <Property name="ActiveSelectionColour" value="tl:FF6060FF tr:FF6060FF bl:FF6060FF br:FF6060FF" />
+                </AutoWindow>
+                <AutoWindow namePath="__auto_droplist__" >
+                    <AutoWindow namePath="__auto_hscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_vscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                </AutoWindow>
+            </Window>
+            <Window type="TaharezLook/Label" name="Label2" >
+                <Property name="Area" value="{{0,161},{0,5},{0,223},{0,37}}" />
+                <Property name="Text" value="Shape" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Combobox" name="Sharpbox" >
+                <Property name="Area" value="{{0,286},{0,44},{0,398},{0,120}}" />
+                <AutoWindow namePath="__auto_editbox__" >
+                    <Property name="ActiveSelectionColour" value="tl:FF6060FF tr:FF6060FF bl:FF6060FF br:FF6060FF" />
+                </AutoWindow>
+                <AutoWindow namePath="__auto_droplist__" >
+                    <AutoWindow namePath="__auto_hscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                    <AutoWindow namePath="__auto_vscrollbar__" >
+                        <AutoWindow namePath="__auto_incbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_decbtn__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                        <AutoWindow namePath="__auto_thumb__" >
+                            <Property name="RestoreOldCapture" value="true" />
+                        </AutoWindow>
+                    </AutoWindow>
+                </AutoWindow>
+            </Window>
+            <Window type="TaharezLook/Label" name="Label3" >
+                <Property name="Area" value="{{0,289},{0,6},{0,379},{0,38}}" />
+                <Property name="Text" value="Sharpness" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+        </Window>
+        <Window type="TaharezLook/FrameWindow" name="ShowDataWindow" >
+            <Property name="Area" value="{{0,26},{0,82},{0.3,401},{0.3,320}}" />
+            <Property name="Text" value="Console" />
+            <Window type="TaharezLook/MultiLineEditbox" name="MultiLineEditbox" >
+                <Property name="Area" value="{{0,16},{0,21},{0,512},{0,163}}" />
+                <Property name="Text" >
+</Property>
+            </Window>
+            <Window type="TaharezLook/Editbox" name="Editbox" >
+                <Property name="ID" value="2" />
+                <Property name="Area" value="{{0.02,-1},{-0.02,-543},{0.98,-199},{0.03,-542}}" />
+                <Property name="MinSize" value="{{0.1,0},{0.04,0}}" />
+                <Property name="ReadOnly" value="true" />
+                <Property name="TooltipText" value="World Location X" />
+                <Property name="VerticalAlignment" value="Bottom" />
+            </Window>
+        </Window>
+    </Window>
+</GUILayout>
