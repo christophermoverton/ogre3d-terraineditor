@@ -64,6 +64,10 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *Weightslider;
 		CEGUI::Window *NoiseTypebox;
 		CEGUI::Window *Depthslider;
+		CEGUI::Window *Biasbox;
+		CEGUI::Window *Shapebox;
+		CEGUI::Window *Sharpbox;
+		CEGUI::Window *NoiseBasisbox;
 		Ogre::Terrain* cterrain;
 		Ogre::Camera* mCamera;
 		Ogre::Rectangle2D* cmMiniScreen;
@@ -94,6 +98,7 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	tabcontrol->addTab(cnewWindow);
 	tabcontrol->addTab(HydraulicWindow);
 	tabcontrol->addTab(MarbleWindow);
+	tabcontrol->addTab(ShowDataWindow);
 	Frequencyslider = cnewWindow ->getChild("FrequencySlider");
 	Amplitudeslider = cnewWindow ->getChild("AmplitudeSlider");
 	Octavesslider = cnewWindow ->getChild("OctavesSlider");
@@ -108,6 +113,10 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	Terrainbox = cnewWindow ->getChild("Terrainbox");
 	FilterTypebox = cnewWindow ->getChild("FilterTypebox");
 	NoiseTypebox = cnewWindow ->getChild("NoiseTypebox");
+	NoiseBasisbox = MarbleWindow ->getChild("NoiseBasisbox");
+	Sharpbox = MarbleWindow ->getChild("Sharpbox");
+	Shapebox = MarbleWindow ->getChild("Shapebox");
+	Biasbox = MarbleWindow ->getChild("Biasbox");
 //	std::ostringstream ss5;
 //	ss5 << "Terrain1";
 //	CEGUI::ListboxItem listboxitem = new CEGUI::ListboxItem(ss5.str(), 0);
@@ -163,6 +172,62 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	combobox->addItem(itemCombobox);
 	itemCombobox = new CEGUI::ListboxTextItem("Marble", 10);
 	combobox->addItem(itemCombobox);
+	combobox = static_cast<CEGUI::Combobox*>(NoiseBasisbox);
+	itemCombobox = new CEGUI::ListboxTextItem("Blender Original", 1);
+	combobox->addItem(itemCombobox);
+	combobox->setItemSelectState 	(itemCombobox,true); 
+	itemCombobox = new CEGUI::ListboxTextItem("Original Perlin", 2);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("New Perlin", 3);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Voronoi F1", 4);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Voronoi F2", 5);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Voronoi F3", 6);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Voronoi F4", 7);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Voronoi F1/F2", 8);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Voronoi CR", 9);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Cell Noise", 10);
+	combobox->addItem(itemCombobox);
+
+	combobox = static_cast<CEGUI::Combobox*>(Shapebox);
+	itemCombobox = new CEGUI::ListboxTextItem("Marble", 1);
+	combobox->addItem(itemCombobox);
+	combobox->setItemSelectState 	(itemCombobox,true); 
+	itemCombobox = new CEGUI::ListboxTextItem("Ring", 2);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Swirl", 3);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Bumps", 4);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Y Gradient", 5);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("X Gradient", 6);
+	combobox->addItem(itemCombobox);
+
+
+	combobox = static_cast<CEGUI::Combobox*>(Biasbox);
+	itemCombobox = new CEGUI::ListboxTextItem("Sine", 1);
+	combobox->addItem(itemCombobox);
+	combobox->setItemSelectState 	(itemCombobox,true); 
+	itemCombobox = new CEGUI::ListboxTextItem("Saw", 2);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Triangle", 3);
+	combobox->addItem(itemCombobox);
+
+	combobox = static_cast<CEGUI::Combobox*>(Sharpbox);
+	itemCombobox = new CEGUI::ListboxTextItem("Soft", 1);
+	combobox->addItem(itemCombobox);
+	combobox->setItemSelectState 	(itemCombobox,true); 
+	itemCombobox = new CEGUI::ListboxTextItem("Sharp", 2);
+	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Sharper", 3);
+	combobox->addItem(itemCombobox);
 
 	Frequencyslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateF, this));
 	Amplitudeslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateA, this));
@@ -193,7 +258,10 @@ void FreqAmpOctEventReg::addconfig(int nameID){
 	settings["Weight"] = .5f;
 	settings["NoiseType"] = 0.0f;
 	settings["Depth"] = 0.75f;
-	
+	settings["Bias"] = 0.0f;
+	settings["Shape"] = 0.0f;
+	settings["Sharp"] = 0.0f;
+	settings["NoiseBasis"] = 0.0f;
 	config[nameID] = settings;
 }
 
@@ -223,6 +291,18 @@ void FreqAmpOctEventReg::updateConfig(){
 	CEGUI::Combobox* ncombobox = static_cast<CEGUI::Combobox*>(NoiseTypebox);
 	CEGUI::ListboxItem* nlitem = ncombobox->getSelectedItem();
 	float nameID = (float)nlitem->getID();
+	CEGUI::Combobox* nbcombobox = static_cast<CEGUI::Combobox*>(NoiseBasisbox);
+	CEGUI::ListboxItem* nblitem = nbcombobox->getSelectedItem();
+	float nbnameID = (float)nblitem->getID();
+	CEGUI::Combobox* bcombobox = static_cast<CEGUI::Combobox*>(Biasbox);
+	CEGUI::ListboxItem* blitem = bcombobox->getSelectedItem();
+	float bnameID = (float)blitem->getID();
+	CEGUI::Combobox* shcombobox = static_cast<CEGUI::Combobox*>(Shapebox);
+	CEGUI::ListboxItem* shlitem = shcombobox->getSelectedItem();
+	float shnameID = (float)shlitem->getID();
+	CEGUI::Combobox* shpcombobox = static_cast<CEGUI::Combobox*>(Sharpbox);
+	CEGUI::ListboxItem* shplitem = shpcombobox->getSelectedItem();
+	float shpnameID = (float)shplitem->getID();
 	map<string, float> settings;
 	ss5 << "Test update config" << "\n";
 	ss5 << "Noise type nameID: "<< nameID << "\n";
@@ -239,6 +319,10 @@ void FreqAmpOctEventReg::updateConfig(){
 	settings["Maxheight"] = mval;
 	settings["Weight"] = wval;
 	settings["NoiseType"] = nameID-1;
+	settings["NoiseBasis"] = nbnameID-1;
+	settings["Bias"] = bnameID-1;
+	settings["Shape"] = shnameID-1;
+	settings["Sharp"] = shpnameID-1;
 	ss5 << "Test update config" << "\n";
 	ss5 << "updated noise type: " << nameID-1 << "\n";
 	tlog->logMessage(ss5.str());
@@ -266,7 +350,7 @@ void FreqAmpOctEventReg::loadConfig(){
 	ss5 << "Test load config at name" << "\n";
 	tlog->logMessage(ss5.str());
 	map<string, float> settings = config[nameID];
-	float fval, aval, oval, gval, sval, fdval, mval, wval, nval, dval;
+	float fval, aval, oval, gval, sval, fdval, mval, wval, nval, dval, nbval, bval, shapeval, sharpval;
 	fval = settings["Frequency"];
 	aval = settings["Amplitude"];
 	oval = settings["Octaves"];
@@ -277,6 +361,10 @@ void FreqAmpOctEventReg::loadConfig(){
 	wval = settings["Weight"];
 	nval = settings["NoiseType"];
 	dval = settings["Depth"];
+	nbval = settings["NoiseBasis"];  //this and settings below apply to marble noise type only
+	bval = settings["Bias"];  
+	shapeval = settings["Shape"];
+	sharpval = settings["Sharp"];
 	ss5 << "Test load config" << "\n";
 	tlog->logMessage(ss5.str());
 	CEGUI::Slider* FSlider = static_cast<CEGUI::Slider*>(Frequencyslider);
@@ -299,6 +387,7 @@ void FreqAmpOctEventReg::loadConfig(){
 	WSlider->setCurrentValue(wval);	
 
 	CEGUI::Combobox* ncombobox = static_cast<CEGUI::Combobox*>(NoiseTypebox);
+	/*
 	CEGUI::ListboxTextItem* itemCombobox;
 	if ((int)nval == 1){
 		itemCombobox = new CEGUI::ListboxTextItem("Advanced Perlin", 1);
@@ -330,8 +419,48 @@ void FreqAmpOctEventReg::loadConfig(){
 	else if ((int)nval == 9){
 		itemCombobox = new CEGUI::ListboxTextItem("Marble", 10);
 	}
-
+        */
 	ncombobox->setItemSelectState 	((int)nval,true);
+
+	CEGUI::Combobox* ncombobox = static_cast<CEGUI::Combobox*>(NoiseBasisbox);
+	ncombobox->setItemSelectState 	((int)nbval,true);
+
+	CEGUI::Combobox* ncombobox = static_cast<CEGUI::Combobox*>(Biasbox);
+	ncombobox->setItemSelectState 	((int)bval,true);
+
+	CEGUI::Combobox* ncombobox = static_cast<CEGUI::Combobox*>(Shapebox);
+	ncombobox->setItemSelectState 	((int)shapeval,true);
+
+	CEGUI::Combobox* ncombobox = static_cast<CEGUI::Combobox*>(Sharpbox);
+	ncombobox->setItemSelectState 	((int)sharpval,true);
+        /*
+	switch ((int)nbval) {
+		case 2:
+			itemCombobox = new CEGUI::ListboxTextItem("Original Perlin", 2);
+		case 3:
+			itemCombobox = new CEGUI::ListboxTextItem("New Perlin", 3);
+		case 4:
+			itemCombobox = new CEGUI::ListboxTextItem("Voronoi F1", 4);
+		case 5:
+			itemCombobox = new CEGUI::ListboxTextItem("Voronoi F2", 5);
+		case 6:
+			itemCombobox = new CEGUI::ListboxTextItem("Voronoi F3", 6);
+		case 7:
+			itemCombobox = new CEGUI::ListboxTextItem("Voronoi F4", 7);
+		case 8:
+			itemCombobox = new CEGUI::ListboxTextItem("Voronoi F1/F2", 8);
+		case 9:
+			itemCombobox = new CEGUI::ListboxTextItem("Voronoi CR", 9);
+		case 10:
+			itemCombobox = new CEGUI::ListboxTextItem("Cell Noise", 10);
+		case 1:
+		default:
+		{
+			itemCombobox = new CEGUI::ListboxTextItem("Blender Original", 1);
+			
+		}
+	}
+	*/
 	
 }
 
@@ -598,9 +727,11 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
 
-                        //pmarblebuild (double size, double scale, double frequency, double amplitude, double octaves, double gain)
+                         //pmarblebuild (double size, double scale, double frequency, double amplitude, double octaves, int noisebasis,
+				//int noisebasis, int bias, int shape, int sharp)
 			(*vnoisevalsm)[i] = pmarblebuild (513.0f, tc["Scale"]/265.5f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], 
-                                                           tc["Octaves"], tc["Gain"]);
+                                                           tc["Octaves"], (int)tc["NoiseBasis"], (int)tc["Bias"], (int)tc["Shape"],
+							   (int)tc["Sharp"]);
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
 		ss5 << "weights!!!!!!! " << tc["Weight"]<< "\n";
