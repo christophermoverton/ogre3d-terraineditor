@@ -2,7 +2,7 @@
 
 <GUILayout version="4" >
     <Window type="TaharezLook/FrameWindow" name="DemoWindow" >
-        <Property name="Area" value="{{0,9},{0,3},{0.5,-13},{0.8,137}}" />
+        <Property name="Area" value="{{0,20},{0,6},{0.5,-2},{0.8,140}}" />
         <Property name="Alpha" value="0.5" />
         <Property name="MaxSize" value="{{1,0},{1,0}}" />
         <Property name="MinSize" value="{{0,128},{0,128}}" />
@@ -83,12 +83,12 @@
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
         </Window>
         <Window type="TaharezLook/Label" name="Label5" >
-            <Property name="Area" value="{{0,8},{0,579},{0,136},{0,611}}" />
+            <Property name="Area" value="{{0,9},{0,579},{0,137},{0,611}}" />
             <Property name="Text" value="Maximum Height:" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
         </Window>
         <Window type="AlfiskoSkin/HorizontalSlider" name="MaxHeightSlider" >
-            <Property name="Area" value="{{0,154},{0,577},{0,329},{0,609}}" />
+            <Property name="Area" value="{{0,155},{0,577},{0,330},{0,609}}" />
             <Property name="MaximumValue" value="12000" />
             <Property name="ClickStepSize" value="1" />
         </Window>
@@ -176,16 +176,16 @@
             </AutoWindow>
         </Window>
         <Window type="TaharezLook/Label" name="Label7" >
-            <Property name="Area" value="{{0,8},{0,525},{0,136},{0,557}}" />
+            <Property name="Area" value="{{0,9},{0,525},{0,137},{0,557}}" />
             <Property name="Text" value="Weight" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
         </Window>
         <Window type="TaharezLook/Label" name="Weightlabel" >
-            <Property name="Area" value="{{0,350},{0,520},{0,478},{0,552}}" />
+            <Property name="Area" value="{{0,351},{0,520},{0,479},{0,552}}" />
             <Property name="MaxSize" value="{{1,0},{1,0}}" />
         </Window>
         <Window type="AlfiskoSkin/HorizontalSlider" name="WeightSlider" >
-            <Property name="Area" value="{{0,159},{0,522},{0,331},{0,554}}" />
+            <Property name="Area" value="{{0,160},{0,522},{0,332},{0,554}}" />
         </Window>
         <Window type="TaharezLook/Combobox" name="NoiseTypebox" >
             <Property name="Area" value="{{0,412},{0,411},{0,552},{0,509}}" />

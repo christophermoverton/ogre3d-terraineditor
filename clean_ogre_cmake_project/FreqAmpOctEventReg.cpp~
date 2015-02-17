@@ -7,6 +7,7 @@
 #include "BuildFbm.cpp"
 #include "DiamondSquare.cpp"
 #include "Musgrave.cpp"
+#include "BuildPerlin.cpp"
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -43,6 +44,12 @@ class FreqAmpOctEventReg{
 		void updateD(const CEGUI::EventArgs &e);
 	private:
 		CEGUI::Window *cnewWindow;
+		CEGUI::Window *tcnewWindow;
+		CEGUI::Window *DefaultWindow;
+		CEGUI::Window *TabControlWindow;
+		CEGUI::Window *HydraulicWindow;
+		CEGUI::Window *MarbleWindow;
+		CEGUI::Window *ShowDataWindow;
 		CEGUI::Window *Frequencyslider;
 		CEGUI::Window *Amplitudeslider;
 		CEGUI::Window *Octavesslider;
@@ -75,18 +82,29 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	cterrain = terrain;
 	mCamera = Camera;
 	cmMiniScreen = mMiniScreen;
-	cnewWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
+	//cnewWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow"); default keep 
+        tcnewWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("TerrainWindow");
+	cnewWindow = tcnewWindow->getChild("TerrainEditWindow");
+	HydraulicWindow = tcnewWindow->getChild("HydraulicWindow");
+	MarbleWindow = tcnewWindow->getChild("MarbleWindow");
+	TabControlWindow = tcnewWindow->getChild("DefaultWindow")->getChild("TabControl");
+	DefaultWindow = tcnewWindow->getChild("DefaultWindow");
+	ShowDataWindow = tcnewWindow->getChild("ShowDataWindow");
+	CEGUI::TabControl * tabcontrol = static_cast<CEGUI::TabControl*>(TabControlWindow);
+	tabcontrol->addTab(cnewWindow);
+	tabcontrol->addTab(HydraulicWindow);
+	tabcontrol->addTab(MarbleWindow);
 	Frequencyslider = cnewWindow ->getChild("FrequencySlider");
 	Amplitudeslider = cnewWindow ->getChild("AmplitudeSlider");
 	Octavesslider = cnewWindow ->getChild("OctavesSlider");
-	UpdateButton = cnewWindow ->getChild("UpdateButton");
+	UpdateButton = DefaultWindow ->getChild("UpdateButton");
 	Gainslider = cnewWindow ->getChild("GainSlider");
 	Scaleslider = cnewWindow ->getChild("ScaleSlider");
 	Freqdivslider = cnewWindow ->getChild("FreqDivSlider");
 	Depthslider = cnewWindow ->getChild("DepthSlider");
-	Maxheightslider = cnewWindow ->getChild("MaxHeightSlider");
-	Weightslider = cnewWindow ->getChild("WeightSlider");
-	UpdateButton2 = cnewWindow ->getChild("UpdateButton2");
+	Maxheightslider = DefaultWindow ->getChild("MaxHeightSlider");
+	Weightslider = DefaultWindow ->getChild("WeightSlider");
+	UpdateButton2 = DefaultWindow ->getChild("UpdateButton2");
 	Terrainbox = cnewWindow ->getChild("Terrainbox");
 	FilterTypebox = cnewWindow ->getChild("FilterTypebox");
 	NoiseTypebox = cnewWindow ->getChild("NoiseTypebox");
@@ -143,6 +161,8 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	combobox->addItem(itemCombobox);
 	itemCombobox = new CEGUI::ListboxTextItem("MRigedFractal", 9);
 	combobox->addItem(itemCombobox);
+	itemCombobox = new CEGUI::ListboxTextItem("Marble", 10);
+	combobox->addItem(itemCombobox);
 
 	Frequencyslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateF, this));
 	Amplitudeslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateA, this));
@@ -165,7 +185,7 @@ void FreqAmpOctEventReg::addconfig(int nameID){
 	map<string, float> settings;
 	settings["Frequency"] = 1.0f/513.0f;
 	settings["Amplitude"] = .5f;
-	settings["Octaves"] = 2.0f;
+	settings["Octaves"] = 6.0f;
 	settings["Gain"] = .5f;
 	settings["Scale"] = 1.0f/513.0f;
 	settings["Freqdiv"] = 1.0f;
@@ -307,6 +327,10 @@ void FreqAmpOctEventReg::loadConfig(){
 	else if ((int)nval == 8){
 		itemCombobox = new CEGUI::ListboxTextItem("MRigedFractal", 9);
 	}
+	else if ((int)nval == 9){
+		itemCombobox = new CEGUI::ListboxTextItem("Marble", 10);
+	}
+
 	ncombobox->setItemSelectState 	((int)nval,true);
 	
 }
@@ -391,7 +415,7 @@ void FreqAmpOctEventReg::updateS(const CEGUI::EventArgs &e){
 
 
 void FreqAmpOctEventReg::updateM(const CEGUI::EventArgs &e){
-	CEGUI::Window* mlabel = cnewWindow ->getChild("MHeightlabel");
+	CEGUI::Window* mlabel = DefaultWindow ->getChild("MHeightlabel");
 	CEGUI::Slider* MSlider = static_cast<CEGUI::Slider*>(Maxheightslider);
 	float val = MSlider->getCurrentValue();
 	std::ostringstream ss5;
@@ -403,7 +427,7 @@ void FreqAmpOctEventReg::updateM(const CEGUI::EventArgs &e){
 }
 
 void FreqAmpOctEventReg::updateW(const CEGUI::EventArgs &e){
-	CEGUI::Window* wlabel = cnewWindow ->getChild("Weightlabel");
+	CEGUI::Window* wlabel = DefaultWindow ->getChild("Weightlabel");
 	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Weightslider);
 	float val = WSlider->getCurrentValue();
 	std::ostringstream ss5;
@@ -464,8 +488,10 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			//PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], tc["Octaves"], int(3.0f));
 			//tnoisevals[i] = test->getNoisevalues();
 			//(*tnoisevalsm)[i] = test->getNoisevaluesT();
-			(*vnoisevalsm)[i] = fbmbuild (513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
-				tc["Gain"])			
+			//double size, double scale, double frequency, double amplitude, double octaves, double gain
+			(*vnoisevalsm)[i] = pfbmbuild (513.0f, tc["Scale"], tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], tc["Octaves"],
+                                                       tc["Gain"]);
+			//(*vnoisevalsm)[i] = pfbmbuild (513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"]);			
 			ss5 << "Hitting update button!!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
 			ss5.str(std::string());
@@ -564,6 +590,17 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
                           //double offset, double gain)
 			(*vnoisevalsm)[i] = RidgedMultifractalbuild(513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
 				tc["Gain"], tc["Gain"]*2);
+			//(*vnoisevalsm)[i] = testm->getHeightMap2();
+		}
+		else if ((int)tc["NoiseType"]==9){
+			ss5 << "Marble" << "\n";
+			ss5 << tc["Octaves"] << "\n";
+			tlog->logMessage(ss5.str());
+			ss5.str(std::string());
+
+                        //pmarblebuild (double size, double scale, double frequency, double amplitude, double octaves, double gain)
+			(*vnoisevalsm)[i] = pmarblebuild (513.0f, tc["Scale"]/265.5f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], 
+                                                           tc["Octaves"], tc["Gain"]);
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
 		ss5 << "weights!!!!!!! " << tc["Weight"]<< "\n";

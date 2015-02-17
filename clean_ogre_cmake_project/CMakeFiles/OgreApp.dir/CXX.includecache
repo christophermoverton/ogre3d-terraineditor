@@ -6,7 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BaseApplication.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BLI_noise.h
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BaseApplication.h
 OgreCamera.h
 -
 OgreEntity.h
@@ -36,29 +38,37 @@ SdkTrays.h
 SdkCameraMan.h
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildFbm.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildFbm.cpp
 stdio.h
 -
 cstdlib
 -
 libfbm.hpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm.hpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm.hpp
 Imagestuff.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
 math.h
 -
 TerrainStruct.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildSimplex.cpp
-SimplexNoise.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/SimplexNoise.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildPerlin.cpp
+math.h
+-
+noise.c
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/noise.c
 TerrainStruct.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildSimplex.cpp
+SimplexNoise.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/SimplexNoise.h
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 Imagestuff.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
 Array2D.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Array2D.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Array2D.h
 sstream
 -
 iostream
@@ -72,7 +82,7 @@ string
 map
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildVoronoi.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildVoronoi.cpp
 iostream
 -
 math.h
@@ -82,63 +92,65 @@ algorithm
 time.h
 -
 Imagestuff.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
 Voronoi.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi.h
 VPoint.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/VPoint.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/VPoint.h
 TPoint3.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
 TerrainStruct.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BumpMap.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BumpMap.cpp
 TerrainStruct.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 TPoint3.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
 Imagestuff.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ColorGet.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorGet.cpp
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Combiner.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Combiner.cpp
 vector
 -
 algorithm
 -
 TPoint3.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
 TerrainStruct.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Falloffinterpolate.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Falloffinterpolate.cpp
 OgreMatrix4.h
 -
 vector
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/FluidErosionDReg.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/FluidErosionDReg.cpp
 TerrainFluidSimulation.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainFluidSimulation.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainFluidSimulation.cpp
 CEGUI/CEGUI.h
 -
 CEGUI/RendererModules/Ogre/Renderer.h
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/FreqAmpOctEventReg.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/FreqAmpOctEventReg.cpp
 PerlinTest.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinTest.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/PerlinTest.cpp
 BuildVoronoi.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildVoronoi.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildVoronoi.cpp
 BuildSimplex.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildSimplex.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildSimplex.cpp
 BuildFbm.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildFbm.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildFbm.cpp
 DiamondSquare.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/DiamondSquare.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare.cpp
 Musgrave.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Musgrave.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Musgrave.cpp
+BuildPerlin.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildPerlin.cpp
 iostream
 -
 string
@@ -150,15 +162,15 @@ CEGUI/CEGUI.h
 CEGUI/RendererModules/Ogre/Renderer.h
 -
 BaseApplication.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BaseApplication.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BaseApplication.h
 LoadHeightMap.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/LoadHeightMap.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/LoadHeightMap.cpp
 ScaleHeights.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ScaleHeights.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ScaleHeights.cpp
 Combiner.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Combiner.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Combiner.cpp
 Voronoi.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi.cpp
 map
 -
 string
@@ -166,9 +178,9 @@ string
 iostream
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ITutorial02.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ITutorial02.cpp
 ITutorial02.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ITutorial02.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ITutorial02.h
 iostream
 -
 string
@@ -178,35 +190,35 @@ sstream
 cmath
 -
 Terrainheightselection.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Terrainheightselection.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Terrainheightselection.cpp
 TerrainFluidSimulation.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainFluidSimulation.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainFluidSimulation.cpp
 cspline.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/cspline.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/cspline.cpp
 Falloffinterpolate.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Falloffinterpolate.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Falloffinterpolate.cpp
 PlaneIntersection.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PlaneIntersection.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/PlaneIntersection.cpp
 PerlinTest.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinTest.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/PerlinTest.cpp
 LoadHeightMap.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/LoadHeightMap.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/LoadHeightMap.cpp
 FreqAmpOctEventReg.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/FreqAmpOctEventReg.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/FreqAmpOctEventReg.cpp
 FluidErosionDReg.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/FluidErosionDReg.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/FluidErosionDReg.cpp
 BuildVoronoi.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildVoronoi.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildVoronoi.cpp
 BuildSimplex.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildSimplex.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildSimplex.cpp
 BuildFbm.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BuildFbm.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildFbm.cpp
 DiamondSquare.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/DiamondSquare.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare.cpp
 windows.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/windows.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/windows.h
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ITutorial02.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ITutorial02.h
 CEGUI/CEGUI.h
 -
 CEGUI/RendererModules/Ogre/Renderer.h
@@ -216,87 +228,87 @@ Terrain/OgreTerrain.h
 Terrain/OgreTerrainGroup.h
 -
 BaseApplication.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BaseApplication.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BaseApplication.h
 vector
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/LoadHeightMap.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/LoadHeightMap.cpp
 vector
 -
 ColorGet.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ColorGet.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorGet.cpp
 TerrainStruct.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 TPoint3.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
 Imagestuff.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
 BumpMap.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BumpMap.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BumpMap.cpp
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Musgrave.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Musgrave.cpp
 math.h
 -
 terrainerosion/Math/PerlinNoise.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/terrainerosion/Math/PerlinNoise.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Math/PerlinNoise.h
 TerrainStruct.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Perlin.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Perlin.cpp
 vector
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinGenerator.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/PerlinGenerator.cpp
 TerrainStruct.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 TPoint3.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
 Perlin.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Perlin.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Perlin.cpp
 vector
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinTest.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/PerlinTest.cpp
 TerrainStruct.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 PerlinGenerator.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PerlinGenerator.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/PerlinGenerator.cpp
 ColorGet.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ColorGet.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorGet.cpp
 Imagestuff.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
 vector
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/PlaneIntersection.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/PlaneIntersection.cpp
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ScaleHeights.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ScaleHeights.cpp
 vector
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainFluidSimulation.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainFluidSimulation.cpp
 Simulation/FluidSimulation.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simulation/FluidSimulation.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Simulation/FluidSimulation.h
 SimulationState.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/SimulationState.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/SimulationState.h
 memory
 -
 iostream
 -
 platform_includes.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/platform_includes.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/platform_includes.h
 TerrainStruct.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 Imagestuff.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Imagestuff.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 TPoint3.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/TPoint3.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
 list
 -
 queue
@@ -312,7 +324,7 @@ map
 utility
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Terrainheightselection.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Terrainheightselection.cpp
 iostream
 -
 string
@@ -322,15 +334,15 @@ sstream
 vector
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi.cpp
 cspline.cpp
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/cspline.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/cspline.cpp
 vector
 -
 cmath
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/cspline.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/cspline.cpp
 vector
 -
 OgreMatrix4.h
@@ -338,9 +350,15 @@ OgreMatrix4.h
 OgreVector4.h
 -
 
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/terrainerosion/Math/PerlinNoise.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/noise.c
+math.h
+-
+BLI_noise.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BLI_noise.h
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Math/PerlinNoise.h
 platform_includes.h
-/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/terrainerosion/Math/platform_includes.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Math/platform_includes.h
 vector
 -
 

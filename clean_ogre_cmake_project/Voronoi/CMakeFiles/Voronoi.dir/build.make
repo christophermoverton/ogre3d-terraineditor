@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 # Include any dependencies generated for this target.
 include Voronoi/CMakeFiles/Voronoi.dir/depend.make
@@ -54,17 +54,17 @@ include Voronoi/CMakeFiles/Voronoi.dir/flags.make
 
 Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.o: Voronoi/CMakeFiles/Voronoi.dir/flags.make
 Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.o: Voronoi/Voronoi.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.o"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Voronoi.dir/Voronoi.cpp.o -c /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.cpp
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Voronoi.dir/Voronoi.cpp.o -c /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi/Voronoi.cpp
 
 Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Voronoi.dir/Voronoi.cpp.i"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.cpp > CMakeFiles/Voronoi.dir/Voronoi.cpp.i
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi/Voronoi.cpp > CMakeFiles/Voronoi.dir/Voronoi.cpp.i
 
 Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Voronoi.dir/Voronoi.cpp.s"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/Voronoi.cpp -o CMakeFiles/Voronoi.dir/Voronoi.cpp.s
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi/Voronoi.cpp -o CMakeFiles/Voronoi.dir/Voronoi.cpp.s
 
 Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.o.requires:
 .PHONY : Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.o.requires
@@ -77,17 +77,17 @@ Voronoi/CMakeFiles/Voronoi.dir/Voronoi.cpp.o.provides.build: Voronoi/CMakeFiles/
 
 Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.o: Voronoi/CMakeFiles/Voronoi.dir/flags.make
 Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.o: Voronoi/VParabola.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.o"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Voronoi.dir/VParabola.cpp.o -c /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.cpp
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/Voronoi.dir/VParabola.cpp.o -c /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi/VParabola.cpp
 
 Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Voronoi.dir/VParabola.cpp.i"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.cpp > CMakeFiles/Voronoi.dir/VParabola.cpp.i
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi/VParabola.cpp > CMakeFiles/Voronoi.dir/VParabola.cpp.i
 
 Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Voronoi.dir/VParabola.cpp.s"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/VParabola.cpp -o CMakeFiles/Voronoi.dir/VParabola.cpp.s
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi/VParabola.cpp -o CMakeFiles/Voronoi.dir/VParabola.cpp.s
 
 Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.o.requires:
 .PHONY : Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.o.requires
@@ -111,8 +111,8 @@ Voronoi/libVoronoi.a: Voronoi/CMakeFiles/Voronoi.dir/VParabola.cpp.o
 Voronoi/libVoronoi.a: Voronoi/CMakeFiles/Voronoi.dir/build.make
 Voronoi/libVoronoi.a: Voronoi/CMakeFiles/Voronoi.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library libVoronoi.a"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi && $(CMAKE_COMMAND) -P CMakeFiles/Voronoi.dir/cmake_clean_target.cmake
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Voronoi.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi && $(CMAKE_COMMAND) -P CMakeFiles/Voronoi.dir/cmake_clean_target.cmake
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Voronoi.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 Voronoi/CMakeFiles/Voronoi.dir/build: Voronoi/libVoronoi.a
@@ -123,10 +123,10 @@ Voronoi/CMakeFiles/Voronoi.dir/requires: Voronoi/CMakeFiles/Voronoi.dir/VParabol
 .PHONY : Voronoi/CMakeFiles/Voronoi.dir/requires
 
 Voronoi/CMakeFiles/Voronoi.dir/clean:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi && $(CMAKE_COMMAND) -P CMakeFiles/Voronoi.dir/cmake_clean.cmake
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi && $(CMAKE_COMMAND) -P CMakeFiles/Voronoi.dir/cmake_clean.cmake
 .PHONY : Voronoi/CMakeFiles/Voronoi.dir/clean
 
 Voronoi/CMakeFiles/Voronoi.dir/depend:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Voronoi/CMakeFiles/Voronoi.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi/CMakeFiles/Voronoi.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : Voronoi/CMakeFiles/Voronoi.dir/depend
 

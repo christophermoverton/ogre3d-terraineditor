@@ -20,6 +20,10 @@ public:
 		x = nx; 
 		y = ny;
 	}
+    bool operator==(const VPoint & a) const
+	{
+    	        return (x == a.x && y == a.y);
+    	}
 };
 
 #endif

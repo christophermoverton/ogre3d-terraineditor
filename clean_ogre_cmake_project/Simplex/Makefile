@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -103,14 +103,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex/CMakeFiles/progress.marks
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Simplex/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Simplex/CMakeFiles/progress.marks
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Simplex/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Simplex/clean
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Simplex/clean
 .PHONY : clean
 
 # The main clean target
@@ -119,22 +119,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Simplex/preinstall
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Simplex/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Simplex/preinstall
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Simplex/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Simplex/CMakeFiles/Simplex.dir/rule:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Simplex/CMakeFiles/Simplex.dir/rule
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 Simplex/CMakeFiles/Simplex.dir/rule
 .PHONY : Simplex/CMakeFiles/Simplex.dir/rule
 
 # Convenience name for target.
@@ -143,7 +143,7 @@ Simplex: Simplex/CMakeFiles/Simplex.dir/rule
 
 # fast build rule for target.
 Simplex/fast:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Simplex/CMakeFiles/Simplex.dir/build.make Simplex/CMakeFiles/Simplex.dir/build
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f Simplex/CMakeFiles/Simplex.dir/build.make Simplex/CMakeFiles/Simplex.dir/build
 .PHONY : Simplex/fast
 
 SimplexNoise.o: SimplexNoise.cpp.o
@@ -151,7 +151,7 @@ SimplexNoise.o: SimplexNoise.cpp.o
 
 # target to build an object file
 SimplexNoise.cpp.o:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Simplex/CMakeFiles/Simplex.dir/build.make Simplex/CMakeFiles/Simplex.dir/SimplexNoise.cpp.o
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f Simplex/CMakeFiles/Simplex.dir/build.make Simplex/CMakeFiles/Simplex.dir/SimplexNoise.cpp.o
 .PHONY : SimplexNoise.cpp.o
 
 SimplexNoise.i: SimplexNoise.cpp.i
@@ -159,7 +159,7 @@ SimplexNoise.i: SimplexNoise.cpp.i
 
 # target to preprocess a source file
 SimplexNoise.cpp.i:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Simplex/CMakeFiles/Simplex.dir/build.make Simplex/CMakeFiles/Simplex.dir/SimplexNoise.cpp.i
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f Simplex/CMakeFiles/Simplex.dir/build.make Simplex/CMakeFiles/Simplex.dir/SimplexNoise.cpp.i
 .PHONY : SimplexNoise.cpp.i
 
 SimplexNoise.s: SimplexNoise.cpp.s
@@ -167,7 +167,7 @@ SimplexNoise.s: SimplexNoise.cpp.s
 
 # target to generate assembly for a file
 SimplexNoise.cpp.s:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f Simplex/CMakeFiles/Simplex.dir/build.make Simplex/CMakeFiles/Simplex.dir/SimplexNoise.cpp.s
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f Simplex/CMakeFiles/Simplex.dir/build.make Simplex/CMakeFiles/Simplex.dir/SimplexNoise.cpp.s
 .PHONY : SimplexNoise.cpp.s
 
 # Help Target
@@ -196,6 +196,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

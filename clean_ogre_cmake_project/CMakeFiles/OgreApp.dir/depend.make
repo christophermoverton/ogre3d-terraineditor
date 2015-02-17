@@ -229,8 +229,10 @@ CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: /usr/local/include/OGRE/Threading/
 CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: /usr/local/include/OGRE/Threading/OgreThreadHeadersPoco.h
 CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: /usr/local/include/OGRE/Threading/OgreThreadHeadersTBB.h
 
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BLI_noise.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BaseApplication.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildFbm.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildPerlin.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildSimplex.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildVoronoi.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BumpMap.cpp
@@ -255,6 +257,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainStruct.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Terrainheightselection.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: cspline.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: noise.c
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: terrainerosion/Math/PerlinNoise.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/include/ois/OIS.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/include/ois/OISConfig.h

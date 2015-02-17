@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -103,14 +103,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/terrainerosion/CMakeFiles/progress.marks
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 terrainerosion/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/CMakeFiles/progress.marks
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 terrainerosion/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 terrainerosion/clean
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 terrainerosion/clean
 .PHONY : clean
 
 # The main clean target
@@ -119,22 +119,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 terrainerosion/preinstall
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 terrainerosion/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 terrainerosion/preinstall
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 terrainerosion/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 terrainerosion/CMakeFiles/terrainerosion.dir/rule:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 terrainerosion/CMakeFiles/terrainerosion.dir/rule
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f CMakeFiles/Makefile2 terrainerosion/CMakeFiles/terrainerosion.dir/rule
 .PHONY : terrainerosion/CMakeFiles/terrainerosion.dir/rule
 
 # Convenience name for target.
@@ -143,7 +143,7 @@ terrainerosion: terrainerosion/CMakeFiles/terrainerosion.dir/rule
 
 # fast build rule for target.
 terrainerosion/fast:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/build
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/build
 .PHONY : terrainerosion/fast
 
 Math/PerlinNoise.o: Math/PerlinNoise.cpp.o
@@ -151,7 +151,7 @@ Math/PerlinNoise.o: Math/PerlinNoise.cpp.o
 
 # target to build an object file
 Math/PerlinNoise.cpp.o:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Math/PerlinNoise.cpp.o
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Math/PerlinNoise.cpp.o
 .PHONY : Math/PerlinNoise.cpp.o
 
 Math/PerlinNoise.i: Math/PerlinNoise.cpp.i
@@ -159,7 +159,7 @@ Math/PerlinNoise.i: Math/PerlinNoise.cpp.i
 
 # target to preprocess a source file
 Math/PerlinNoise.cpp.i:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Math/PerlinNoise.cpp.i
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Math/PerlinNoise.cpp.i
 .PHONY : Math/PerlinNoise.cpp.i
 
 Math/PerlinNoise.s: Math/PerlinNoise.cpp.s
@@ -167,7 +167,7 @@ Math/PerlinNoise.s: Math/PerlinNoise.cpp.s
 
 # target to generate assembly for a file
 Math/PerlinNoise.cpp.s:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Math/PerlinNoise.cpp.s
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Math/PerlinNoise.cpp.s
 .PHONY : Math/PerlinNoise.cpp.s
 
 Simulation/FluidSimulation.o: Simulation/FluidSimulation.cpp.o
@@ -175,7 +175,7 @@ Simulation/FluidSimulation.o: Simulation/FluidSimulation.cpp.o
 
 # target to build an object file
 Simulation/FluidSimulation.cpp.o:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Simulation/FluidSimulation.cpp.o
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Simulation/FluidSimulation.cpp.o
 .PHONY : Simulation/FluidSimulation.cpp.o
 
 Simulation/FluidSimulation.i: Simulation/FluidSimulation.cpp.i
@@ -183,7 +183,7 @@ Simulation/FluidSimulation.i: Simulation/FluidSimulation.cpp.i
 
 # target to preprocess a source file
 Simulation/FluidSimulation.cpp.i:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Simulation/FluidSimulation.cpp.i
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Simulation/FluidSimulation.cpp.i
 .PHONY : Simulation/FluidSimulation.cpp.i
 
 Simulation/FluidSimulation.s: Simulation/FluidSimulation.cpp.s
@@ -191,7 +191,7 @@ Simulation/FluidSimulation.s: Simulation/FluidSimulation.cpp.s
 
 # target to generate assembly for a file
 Simulation/FluidSimulation.cpp.s:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Simulation/FluidSimulation.cpp.s
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/Simulation/FluidSimulation.cpp.s
 .PHONY : Simulation/FluidSimulation.cpp.s
 
 # Help Target
@@ -223,6 +223,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

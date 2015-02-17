@@ -18,6 +18,11 @@ struct TPoint3
 			y = ny;
 			z = nz;
 		}
+		TPoint3(){
+			x = 0.0f;
+			y = 0.0f;
+			z = 0.0f;
+		}
 
 	        TPoint3 & operator=(const TPoint3 & a)
     		{

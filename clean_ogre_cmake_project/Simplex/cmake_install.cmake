@@ -1,8 +1,8 @@
-# Install script for directory: /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/Simplex
+# Install script for directory: /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Simplex
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/dist")
+  SET(CMAKE_INSTALL_PREFIX "/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/dist")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

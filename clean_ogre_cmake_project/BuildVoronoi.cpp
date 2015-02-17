@@ -87,6 +87,7 @@ class BuildVoronoi{
 		vor::Cells * cellspost;  //post processed voronoi cell edges data container.
 		VoronoiCell * cell;  //temporary cell map container for internal use
 		vor::CoordtoCellMap * coordtocell;
+		vor::CelltoCells * celltocells;
 		terr::T3dCPointsMap * rtnmap;  //voronoi cell map with radial normalized heightmap values.
 		terr::CPointsMap * crtnmap;  // non pointer coordinate addressing
 		Ogre::Log* tlog3;
@@ -105,6 +106,7 @@ class BuildVoronoi{
 		VPoint * getMaxYVertex(vor::VertEdges * bvertedges);
 		VPoint * getMinYVertex(vor::VertEdges * bvertedges);
 		vor::CPointsMap * buildPoints(vor::Cells * cellsone);
+		vor::dPoint Findclosestpoint(vor::Coordpair * pos, vor::Vertices * ncells);
 		
 };
 
@@ -113,15 +115,16 @@ BuildVoronoi::BuildVoronoi(){
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("Voronoi.log");
 	Ogre::Log* tlog2 = Ogre::LogManager::getSingleton().createLog("Voronoi3.log");
 	tlog3 = Ogre::LogManager::getSingleton().getLog("Voronoi3.log");
-	std::ostringstream ss5;
-	ss5 << "Hitting Voronoi test1 !" << "\n";
-    	tlog->logMessage(ss5.str());
-    	ss5.str(std::string());
+	//std::ostringstream //ss5;
+	//ss5 << "Hitting Voronoi test1 !" << "\n";
+    	//tlog->logMessage(//ss5.str());
+    	//ss5.str(std::string());
 	v = new vor::Voronoi();
 	cellspost = new vor::Cells();
 	crtnmap = new terr::CPointsMap();
 	ver = new vor::Vertices();
 	dir = new vor::Vertices();
+	celltocells = new vor::CelltoCells();
 	for(int i=0; i<50; i++) 
 	{
 
@@ -131,17 +134,17 @@ BuildVoronoi::BuildVoronoi(){
 	
 	edg = v->GetEdges(ver, w, w);
 	std::cout << "voronois done!\n";
-	ss5 << "Hitting Voronoi test2 !" << "\n";
-    	tlog->logMessage(ss5.str());
+	//ss5 << "Hitting Voronoi test2 !" << "\n";
+    	//tlog->logMessage(//ss5.str());
 	
-    	ss5.str(std::string());
+    	//ss5.str(std::string());
 	cells = v->GetVoronoiCells();
 	for(vor::Cells::iterator i = cells->begin(); i!= cells->end(); ++i)
 	{
-		ss5 << "Cell: " << (* (*i).second->sitePos).x << "," <<(* (*i).second->sitePos).y << "\n"; 
+		//ss5 << "Cell: " << (* (*i).second->sitePos).x << "," <<(* (*i).second->sitePos).y << "\n"; 
 		vor::Vertices * verts = (*i).second->places;
 		for(vor::Vertices::iterator j = verts->begin(); j != verts->end(); j++){
-			ss5 << "x: " << (*j)->x << ", y: " << (*j)->y << "\n";
+			//ss5 << "x: " << (*j)->x << ", y: " << (*j)->y << "\n";
 		}
 		cell = (*i).second;
 		vor::VertEdges * bvertedges = (*i).second->vertedges;
@@ -149,7 +152,7 @@ BuildVoronoi::BuildVoronoi(){
 		
 		for(vor::VertEdges::iterator j = bvertedges->begin(); j != bvertedges->end(); j++){
 			VPoint * cellvertex = (*j).first;
-			ss5 << "Vertex x: " << cellvertex->x << " , y: " << cellvertex->y << "\n";
+			//ss5 << "Vertex x: " << cellvertex->x << " , y: " << cellvertex->y << "\n";
 			vor::Edges * instedges = (*j).second;
 			for(vor::Edges::iterator k = instedges->begin(); k != instedges->end(); k++) {
 				vor::Vertices * instverts = (*bedgeverts)[*k];  //edge vertices
@@ -159,14 +162,14 @@ BuildVoronoi::BuildVoronoi(){
 				for(vor::Vertices::iterator l = instverts->begin(); l != instverts->end();l++) {
 					if (*l != cellvertex){
 						//compute line points with this neighbor vertex as boundary
-						ss5 << "neighbor point x: " << (*l)->x << " , y: " << (*l)->y << "\n";
+						////ss5 << "neighbor point x: " << (*l)->x << " , y: " << (*l)->y << "\n";
 					}
 				}
 			}
 		}
 		
 	}
-	tlog->logMessage(ss5.str());
+	//tlog->logMessage(//ss5.str());
 	for(vor::Edges::iterator i = edg->begin(); i!= edg->end(); ++i)
 	{
 		/*  Comparing and building cell data from edg data (post processing method).
@@ -174,6 +177,19 @@ BuildVoronoi::BuildVoronoi(){
 		if ((*cellspost).find((*i)->left) != (*cellspost).end()){
 
 			VoronoiCell * siteposcell = (*cellspost)[(*i)->left];
+			vor::dCoordpair * dcoordpair = new vor::dCoordpair((*i)->left->x, (*i)->left->y);
+			
+			vor::Vertices * ncells = (*celltocells)[(*dcoordpair)]; //for second pass method
+			bool found = false;
+			for (vor::Vertices::iterator a = ncells->begin(); a != ncells->end();a++){
+				
+				if ((*a) == ( (*i)->right)){
+					found = true;
+					break;
+				}
+				
+			}
+			if (!found){ncells->push_back((*i)->right);}
 			bool place, place2; place = false; place2 = false;
 			for(vor::Vertices::iterator l = siteposcell->places->begin(); l != siteposcell->places->end();l++) {
 				if (*l == (*i)->start){
@@ -284,6 +300,11 @@ BuildVoronoi::BuildVoronoi(){
 		else{
 			(*cellspost)[(*i)->left] = new VoronoiCell((*i)->left);
 			VoronoiCell * siteposcell = (*cellspost)[(*i)->left];
+			vor::dCoordpair * dcoordpair = new vor::dCoordpair((*i)->left->x, (*i)->left->y); //for 2nd pass method
+			vor::Vertices * newverts = new vor::Vertices();
+			newverts->push_back((*i)->right);
+			(*celltocells)[(*dcoordpair)] = newverts;
+			siteposcell->ncells->push_back((*i)->right);
 			siteposcell->places->push_back((*i)->start);
 			siteposcell->places->push_back((*i)->end);
 			///*
@@ -321,6 +342,19 @@ BuildVoronoi::BuildVoronoi(){
 		if ((*cellspost).find((*i)->right)!= (*cellspost).end()){
 
 			VoronoiCell * siteposcell = (*cellspost)[(*i)->right];
+			vor::dCoordpair * dcoordpair = new vor::dCoordpair((*i)->right->x, (*i)->right->y);
+			
+			vor::Vertices * ncells = (*celltocells)[(*dcoordpair)]; 
+			bool found = false;
+			for (vor::Vertices::iterator a = ncells->begin(); a != ncells->end();a++){
+				
+				if ((*a) == ( (*i)->left)){
+					found = true;
+					break;
+				}
+				
+			}
+			if (!found){ncells->push_back((*i)->left);}
 			bool place, place2; place = false; place2 = false;
 			for(vor::Vertices::iterator l = siteposcell->places->begin(); l != siteposcell->places->end();l++) {
 				if (*l == (*i)->start){
@@ -433,6 +467,11 @@ BuildVoronoi::BuildVoronoi(){
 		else{
 			(*cellspost)[(*i)->right] = new VoronoiCell((*i)->right);
 			VoronoiCell * siteposcell = (*cellspost)[(*i)->right];
+			vor::dCoordpair * dcoordpair = new vor::dCoordpair((*i)->right->x, (*i)->right->y);
+			vor::Vertices * newverts = new vor::Vertices();
+			newverts->push_back((*i)->left);
+			(*celltocells)[(*dcoordpair)] = newverts;
+			//siteposcell->ncells->push_back((*i)->left);
 			siteposcell->places->push_back((*i)->start);
 			siteposcell->places->push_back((*i)->end);
 			///*
@@ -471,15 +510,15 @@ BuildVoronoi::BuildVoronoi(){
 		}
 	}
 
-	ss5.str(std::string());
+	//ss5.str(std::string());
 ///*
 	
 	for(vor::Cells::iterator i = cellspost->begin(); i!= cellspost->end(); ++i)
 	{
-		ss5 << "Cell: " << (* (*i).second->sitePos).x << "," <<(* (*i).second->sitePos).y << "\n"; 
+		//ss5 << "Cell: " << (* (*i).second->sitePos).x << "," <<(* (*i).second->sitePos).y << "\n"; 
 		vor::Vertices * verts = (*i).second->places;
 		for(vor::Vertices::iterator j = verts->begin(); j != verts->end(); j++){
-			ss5 << "x: " << (*j)->x << ", y: " << (*j)->y << "\n";
+			//ss5 << "x: " << (*j)->x << ", y: " << (*j)->y << "\n";
 		}
 		//cell = (*i).second;
 		vor::VertEdges * bvertedges = (*i).second->vertedges;
@@ -487,7 +526,7 @@ BuildVoronoi::BuildVoronoi(){
 		vor::VEdgemap * bedgemap = (*i).second->edgemap;
 		for(vor::VertEdges::iterator j = bvertedges->begin(); j != bvertedges->end(); j++){
 			VPoint * cellvertex = (*j).first;
-			ss5 << "Vertex x: " << cellvertex->x << " , y: " << cellvertex->y << "\n";
+			//ss5 << "Vertex x: " << cellvertex->x << " , y: " << cellvertex->y << "\n";
 			vor::Edges * instedges = (*j).second;
 			vor::Vertices * pointstrack = new vor::Vertices();
 			bool stopcheck = false;
@@ -512,7 +551,7 @@ BuildVoronoi::BuildVoronoi(){
 					*/
 					if (*l != cellvertex){
 						//compute line points with this neighbor vertex as boundary
-						ss5 << "neighbor point x: " << (*l)->x << " , y: " << (*l)->y << "\n";
+						//ss5 << "neighbor point x: " << (*l)->x << " , y: " << (*l)->y << "\n";
 						
 						for(vor::Vertices::iterator m = pointstrack->begin(); m != pointstrack->end();m++) {
 							if (*m == *l){
@@ -550,34 +589,34 @@ BuildVoronoi::BuildVoronoi(){
 		(*i).second->cellpolypoints = traverseCellPath(pathlist, (*i).second, (*j).first, false, 0);
 		pathlist = (*i).second->cellpolypoints;
 		vor::Vertices * dupls = (*i).second->duplicates;
-		for(vor::Vertices::iterator l = dupls->begin(); l != dupls->end();l++) {
-			ss5 << "Duplicates coordinate x: " << (*l)->x << ", y: " << (*l)->y << "\n";	
-		}
-		for(vor::Vertices::iterator l = pathlist->begin(); l != pathlist->end();l++) {
-			ss5 << "Path coordinate x: " << (*l)->x << ", y: " << (*l)->y << "\n";	
-		}
+		//for(vor::Vertices::iterator l = dupls->begin(); l != dupls->end();l++) {
+			//ss5 << "Duplicates coordinate x: " << (*l)->x << ", y: " << (*l)->y << "\n";	
+		//}
+		//for(vor::Vertices::iterator l = pathlist->begin(); l != pathlist->end();l++) {
+			//ss5 << "Path coordinate x: " << (*l)->x << ", y: " << (*l)->y << "\n";	
+		//}
 		gcentroid((*i).second);
 		
-		ss5 << "Centroid coordinate x: " << (*i).second->centroid->x << ", y: " << (*i).second->centroid->y << "\n";
+		//ss5 << "Centroid coordinate x: " << (*i).second->centroid->x << ", y: " << (*i).second->centroid->y << "\n";
 		//now that we have centroid computed we have completed relaxation step...at this point you can refeed 
 		//centroid coordinates for each back into this loop to recompute new voronoi diagram.  It appears that the given
 		//formulation for a finite set of points on the polygon is not right...or something is off...I might try 
 		//a geometric decomposition approach to see if the result is the same.
 		///*	
-		for(vor::VEdgemap::iterator j = bedgemap->begin(); j != bedgemap->end(); j++){
-			vor::Vertpair vpair = (*j).first;  VPoint * v1p = vpair.first; VPoint * v2p = vpair.second;
-			ss5 << "1rst x: "<< v1p->x << " 1rst y: " << v1p->y <<"\n";
-			ss5 << "2nd x: "<< v2p->x << " 2nd y: " << v2p->y <<"\n";
-		}
+		//for(vor::VEdgemap::iterator j = bedgemap->begin(); j != bedgemap->end(); j++){
+			//vor::Vertpair vpair = (*j).first;  VPoint * v1p = vpair.first; VPoint * v2p = vpair.second;
+			//ss5 << "1rst x: "<< v1p->x << " 1rst y: " << v1p->y <<"\n";
+			//ss5 << "2nd x: "<< v2p->x << " 2nd y: " << v2p->y <<"\n";
+		//}
 		//*/	
 	}
 //*/
 	vor::Coordpair * point1 = new vor::Coordpair(1,1);
 	vor::Coordpair * point2 = new vor::Coordpair(1,1);
 	bool test1 = (*point1) == (*point2);
-	ss5 << "Point 1 equals Point 2 " << test1 << "\n";
-	ss5 << "Number of cells: " << (*cellspost).size() << "\n";
-	tlog2->logMessage(ss5.str());
+	//ss5 << "Point 1 equals Point 2 " << test1 << "\n";
+	//ss5 << "Number of cells: " << (*cellspost).size() << "\n";
+	//tlog2->logMessage(//ss5.str());
 	vor::CPointsMap * pointsmap = buildPoints(cellspost);
 	
 	
@@ -593,7 +632,7 @@ BuildVoronoi::BuildVoronoi(){
 	double div = (*pointsmap)[(*mcoordpair)];
 	for (int j = 0; j<size; j++){
 		for (int k = 0; k<size; k++){
-			//ss5<<"Color value: "<<noisevals[i][j]<<"\n";
+			////ss5<<"Color value: "<<noisevals[i][j]<<"\n";
 			double mult = w/size; int jmn = j*mult; int kmn = k*mult; double jmm = (double)j*mult, kmm = (double)k*mult; 
 			double jdiff = jmm-jmn, kdiff = kmm-kmn;
 			if (jdiff >= .5){
@@ -613,30 +652,81 @@ BuildVoronoi::BuildVoronoi(){
 				Ogre::ColourValue col = Ogre::ColourValue(colval/div,colval/div,colval/div);
 				fill->setPixl((size_t)j, (size_t)k, col);
 			}
-			else{
+			else{  //starting second pass method...this checks a neighbor point and then compares its cellsite
+			       //neighbors returning a min distance on all possible neighbor cell site positions alongside the
+				//nearest cell site.  Doesn't work when there is too much incompleteness in data.  Could
+				//add for added find insurance, corner points on the 9 point lattice I've only included 4 point check.
 				
-				coordpair = new vor::Coordpair(jmn+1, kmn);
+				coordpair = new vor::Coordpair(jmn-1, kmn);
 				Ogre::ColourValue col;
 				if ((*coordtocell).find((*coordpair)) != (*coordtocell).end()){
 					VPoint * sitepos = (*coordtocell)[(*coordpair)];
-					double colval = pow(pow(sitepos->y-kmn,2.0f) + pow(sitepos->x-jmn, 2.0f),.5f);
+					vor::dCoordpair * dcoord = new vor::dCoordpair(sitepos->x,sitepos->y);
+					vor::Vertices * nsites = (*celltocells)[(*dcoord)];
+					vor::dPoint dpoint = Findclosestpoint(coordpair2, nsites);
+					double colval = dpoint.first;
+					//double colval = pow(pow(sitepos->y-kmn,2.0f) + pow(sitepos->x-jmn, 2.0f),.5f);
 					(*rtnmap)[rtnmapcoord] = colval/div;
 					(*crtnmap)[(*coordpair2)] = colval/div;
+					if (dpoint.second != 0){
+						(*coordtocell)[(*coordpair2)] = dpoint.second;
+					}
 					col = Ogre::ColourValue(colval/div,colval/div,colval/div);
 				}
 				else {
-					coordpair = new vor::Coordpair(jmn, kmn+1);
+					coordpair = new vor::Coordpair(jmn, kmn-1);
 					if ((*coordtocell).find((*coordpair)) != (*coordtocell).end()){
 						VPoint * sitepos = (*coordtocell)[(*coordpair)];
-						double colval = pow(pow(sitepos->y-kmn,2.0f) + pow(sitepos->x-jmn, 2.0f),.5f);
+						vor::dCoordpair * dcoord = new vor::dCoordpair(sitepos->x,sitepos->y);
+						vor::Vertices * nsites = (*celltocells)[(*dcoord)];
+						vor::dPoint dpoint = Findclosestpoint(coordpair2, nsites);
+						double colval = dpoint.first;
+						//double colval = pow(pow(sitepos->y-kmn,2.0f) + pow(sitepos->x-jmn, 2.0f),.5f);
 						(*rtnmap)[rtnmapcoord] = colval/div;
 						(*crtnmap)[(*coordpair2)] = colval/div;
+						if (dpoint.second != 0){
+							(*coordtocell)[(*coordpair2)] = dpoint.second;
+						}
 						col = Ogre::ColourValue(colval/div,colval/div,colval/div);
 					}
 					else{
-						(*rtnmap)[rtnmapcoord] = 1.0f;
-						(*crtnmap)[(*coordpair2)] = 1.0f;
-						col = Ogre::ColourValue(1.0f,1.0f,1.0f);
+						coordpair = new vor::Coordpair(jmn+1, kmn);
+						if ((*coordtocell).find((*coordpair)) != (*coordtocell).end()){
+							VPoint * sitepos = (*coordtocell)[(*coordpair)];
+							vor::dCoordpair * dcoord = new vor::dCoordpair(sitepos->x,sitepos->y);
+							vor::Vertices * nsites = (*celltocells)[(*dcoord)];
+							vor::dPoint dpoint = Findclosestpoint(coordpair2, nsites);
+							double colval = dpoint.first;
+							//double colval = pow(pow(sitepos->y-kmn,2.0f) + pow(sitepos->x-jmn, 2.0f),.5f);
+							(*rtnmap)[rtnmapcoord] = colval/div;
+							(*crtnmap)[(*coordpair2)] = colval/div;
+							if (dpoint.second != 0){
+								(*coordtocell)[(*coordpair2)] = dpoint.second;
+							}
+							col = Ogre::ColourValue(colval/div,colval/div,colval/div);
+						}
+						else{
+							coordpair = new vor::Coordpair(jmn, kmn+1);
+							if ((*coordtocell).find((*coordpair)) != (*coordtocell).end()){
+								VPoint * sitepos = (*coordtocell)[(*coordpair)];
+								vor::dCoordpair * dcoord = new vor::dCoordpair(sitepos->x,sitepos->y);
+								vor::Vertices * nsites = (*celltocells)[(*dcoord)];
+								vor::dPoint dpoint = Findclosestpoint(coordpair2, nsites);
+								double colval = dpoint.first;
+								//double colval = pow(pow(sitepos->y-kmn,2.0f) + pow(sitepos->x-jmn, 2.0f),.5f);
+								(*rtnmap)[rtnmapcoord] = colval/div;
+								(*crtnmap)[(*coordpair2)] = colval/div;
+								if (dpoint.second != 0){
+									(*coordtocell)[(*coordpair2)] = dpoint.second;
+								}
+								col = Ogre::ColourValue(colval/div,colval/div,colval/div);
+							}
+							else{
+								(*rtnmap)[rtnmapcoord] = 1.0f;
+								(*crtnmap)[(*coordpair2)] = 1.0f;
+								col = Ogre::ColourValue(1.0f,1.0f,1.0f);
+							}
+						}
 					}
 				     }
 				fill->setPixl((size_t)j, (size_t)k, col);
@@ -834,6 +924,23 @@ void BuildVoronoi::gcentroid(VoronoiCell * cell){
 	cell->centroid = new VPoint(xc, yc);
 }
 
+vor::dPoint BuildVoronoi::Findclosestpoint(vor::Coordpair * pos, vor::Vertices * ncells){
+	VPoint * rtnpnt = 0;
+	vor::Vertices::iterator i = ncells->begin();
+	double mindist = pow(pow((*i)->x-(*pos).first,2.0f) + pow((*i)->y-(*pos).second, 2.0f),.5f);
+	i++;
+	while ( i != ncells->end() ){
+		double val = pow(pow((*i)->x-(*pos).first,2.0f) + pow((*i)->y-(*pos).second, 2.0f),.5f);
+		if (val < mindist){
+			rtnpnt = (*i);
+			mindist = val;
+		}
+		i++;
+	}
+	vor::dPoint * rtn = new vor::dPoint(mindist, rtnpnt);
+	return (*rtn);
+}
+
 double BuildVoronoi::solveX(double y, VEdge * edge){
 	//y = f*x + g
 	double f = edge->f; double g = edge->g;
@@ -847,7 +954,7 @@ double BuildVoronoi::solveY(double x, VEdge * edge){
 }
 
 vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * siteedgemap, bool xaxis){
-	std::ostringstream ss5;
+	//std::ostringstream //ss5;
 	vor::Dvalues dvals; //= new vor::Dvalues();
 	
 	double vmin;
@@ -871,16 +978,16 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 				if ((abs(x-origin->x) < 1) and (x >= origin->x)){
 					siteapr = true;
 				}
-				if (x > origin->x){
+				//if (x > origin->x){
 					if (x > vmax){
 						vmax = x;
 					}
-				}
-				else{
+				//}
+				//else{
 					if (x < vmin){
 						vmin = x;
 					}
-				}
+				//}
 
 			}
 			else if ((v1->y >= origin->y) and (v2->y <= origin->y)) {
@@ -891,16 +998,16 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 				if (abs(x-origin->x) < 1 and (x >= origin->x)){
 					siteapr = true;
 				}
-				if (x > origin->x){
+				//if (x > origin->x){
 					if (x > vmax){
 						vmax = x;
 					}
-				}
-				else{
+				//}
+				//else{
 					if (x < vmin){
 						vmin = x;
 					}
-				}
+				//}
 			}
 			
 
@@ -908,36 +1015,42 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 		else{
 			if ((v1->x <= origin->x) and (v2->x >= origin->x)){
 				double y = solveY(origin->x,(*j).second);
-				if (abs(y-origin->y) < 1){
+				if (abs(y-origin->y) < 1 and (y <= origin->y)){
+					siteapl = true;
+				}
+				if (abs(y-origin->y) < 1 and (y >= origin->y)){
 					siteapr = true;
 				}
-				if (y > origin->y){
+				//if (y > origin->y){
 					if (y > vmax){
 						vmax = y;
 					}
-				}
-				else{
+				//}
+				//else{
 					if (y < vmin){
 						vmin = y;
 					}
-				}
+				//}
 
 			}
 			else if ((v1->x >= origin->x) and (v2->x <= origin->x)) {
 				double y = solveY(origin->x,(*j).second);
-				if (abs(y-origin->y) < 1){
+				if (abs(y-origin->y) < 1 and (y <= origin->y)){
+					siteapl = true;
+				}
+				if (abs(y-origin->y) < 1 and (y >= origin->y)){
 					siteapr = true;
 				}
-				if (y > origin->y){
+				//if (y > origin->y){
 					if (y > vmax){
 						vmax = y;
 					}
-				}
-				else{
+				//}
+				//else{
 					if (y < vmin){
 						vmin = y;
 					}
-				}
+				//}
 			}
 		}
 	}
@@ -962,29 +1075,31 @@ vor::Dvalues BuildVoronoi::getMinMaxvalues(VPoint * origin, vor::VEdgemap * site
 	else {
 		if (vmax < origin->y){
 			vmax = origin->y;
-			ss5 << "Vmax equals origin, Cell site: " << origin->x << "," << origin->y << "\n";
-			tlog3->logMessage(ss5.str());
+			////ss5 << "Vmax equals origin, Cell site: " << origin->x << "," << origin->y << "\n";
+			//tlog3->logMessage(//ss5.str());
 		}
-		if ((vmin == origin->y) and (!siteapr)){
+		if ((vmin == origin->y) and (!siteapl)){
 			vmin = 0;
 		}
 		if ((vmax == origin->y) and (!siteapr)){
 			vmax = w;
-		}		
-		ss5 << "Cell site: " << origin->x << "," << origin->y << "\n";
+		}	
+                /*	
+		//ss5 << "Cell site: " << origin->x << "," << origin->y << "\n";
 		if (vmax > w){
-			ss5 << "ymax: " << w << "\n";
+			//ss5 << "ymax: " << w << "\n";
 		}
 		else{
-			ss5 << "ymax: " << vmax << "\n";
+			//ss5 << "ymax: " << vmax << "\n";
 		}
 		if (vmin < 0){
-			ss5 << "ymin: " << 0 << "\n";
+			//ss5 << "ymin: " << 0 << "\n";
 		}
 		else{
-			ss5 << "ymin: " << vmin << "\n";
+			//ss5 << "ymin: " << vmin << "\n";
 		}
-		tlog3->logMessage(ss5.str());
+		tlog3->logMessage(//ss5.str());
+		*/
 	}
 	if (vmax > w){
 		vmax = w;
@@ -1025,6 +1140,8 @@ VPoint * BuildVoronoi::getMinYVertex(vor::VertEdges * bvertedges){
 
 	return minpoint;
 }
+
+
 
 vor::CPointsMap * BuildVoronoi::fillpoints(vor::CPointsMap * cpointsmap, vor::VEdgemap * siteedgemap, VPoint * sitepos, VPoint * basepos, bool top){
 	double y = basepos->y;
@@ -1119,10 +1236,10 @@ VPoint * BuildVoronoi::getBase(VPoint * basepos, VPoint * ymaxvert, vor::VEdgema
 	else{
 		VPoint * rpoint;
 		if(ymaxvert->x > xmax){
-			rpoint = new VPoint(xmax, basepos->y);
+			rpoint = new VPoint(xmax-1, basepos->y);
 		}
 		else if (ymaxvert->x < xmin){
-			rpoint = new VPoint(xmin, basepos->y);
+			rpoint = new VPoint(xmin+1, basepos->y);
 		}
 		return rpoint;
 	}
@@ -1139,7 +1256,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 	//until choosing a point in the polygon and then repeating this process until honing on 
 	//the poly's absolute y max.  A similar approach is used in hitting the poly's vertices y
 	//min.
-	std::ostringstream ss5;
+	//std::ostringstream //ss5;
 	vor::PointsMap * pointsmap = new vor::PointsMap();
 	vor::CPointsMap * cpointsmap = new vor::CPointsMap();
 	coordtocell = new vor::CoordtoCellMap();
@@ -1263,8 +1380,8 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
                 ///*  This code block causing issues on finishing Voronoi cell...need to resolve this.
 		VPoint * basepos = new VPoint(sitepos->x, ymax-1);
 		VPoint * ymaxvert = getMaxYVertex(bvertedges);
-		ss5 << "Cell site: " << sitepos->x << " , " << sitepos->y << "\n";
-		ss5 << "Max Vertex: " << ymaxvert->x << " , " << ymaxvert->y << "\n";
+		//ss5 << "Cell site: " << sitepos->x << " , " << sitepos->y << "\n";
+		//ss5 << "Max Vertex: " << ymaxvert->x << " , " << ymaxvert->y << "\n";
 		//VPoint * bpoint = getBase(basepos, ymaxvert, siteedgemap);
 
 		///*
@@ -1272,13 +1389,13 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 		ct = 0;
 		if (!(ymax == w)){
 
-			while (basepos->y < ymaxvert->y){
+			while (basepos->y < (ymaxvert->y)-1){
 				basepos = getBase(basepos, ymaxvert, siteedgemap);
 				vor::Dvalues dvals = getMinMaxvalues(basepos, siteedgemap, false);
 				ymax = dvals[1];
-				ss5 << "y max Vertex: " << ymax << "\n";
+				//ss5 << "y max Vertex: " << ymax << "\n";
 				cpointsmap = fillpoints(cpointsmap, siteedgemap, sitepos, basepos, true);
-				basepos = new VPoint(basepos->x,ymax);
+				basepos = new VPoint(basepos->x,ymax-1);
 				if (ymax >= w){
 					break;
 				}
@@ -1294,16 +1411,16 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 		basepos = new VPoint(sitepos->x, ymin+1);
 		VPoint * yminvert = getMinYVertex(bvertedges);
 		ct = 0;
-		ss5 << "Min Vertex: " << yminvert->x << " , " << yminvert->y << "\n";
+		//ss5 << "Min Vertex: " << yminvert->x << " , " << yminvert->y << "\n";
 		///*
 		if (!(ymin == 0)){
-			while (basepos->y > yminvert->y){
+			while (basepos->y > (yminvert->y)+1){
 				basepos = getBase(basepos, yminvert, siteedgemap);
 				vor::Dvalues dvals = getMinMaxvalues(basepos, siteedgemap, false);
 				ymin = dvals[0];
-				ss5 << "y min Vertex: " << ymin << "\n";
+				//ss5 << "y min Vertex: " << ymin << "\n";
 				cpointsmap = fillpoints(cpointsmap, siteedgemap, sitepos, basepos, false);
-				basepos = new VPoint(basepos->x,ymin);
+				basepos = new VPoint(basepos->x,ymin+1);
 				if (ymin == 0){
 					break;
 				}
@@ -1318,7 +1435,7 @@ vor::CPointsMap * BuildVoronoi::buildPoints(vor::Cells * cellsone){
 		}
 		//*/
 	}
-	tlog3->logMessage(ss5.str());
+	//tlog3->logMessage(//ss5.str());
 	return cpointsmap;  
 }
 

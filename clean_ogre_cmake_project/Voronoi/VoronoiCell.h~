@@ -21,6 +21,7 @@ namespace vor{
 	*/
  	typedef std::pair<VPoint *, VPoint *>			     Vertpair      ;
 	typedef std::pair<int, int>                            	     Coordpair     ;
+	typedef std::pair<double, double>                            dCoordpair    ;
 	typedef std::list<VPoint *>		                     Vertices	   ;
 	typedef std::list<VEdge *>				     Edges	   ;
 	typedef std::map<Vertpair, VEdge *>                          VEdgemap      ;
@@ -30,8 +31,8 @@ namespace vor{
 	typedef std::map<VPoint *, double>                            PointsMap    ;
 	typedef std::vector<double>                                     Dvalues      ;
 	typedef std::map<Coordpair, double>                           CPointsMap   ;
-	typedef std::map<Coordpair, VPoint *>                          CoordtoCellMap ;  
-	//typedef std::map<Vpoint *, Vertices>                      CellPolyPoints   ;
+	typedef std::map<Coordpair, VPoint *>                         CoordtoCellMap ;  
+	typedef std::map<dCoordpair, Vertices*>                         CelltoCells   ;
 
 	/*
 		Class for generating the Voronoi diagram
@@ -73,6 +74,7 @@ namespace vor{
 		vor::Vertices *                   cellpolypoints;  //polygon vertices (ordered by neighboring relations).
 		vor::Vertices *                       duplicates; //vertices may have 2 or 4 neighboring vertices.  Tracking 4.
 		VPoint *                              centroid;
+		vor::Vertices *                          ncells;   //neighborcells site pos
 		VoronoiCell(VPoint * point){
 			sitePos = point;
 			places = new vor::Vertices();
@@ -82,6 +84,7 @@ namespace vor{
 			edgeverts = new vor::EdgeVerts();
 			cellpolypoints = new vor::Vertices();
 			duplicates = new vor::Vertices();
+			ncells = new vor::Vertices();
 			//centroid = new VPoint();
 		}
 	//private:

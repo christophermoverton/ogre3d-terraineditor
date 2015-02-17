@@ -187,16 +187,17 @@ void ITutorial02::createScene(void)
     //myImageWindow->setProperty("Image","TaharezLook/full_image");
     //myImageWindow->setText("Hello World!");
     //CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->addChild(myImageWindow);
-    CEGUI::Window *newWindow = CEGUI::WindowManager::getSingleton().loadLayoutFromFile("TreeDemoTaharez2.layout");
+    //CEGUI::Window *newWindow = CEGUI::WindowManager::getSingleton().loadLayoutFromFile("TreeDemoTaharez2.layout"); default keep
+    CEGUI::Window *newWindow = CEGUI::WindowManager::getSingleton().loadLayoutFromFile("TreeDemoTaharez25.layout");
     CEGUI::Window *newWindow2 = CEGUI::WindowManager::getSingleton().loadLayoutFromFile("TreeDemoTaharez23.layout");
     CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->addChild(newWindow);
     CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->addChild(newWindow2);
     newWindow ->setAlpha(.5);
     newWindow2 ->setAlpha(.5);
-    cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
+    cMultiLineEditbox = newWindow ->getChild("ShowDataWindow")->getChild("MultiLineEditbox");
     cMultiLineEditbox ->setText("Hello World!");
-    CEGUI::Window *editbox = newWindow ->getChild("Editbox");
-    editbox ->setText("Hello World!");
+    //CEGUI::Window *editbox = newWindow ->getChild("Editbox");
+    //editbox ->setText("Hello World!");
     
     
 // Play with startup Texture Filtering options
@@ -501,7 +502,7 @@ bool ITutorial02::mouseMoved(const OIS::MouseEvent &arg)
             //mouse ray origin has no clear corresponding points bounded over the terrain.
             float theight = mTerrainGroup->getHeightAtWorldPosition (ovec);
 	 CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
-         CEGUI::Window *MultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
+         CEGUI::Window *MultiLineEditbox = newWindow ->getChild("ShowDataWindow")->getChild("MultiLineEditbox");
          //MultiLineEditbox ->setText("Hello World!");
          
 	//MultiLineEditbox ->setText(ss.str());
@@ -634,7 +635,8 @@ bool ITutorial02::mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id
         if (id == OIS::MB_Left)
         {
 	CEGUI::System::getSingleton().getDefaultGUIContext().injectMouseButtonDown(convertButton(id));
-	CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
+	//CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
+        CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("TerrainWindow");
 	CEGUI::Window *newWindow2 = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("FluidErosionWindow");
 	CEGUI::Vector2<float> mousePos = CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().getPosition();
 	if (newWindow->isHit(mousePos) or newWindow2->isHit(mousePos)){ 
@@ -665,7 +667,7 @@ bool ITutorial02::mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id
             //mouse ray origin has no clear corresponding points bounded over the terrain.
             float theight = mTerrainGroup->getHeightAtWorldPosition (ovec);
 //	 CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
-         CEGUI::Window *MultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
+         CEGUI::Window *MultiLineEditbox = newWindow ->getChild("ShowDataWindow")->getChild("MultiLineEditbox");
          //MultiLineEditbox ->setText("Hello World!");
          
 	//MultiLineEditbox ->setText(ss.str());

@@ -269,7 +269,7 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float fr
 			double dy = 0.0f;
 			double partvalx = 0.0f;
 			double partvaly = 0.0f;
-			for (int l = 1; l < octaves; l++){
+			for (int l = 0; l < octaves; l++){
 /*
 				ss5.str(std::string());
 				ss5<< "Test3: " << "\n";

@@ -42,7 +42,7 @@ PerlinNoise::PerlinNoise(uint seed):
     // permute the table
     for (int i=0; i<TABLE_SIZE; i++)
     {
-        ushort p = rndInt(rnd) (uint) ((water.width()-2)*(double)rand()/(double)RAND_MAX);
+        ushort p =  (ushort) ((TABLE_SIZE-1)*(double)rand()/(double)RAND_MAX);
 
         ushort v1 = perm[i];
         ushort v2 = perm[p];

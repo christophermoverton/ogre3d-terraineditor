@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 # Include any dependencies generated for this target.
 include libfbm/CMakeFiles/libfbm.dir/depend.make
@@ -54,17 +54,17 @@ include libfbm/CMakeFiles/libfbm.dir/flags.make
 
 libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o: libfbm/CMakeFiles/libfbm.dir/flags.make
 libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o: libfbm/libfbm.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/libfbm.dir/libfbm.cpp.o -c /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/libfbm.cpp
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm && /usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/libfbm.dir/libfbm.cpp.o -c /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm/libfbm.cpp
 
 libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/libfbm.dir/libfbm.cpp.i"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/libfbm.cpp > CMakeFiles/libfbm.dir/libfbm.cpp.i
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm/libfbm.cpp > CMakeFiles/libfbm.dir/libfbm.cpp.i
 
 libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/libfbm.dir/libfbm.cpp.s"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/libfbm.cpp -o CMakeFiles/libfbm.dir/libfbm.cpp.s
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm && /usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm/libfbm.cpp -o CMakeFiles/libfbm.dir/libfbm.cpp.s
 
 libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o.requires:
 .PHONY : libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o.requires
@@ -77,17 +77,17 @@ libfbm/CMakeFiles/libfbm.dir/libfbm.cpp.o.provides.build: libfbm/CMakeFiles/libf
 
 libfbm/CMakeFiles/libfbm.dir/SFMT.c.o: libfbm/CMakeFiles/libfbm.dir/flags.make
 libfbm/CMakeFiles/libfbm.dir/SFMT.c.o: libfbm/SFMT.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object libfbm/CMakeFiles/libfbm.dir/SFMT.c.o"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/libfbm.dir/SFMT.c.o   -c /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/SFMT.c
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/libfbm.dir/SFMT.c.o   -c /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm/SFMT.c
 
 libfbm/CMakeFiles/libfbm.dir/SFMT.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/libfbm.dir/SFMT.c.i"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/SFMT.c > CMakeFiles/libfbm.dir/SFMT.c.i
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -E /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm/SFMT.c > CMakeFiles/libfbm.dir/SFMT.c.i
 
 libfbm/CMakeFiles/libfbm.dir/SFMT.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/libfbm.dir/SFMT.c.s"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/SFMT.c -o CMakeFiles/libfbm.dir/SFMT.c.s
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm && /usr/bin/cc  $(C_DEFINES) $(C_FLAGS) -S /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm/SFMT.c -o CMakeFiles/libfbm.dir/SFMT.c.s
 
 libfbm/CMakeFiles/libfbm.dir/SFMT.c.o.requires:
 .PHONY : libfbm/CMakeFiles/libfbm.dir/SFMT.c.o.requires
@@ -111,8 +111,8 @@ libfbm/liblibfbm.a: libfbm/CMakeFiles/libfbm.dir/SFMT.c.o
 libfbm/liblibfbm.a: libfbm/CMakeFiles/libfbm.dir/build.make
 libfbm/liblibfbm.a: libfbm/CMakeFiles/libfbm.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX static library liblibfbm.a"
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && $(CMAKE_COMMAND) -P CMakeFiles/libfbm.dir/cmake_clean_target.cmake
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libfbm.dir/link.txt --verbose=$(VERBOSE)
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm && $(CMAKE_COMMAND) -P CMakeFiles/libfbm.dir/cmake_clean_target.cmake
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/libfbm.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 libfbm/CMakeFiles/libfbm.dir/build: libfbm/liblibfbm.a
@@ -123,10 +123,10 @@ libfbm/CMakeFiles/libfbm.dir/requires: libfbm/CMakeFiles/libfbm.dir/SFMT.c.o.req
 .PHONY : libfbm/CMakeFiles/libfbm.dir/requires
 
 libfbm/CMakeFiles/libfbm.dir/clean:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm && $(CMAKE_COMMAND) -P CMakeFiles/libfbm.dir/cmake_clean.cmake
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm && $(CMAKE_COMMAND) -P CMakeFiles/libfbm.dir/cmake_clean.cmake
 .PHONY : libfbm/CMakeFiles/libfbm.dir/clean
 
 libfbm/CMakeFiles/libfbm.dir/depend:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/libfbm/CMakeFiles/libfbm.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/libfbm/CMakeFiles/libfbm.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : libfbm/CMakeFiles/libfbm.dir/depend
 

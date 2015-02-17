@@ -5,6 +5,13 @@
 #include "ColorGet.cpp"
 #include "Imagestuff.cpp"
 #include <vector>
+
+/*
+This is likely going to get downgraded as a deprecated class since implementation of perlin.cpp doesn't seem
+to jive so well with fBm...at least in terms of fractalization, or in other words seems to reproduce the 
+same set of noise with higher octave as opposed to increases fractal depth(resolution) or very poorly accomplishes
+that.
+*/
 class PerlinTest{
 	public:
 		PerlinTest(float size, float scale);

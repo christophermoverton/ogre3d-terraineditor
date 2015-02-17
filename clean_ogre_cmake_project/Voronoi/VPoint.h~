@@ -20,6 +20,10 @@ public:
 		x = nx; 
 		y = ny;
 	}
+    bool operator==(const TPoint3 & a) const
+	{
+    	        return (x == a.x && y == a.y && z == a.z);
+    	}
 };
 
 #endif
