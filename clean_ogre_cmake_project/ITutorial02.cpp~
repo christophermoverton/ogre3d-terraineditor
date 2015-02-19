@@ -629,6 +629,51 @@ CEGUI::MouseButton convertButton(OIS::MouseButtonID buttonID)
     }
 }
 
+CEGUI::Key::Scan convertKey(const OIS::KeyEvent& arg)
+{
+    switch (arg.key)
+    {
+    case OIS::KC_C:
+        return CEGUI::Key::C;
+ 
+    case OIS::KC_D:
+        return CEGUI::Key::D;
+ 
+    case OIS::KC_1:
+        return CEGUI::Key::One;
+    case OIS::KC_2:
+	return CEGUI::Key::Two;
+    case OIS::KC_3:
+        return CEGUI::Key::Three;
+    case OIS::KC_4:
+	return CEGUI::Key::Four;
+    case OIS::KC_5:
+        return CEGUI::Key::Five;
+    case OIS::KC_6:
+	return CEGUI::Key::Six;
+    case OIS::KC_7:
+        return CEGUI::Key::Seven;
+    case OIS::KC_8:
+	return CEGUI::Key::Eight; 
+    case OIS::KC_9:
+	return CEGUI::Key::Nine; 
+    case OIS::KC_0:
+	return CEGUI::Key::Zero; 
+    case OIS::KC_BACK:
+	return CEGUI::Key::Backspace; 
+    case OIS::KC_PERIOD:
+	return CEGUI::Key::Period; 
+    case OIS::KC_DECIMAL:
+	return CEGUI::Key::Decimal;
+    case OIS::KC_LEFT:
+	return CEGUI::Key::ArrowLeft; 
+    case OIS::KC_RIGHT:
+	return CEGUI::Key::ArrowRight;  
+    default:
+        return CEGUI::Key::Unknown;
+    }
+}
+
 bool ITutorial02::mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id)
 {
 // Left mouse button down
@@ -771,6 +816,8 @@ bool ITutorial02::mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id
 
 return true;
 }
+
+//need keyboard input injection virtual bool CEGUI::InjectedInputReceiver::injectKeyUp	(	Key::Scan 	scan_code	)	
 bool ITutorial02::mouseReleased(const OIS::MouseEvent &arg, OIS::MouseButtonID id)
 {
 // Left mouse button up
@@ -791,6 +838,16 @@ return true;
 
 bool ITutorial02::keyPressed(const OIS::KeyEvent& arg)
 {
+	//CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyDown(convertKey(arg));
+	CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyDown((CEGUI::Key::Scan)arg.key);
+	CEGUI::System::getSingleton().getDefaultGUIContext().injectChar(arg.text);	
+        //first prevent key entry while the mouse is hovering over cegui window.
+        CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("TerrainWindow");
+	CEGUI::Window *newWindow2 = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("FluidErosionWindow");
+	CEGUI::Vector2<float> mousePos = CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().getPosition();
+	if (newWindow->isHit(mousePos) or newWindow2->isHit(mousePos)){ 
+	return true;
+	}
 	//check and see if the spacebar was hit, and this will switch which mesh is spawned
 	if(arg.key == OIS::KC_SPACE)
 	{

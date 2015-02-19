@@ -1,72 +1,72 @@
-17:32:17: Test update config
+11:24:40: Test update config
 
-17:32:17: Test update config
-Noise type nameID: 10
+11:24:40: Test update config
+Noise type nameID: 9
 
-17:32:17: Test update config
-Noise type nameID: 10
+11:24:40: Test update config
+Noise type nameID: 9
 Test update config
-updated noise type: 9
+updated noise type: 8
 
-17:32:17: Test update config
-Noise type nameID: 10
+11:24:40: Test update config
+Noise type nameID: 9
 Test update config
-updated noise type: 9
+updated noise type: 8
 Test update config2
 
-17:32:17: Test update config
-Noise type nameID: 10
+11:24:40: Test update config
+Noise type nameID: 9
 Test update config
-updated noise type: 9
+updated noise type: 8
 Test update config2
 Test update config
 
-17:32:17: Test update config
-Noise type nameID: 10
+11:24:40: Test update config
+Noise type nameID: 9
 Test update config
-updated noise type: 9
+updated noise type: 8
 Test update config2
 Test update config
 Test update config settings updated
 
-17:32:19: Test load config
+11:24:41: Test load config
 
-17:32:19: Test load config
+11:24:41: Test load config
 Test load config at litem
 
-17:32:19: Test load config
+11:24:41: Test load config
 Test load config at litem
 Test load config at name
 
-17:32:19: Test load config
+11:24:41: Test load config
 Test load config at litem
 Test load config at name
 Test load config
 
-17:32:34: Test update config
+11:24:45: Test update config
 
-17:32:34: Test update config
+11:24:45: Test update config
 Noise type nameID: 1
 
-17:32:34: Test update config
-Noise type nameID: 1
-Test update config
-updated noise type: 0
-
-17:32:34: Test update config
+11:24:45: Test update config
 Noise type nameID: 1
 Test update config
 updated noise type: 0
-Test update config2
 
-17:32:34: Test update config
+11:24:45: Test update config
 Noise type nameID: 1
 Test update config
 updated noise type: 0
 Test update config2
+
+11:24:45: Test update config
+Noise type nameID: 1
+Test update config
+updated noise type: 0
+Test update config2
 Test update config
 
-17:32:34: Test update config
+11:24:45: Test update config
 Noise type nameID: 1
 Test update config
 updated noise type: 0
@@ -74,68 +74,68 @@ Test update config2
 Test update config
 Test update config settings updated
 
-17:32:35: Test load config
+11:24:45: Test load config
 
-17:32:35: Test load config
+11:24:45: Test load config
 Test load config at litem
 
-17:32:35: Test load config
+11:24:45: Test load config
 Test load config at litem
 Test load config at name
 
-17:32:35: Test load config
+11:24:45: Test load config
 Test load config at litem
 Test load config at name
 Test load config
 
-17:32:44: Test update config
-Noise type nameID: 10
+11:24:49: Test update config
+Noise type nameID: 9
 
-17:32:44: Test update config
-Noise type nameID: 10
+11:24:49: Test update config
+Noise type nameID: 9
 Test update config
-updated noise type: 9
+updated noise type: 8
 
-17:32:44: Test update config
-Noise type nameID: 10
+11:24:49: Test update config
+Noise type nameID: 9
 Test update config
-updated noise type: 9
+updated noise type: 8
 Test update config2
 
-17:32:44: Test update config
-Noise type nameID: 10
+11:24:49: Test update config
+Noise type nameID: 9
 Test update config
-updated noise type: 9
+updated noise type: 8
 Test update config2
 Test update config
 
-17:32:44: Test update config
-Noise type nameID: 10
+11:24:49: Test update config
+Noise type nameID: 9
 Test update config
-updated noise type: 9
+updated noise type: 8
 Test update config2
 Test update config
 Test update config settings updated
 
-17:32:44: Hitting update button!!!!!!!
-Second terrain noise type:  9
+11:24:49: Hitting update button!!!!!!!
+Second terrain noise type:  8
 Config size: 2
 
-17:32:44: Key: 1
+11:24:49: Key: 1
 Values:
- Amplitude,3.65854
+ Amplitude,2.40964
  Bias,0
- Depth,0.2
+ Depth,0.454545
  Freqdiv,1
- Frequency,0.43125
- Gain,0.5
+ Frequency,2.08
+ Gain,1.01205
  Maxheight,0
- NoiseBasis,3
- NoiseType,9
- Octaves,7.75
- Scale,152
+ NoiseBasis,0
+ NoiseType,8
+ Octaves,10.6024
+ Scale,117.931
  Shape,0
- Sharp,1
+ Sharp,0
  Weight,1
 Key: 2
 Values:
@@ -149,28 +149,962 @@ Values:
  NoiseBasis,0
  NoiseType,0
  Octaves,6
- Scale,60.1667
+ Scale,0.00194932
  Shape,0
  Sharp,0
  Weight,0
 
-17:32:44: Starting noise gen loop!!!!!!!
-NoiseType: 9
+11:24:49: Starting noise gen loop!!!!!!!
+NoiseType: 8
 
-17:32:44: Marble
-7.75
+11:24:49: MRiged
 
-17:32:46: weights!!!!!!! 1
+11:24:49: weights!!!!!!! 1
 
-17:32:46: Starting noise gen loop!!!!!!!
+11:24:49: Starting noise gen loop!!!!!!!
 NoiseType: 0
 
-17:32:46: Hitting update button!!!!!!!
+11:24:49: Hitting update button!!!!!!!
 
-17:32:46: weights!!!!!!! 0
+11:24:49: weights!!!!!!! 0
 
-17:32:46: Update 3!!!!!!!
+11:24:49: Update 3!!!!!!!
 
-17:32:46: Update 3!!!!!!!
+11:24:49: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+11:25:23: Test update config
+Noise type nameID: 9
+
+11:25:23: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+
+11:25:23: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+
+11:25:23: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+
+11:25:23: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+Test update config settings updated
+
+11:25:23: Hitting update button!!!!!!!
+Second terrain noise type:  8
+Config size: 2
+
+11:25:23: Key: 1
+Values:
+ Amplitude,10.8434
+ Bias,0
+ Depth,0.454545
+ Freqdiv,1
+ Frequency,2.08
+ Gain,1.01205
+ Maxheight,0
+ NoiseBasis,0
+ NoiseType,8
+ Octaves,10.6024
+ Scale,117.931
+ Shape,0
+ Sharp,0
+ Weight,1
+Key: 2
+Values:
+ Amplitude,0.5
+ Bias,0
+ Depth,0.75
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseBasis,0
+ NoiseType,0
+ Octaves,6
+ Scale,0.00194932
+ Shape,0
+ Sharp,0
+ Weight,0
+
+11:25:23: Starting noise gen loop!!!!!!!
+NoiseType: 8
+
+11:25:23: MRiged
+
+11:25:23: weights!!!!!!! 1
+
+11:25:23: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+11:25:23: Hitting update button!!!!!!!
+
+11:25:23: weights!!!!!!! 0
+
+11:25:23: Update 3!!!!!!!
+
+11:25:23: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+11:25:35: Test update config
+Noise type nameID: 9
+
+11:25:35: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+
+11:25:35: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+
+11:25:35: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+
+11:25:35: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+Test update config settings updated
+
+11:25:35: Hitting update button!!!!!!!
+Second terrain noise type:  8
+Config size: 2
+
+11:25:35: Key: 1
+Values:
+ Amplitude,0
+ Bias,0
+ Depth,0.454545
+ Freqdiv,1
+ Frequency,2.08
+ Gain,1.01205
+ Maxheight,0
+ NoiseBasis,0
+ NoiseType,8
+ Octaves,10.6024
+ Scale,117.931
+ Shape,0
+ Sharp,0
+ Weight,1
+Key: 2
+Values:
+ Amplitude,0.5
+ Bias,0
+ Depth,0.75
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseBasis,0
+ NoiseType,0
+ Octaves,6
+ Scale,0.00194932
+ Shape,0
+ Sharp,0
+ Weight,0
+
+11:25:35: Starting noise gen loop!!!!!!!
+NoiseType: 8
+
+11:25:35: MRiged
+
+11:25:35: weights!!!!!!! 1
+
+11:25:35: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+11:25:35: Hitting update button!!!!!!!
+
+11:25:35: weights!!!!!!! 0
+
+11:25:35: Update 3!!!!!!!
+
+11:25:35: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+11:26:01: Test update config
+Noise type nameID: 9
+
+11:26:01: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+
+11:26:01: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+
+11:26:01: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+
+11:26:01: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+Test update config settings updated
+
+11:26:01: Hitting update button!!!!!!!
+Second terrain noise type:  8
+Config size: 2
+
+11:26:01: Key: 1
+Values:
+ Amplitude,0
+ Bias,0
+ Depth,0.454545
+ Freqdiv,1
+ Frequency,2.08
+ Gain,0.626506
+ Maxheight,0
+ NoiseBasis,0
+ NoiseType,8
+ Octaves,10.6024
+ Scale,117.931
+ Shape,0
+ Sharp,0
+ Weight,1
+Key: 2
+Values:
+ Amplitude,0.5
+ Bias,0
+ Depth,0.75
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseBasis,0
+ NoiseType,0
+ Octaves,6
+ Scale,0.00194932
+ Shape,0
+ Sharp,0
+ Weight,0
+
+11:26:01: Starting noise gen loop!!!!!!!
+NoiseType: 8
+
+11:26:01: MRiged
+
+11:26:02: weights!!!!!!! 1
+
+11:26:02: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+11:26:02: Hitting update button!!!!!!!
+
+11:26:02: weights!!!!!!! 0
+
+11:26:02: Update 3!!!!!!!
+
+11:26:02: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+11:26:11: Test update config
+Noise type nameID: 9
+
+11:26:11: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+
+11:26:11: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+
+11:26:11: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+
+11:26:11: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+Test update config settings updated
+
+11:26:11: Hitting update button!!!!!!!
+Second terrain noise type:  8
+Config size: 2
+
+11:26:11: Key: 1
+Values:
+ Amplitude,0
+ Bias,0
+ Depth,0.238636
+ Freqdiv,1
+ Frequency,2.08
+ Gain,0.626506
+ Maxheight,0
+ NoiseBasis,0
+ NoiseType,8
+ Octaves,10.6024
+ Scale,117.931
+ Shape,0
+ Sharp,0
+ Weight,1
+Key: 2
+Values:
+ Amplitude,0.5
+ Bias,0
+ Depth,0.75
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseBasis,0
+ NoiseType,0
+ Octaves,6
+ Scale,0.00194932
+ Shape,0
+ Sharp,0
+ Weight,0
+
+11:26:11: Starting noise gen loop!!!!!!!
+NoiseType: 8
+
+11:26:11: MRiged
+
+11:26:11: weights!!!!!!! 1
+
+11:26:11: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+11:26:12: Hitting update button!!!!!!!
+
+11:26:12: weights!!!!!!! 0
+
+11:26:12: Update 3!!!!!!!
+
+11:26:12: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+11:26:18: Test update config
+Noise type nameID: 9
+
+11:26:18: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+
+11:26:18: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+
+11:26:18: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+
+11:26:18: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+Test update config settings updated
+
+11:26:18: Hitting update button!!!!!!!
+Second terrain noise type:  8
+Config size: 2
+
+11:26:18: Key: 1
+Values:
+ Amplitude,0
+ Bias,0
+ Depth,0.238636
+ Freqdiv,1
+ Frequency,2.08
+ Gain,0.626506
+ Maxheight,0
+ NoiseBasis,0
+ NoiseType,8
+ Octaves,14.4578
+ Scale,117.931
+ Shape,0
+ Sharp,0
+ Weight,1
+Key: 2
+Values:
+ Amplitude,0.5
+ Bias,0
+ Depth,0.75
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseBasis,0
+ NoiseType,0
+ Octaves,6
+ Scale,0.00194932
+ Shape,0
+ Sharp,0
+ Weight,0
+
+11:26:18: Starting noise gen loop!!!!!!!
+NoiseType: 8
+
+11:26:18: MRiged
+
+11:26:18: weights!!!!!!! 1
+
+11:26:18: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+11:26:18: Hitting update button!!!!!!!
+
+11:26:18: weights!!!!!!! 0
+
+11:26:18: Update 3!!!!!!!
+
+11:26:18: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+11:26:25: Test update config
+Noise type nameID: 9
+
+11:26:25: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+
+11:26:25: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+
+11:26:25: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+
+11:26:25: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+Test update config settings updated
+
+11:26:25: Hitting update button!!!!!!!
+Second terrain noise type:  8
+Config size: 2
+
+11:26:25: Key: 1
+Values:
+ Amplitude,0
+ Bias,0
+ Depth,0.238636
+ Freqdiv,1
+ Frequency,2.08
+ Gain,0.481928
+ Maxheight,0
+ NoiseBasis,0
+ NoiseType,8
+ Octaves,14.4578
+ Scale,117.931
+ Shape,0
+ Sharp,0
+ Weight,1
+Key: 2
+Values:
+ Amplitude,0.5
+ Bias,0
+ Depth,0.75
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseBasis,0
+ NoiseType,0
+ Octaves,6
+ Scale,0.00194932
+ Shape,0
+ Sharp,0
+ Weight,0
+
+11:26:25: Starting noise gen loop!!!!!!!
+NoiseType: 8
+
+11:26:25: MRiged
+
+11:26:25: weights!!!!!!! 1
+
+11:26:25: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+11:26:26: Hitting update button!!!!!!!
+
+11:26:26: weights!!!!!!! 0
+
+11:26:26: Update 3!!!!!!!
+
+11:26:26: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+11:26:34: Test update config
+Noise type nameID: 9
+
+11:26:34: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+
+11:26:34: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+
+11:26:34: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+
+11:26:34: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+Test update config settings updated
+
+11:26:34: Hitting update button!!!!!!!
+Second terrain noise type:  8
+Config size: 2
+
+11:26:34: Key: 1
+Values:
+ Amplitude,1.20482
+ Bias,0
+ Depth,0.238636
+ Freqdiv,1
+ Frequency,2.08
+ Gain,0.481928
+ Maxheight,0
+ NoiseBasis,0
+ NoiseType,8
+ Octaves,14.4578
+ Scale,117.931
+ Shape,0
+ Sharp,0
+ Weight,1
+Key: 2
+Values:
+ Amplitude,0.5
+ Bias,0
+ Depth,0.75
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseBasis,0
+ NoiseType,0
+ Octaves,6
+ Scale,0.00194932
+ Shape,0
+ Sharp,0
+ Weight,0
+
+11:26:34: Starting noise gen loop!!!!!!!
+NoiseType: 8
+
+11:26:34: MRiged
+
+11:26:35: weights!!!!!!! 1
+
+11:26:35: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+11:26:35: Hitting update button!!!!!!!
+
+11:26:35: weights!!!!!!! 0
+
+11:26:35: Update 3!!!!!!!
+
+11:26:35: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+11:27:27: Test update config
+Noise type nameID: 9
+
+11:27:27: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+
+11:27:27: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+
+11:27:27: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+
+11:27:27: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+Test update config settings updated
+
+11:27:27: Hitting update button!!!!!!!
+Second terrain noise type:  8
+Config size: 2
+
+11:27:27: Key: 1
+Values:
+ Amplitude,1.20482
+ Bias,0
+ Depth,0.238636
+ Freqdiv,1
+ Frequency,2.08
+ Gain,1.20482
+ Maxheight,0
+ NoiseBasis,0
+ NoiseType,8
+ Octaves,14.4578
+ Scale,117.931
+ Shape,0
+ Sharp,0
+ Weight,1
+Key: 2
+Values:
+ Amplitude,0.5
+ Bias,0
+ Depth,0.75
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseBasis,0
+ NoiseType,0
+ Octaves,6
+ Scale,0.00194932
+ Shape,0
+ Sharp,0
+ Weight,0
+
+11:27:27: Starting noise gen loop!!!!!!!
+NoiseType: 8
+
+11:27:27: MRiged
+
+11:27:28: weights!!!!!!! 1
+
+11:27:28: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+11:27:28: Hitting update button!!!!!!!
+
+11:27:28: weights!!!!!!! 0
+
+11:27:28: Update 3!!!!!!!
+
+11:27:28: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+11:27:36: Test update config
+Noise type nameID: 9
+
+11:27:36: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+
+11:27:36: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+
+11:27:36: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+
+11:27:36: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+Test update config settings updated
+
+11:27:36: Hitting update button!!!!!!!
+Second terrain noise type:  8
+Config size: 2
+
+11:27:36: Key: 1
+Values:
+ Amplitude,1.20482
+ Bias,0
+ Depth,0.238636
+ Freqdiv,1
+ Frequency,2.08
+ Gain,0.289157
+ Maxheight,0
+ NoiseBasis,0
+ NoiseType,8
+ Octaves,14.4578
+ Scale,117.931
+ Shape,0
+ Sharp,0
+ Weight,1
+Key: 2
+Values:
+ Amplitude,0.5
+ Bias,0
+ Depth,0.75
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseBasis,0
+ NoiseType,0
+ Octaves,6
+ Scale,0.00194932
+ Shape,0
+ Sharp,0
+ Weight,0
+
+11:27:36: Starting noise gen loop!!!!!!!
+NoiseType: 8
+
+11:27:36: MRiged
+
+11:27:37: weights!!!!!!! 1
+
+11:27:37: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+11:27:37: Hitting update button!!!!!!!
+
+11:27:37: weights!!!!!!! 0
+
+11:27:37: Update 3!!!!!!!
+
+11:27:37: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+11:28:16: Test update config
+Noise type nameID: 9
+
+11:28:16: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+
+11:28:16: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+
+11:28:16: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+
+11:28:16: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+Test update config settings updated
+
+11:28:16: Hitting update button!!!!!!!
+Second terrain noise type:  8
+Config size: 2
+
+11:28:16: Key: 1
+Values:
+ Amplitude,1.20482
+ Bias,0
+ Depth,0.238636
+ Freqdiv,1
+ Frequency,2.08
+ Gain,0.289157
+ Maxheight,0
+ NoiseBasis,3
+ NoiseType,8
+ Octaves,14.4578
+ Scale,117.931
+ Shape,0
+ Sharp,0
+ Weight,1
+Key: 2
+Values:
+ Amplitude,0.5
+ Bias,0
+ Depth,0.75
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseBasis,0
+ NoiseType,0
+ Octaves,6
+ Scale,0.00194932
+ Shape,0
+ Sharp,0
+ Weight,0
+
+11:28:16: Starting noise gen loop!!!!!!!
+NoiseType: 8
+
+11:28:16: MRiged
+
+11:28:19: weights!!!!!!! 1
+
+11:28:19: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+11:28:19: Hitting update button!!!!!!!
+
+11:28:19: weights!!!!!!! 0
+
+11:28:19: Update 3!!!!!!!
+
+11:28:19: Update 3!!!!!!!
+Hitting update button!!!!!!!
+
+11:29:02: Test update config
+Noise type nameID: 9
+
+11:29:02: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+
+11:29:02: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+
+11:29:02: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+
+11:29:02: Test update config
+Noise type nameID: 9
+Test update config
+updated noise type: 8
+Test update config2
+Test update config
+Test update config settings updated
+
+11:29:02: Hitting update button!!!!!!!
+Second terrain noise type:  8
+Config size: 2
+
+11:29:02: Key: 1
+Values:
+ Amplitude,1.20482
+ Bias,0
+ Depth,0.238636
+ Freqdiv,1
+ Frequency,2.08
+ Gain,0.289157
+ Maxheight,0
+ NoiseBasis,3
+ NoiseType,8
+ Octaves,19.759
+ Scale,117.931
+ Shape,0
+ Sharp,0
+ Weight,1
+Key: 2
+Values:
+ Amplitude,0.5
+ Bias,0
+ Depth,0.75
+ Freqdiv,1
+ Frequency,0.00194932
+ Gain,0.5
+ Maxheight,1500
+ NoiseBasis,0
+ NoiseType,0
+ Octaves,6
+ Scale,0.00194932
+ Shape,0
+ Sharp,0
+ Weight,0
+
+11:29:02: Starting noise gen loop!!!!!!!
+NoiseType: 8
+
+11:29:02: MRiged
+
+11:29:05: weights!!!!!!! 1
+
+11:29:05: Starting noise gen loop!!!!!!!
+NoiseType: 0
+
+11:29:05: Hitting update button!!!!!!!
+
+11:29:05: weights!!!!!!! 0
+
+11:29:05: Update 3!!!!!!!
+
+11:29:05: Update 3!!!!!!!
 Hitting update button!!!!!!!
 

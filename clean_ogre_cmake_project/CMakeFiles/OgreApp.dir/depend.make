@@ -232,7 +232,7 @@ CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: /usr/local/include/OGRE/Threading/
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BLI_noise.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BaseApplication.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildFbm.cpp
-CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildPerlin.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildNoise.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildSimplex.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildVoronoi.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BumpMap.cpp

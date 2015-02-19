@@ -52,7 +52,7 @@ math.h
 TerrainStruct.h
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 
-/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildPerlin.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildNoise.cpp
 math.h
 -
 noise.c
@@ -149,8 +149,8 @@ DiamondSquare.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare.cpp
 Musgrave.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Musgrave.cpp
-BuildPerlin.cpp
-/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildPerlin.cpp
+BuildNoise.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildNoise.cpp
 iostream
 -
 string
