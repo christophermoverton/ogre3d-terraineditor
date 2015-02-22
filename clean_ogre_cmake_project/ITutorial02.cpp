@@ -106,11 +106,12 @@ void ITutorial02::initBlendMaps(Ogre::Terrain* terrain)
             Ogre::Real height = terrain->getHeightAtTerrainPosition(tx, ty);
             Ogre::Real val = (height - minHeight0) / fadeDist0;
             val = Ogre::Math::Clamp(val, (Ogre::Real)0, (Ogre::Real)1);
-            *pBlend0++ = val;
- 
+            *pBlend0++ = 1.0f; //val;
+ 	    ///*
             val = (height - minHeight1) / fadeDist1;
             val = Ogre::Math::Clamp(val, (Ogre::Real)0, (Ogre::Real)1);
-            *pBlend1++ = val;
+            *pBlend1++ = .2f; //val;
+	    // */
         }
     }
     blendMap0->dirty();
@@ -139,16 +140,50 @@ void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
     defaultimp.minBatchSize = 33;
     defaultimp.maxBatchSize = 65;
     // textures
+    Ogre::Image imageOgre;
+    imageOgre.load("test9.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+
+    Ogre::TexturePtr m_texture;
+
+                // Texture creation 1
+    m_texture = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "maTexture2",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture->loadImage(imageOgre);
+    delete &imageOgre;
     defaultimp.layerList.resize(3);
-    defaultimp.layerList[0].worldSize = 100;
-    defaultimp.layerList[0].textureNames.push_back("dirt_grayrocky_diffusespecular.dds");
-    defaultimp.layerList[0].textureNames.push_back("dirt_grayrocky_normalheight.dds");
-    defaultimp.layerList[1].worldSize = 30;
-    defaultimp.layerList[1].textureNames.push_back("grass_green-01_diffusespecular.dds");
-    defaultimp.layerList[1].textureNames.push_back("grass_green-01_normalheight.dds");
-    defaultimp.layerList[2].worldSize = 200;
-    defaultimp.layerList[2].textureNames.push_back("growth_weirdfungus-03_diffusespecular.dds");
-    defaultimp.layerList[2].textureNames.push_back("growth_weirdfungus-03_normalheight.dds"); 
+    defaultimp.layerList[0].worldSize = 12000;//100;
+    defaultimp.layerList[0].textureNames.push_back("maTexture");//"dirt_grayrocky_diffusespecular.dds");
+    //defaultimp.layerList[0].textureNames.push_back("maTexture2");
+    
+    defaultimp.layerList[1].worldSize = 12000;
+    defaultimp.layerList[1].textureNames.push_back("maTexture");//grass_green-01_diffusespecular.dds");
+    defaultimp.layerList[1].textureNames.push_back("maTexture2");
+    ///*
+    defaultimp.layerList[2].worldSize = 200;//200;
+    defaultimp.layerList[2].textureNames.push_back("marblediffuse.png");//growth_weirdfungus-03_diffusespecular.dds");
+    defaultimp.layerList[2].textureNames.push_back("marblenormal.png"); 
+    //*/
+
+      
+   Ogre::TerrainMaterialGeneratorA::SM2Profile* matProfile = 0;
+
+matProfile =  (Ogre::TerrainMaterialGeneratorA::SM2Profile *) mTerrainGlobals->getDefaultMaterialGenerator()->getActiveProfile();
+      if (matProfile)
+      {
+         matProfile->setGlobalColourMapEnabled(false);
+         matProfile->setLayerSpecularMappingEnabled(false);
+         matProfile->setLayerNormalMappingEnabled(true);
+         matProfile->setLayerParallaxMappingEnabled(false);
+	 matProfile->setReceiveDynamicShadowsEnabled (false); 
+	 matProfile->setReceiveDynamicShadowsDepth(true);
+         matProfile->setLightmapEnabled (false);		
+   }
 } 
 //-------------------------------------------------------------------------------------
 /*
@@ -221,7 +256,35 @@ void ITutorial02::createScene(void)
     mTerrainGroup = OGRE_NEW Ogre::TerrainGroup(mSceneMgr, Ogre::Terrain::ALIGN_X_Z, 513, 12000.0f); //513  12000.0f default
     mTerrainGroup->setFilenameConvention(Ogre::String("BasicTutorial3Terrain"), Ogre::String("dat"));
     mTerrainGroup->setOrigin(Ogre::Vector3::ZERO);
- 
+
+    Ogre::Image imageOgre;
+    imageOgre.load("test10.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+
+    Ogre::TexturePtr m_texture;
+    Ogre::TexturePtr m_texture2;
+
+                // Texture creation 1
+    m_texture = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "maTexture",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture2 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "maTexture3",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+        renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+	m_texture->loadImage(imageOgre);
+	m_texture2->loadImage(imageOgre);
+        renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture3"); 
     configureTerrainDefaults(light);
  
     for (long x = 0; x <= 0; ++x)
@@ -272,25 +335,9 @@ void ITutorial02::createScene(void)
     lTextureUnit->setTextureCoordSet(0);
     mMiniScreen->setMaterial("RttMat");
 */
-    Ogre::Image imageOgre;
-    imageOgre.load("test6.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 
-    Ogre::TexturePtr m_texture;
-
-                // Texture creation 1
-    m_texture = Ogre::TextureManager::getSingletonPtr()->createManual(
-                "maTexture",
-                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
-                Ogre::TEX_TYPE_2D,
-                imageOgre.getWidth(),
-                imageOgre.getHeight(),
-                0,
-                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
-    Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 	
-        renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
-	m_texture->loadImage(imageOgre);
-        renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture");
+
         //lTextureUnit->setTextureName("test6.png", Ogre::TEX_TYPE_2D);
         //lTextureUnit->setTextureCoordSet(0);
         mMiniScreen->setMaterial("RttMat");
@@ -343,8 +390,8 @@ void ITutorial02::createScene(void)
     //new BuildVoronoi();
     //new BuildSimplex();
     //new BuildFbm();
-    new DiamondSquare();
-    new TerrainFluidSimulation(cterrain, mMiniScreen,false);//(cterrain);
+    //new DiamondSquare();
+    //new TerrainFluidSimulation(cterrain, mMiniScreen,false);//(cterrain);
     //CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
     //cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
 }

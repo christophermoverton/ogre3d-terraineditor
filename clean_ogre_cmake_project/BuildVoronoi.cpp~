@@ -655,7 +655,7 @@ BuildVoronoi::BuildVoronoi(){
 			else{  //starting second pass method...this checks a neighbor point and then compares its cellsite
 			       //neighbors returning a min distance on all possible neighbor cell site positions alongside the
 				//nearest cell site.  Doesn't work when there is too much incompleteness in data.  Could
-				//add for added find insurance, corner points on the 9 point lattice.
+				//add for added find insurance, corner points on the 9 point lattice I've only included 4 point check.
 				
 				coordpair = new vor::Coordpair(jmn-1, kmn);
 				Ogre::ColourValue col;

@@ -45,6 +45,18 @@ struct TPoint3
     		{
         		return TPoint3(a.x+x, a.y+y, a.z+z);
     		}
+		TPoint3 operator+(const double a) const
+    		{
+        		return TPoint3(a+x, a+y, a+z);
+    		}
+		TPoint3 operator-(const double a) const
+    		{
+        		return TPoint3(a-x, a-y, a-z);
+    		}
+		TPoint3 operator/(const double a) const
+    		{
+        		return TPoint3(x/a, y/a, z/a);
+    		}
 		TPoint3 normalize(){
 			double dist = pow((x*x + y*y + z*z),0.5f);
 			return TPoint3(x/dist, y/dist, z/dist);

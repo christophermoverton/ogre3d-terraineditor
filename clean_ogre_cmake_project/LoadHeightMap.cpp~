@@ -7,13 +7,15 @@
 #include "TPoint3.h"
 #include "Imagestuff.cpp"
 #include "BumpMap.cpp"
+#include "ColorizeTerrainMap.cpp"
 
 class LoadHeightMap{
 	public:
 		LoadHeightMap(Ogre::Terrain* mterrain, Ogre::String filename, float maxheightscale);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vector<vector<vector<double> > > heightmapvalues);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::T3dCPointsMap * heightmapvalues);
-		LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniScreen, float maxheightscale, terr::CPointsMap * heightmapvalues);
+		LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniScreen, float maxheightscale, 
+			      terr::CPointsMap * heightmapvalues, double waterheight, double mountainheight, double texscale);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::T3dCPointsMap * heightmapvalues, float terrsize);
 	
 };
@@ -124,7 +126,8 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vect
 	mterrain->update();
 }
 
-LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniScreen, float maxheightscale, terr::CPointsMap * heightmapvalues){
+LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniScreen, float maxheightscale, 
+	terr::CPointsMap * heightmapvalues, double waterheight, double mountainheight,double texscale){
         //assumed heightmap values are normalized between [0,1]  will renormalize to [-1,1] and then scale
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("HeightMap.log");
 	std::ostringstream ss5;
@@ -132,6 +135,17 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	ImageBuffer buffer(size);
     	FillColour* fill = new FillColour (&buffer);
 	mterrain->dirty();
+	for (int i = 0; i < size; i++){
+		for(int j = 0; j < size; j++){
+			terr::Coordpair * hcoord = new terr::Coordpair((double)i, (double)j);
+			double posheight = 2*((*heightmapvalues)[(*hcoord)]-.5f)*maxheightscale;
+			mterrain->setHeightAtPoint((long) hcoord->first, (long) hcoord->second, posheight);
+			Ogre::ColourValue col = Ogre::ColourValue((*heightmapvalues)[(*hcoord)],(*heightmapvalues)[(*hcoord)],
+								  (*heightmapvalues)[(*hcoord)]);
+			fill->setPixl((size_t) hcoord->first, (size_t) hcoord->second, col);
+		}
+	}
+	/*
 	for (terr::CPointsMap::iterator i = heightmapvalues->begin(); i != heightmapvalues->end(); i++){
 		terr::Coordpair hcoord = (*i).first;
 		double posheight = 2*((*i).second-0.5f)*maxheightscale;
@@ -140,9 +154,22 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 		Ogre::ColourValue col = Ogre::ColourValue((*i).second,(*i).second,(*i).second);
 		fill->setPixl((size_t) hcoord.first, (size_t) hcoord.second, col);
 	}
-	mterrain->update();
+	*/
+	
 	buffer.saveImage("../media/materials/textures/test6.png");
-	bump(size, 6.0f*513.0f, heightmapvalues);
+	//bump(size, 30.0f*513.0f, heightmapvalues);
+	bump(6*size, 1.0f*513.0f, mterrain);
+	double max = mterrain->getMaxHeight();
+	double min = mterrain->getMinHeight();
+	//void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terrain, double waterheight, double mountainheight);
+	//colorizeterrainmap(513.0f, texscale,0.0f, 1.0f, heightmapvalues, waterheight, mountainheight);
+	colorizeterrainmap(6.0f*513.0f, min,  max, mterrain, waterheight, mountainheight);
+	//Ogre::StringVector * texnames;
+	//texnames->push_back(Ogre::String("test10.png"));
+	//texnames->push_back(Ogre::String("grass_green-01_normalheight.dds"));
+	//mterrain->replaceLayer(1,true,513, texnames);//,texnames);
+	//mterrain->replaceLayer(2,true,513);
+
 	/*
 	Ogre::MaterialManager::getSingleton().remove("RttMat");
         Ogre::Image imageOgre;
@@ -168,16 +195,44 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
         //lTextureUnit->setTextureCoordSet(0);
         mMiniScreen->setMaterial("RttMat");
 	*/
+
+	//Combining color map with specular map
+	Ogre::Image combined;
+ 
+   	//combined.loadTwoImagesAsRGBA("test10.png", "test9spec.png", 
+      	//			Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME, Ogre::PF_BYTE_RGBA);
+   	//combined.save("../media/materials/textures/test11.png");
+        //uploading textures
 	Ogre::TexturePtr pResource = Ogre::TextureManager::getSingleton().getByName("maTexture");
         Ogre::Image imageOgre;
-        imageOgre.load("test6.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+        imageOgre.load("test10.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	imageOgre.flipAroundX();
 	pResource->unload();
 	pResource->loadImage(imageOgre);
+	Ogre::TexturePtr pResource3 = Ogre::TextureManager::getSingleton().getByName("maTexture3");
+        Ogre::Image imageOgre3;
+        imageOgre3.load("test10.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	imageOgre3.flipAroundX();
+	pResource3->unload();
+	pResource3->loadImage(imageOgre3);
+	Ogre::TexturePtr pResource2 = Ogre::TextureManager::getSingleton().getByName("maTexture2");
+        Ogre::Image imageOgre2;
+        imageOgre2.load("test9.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	imageOgre2.flipAroundX();
+	pResource2->unload();
+	pResource2->loadImage(imageOgre2);
+	//mterrain->getMaterial()->reload();
+	//Ogre::StringVector * texnames;
+	//texnames->push_back(Ogre::String("maTexture"));
+	//texnames->push_back(Ogre::String("grass_green-01_normalheight.dds"));
+	//mterrain->replaceLayer(0,true,12000, texnames);//,texnames);
+	mterrain->dirtyLightmap();
+	mterrain->update();
 	//pResource->reload();
 	Ogre::MaterialManager::getSingleton().remove("RttMat");
 	Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 	renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
-	renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture");
+	renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture3");
 	mMiniScreen->setMaterial("RttMat");
 	tlog->logMessage(ss5.str());
 	//mterrain->update();

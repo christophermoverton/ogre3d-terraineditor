@@ -112,6 +112,16 @@ Imagestuff.cpp
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorGet.cpp
 
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorizeTerrainMap.cpp
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
+TPoint3.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
+Imagestuff.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
+DiamondSquare/DiamondSquare.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare/DiamondSquare.cpp
+
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Combiner.cpp
 vector
 -
@@ -121,6 +131,22 @@ TPoint3.h
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
 TerrainStruct.h
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare/DiamondSquare.cpp
+cstdlib
+-
+iostream
+-
+fstream
+-
+string
+-
+cmath
+-
+ctime
+-
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare/TerrainStruct.h
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Falloffinterpolate.cpp
 OgreMatrix4.h
@@ -167,6 +193,8 @@ LoadHeightMap.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/LoadHeightMap.cpp
 ScaleHeights.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ScaleHeights.cpp
+TranslateHeights.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TranslateHeights.cpp
 Combiner.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Combiner.cpp
 Voronoi.cpp
@@ -227,6 +255,8 @@ Terrain/OgreTerrain.h
 -
 Terrain/OgreTerrainGroup.h
 -
+Terrain/OgreTerrainMaterialGeneratorA.h
+-
 BaseApplication.h
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BaseApplication.h
 vector
@@ -247,6 +277,8 @@ Imagestuff.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
 BumpMap.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BumpMap.cpp
+ColorizeTerrainMap.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorizeTerrainMap.cpp
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Musgrave.cpp
 math.h
@@ -287,6 +319,8 @@ vector
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ScaleHeights.cpp
 vector
 -
+ColorizeTerrainMap.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorizeTerrainMap.cpp
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
 
@@ -333,6 +367,10 @@ sstream
 -
 vector
 -
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TranslateHeights.cpp
+ColorizeTerrainMap.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorizeTerrainMap.cpp
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi.cpp
 cspline.cpp
@@ -3361,6 +3399,14 @@ OgreMaterial.h
 /usr/local/include/OGRE/Terrain/OgreMaterial.h
 OgreTexture.h
 /usr/local/include/OGRE/Terrain/OgreTexture.h
+
+/usr/local/include/OGRE/Terrain/OgreTerrainMaterialGeneratorA.h
+OgreTerrainPrerequisites.h
+/usr/local/include/OGRE/Terrain/OgreTerrainPrerequisites.h
+OgreTerrainMaterialGenerator.h
+/usr/local/include/OGRE/Terrain/OgreTerrainMaterialGenerator.h
+OgreGpuProgramParams.h
+/usr/local/include/OGRE/Terrain/OgreGpuProgramParams.h
 
 /usr/local/include/OGRE/Terrain/OgreTerrainPrerequisites.h
 OgrePrerequisites.h

@@ -17,18 +17,32 @@
 // xzScale denotes the same for the x, z axes. If you have different scale factors
 // for x, z then the formula becomes
 // normal[y*width+x].set(-sx*yScale, 2*xScale, xScalesy*xScale*yScale/zScale);
-TPoint3 * Lx = new TPoint3(1.0f,1.0f,1.0f);  //Light Color RGB
-TPoint3 * Ax = new TPoint3(0.25f,0.25f,.25f);//Ax = ambient color 
+TPoint3 * Lx = new TPoint3(0.0f,0.0f,1.0f);  //Light Color RGB
+TPoint3 * Ax = new TPoint3(0.0f,0.0f,1.0f);//Ax = ambient color 
 TPoint3 * Dx = new TPoint3(0.0f,0.0f,1.0f);//Dx = diffuse color 
-TPoint3 * Sx = new TPoint3(1.0f,1.0f,1.0f);//Sx = specular color 
-double Ka = 1.0f, Kd = 1.0f, Ks = 1.0f, Att = 1.0f, n = 1.0f; //phong coefficients
+TPoint3 * Sx = new TPoint3(0.0f,0.0f,1.0f);//Sx = specular color 
+double Ka = 0.1f, Kd = 0.0f, Ks = 1.0f, Att = 1.0f, n = 1.0f; //phong coefficients
 
 TPoint3 reflection(TPoint3 vec1, TPoint3 normal);
 double dotproduct(TPoint3 vec1, TPoint3 vec2);
 TPoint3  phongillum(TPoint3 N, TPoint3 L, TPoint3 V);
+TPoint3  phongillum(TPoint3 N, TPoint3 L, TPoint3 V, double Ka, double Kd);
+double clamp(double val, double min, double max);
 
 double dotproduct(TPoint3 vec1, TPoint3 vec2){
 	return vec1.x*vec2.x + vec1.y*vec2.y + vec1.z*vec2.z;
+}
+
+double clamp(double val, double min, double max){
+	if(val < min){
+		return min;
+	}
+	else if (val > max) {
+		return max;
+	}
+	else{
+		return val;
+	}
 }
 
 TPoint3 reflection(TPoint3 vec1, TPoint3 n){
@@ -51,10 +65,12 @@ double lerp(double a0, double a1, double w) {
 void bump(double xzScale, double yScale, terr::CPointsMap * heightmap){
     double size = xzScale;
     ImageBuffer buffer(size);
+    ImageBuffer buffr(size);
     FillColour* fill = new FillColour (&buffer);
+    FillColour* filltwo = new FillColour (&buffr);
     terr::CVectorMaps * normal = new terr::CVectorMaps();
     //CVectorMaps * bump = new 
-    TPoint3 * V = new TPoint3(0.0f,1.0f,0.0f); TPoint3 * L = new TPoint3(-.25f,-1.0f,-.25f);
+    TPoint3 * V = new TPoint3(0.0f,-1.0f,0.0f); TPoint3 * L = new TPoint3(0.55, -0.3, 0.75);
     (*L) = (*L).normalize();
     double sy, sx; double x0 = xzScale-1; double y0 = xzScale-1;
     for (int x = 0; x < xzScale; x++){
@@ -62,28 +78,103 @@ void bump(double xzScale, double yScale, terr::CPointsMap * heightmap){
 	    //computing surface normals (forward difference equation) y' ~ delta f (x_i + 1)/( delta (x_i+1 - x_i) = 1) - f(x_i) 
             //gradient is (f'(x), f'(y), f'(z)) = (h(x+1,y)-h(x), constant (shown below), h(x,y+1)-h(y)) 
            
-	    double sx = (*heightmap)[terr::Coordpair(x<xzScale-1 ? x+1 : x, y)] - 
-				(*heightmap)[terr::Coordpair(x0 ? x-1 : x, y)];
+	    double sx = (*heightmap)[terr::Coordpair(x<xzScale-1 ? (double)(x+1) : (double)x, (double)y)] - 
+				(*heightmap)[terr::Coordpair(x == x0 ? (double)(x-1) : (double)x, (double)y)];
 	    if (x == 0 || x == xzScale - 1){ sx *= 2;}
-	    double sy = (*heightmap)[terr::Coordpair(x, y < xzScale-1 ? y+1 : y)] - 
-				(*heightmap)[terr::Coordpair(x, y0 ? y-1 : y)];
+	    double sy = (*heightmap)[terr::Coordpair(x, y < xzScale-1 ? (double)(y+1) : (double)y)] - 
+				(*heightmap)[terr::Coordpair(x, y == y0 ? (double)(y-1) : (double)y)];
 	    if (y == 0 || y == xzScale -1) {sy *= 2;}
-	    TPoint3 * vec = new TPoint3(-sx*yScale, 2*xzScale, sy*yScale);
+	    TPoint3 * vec = new TPoint3(sx*yScale, 0.0f, sy*yScale);  //changing -sx, 2*xzScale mid term ??!
             (*vec) = (*vec).normalize();
+            TPoint3 vec2 = (*vec)/2.0f + .5f;
 	    (*normal)[terr::Coordpair(x,y)] = TPoint3(lerp((*vec).x, 0, 0.25f), lerp((*vec).y, 1, 0.25f),
 						      lerp((*vec).z, 0, 0.25f));
 	    //the specialized surface normal is intended for producing the bump map using
 	    //a linear interpolation between a finite difference 'actual' approximated
 	    //surface normal mixed with its ideal planar 'geometric' form.
 	    //(*normal)[terr::Coordpair(x,y)] = (*normal)[terr::Coordpair(x,y)].normalize();
-	    TPoint3 rgb = phongillum((*normal)[terr::Coordpair(x,y)], (*L), (*V));
-	    Ogre::ColourValue col = Ogre::ColourValue(rgb.x,rgb.y,rgb.z);
-	    fill->setPixl((size_t)x, (size_t)y, col);	    
+	    Ka = 0.2f; Kd = 1.0f;
+	    //TPoint3 rgb = phongillum((*normal)[terr::Coordpair(x,y)], (*L), (*V), Ka, Kd);
+	    //Ogre::ColourValue col = Ogre::ColourValue(rgb.x,rgb.y,rgb.z, (*heightmap)[terr::Coordpair(x, y)]);
+	    //Ogre::ColourValue col = Ogre::ColourValue((*normal)[terr::Coordpair(x,y)].x,(*normal)[terr::Coordpair(x,y)].y,
+	    //						(*normal)[terr::Coordpair(x,y)].z, (*heightmap)[terr::Coordpair(x, y)]);
+	    Ogre::ColourValue col = Ogre::ColourValue(vec2.x,vec2.y,vec2.z, (*heightmap)[terr::Coordpair(x, y)]);
+	    //col = Ogre::ColourValue(0.0f,0.0f,0.5f, 1.0f);
+	    //compute phong specular intensity
+            TPoint3 R = reflection((*L), (*normal)[terr::Coordpair(x,y)]);
+	    R = R.normalize();
+	    n = 1.0f;
+	    double pdRVn = pow(dotproduct(R,(*V)),n);
+            n = 1.0f;
+	    //TPoint3 rgbtwo = phongillum((*normal)[terr::Coordpair(x,y)], (*L), (*V), Ka, Kd);
+	    Ogre::ColourValue coltwo = Ogre::ColourValue(pdRVn,pdRVn,pdRVn);
+	    fill->setPixl((size_t)x, (size_t)y, col);
+	    filltwo->setPixl((size_t)x, (size_t)y, coltwo);	    
 	}
     }
-    buffer.saveImage("test9.png");
+    buffer.saveImage("../media/materials/textures/test9.png");
+    buffr.saveImage("../media/materials/textures/test9spec.png");
 }
 
+void bump(double xzScale, double yScale, Ogre::Terrain* terrain){
+    double size = xzScale;
+    ImageBuffer buffer(size);
+    ImageBuffer buffr(size);
+    FillColour* fill = new FillColour (&buffer);
+    FillColour* filltwo = new FillColour (&buffr);
+    terr::CVectorMaps * normal = new terr::CVectorMaps();
+    //CVectorMaps * bump = new 
+    TPoint3 * V = new TPoint3(0.0f,-1.0f,0.0f); TPoint3 * L = new TPoint3(0.55, -0.3, 0.75);
+    (*L) = (*L).normalize();
+    double sy, sx; double x0 = xzScale-1; double y0 = xzScale-1;
+    double diff = (double)abs(terrain->getMinHeight() - terrain->getMaxHeight());
+    for (int x = 0; x < xzScale; x++){
+	for (int y = 0; y < xzScale; y++){
+	    //computing surface normals (forward difference equation) y' ~ delta f (x_i + 1)/( delta (x_i+1 - x_i) = 1) - f(x_i) 
+            //gradient is (f'(x), f'(y), f'(z)) = (h(x+1,y)-h(x), constant (shown below), h(x,y+1)-h(y)) 
+	    double posx = x/size; double posy = y/size;
+	    double posx1p = (x+1)/size; double posy1p = (y+1)/size;
+	    double posx1m = (x-1)/size; double posy1m = (y-1)/size; 
+	    double height = (double)terrain->getHeightAtTerrainPosition(posx,posy);
+	    
+	    //double heightx1y = (double)terrain->getHeightAtTerrainPosition(posx,posy);
+	    double sx = ((double)terrain->getHeightAtTerrainPosition(x<xzScale-1 ? posx1p : posx, posy) - 
+				(double)terrain->getHeightAtTerrainPosition(x == x0 ? posx1m : posx, posy))/diff;
+	    if (x == 0 || x == xzScale - 1){ sx *= 2;}
+	    double sy = ((double)terrain->getHeightAtTerrainPosition(posx, y < xzScale-1 ? posy1p : posy) - 
+				(double)terrain->getHeightAtTerrainPosition(posx, y == y0 ? posy1m : posy))/diff;
+	    if (y == 0 || y == xzScale -1) {sy *= 2;}
+	    TPoint3 * vec = new TPoint3(-1.0f*sx, -1.0f*sy, 0.1f);  //changing -sx, 2*xzScale mid term ??!
+            (*vec) = (*vec).normalize();
+            TPoint3 vec2 = (*vec)/2.0f + .5f;
+	    (*normal)[terr::Coordpair(x,y)] = TPoint3(lerp((*vec).x, 0, 0.25f), lerp((*vec).y, 1, 0.25f),
+						      lerp((*vec).z, 0, 0.25f));
+	    //the specialized surface normal is intended for producing the bump map using
+	    //a linear interpolation between a finite difference 'actual' approximated
+	    //surface normal mixed with its ideal planar 'geometric' form.
+	    //(*normal)[terr::Coordpair(x,y)] = (*normal)[terr::Coordpair(x,y)].normalize();
+	    Ka = 0.2f; Kd = 1.0f;
+	    //TPoint3 rgb = phongillum((*normal)[terr::Coordpair(x,y)], (*L), (*V), Ka, Kd);
+	    //Ogre::ColourValue col = Ogre::ColourValue(rgb.x,rgb.y,rgb.z, (*heightmap)[terr::Coordpair(x, y)]);
+	    //Ogre::ColourValue col = Ogre::ColourValue((*normal)[terr::Coordpair(x,y)].x,(*normal)[terr::Coordpair(x,y)].y,
+	    //						(*normal)[terr::Coordpair(x,y)].z, (*heightmap)[terr::Coordpair(x, y)]);
+	    Ogre::ColourValue col = Ogre::ColourValue(vec2.x,vec2.y,vec2.z, height/diff);
+	    //col = Ogre::ColourValue(0.0f,0.0f,0.5f, 1.0f);
+	    //compute phong specular intensity
+            TPoint3 R = reflection((*L), (*normal)[terr::Coordpair(x,y)]);
+	    R = R.normalize();
+	    n = 1.0f;
+	    double pdRVn = pow(dotproduct(R,(*V)),n);
+            n = 1.0f;
+	    //TPoint3 rgbtwo = phongillum((*normal)[terr::Coordpair(x,y)], (*L), (*V), Ka, Kd);
+	    Ogre::ColourValue coltwo = Ogre::ColourValue(pdRVn,pdRVn,pdRVn);
+	    fill->setPixl((size_t)x, (size_t)y, col);
+	    filltwo->setPixl((size_t)x, (size_t)y, coltwo);	    
+	}
+    }
+    buffer.saveImage("../media/materials/textures/test9.png");
+    buffr.saveImage("../media/materials/textures/test9spec.png");
+}
 //for terrain 'geometric' surface normals are actually given by a normal on a flat plane which 
 // is in our case assuming the y axis is actually the heightfield position  [0,1,0] or [0,-1,0]
 /*
@@ -131,9 +222,22 @@ Ix = AxKaDx + AttLx [KdDx(N dot L) + KsSx(R dot V)^n]
 For default purposes I'll likely leave the view vector in the direction of the light vector which 
 is directly overhead pointed down [0,-1,0] and a reflection vector which need be computed as in 
 the surface normal given.
+
+What is controlling the specularity maps... alpha full and zero are producing high specularity?!  :D
+
+
 */
 
 TPoint3  phongillum(TPoint3 N, TPoint3 L, TPoint3 V){
+        TPoint3 R = reflection(L, N);// reflection vector
+	double dNL = dotproduct(N,L); double pdRVn = pow(dotproduct(R,V),n);
+	double Ir = (*Ax).x*Ka*(*Dx).x + Att*(*Lx).x *(Kd*(*Dx).x*dNL + Ks*(*Sx).x*pdRVn);
+        double Ig = (*Ax).y*Ka*(*Dx).y + Att*(*Lx).y *(Kd*(*Dx).y*dNL + Ks*(*Sx).y*pdRVn);
+	double Ib = (*Ax).z*Ka*(*Dx).z + Att*(*Lx).z *(Kd*(*Dx).z*dNL + Ks*(*Sx).z*pdRVn);
+	return TPoint3(Ir,Ig,Ib);
+}
+
+TPoint3  phongillum(TPoint3 N, TPoint3 L, TPoint3 V, double Ka, double Kd){
         TPoint3 R = reflection(L, N);// reflection vector
 	double dNL = dotproduct(N,L); double pdRVn = pow(dotproduct(R,V),n);
 	double Ir = (*Ax).x*Ka*(*Dx).x + Att*(*Lx).x *(Kd*(*Dx).x*dNL + Ks*(*Sx).x*pdRVn);

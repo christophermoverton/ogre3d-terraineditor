@@ -22,7 +22,7 @@ double Noise3(Vector point){
 
 double pfBm(Vector point, double frequency, double amplitude, double octaves, double gain);
 //float size, float scale, float zdepth, float frequency, float amplitude, float octaves=6, float gain = .5f
-terr::CPointsMap  pfbmbuild (double size, double scale, double frequency, double amplitude, double octaves, double gain);
+//terr::CPointsMap  pfbmbuild (double size, double scale, double frequency, double amplitude, double octaves, double gain);
 double sin_bias(double a);
 double tri_bias(double a);
 double saw_bias(double a);
@@ -30,16 +30,22 @@ double soft(double a);
 double sharp(double a);
 double sharper(double a);
 double shapes(double x,double y, int shape=0);
-terr::CPointsMap   BLI_gNoisebuild(double size, double scale, int hard, int noisebasis);
-terr::CPointsMap mg_MultiFractalbuild(double size, double scale, double H, double lacunarity, double octaves, int noisebasis);
-terr::CPointsMap mg_HeteroTerrainbuild(double size, double scale, float H, float lacunarity, float octaves, float offset, int noisebasis);
-terr::CPointsMap mg_HybridMultiFractalbuild(double size, double scale, float H, float lacunarity, float octaves, float offset, float gain, int noisebasis);
-terr::CPointsMap mg_RidgedMultiFractalbuild(double size, double scale, float H, float lacunarity, float octaves, float offset, float gain, int noisebasis);
+terr::CPointsMap   BLI_gNoisebuild(double size,double scale, double texscale, int hard, int noisebasis);
+terr::CPointsMap mg_MultiFractalbuild(double size, double scale, double texscale, double H, 
+					double lacunarity, double octaves, int noisebasis);
+terr::CPointsMap mg_HeteroTerrainbuild(double size, double scale, double texscale, float H, 
+					float lacunarity, float octaves, float offset, int noisebasis);
+terr::CPointsMap mg_HybridMultiFractalbuild(double size, double scale, double texscale, float H, 
+						float lacunarity, float octaves, float offset, float gain, int noisebasis);
+terr::CPointsMap mg_RidgedMultiFractalbuild(double size, double scale, double texscale, float H, 
+						float lacunarity, float octaves, float offset, float gain, int noisebasis);
 double marble_noise(double x, double y, double z, Vector origin, double size, 
                     int shape, int bias, int sharpnes, int noisebasis, 
 		    double turb, double depth, double frequency);
-terr::CPointsMap  pmarblebuild (double size, double scale, double frequency, double amplitude, double octaves,
+terr::CPointsMap  pmarblebuild (double size, double scale, double texscale, double frequency, double amplitude, double octaves,
 				int noisebasis, int bias, int shape, int sharp);
+terr::CPointsMap  pfbmbuild (double size, double scale, double texscale, double frequency, 
+				double amplitude, double octaves, double gain);
 //scale, frequency, amplitude, octaves, and gain are dummy variables (unused) for now in pmarblebuild    
 
 //# some functions for marble_noise
@@ -152,32 +158,46 @@ double marble_noise(double x, double y, double z, Vector origin, double size,
     return value;
 }
 
-terr::CPointsMap  pmarblebuild (double size, double scale, double frequency, double amplitude, double octaves,
+terr::CPointsMap  pmarblebuild (double size, double scale, double texscale, double frequency, double amplitude, double octaves,
 				int noisebasis, int bias, int shape, int sharp){
    _perlin = new PerlinNoise();
    terr::CPointsMap * points = new terr::CPointsMap();
    double maxval = (double)0.0f, minval = (double)100000000.0f; double val;
    for (int i = 0; i < size; i++){
 	for (int j = 0; j < size; j++){
-		terr::Coordpair * coordpair = new terr::Coordpair(i,j);
+		
                 //delta = size_me / (sub_d - 1)  size_me is mesh size and sub_d is the number of subdivision
-                double x = (double) i * 513.0f/(512.0f);
-		double y = (double) j * 513.0f/(512.0f);
-		x = (double) x* 2.0f/ 513.0f;
-		y = (double) y* 2.0f/ 513.0f;
-		double z = 0.0f;
-		Vector  point; point.x = x; point.y = y; point.z = z;
-                Vector origin; origin.x = 0.0f; origin.y = 0.0f; origin.z = 0.0f;
-                //(double x, double y, double z, Vector origin, double size, 
-                    //int shape, int bias, int sharpnes, double turb, double depth )
-		val = marble_noise( x, y, z, origin, scale, shape, bias, sharp, noisebasis,amplitude, octaves, frequency);
-		(*points)[(*coordpair)] = val;
-		if (val < minval){
-			minval = val;
+		
+		for (int k = 0; k < texscale; k++){
+			
+			double subinck = ((double) k)/texscale;
+			for (int l = 0; l < texscale; l++){
+				double subincl = ((double) l)/texscale;
+				terr::Coordpair * coordpair = new terr::Coordpair((double)i+subinck,(double)j+subincl);
+                		double x = (((double)i)+subinck) * 513.0f/(512.0f);
+				double y = (((double)j)+subincl) * 513.0f/(512.0f);
+				x = (double) x* 2.0f/ 513.0f;
+				y = (double) y* 2.0f/ 513.0f;
+				double z = 0.0f;
+				Vector  point; point.x = x; point.y = y; point.z = z;
+                		Vector origin; origin.x = 0.0f; origin.y = 0.0f; origin.z = 0.0f;
+                		//(double x, double y, double z, Vector origin, double size, 
+                    		//int shape, int bias, int sharpnes, double turb, double depth )
+				val = marble_noise( x, y, z, origin, scale, shape, bias, sharp, noisebasis,amplitude, octaves, frequency);
+				(*points)[(*coordpair)] = val;
+				if (val < minval){
+					minval = val;
+				}
+				if (val > maxval){
+					maxval = val;
+				}
+				if (i == size-1 and j == size-1){break;}
+				if (j == size-1){break;}
+			}
+			if (i == size-1 and j == size-1){break;}
+			if (i == size-1){break;}	
 		}
-		if (val > maxval){
-			maxval = val;
-		}		
+			
 	}
    }
    double scaleceiling;
@@ -196,25 +216,37 @@ terr::CPointsMap  pmarblebuild (double size, double scale, double frequency, dou
    return (*points);
 }
 
-terr::CPointsMap   BLI_gNoisebuild(double size, double scale, int hard, int noisebasis){
+terr::CPointsMap   BLI_gNoisebuild(double size,double scale, double texscale, int hard, int noisebasis){
    terr::CPointsMap * points = new terr::CPointsMap();
    double maxval = (double)0.0f, minval = (double)100000000.0f; double val;
    for (int i = 0; i < size; i++){
 	for (int j = 0; j < size; j++){
-		terr::Coordpair * coordpair = new terr::Coordpair(i,j);
-		double x = (double) i ;/// scale;
-		double y = (double) j ;/// scale;
-		double z = 0.0f;
-		Vector  point; point.x = x; point.y = y; point.z = z;
-                //float mg_fBm(float x, float y, float z, float H, float lacunarity, float octaves, int noisebasis);
-		val = BLI_gNoise(scale, x, y, z, hard, noisebasis);
-		//val = (double) pfBm( point, frequency, amplitude, octaves, gain);
-		(*points)[(*coordpair)] = val;
-		if (val < minval){
-			minval = val;
-		}
-		if (val > maxval){
-			maxval = val;
+		//terr::Coordpair * coordpair = new terr::Coordpair(i,j);
+		for (int k = 0; k < texscale; k++){
+			
+			double subinck = ((double) k)/texscale;
+			for (int l = 0; l < texscale; l++){
+				double subincl = ((double) l)/texscale;
+				terr::Coordpair * coordpair = new terr::Coordpair((double)i+subinck,(double)j+subincl);
+				double x = (((double)i)+subinck);/// scale;
+				double y = (((double)j)+subincl);/// scale;
+				double z = 0.0f;
+				Vector  point; point.x = x; point.y = y; point.z = z;
+               			//float mg_fBm(float x, float y, float z, float H, float lacunarity, float octaves, int noisebasis);
+				val = BLI_gNoise(scale, x, y, z, hard, noisebasis);
+				//val = (double) pfBm( point, frequency, amplitude, octaves, gain);
+				(*points)[(*coordpair)] = val;
+				if (val < minval){
+					minval = val;
+				}
+				if (val > maxval){
+					maxval = val;
+				}
+				if (i == size-1 and j == size-1){break;}
+				if (j == size-1){break;}
+			}
+			if (i == size-1 and j == size-1){break;}
+			if (i == size-1){break;}
 		}		
 	}
    }
@@ -235,25 +267,38 @@ terr::CPointsMap   BLI_gNoisebuild(double size, double scale, int hard, int nois
 	
 }
 
-terr::CPointsMap mg_MultiFractalbuild(double size, double scale, double H, double lacunarity, double octaves, int noisebasis){
+terr::CPointsMap mg_MultiFractalbuild(double size, double texscale, double scale, double H, 
+					double lacunarity, double octaves, int noisebasis){
    terr::CPointsMap * points = new terr::CPointsMap();
    double maxval = (double)0.0f, minval = (double)100000000.0f; double val;
    for (int i = 0; i < size; i++){
 	for (int j = 0; j < size; j++){
-		terr::Coordpair * coordpair = new terr::Coordpair(i,j);
-		double x = (double) i / scale;
-		double y = (double) j / scale;
-		double z = 0.0f;
-		Vector  point; point.x = x; point.y = y; point.z = z;
-                //float mg_fBm(float x, float y, float z, float H, float lacunarity, float octaves, int noisebasis);
-		val = mg_MultiFractal(x, y, z, H, lacunarity, octaves, noisebasis);
-		//val = (double) pfBm( point, frequency, amplitude, octaves, gain);
-		(*points)[(*coordpair)] = val;
-		if (val < minval){
-			minval = val;
-		}
-		if (val > maxval){
-			maxval = val;
+		//terr::Coordpair * coordpair = new terr::Coordpair(i,j);
+		for (int k = 0; k < texscale; k++){
+			
+			double subinck = ((double) k)/texscale;
+			for (int l = 0; l < texscale; l++){
+				double subincl = ((double) l)/texscale;
+				terr::Coordpair * coordpair = new terr::Coordpair((double)i+subinck,(double)j+subincl);
+				double x = (((double)i)+subinck) / scale;
+				double y = (((double)j)+subincl) / scale;
+				double z = 0.0f;
+				Vector  point; point.x = x; point.y = y; point.z = z;
+                		//float mg_fBm(float x, float y, float z, float H, float lacunarity, float octaves, int noisebasis);
+				val = mg_MultiFractal(x, y, z, H, lacunarity, octaves, noisebasis);
+				//val = (double) pfBm( point, frequency, amplitude, octaves, gain);
+				(*points)[(*coordpair)] = val;
+				if (val < minval){
+					minval = val;
+				}
+				if (val > maxval){
+					maxval = val;
+				}
+				if (i == size-1 and j == size-1){break;}
+				if (j == size-1){break;}
+			}
+			if (i == size-1 and j == size-1){break;}
+			if (i == size-1){break;}
 		}		
 	}
    }
@@ -273,26 +318,39 @@ terr::CPointsMap mg_MultiFractalbuild(double size, double scale, double H, doubl
    return (*points);
 }
 
-terr::CPointsMap mg_HeteroTerrainbuild(double size, double scale, float H, float lacunarity, float octaves, float offset, int noisebasis){
+terr::CPointsMap mg_HeteroTerrainbuild(double size, double scale, double texscale, float H, 
+					float lacunarity, float octaves, float offset, int noisebasis){
     //mg_HeteroTerrain(float x, float y, float z, float H, float lacunarity, float octaves, float offset, int noisebasis)
    terr::CPointsMap * points = new terr::CPointsMap();
    double maxval = (double)0.0f, minval = (double)100000000.0f; double val;
    for (int i = 0; i < size; i++){
 	for (int j = 0; j < size; j++){
-		terr::Coordpair * coordpair = new terr::Coordpair(i,j);
-		double x = (double) i / scale;
-		double y = (double) j / scale;
-		double z = 0.0f;
-		Vector  point; point.x = x; point.y = y; point.z = z;
-                //float mg_fBm(float x, float y, float z, float H, float lacunarity, float octaves, int noisebasis);
-		val = mg_HeteroTerrain(x, y, z, H, lacunarity, octaves, offset, noisebasis);
-		//val = (double) pfBm( point, frequency, amplitude, octaves, gain);
-		(*points)[(*coordpair)] = val;
-		if (val < minval){
-			minval = val;
-		}
-		if (val > maxval){
-			maxval = val;
+		//terr::Coordpair * coordpair = new terr::Coordpair(i,j);
+		for (int k = 0; k < texscale; k++){
+			
+			double subinck = ((double) k)/texscale;
+			for (int l = 0; l < texscale; l++){
+				double subincl = ((double) l)/texscale;
+				terr::Coordpair * coordpair = new terr::Coordpair((double)i+subinck,(double)j+subincl);
+				double x = (((double)i)+subinck) / scale;
+				double y = (((double)j)+subincl) / scale;
+				double z = 0.0f;
+				Vector  point; point.x = x; point.y = y; point.z = z;
+               			//float mg_fBm(float x, float y, float z, float H, float lacunarity, float octaves, int noisebasis);
+				val = mg_HeteroTerrain(x, y, z, H, lacunarity, octaves, offset, noisebasis);
+				//val = (double) pfBm( point, frequency, amplitude, octaves, gain);
+				(*points)[(*coordpair)] = val;
+				if (val < minval){
+					minval = val;
+				}
+				if (val > maxval){
+					maxval = val;
+				}
+				if (i == size-1 and j == size-1){break;}
+				if (j == size-1){break;}
+			}
+			if (i == size-1 and j == size-1){break;}
+			if (i == size-1){break;}
 		}		
 	}
    }
@@ -312,26 +370,40 @@ terr::CPointsMap mg_HeteroTerrainbuild(double size, double scale, float H, float
    return (*points);
 }
 
-terr::CPointsMap mg_HybridMultiFractalbuild(double size, double scale, float H, float lacunarity, float octaves, float offset, float gain, int noisebasis){
+terr::CPointsMap mg_HybridMultiFractalbuild(double size, double scale, double texscale, float H, 
+						float lacunarity, float octaves, float offset, float gain, int noisebasis){
     //mg_HeteroTerrain(float x, float y, float z, float H, float lacunarity, float octaves, float offset, int noisebasis)
    terr::CPointsMap * points = new terr::CPointsMap();
    double maxval = (double)0.0f, minval = (double)100000000.0f; double val;
    for (int i = 0; i < size; i++){
 	for (int j = 0; j < size; j++){
-		terr::Coordpair * coordpair = new terr::Coordpair(i,j);
-		double x = (double) i / scale;
-		double y = (double) j / scale;
-		double z = 0.0f;
-		Vector  point; point.x = x; point.y = y; point.z = z;
+		//terr::Coordpair * coordpair = new terr::Coordpair(i,j);
+		for (int k = 0; k < texscale; k++){
+			
+			double subinck = ((double) k)/texscale;
+			for (int l = 0; l < texscale; l++){
+				double subincl = ((double) l)/texscale;
+				terr::Coordpair * coordpair = new terr::Coordpair((double)i+subinck,(double)j+subincl);
+				double x = (((double)i)+subinck) / scale;
+				double y = (((double)j)+subincl) / scale;
+				double z = 0.0f;
+				Vector  point; point.x = x; point.y = y; point.z = z;
                 //float mg_fBm(float x, float y, float z, float H, float lacunarity, float octaves, int noisebasis);
-		val = mg_HybridMultiFractal(x,y,z, H, lacunarity, octaves, offset, gain, noisebasis);
+				val = mg_HybridMultiFractal(x,y,z, H, lacunarity, octaves, offset, gain, noisebasis);
 		//val = (double) pfBm( point, frequency, amplitude, octaves, gain);
-		(*points)[(*coordpair)] = val;
-		if (val < minval){
-			minval = val;
-		}
-		if (val > maxval){
-			maxval = val;
+				(*points)[(*coordpair)] = val;
+				if (val < minval){
+					minval = val;
+				}
+				if (val > maxval){
+					maxval = val;
+				}
+				if (i == size-1 and j == size-1){break;}
+				if (j == size-1){break;}
+			}
+			if (i == size-1 and j == size-1){break;}
+			if (i == size-1){break;}
+			
 		}		
 	}
    }
@@ -351,25 +423,37 @@ terr::CPointsMap mg_HybridMultiFractalbuild(double size, double scale, float H, 
    return (*points);
 }
 
-terr::CPointsMap mg_RidgedMultiFractalbuild(double size, double scale, float H, float lacunarity, float octaves, float offset, float gain, int noisebasis){
+terr::CPointsMap mg_RidgedMultiFractalbuild(double size, double scale, double texscale, float H, 
+						float lacunarity, float octaves, float offset, float gain, int noisebasis){
    terr::CPointsMap * points = new terr::CPointsMap();
    double maxval = (double)0.0f, minval = (double)100000000.0f; double val;
    for (int i = 0; i < size; i++){
 	for (int j = 0; j < size; j++){
-		terr::Coordpair * coordpair = new terr::Coordpair(i,j);
-		double x = (double) i / scale;
-		double y = (double) j / scale;
-		double z = 0.0f;
-		Vector  point; point.x = x; point.y = y; point.z = z;
-                //float mg_fBm(float x, float y, float z, float H, float lacunarity, float octaves, int noisebasis);
-		val = mg_RidgedMultiFractal(x,y,z, H, lacunarity, octaves, offset, gain, noisebasis);
-		//val = (double) pfBm( point, frequency, amplitude, octaves, gain);
-		(*points)[(*coordpair)] = val;
-		if (val < minval){
-			minval = val;
-		}
-		if (val > maxval){
-			maxval = val;
+		for (int k = 0; k < texscale; k++){
+			
+			double subinck = ((double) k)/texscale;
+			for (int l = 0; l < texscale; l++){
+				double subincl = ((double) l)/texscale;
+				terr::Coordpair * coordpair = new terr::Coordpair((double)i+subinck,(double)j+subincl);
+				double x = (((double)i)+subinck) / scale;
+				double y = (((double)j)+subincl) / scale;
+				double z = 0.0f;
+				Vector  point; point.x = x; point.y = y; point.z = z;
+                		//float mg_fBm(float x, float y, float z, float H, float lacunarity, float octaves, int noisebasis);
+				val = mg_RidgedMultiFractal(x,y,z, H, lacunarity, octaves, offset, gain, noisebasis);
+				//val = (double) pfBm( point, frequency, amplitude, octaves, gain);
+				(*points)[(*coordpair)] = val;
+				if (val < minval){
+					minval = val;
+				}
+				if (val > maxval){
+					maxval = val;
+				}
+				if (i == size-1 and j == size-1){break;}
+				if (j == size-1){break;}
+			}
+			if (i == size-1 and j == size-1){break;}
+			if (i == size-1){break;}
 		}		
 	}
    }
@@ -389,26 +473,38 @@ terr::CPointsMap mg_RidgedMultiFractalbuild(double size, double scale, float H, 
    return (*points);
 }
 
-terr::CPointsMap  pfbmbuild (double size, double scale, double frequency, double amplitude, double octaves, double gain){
+terr::CPointsMap  pfbmbuild (double size, double scale, double texscale, double frequency, 
+				double amplitude, double octaves, double gain){
    _perlin = new PerlinNoise();
    terr::CPointsMap * points = new terr::CPointsMap();
    double maxval = (double)0.0f, minval = (double)100000000.0f; double val;
    for (int i = 0; i < size; i++){
 	for (int j = 0; j < size; j++){
-		terr::Coordpair * coordpair = new terr::Coordpair(i,j);
-		double x = (double) i / scale;
-		double y = (double) j / scale;
-		double z = 0.0f;
-		Vector  point; point.x = x; point.y = y; point.z = z;
-                //float mg_fBm(float x, float y, float z, float H, float lacunarity, float octaves, int noisebasis);
-		val = mg_fBm(x,y,z,frequency, 2.0f, octaves, 0);
-		//val = (double) pfBm( point, frequency, amplitude, octaves, gain);
-		(*points)[(*coordpair)] = val;
-		if (val < minval){
-			minval = val;
-		}
-		if (val > maxval){
-			maxval = val;
+		for (int k = 0; k < texscale; k++){
+			
+			double subinck = ((double) k)/texscale;
+			for (int l = 0; l < texscale; l++){
+				double subincl = ((double) l)/texscale;
+				terr::Coordpair * coordpair = new terr::Coordpair((double)i+subinck,(double)j+subincl);
+				double x = (((double)i)+subinck) / scale;
+				double y = (((double)j)+subincl) / scale;
+				double z = 0.0f;
+				Vector  point; point.x = x; point.y = y; point.z = z;
+                		//float mg_fBm(float x, float y, float z, float H, float lacunarity, float octaves, int noisebasis);
+				val = mg_fBm(x,y,z,frequency, 2.0f, octaves, 0);
+				//val = (double) pfBm( point, frequency, amplitude, octaves, gain);
+				(*points)[(*coordpair)] = val;
+				if (val < minval){
+					minval = val;
+				}
+				if (val > maxval){
+					maxval = val;
+				}
+				if (i == size-1 and j == size-1){break;}
+				if (j == size-1){break;}
+			}
+			if (i == size-1 and j == size-1){break;}
+			if (i == size-1){break;}
 		}		
 	}
    }

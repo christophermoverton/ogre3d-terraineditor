@@ -238,7 +238,9 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildVoronoi.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BumpMap.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorGet.cpp
+ /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorizeTerrainMap.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Combiner.cpp
+ /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare/DiamondSquare.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Falloffinterpolate.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/FluidErosionDReg.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/FreqAmpOctEventReg.cpp
@@ -256,6 +258,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainFluidSimulation.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Terrainheightselection.cpp
+ /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TranslateHeights.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/cspline.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/noise.c
@@ -482,6 +485,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /usr/local/include/OGRE/Terrain/OgreTerrainLayerBlendMap.h
  /usr/local/include/OGRE/Terrain/OgreTerrainLodManager.h
  /usr/local/include/OGRE/Terrain/OgreTerrainMaterialGenerator.h
+ /usr/local/include/OGRE/Terrain/OgreTerrainMaterialGeneratorA.h
  /usr/local/include/OGRE/Terrain/OgreTerrainPrerequisites.h
  /usr/local/include/OGRE/Threading/OgreThreadDefines.h
  /usr/local/include/OGRE/Threading/OgreThreadDefinesBoost.h

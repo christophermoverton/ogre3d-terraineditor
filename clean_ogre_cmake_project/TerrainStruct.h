@@ -14,7 +14,7 @@
 
 namespace terr{
 
-	typedef std::pair<int, int>                            	     Coordpair     ;
+	typedef std::pair<int, int>                            	     Coordpair;
 	//typedef std::tuple< int, int, int>                            T3dCoord      ;
 	typedef std::map<Coordpair, double>                           CPointsMap   ;
 	typedef std::map<TPoint3 *, double>                             T3dCPointsMap ;

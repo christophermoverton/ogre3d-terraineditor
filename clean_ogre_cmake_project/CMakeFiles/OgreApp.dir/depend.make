@@ -237,7 +237,9 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildSimplex.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildVoronoi.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BumpMap.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ColorGet.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ColorizeTerrainMap.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Combiner.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: DiamondSquare/DiamondSquare.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Falloffinterpolate.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: FluidErosionDReg.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: FreqAmpOctEventReg.cpp
@@ -255,6 +257,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TPoint3.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainFluidSimulation.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainStruct.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Terrainheightselection.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TranslateHeights.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: cspline.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: noise.c
@@ -481,6 +484,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/OGRE/Terrain/OgreTe
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/OGRE/Terrain/OgreTerrainLayerBlendMap.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/OGRE/Terrain/OgreTerrainLodManager.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/OGRE/Terrain/OgreTerrainMaterialGenerator.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/OGRE/Terrain/OgreTerrainMaterialGeneratorA.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/OGRE/Terrain/OgreTerrainPrerequisites.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/OGRE/Threading/OgreThreadDefines.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/OGRE/Threading/OgreThreadDefinesBoost.h

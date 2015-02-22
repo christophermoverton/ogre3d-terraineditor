@@ -17,6 +17,7 @@
 #include "BaseApplication.h"
 #include "LoadHeightMap.cpp"
 #include "ScaleHeights.cpp"
+#include "TranslateHeights.cpp"
 #include "Combiner.cpp"
 #include "Voronoi.cpp"
 #include <map>
@@ -41,7 +42,9 @@ class FreqAmpOctEventReg{
 		void updateSE(const CEGUI::EventArgs &e);
 		void updateM(const CEGUI::EventArgs &e);
 		void updateNTB(const CEGUI::EventArgs &e);
+		void updateRLT(const CEGUI::EventArgs &e);  //rlt slider
 		void updateBB(const CEGUI::EventArgs &e);
+		void updateBBB(const CEGUI::EventArgs &e);  //update button 3
 		void updateT(const CEGUI::EventArgs &e);
 		void updateTD(const CEGUI::EventArgs &e);
 		void updateW(const CEGUI::EventArgs &e);
@@ -49,6 +52,10 @@ class FreqAmpOctEventReg{
 		void updateFD(const CEGUI::EventArgs &e);
 		void updateD(const CEGUI::EventArgs &e);
 		void updateDE(const CEGUI::EventArgs &e);
+		void updateMHS(const CEGUI::EventArgs &e);  //mountain height slider
+		void updateMHE(const CEGUI::EventArgs &e);  //mountain height edit box
+		void updateWHS(const CEGUI::EventArgs &e);  //Water height slider
+		void updateWHE(const CEGUI::EventArgs &e);  //Water height edit box
 	private:
 		CEGUI::Window *cnewWindow;
 		CEGUI::Window *tcnewWindow;
@@ -56,6 +63,7 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *TabControlWindow;
 		CEGUI::Window *HydraulicWindow;
 		CEGUI::Window *MarbleWindow;
+		CEGUI::Window *TerrainSettingsWindow;
 		CEGUI::Window *ShowDataWindow;
 		CEGUI::Window *Frequencyslider;
 		CEGUI::Window *FrequencyEditbox;
@@ -69,11 +77,17 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *ScaleEditbox;
 		CEGUI::Window *Freqdivslider;
 		CEGUI::Window *Maxheightslider;
+		CEGUI::Window *MountainHslider;
+		CEGUI::Window *MountainHEditbox;
+		CEGUI::Window *RLTslider;
 		CEGUI::Window *UpdateButton;
 		CEGUI::Window *UpdateButton2;
+		CEGUI::Window *UpdateButton3;
 		CEGUI::Window *Terrainbox;
 		CEGUI::Window *FilterTypebox;
 		CEGUI::Window *Weightslider;
+		CEGUI::Window *WaterHslider;
+		CEGUI::Window *WaterHEditbox;
 		CEGUI::Window *NoiseTypebox;
 		//CEGUI::Window *NoiseBasisbox;
 		CEGUI::Window *Depthslider;
@@ -109,11 +123,13 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	TabControlWindow = tcnewWindow->getChild("DefaultWindow")->getChild("TabControl");
 	DefaultWindow = tcnewWindow->getChild("DefaultWindow");
 	ShowDataWindow = tcnewWindow->getChild("ShowDataWindow");
+	TerrainSettingsWindow = tcnewWindow->getChild("TerrainSettingsWindow");
 	CEGUI::TabControl * tabcontrol = static_cast<CEGUI::TabControl*>(TabControlWindow);
 	tabcontrol->addTab(cnewWindow);
 	tabcontrol->addTab(HydraulicWindow);
 	tabcontrol->addTab(MarbleWindow);
 	tabcontrol->addTab(ShowDataWindow);
+	tabcontrol->addTab(TerrainSettingsWindow);
 	Frequencyslider = cnewWindow ->getChild("FrequencySlider");
 	FrequencyEditbox = cnewWindow ->getChild("FreqEditbox");
 	Amplitudeslider = cnewWindow ->getChild("AmplitudeSlider");
@@ -130,7 +146,13 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	DepthEditbox = cnewWindow ->getChild("DepthEditbox");
 	Maxheightslider = DefaultWindow ->getChild("MaxHeightSlider");
 	Weightslider = DefaultWindow ->getChild("WeightSlider");
+	WaterHslider = TerrainSettingsWindow->getChild("WaterHeightSlider");
+	WaterHEditbox = TerrainSettingsWindow->getChild("WaterHeightEditbox");
+	MountainHslider = TerrainSettingsWindow->getChild("MountainHeightSlider");
+	MountainHEditbox = TerrainSettingsWindow->getChild("MountainHeightEditbox");
 	UpdateButton2 = DefaultWindow ->getChild("UpdateButton2");
+	UpdateButton3 = DefaultWindow ->getChild("UpdateButton3");
+	RLTslider = DefaultWindow ->getChild("RLTSlider");
 	Terrainbox = cnewWindow ->getChild("Terrainbox");
 	FilterTypebox = cnewWindow ->getChild("FilterTypebox");
 	NoiseTypebox = cnewWindow ->getChild("NoiseTypebox");
@@ -148,6 +170,10 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 //	ss5.str(std::string());
 //	ss5 << "Terrain2";
 //	listboxitem2 = new CEGUI::ListboxItem(ss5.str(),1);
+	CEGUI::Slider* WHSlider = static_cast<CEGUI::Slider*>(WaterHslider);
+	WHSlider->setCurrentValue(.25f);
+	CEGUI::Slider* MHSlider = static_cast<CEGUI::Slider*>(MountainHslider);
+	MHSlider->setCurrentValue(.8f);
 	CEGUI::ListboxTextItem* itemCombobox = new CEGUI::ListboxTextItem("Terrain1", 1);
 	csel[1] = CEGUI::String("Terrain1");
 	CEGUI::Combobox* combobox = static_cast<CEGUI::Combobox*>(Terrainbox);
@@ -264,7 +290,12 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	Depthslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateD, this));
 	DepthEditbox->subscribeEvent(CEGUI::Editbox::EventTextAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateDE, this));
 	Maxheightslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateM, this));
+	RLTslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateRLT, this));
 	Weightslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateW, this));
+	WaterHslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateWHS, this));
+	MountainHslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateMHS, this));
+	WaterHEditbox->subscribeEvent(CEGUI::Editbox::EventTextAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateWHE, this));
+	MountainHEditbox->subscribeEvent(CEGUI::Editbox::EventTextAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateMHE, this));
 	Terrainbox->subscribeEvent(CEGUI::Combobox::EventListSelectionAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateT, this));	//EventDropListDisplayed
         NoiseTypebox->subscribeEvent(CEGUI::Combobox::EventListSelectionAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateNTB, this));
 	Terrainbox->subscribeEvent(CEGUI::Combobox::EventDropListDisplayed, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateTD, this));
@@ -272,6 +303,8 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
     CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateB, this));
 	 UpdateButton2->subscribeEvent(CEGUI::PushButton::EventClicked,
     CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateBB, this));
+	 UpdateButton3->subscribeEvent(CEGUI::PushButton::EventClicked,
+    CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateBBB, this));
 }
 
 void FreqAmpOctEventReg::updateNoiseTypesettings(){
@@ -720,6 +753,75 @@ void FreqAmpOctEventReg::updateSE(const CEGUI::EventArgs &e){
 	SSlider->setCurrentValue(val);
 }
 
+void FreqAmpOctEventReg::updateWHS(const CEGUI::EventArgs &e){
+	
+	CEGUI::Slider* WHSlider = static_cast<CEGUI::Slider*>(WaterHslider);
+	float val = WHSlider->getCurrentValue();
+	CEGUI::Slider* MHSlider = static_cast<CEGUI::Slider*>(MountainHslider);
+	float val2 = MHSlider->getCurrentValue();
+	if (val > val2){val = val2; WHSlider->setCurrentValue(val);}
+	CEGUI::Editbox* WHEbox = static_cast<CEGUI::Editbox*>(WaterHEditbox);
+	std::ostringstream ss5;
+	ss5<<val;
+	WHEbox->setText(ss5.str());
+}
+
+void FreqAmpOctEventReg::updateWHE(const CEGUI::EventArgs &e){
+	
+	CEGUI::Slider* WHSlider = static_cast<CEGUI::Slider*>(WaterHslider);
+	//float val = SSlider->getCurrentValue();
+	CEGUI::Editbox* WHEbox = static_cast<CEGUI::Editbox*>(WaterHEditbox);
+	float val = atof(WHEbox->getText().c_str());
+	CEGUI::Slider* MHSlider = static_cast<CEGUI::Slider*>(MountainHslider);
+	float val2 = MHSlider->getCurrentValue();
+	std::ostringstream ss5;
+	//ss5<<val;
+	if (val > val2){
+		val = val2; 
+		ss5<<val;
+		WHSlider->setCurrentValue(val);
+		WHEbox->setText(ss5.str());
+	}
+	else{
+		ss5<<val;
+	}
+	WHSlider->setCurrentValue(val);
+}
+
+void FreqAmpOctEventReg::updateMHS(const CEGUI::EventArgs &e){
+	
+	CEGUI::Slider* MHSlider = static_cast<CEGUI::Slider*>(MountainHslider);
+	float val = MHSlider->getCurrentValue();
+	CEGUI::Slider* WHSlider = static_cast<CEGUI::Slider*>(WaterHslider);
+	float val2 = WHSlider->getCurrentValue();
+	if (val < val2){val = val2; MHSlider->setCurrentValue(val);}
+	CEGUI::Editbox* MHEbox = static_cast<CEGUI::Editbox*>(MountainHEditbox);
+	std::ostringstream ss5;
+	ss5<<val;
+	MHEbox->setText(ss5.str());
+}
+
+void FreqAmpOctEventReg::updateMHE(const CEGUI::EventArgs &e){
+	
+	CEGUI::Slider* MHSlider = static_cast<CEGUI::Slider*>(MountainHslider);
+	//float val = SSlider->getCurrentValue();
+	CEGUI::Editbox* MHEbox = static_cast<CEGUI::Editbox*>(MountainHEditbox);
+	float val = atof(MHEbox->getText().c_str());
+	CEGUI::Slider* WHSlider = static_cast<CEGUI::Slider*>(WaterHslider);
+	float val2 = WHSlider->getCurrentValue();
+	std::ostringstream ss5;
+	if (val < val2){
+		val = val2; 
+		ss5<<val;
+		MHSlider->setCurrentValue(val);
+		MHEbox->setText(ss5.str());
+	}
+	else{
+		ss5<<val;
+	}
+	MHSlider->setCurrentValue(val);
+}
+
 void FreqAmpOctEventReg::updateM(const CEGUI::EventArgs &e){
 	CEGUI::Window* mlabel = DefaultWindow ->getChild("MHeightlabel");
 	CEGUI::Slider* MSlider = static_cast<CEGUI::Slider*>(Maxheightslider);
@@ -739,6 +841,17 @@ void FreqAmpOctEventReg::updateW(const CEGUI::EventArgs &e){
 	std::ostringstream ss5;
 	ss5<<val;
 	wlabel->setText(ss5.str());
+}
+
+void FreqAmpOctEventReg::updateRLT(const CEGUI::EventArgs &e){
+	CEGUI::Window* rltlabel = DefaultWindow ->getChild("RLTlabel");
+	CEGUI::Slider* rltSlider = static_cast<CEGUI::Slider*>(RLTslider);
+	//CEGUI::Editbox* OEbox = static_cast<CEGUI::Editbox*>(OctavesEditbox);
+	float val = rltSlider->getCurrentValue() - 6000.0f;
+	std::ostringstream ss5;
+	ss5<<val;
+	rltlabel->setText(ss5.str());
+	//OEbox->setText(ss5.str());
 }
 
 void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
@@ -795,7 +908,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			//tnoisevals[i] = test->getNoisevalues();
 			//(*tnoisevalsm)[i] = test->getNoisevaluesT();
 			//double size, double scale, double frequency, double amplitude, double octaves, double gain
-			(*vnoisevalsm)[i] = pfbmbuild (513.0f, tc["Scale"], tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], tc["Octaves"],
+			(*vnoisevalsm)[i] = pfbmbuild (513.0f, tc["Scale"], 1.0f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], tc["Octaves"],
                                                        tc["Gain"]);
 			//(*vnoisevalsm)[i] = pfbmbuild (513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"]);			
 			ss5 << "Hitting update button!!!!!!!" << "\n";
@@ -815,7 +928,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			//tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
 			//(*tnoisevalsm)[i] = testm->getHeightMapradial();
 			//(*vnoisevalsm)[i] = testm->getHeightMapradial2();
-			(*vnoisevalsm)[i] =  BLI_gNoisebuild(513.0f, tc["Scale"], tc["Sharp"], tc["NoiseBasis"]);
+			(*vnoisevalsm)[i] =  BLI_gNoisebuild(513.0f, tc["Scale"], 1.0f,tc["Sharp"], tc["NoiseBasis"]);
 		}
 		else if ((int)tc["NoiseType"]==2){
 			ss5 << "Simplex" << "\n";
@@ -865,7 +978,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 				//double offset)
 			//(*vnoisevalsm)[i] = multiFractalbuild (513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
 			//	tc["Gain"]);
-                        (*vnoisevalsm)[i] = mg_MultiFractalbuild(513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
+                        (*vnoisevalsm)[i] = mg_MultiFractalbuild(513.0f, tc["Scale"], 1.0f,tc["Depth"], tc["Frequency"], tc["Octaves"],
 								 tc["NoiseBasis"]);
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
@@ -878,7 +991,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 
 			//(*vnoisevalsm)[i] = Heterobuild(513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
 			//	tc["Gain"]);
-                        (*vnoisevalsm)[i] = mg_HeteroTerrainbuild(513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], 
+                        (*vnoisevalsm)[i] = mg_HeteroTerrainbuild(513.0f, tc["Scale"], 1.0f,tc["Depth"], tc["Frequency"], 
 						tc["Octaves"], tc["Amplitude"], tc["NoiseBasis"]);
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
@@ -892,7 +1005,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			//(*vnoisevalsm)[i] = HybridMultifractalbuild(513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
 			//	tc["Gain"]);
 			//terr::CPointsMap mg_HybridMultiFractalbuild(double size, double scale, float H, float lacunarity, float octaves, float offset, float gain, int noisebasis)
-			(*vnoisevalsm)[i] = mg_HybridMultiFractalbuild(513.0f,tc["Scale"], tc["Depth"], tc["Frequency"], 
+			(*vnoisevalsm)[i] = mg_HybridMultiFractalbuild(513.0f,tc["Scale"], 1.0f,tc["Depth"], tc["Frequency"], 
 						tc["Octaves"], tc["Amplitude"], tc["Gain"], tc["NoiseBasis"]); 
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
@@ -905,7 +1018,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
                           //double offset, double gain)
 			//(*vnoisevalsm)[i] = RidgedMultifractalbuild(513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
 			//	tc["Gain"], tc["Gain"]*2);
-			(*vnoisevalsm)[i] =  mg_RidgedMultiFractalbuild(513.0f,tc["Scale"], tc["Depth"], tc["Frequency"], 
+			(*vnoisevalsm)[i] =  mg_RidgedMultiFractalbuild(513.0f,tc["Scale"], 1.0f, tc["Depth"], tc["Frequency"], 
 						tc["Octaves"], tc["Amplitude"], tc["Gain"], tc["NoiseBasis"]); 
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
@@ -917,7 +1030,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 
                          //pmarblebuild (double size, double scale, double frequency, double amplitude, double octaves, int noisebasis,
 				//int noisebasis, int bias, int shape, int sharp)
-			(*vnoisevalsm)[i] = pmarblebuild (513.0f, tc["Scale"]/265.5f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], 
+			(*vnoisevalsm)[i] = pmarblebuild (513.0f,tc["Scale"]/265.5f, 1.0f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], 
                                                            tc["Octaves"], (int)tc["NoiseBasis"] == 10 ? 14 : (int)tc["NoiseBasis"], 
 							   (int)tc["Bias"], (int)tc["Shape"], (int)tc["Sharp"]);
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
@@ -943,7 +1056,11 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm);
-	new LoadHeightMap(cterrain, cmMiniScreen,513.0f*1.0f, cheightmapvaluesm);
+	CEGUI::Slider* WHSlider = static_cast<CEGUI::Slider*>(WaterHslider);
+	float whval = WHSlider->getCurrentValue();
+	CEGUI::Slider* MHSlider = static_cast<CEGUI::Slider*>(MountainHslider);
+	float mhval = MHSlider->getCurrentValue();
+	new LoadHeightMap(cterrain, cmMiniScreen,513.0f*1.0f, cheightmapvaluesm, whval, mhval,2.0f);
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm, 513.0f);
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, (*tnoisevalsm)[0]);
 }
@@ -951,12 +1068,31 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 void FreqAmpOctEventReg::updateBB(const CEGUI::EventArgs &e){
 	CEGUI::Slider* MSlider = static_cast<CEGUI::Slider*>(Maxheightslider);
 	float val = MSlider->getCurrentValue();
+	CEGUI::Slider* WHSlider = static_cast<CEGUI::Slider*>(WaterHslider);
+	float whval = WHSlider->getCurrentValue();
+	CEGUI::Slider* MHSlider = static_cast<CEGUI::Slider*>(MountainHslider);
+	float mhval = MHSlider->getCurrentValue();
 	//std::ostringstream ss5;
 	//ss5<<val;
 	//mlabel->setText(ss5.str());
 	if (val > 513.0f) {
-		new ScaleHeights(cterrain, mCamera, val);
+		new ScaleHeights(cterrain, cmMiniScreen,mCamera, val, whval, mhval);
 	}
+}
+
+void FreqAmpOctEventReg::updateBBB(const CEGUI::EventArgs &e){
+	CEGUI::Slider* rltSlider = static_cast<CEGUI::Slider*>(RLTslider);
+	float val = rltSlider->getCurrentValue();
+	CEGUI::Slider* WHSlider = static_cast<CEGUI::Slider*>(WaterHslider);
+	float whval = WHSlider->getCurrentValue();
+	CEGUI::Slider* MHSlider = static_cast<CEGUI::Slider*>(MountainHslider);
+	float mhval = MHSlider->getCurrentValue();
+	//std::ostringstream ss5;
+	//ss5<<val;
+	//mlabel->setText(ss5.str());
+	//if (val > 513.0f) {
+		new TranslateHeights(cterrain, cmMiniScreen,mCamera, val-6000.0f, whval, mhval);
+	//}
 }
 
 void FreqAmpOctEventReg::updateT(const CEGUI::EventArgs &e){
