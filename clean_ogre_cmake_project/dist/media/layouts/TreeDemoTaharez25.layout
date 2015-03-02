@@ -60,7 +60,7 @@
                 <Property name="Text" value="Update" />
             </Window>
             <Window type="TaharezLook/TabControl" name="TabControl" >
-                <Property name="Area" value="{{0,15},{0,40},{0,593},{0,552}}" />
+                <Property name="Area" value="{{0,10},{0,40},{0,593},{0,550}}" />
                 <Property name="Text" value="Console" />
                 <Property name="TabHeight" value="{0,-1}" />
                 <AutoWindow namePath="__auto_TabPane__" >
@@ -523,6 +523,18 @@
             <Window type="AlfiskoSkin/HorizontalSlider" name="MountainHeightSlider" >
                 <Property name="Area" value="{{0,145},{0,71},{0,237},{0,95}}" />
                 <Property name="ClickStepSize" value="0.1" />
+            </Window>
+        </Window>
+        <Window type="TaharezLook/FrameWindow" name="TerrainTexturesWindow" >
+            <Property name="Area" value="{{0,20},{0,40},{0.296711,395},{0.262742,364}}" />
+            <Property name="Text" value="Terrain Textures" />
+            <Window type="TaharezLook/StaticImage" name="StaticImage" >
+                <Property name="Area" value="{{0.0189753,9},{0.0226757,4},{0.125551,158},{0.129252,153}}" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+                <Property name="DragDropTarget" value="false" />
+            </Window>
+            <Window type="TaharezLook/Listbox" name="TextureItemListbox" >
+                <Property name="Area" value="{{0,19},{0,217},{0,285},{0,442}}" />
             </Window>
         </Window>
     </Window>

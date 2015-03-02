@@ -187,6 +187,8 @@ CEGUI/CEGUI.h
 -
 CEGUI/RendererModules/Ogre/Renderer.h
 -
+CEGUI/RendererModules/Ogre/Texture.h
+-
 BaseApplication.h
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BaseApplication.h
 LoadHeightMap.cpp
@@ -195,6 +197,8 @@ ScaleHeights.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ScaleHeights.cpp
 TranslateHeights.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TranslateHeights.cpp
+TerrainTexturesNode.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesNode.cpp
 Combiner.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Combiner.cpp
 Voronoi.cpp
@@ -243,6 +247,8 @@ BuildFbm.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildFbm.cpp
 DiamondSquare.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare.cpp
+TerrainTexturesNode.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesNode.cpp
 windows.h
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/windows.h
 
@@ -356,6 +362,12 @@ vector
 map
 -
 utility
+-
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesNode.cpp
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
+stddef.h
 -
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Terrainheightselection.cpp
@@ -4320,6 +4332,14 @@ CEGUI/Vector.h
 CEGUI/Config.h
 /usr/local/include/cegui-0/CEGUI/RendererModules/Ogre/CEGUI/Config.h
 vector
+-
+
+/usr/local/include/cegui-0/CEGUI/RendererModules/Ogre/Texture.h
+../../Texture.h
+/usr/local/include/cegui-0/CEGUI/Texture.h
+CEGUI/RendererModules/Ogre/Renderer.h
+/usr/local/include/cegui-0/CEGUI/RendererModules/Ogre/CEGUI/RendererModules/Ogre/Renderer.h
+OgreTexture.h
 -
 
 /usr/local/include/cegui-0/CEGUI/RenderingContext.h

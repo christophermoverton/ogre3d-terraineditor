@@ -135,6 +135,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	ImageBuffer buffer(size);
     	FillColour* fill = new FillColour (&buffer);
 	mterrain->dirty();
+	
 	for (int i = 0; i < size; i++){
 		for(int j = 0; j < size; j++){
 			terr::Coordpair * hcoord = new terr::Coordpair((double)i, (double)j);

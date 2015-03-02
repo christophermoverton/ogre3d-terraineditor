@@ -22,6 +22,8 @@ namespace terr{
 	typedef std::map<int, CPointsMap>                             CPointsMaps  ;
 	typedef std::map<Coordpair, TPoint3>                          CVectorMaps  ;
 	typedef std::map<int, T3dCPointsMap*>                           T3dCPointsMaps;
+	typedef std::pair<Coordpair, Coordpair>                       Coordpairs;
+	typedef std::map<Coordpairs, double>                          CPairsMap;  //two coordinate pairs to value
 	
 
 

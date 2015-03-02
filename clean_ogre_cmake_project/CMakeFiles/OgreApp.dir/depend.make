@@ -256,6 +256,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ScaleHeights.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TPoint3.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainFluidSimulation.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainStruct.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainTexturesNode.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Terrainheightselection.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TranslateHeights.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi.cpp
@@ -580,6 +581,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/Rende
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/RenderedStringWordWrapper.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/Renderer.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/RendererModules/Ogre/Renderer.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/RendererModules/Ogre/Texture.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/RenderingContext.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/RenderingSurface.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: /usr/local/include/cegui-0/CEGUI/RenderingWindow.h

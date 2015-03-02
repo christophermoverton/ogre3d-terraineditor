@@ -257,6 +257,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainFluidSimulation.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
+ /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesNode.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Terrainheightselection.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TranslateHeights.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi.cpp
@@ -581,6 +582,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /usr/local/include/cegui-0/CEGUI/RenderedStringWordWrapper.h
  /usr/local/include/cegui-0/CEGUI/Renderer.h
  /usr/local/include/cegui-0/CEGUI/RendererModules/Ogre/Renderer.h
+ /usr/local/include/cegui-0/CEGUI/RendererModules/Ogre/Texture.h
  /usr/local/include/cegui-0/CEGUI/RenderingContext.h
  /usr/local/include/cegui-0/CEGUI/RenderingSurface.h
  /usr/local/include/cegui-0/CEGUI/RenderingWindow.h

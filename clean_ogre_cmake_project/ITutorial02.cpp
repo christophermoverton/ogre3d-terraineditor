@@ -36,6 +36,7 @@ This source file is part of the
 #include "BuildSimplex.cpp"
 #include "BuildFbm.cpp"
 #include "DiamondSquare.cpp"
+#include "TerrainTexturesNode.cpp"
  
 //-------------------------------------------------------------------------------------
 ITutorial02::ITutorial02(void)
@@ -142,9 +143,13 @@ void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
     // textures
     Ogre::Image imageOgre;
     imageOgre.load("test9.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
-
+    Ogre::Image imageOgre2;
+    imageOgre2.load("marblediffuse.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
     Ogre::TexturePtr m_texture;
-
+    Ogre::TexturePtr m_texture2;
+    Ogre::TexturePtr m_texture3;
+    Ogre::Image imageOgre3;
+    imageOgre3.load("marblenormal.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
                 // Texture creation 1
     m_texture = Ogre::TextureManager::getSingletonPtr()->createManual(
                 "maTexture2",
@@ -154,8 +159,32 @@ void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
                 imageOgre.getHeight(),
                 0,
                 Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture2 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "maTexture4",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture3 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "maTexture5",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    std::string matexfn("marblediffuse.png"); std::string nmatexfn("marblenormal.png");
+    std::string ntexname("maTexture5"); int ntexid = 2;
+    textureData *texdat = new textureData(std::string("maTexture4"),2,1,0,&matexfn, &ntexname, &ntexid, 0, &nmatexfn);  //found in TerrainTexturesNode.cpp
+    TerrainTexturesNode::Instance()->setTextureNode(*texdat); 
     m_texture->loadImage(imageOgre);
     delete &imageOgre;
+    m_texture2->loadImage(imageOgre2);
+    delete &imageOgre2;
+    m_texture3->loadImage(imageOgre3);
+    delete &imageOgre3;
     defaultimp.layerList.resize(3);
     defaultimp.layerList[0].worldSize = 12000;//100;
     defaultimp.layerList[0].textureNames.push_back("maTexture");//"dirt_grayrocky_diffusespecular.dds");
@@ -239,7 +268,7 @@ void ITutorial02::createScene(void)
 // Note: Pressing T on runtime will discarde those settings
 //  Ogre::MaterialManager::getSingleton().setDefaultTextureFiltering(Ogre::TFO_ANISOTROPIC);
 //  Ogre::MaterialManager::getSingleton().setDefaultAnisotropy(7);
- 
+    
     Ogre::Vector3 lightdir(0.55, -0.3, 0.75);
     lightdir.normalise();
  
@@ -258,8 +287,10 @@ void ITutorial02::createScene(void)
     mTerrainGroup->setOrigin(Ogre::Vector3::ZERO);
 
     Ogre::Image imageOgre;
+    Ogre::Image imageOgre2;
     imageOgre.load("test10.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
-
+    imageOgre2.load("test10.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    imageOgre2.resize(149,149,Ogre::Image::FILTER_BICUBIC);
     Ogre::TexturePtr m_texture;
     Ogre::TexturePtr m_texture2;
 
@@ -283,8 +314,20 @@ void ITutorial02::createScene(void)
     Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
         renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
 	m_texture->loadImage(imageOgre);
-	m_texture2->loadImage(imageOgre);
+	m_texture2->loadImage(imageOgre2);
+    delete &imageOgre;
+    delete &imageOgre2;
         renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture3"); 
+    //using program based Terraintexture node system for tracking terrain textures...
+    //independent of Ogre resources and terrain associations.
+    std::string matexfn("test10.png"); std::string nmatexfn("test9.png");
+    std::string ntexname("maTexture2"); int ntexid = 2;
+    /*
+        textureData(std::string ntextureName, int ntextureID, int nlayerID,
+		std::string * nimageName, std::string * nnormaltextureName, 
+		int * nnormaltextureID, std::string * nnormalimageName) */
+    textureData *texdat = new textureData(std::string("maTexture3"),1,1,0,&matexfn, &ntexname, &ntexid, 0, &nmatexfn);  //found in TerrainTexturesNode.cpp
+    TerrainTexturesNode::Instance()->setTextureNode(*texdat);  //Application non ogre singleton class...use to register terrain textures..
     configureTerrainDefaults(light);
  
     for (long x = 0; x <= 0; ++x)

@@ -14,32 +14,36 @@
 #include <CEGUI/CEGUI.h>
 //#include <CEGUISchemeManager.h>
 #include <CEGUI/RendererModules/Ogre/Renderer.h>
+#include <CEGUI/RendererModules/Ogre/Texture.h>
+//#include <OgreTexture.h>
 #include "BaseApplication.h"
 #include "LoadHeightMap.cpp"
 #include "ScaleHeights.cpp"
 #include "TranslateHeights.cpp"
+#include "TerrainTexturesNode.cpp"  
 #include "Combiner.cpp"
 #include "Voronoi.cpp"
 #include <map>
 #include <string>
 #include <iostream>
 
+typedef std::map<std::string, CEGUI::Window *> EditboxMap;
 using namespace std;
 //The following are interchangable configurations...Depth/H, Frequency/Lacunarity
 class FreqAmpOctEventReg{
 	public:
 		FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera, Ogre::Rectangle2D* mMiniScreen);
-		void updateF(const CEGUI::EventArgs &e);
-		void updateFE(const CEGUI::EventArgs &e);
-		void updateA(const CEGUI::EventArgs &e);
-		void updateAE(const CEGUI::EventArgs &e);
-		void updateO(const CEGUI::EventArgs &e);
-		void updateOE(const CEGUI::EventArgs &e);
-		void updateB(const CEGUI::EventArgs &e);
-		void updateG(const CEGUI::EventArgs &e);
-		void updateGE(const CEGUI::EventArgs &e);
-		void updateS(const CEGUI::EventArgs &e);
-		void updateSE(const CEGUI::EventArgs &e);
+		void updateF(const CEGUI::EventArgs &e);  //Frequency
+		void updateFE(const CEGUI::EventArgs &e);  //Frequency Editbox
+		void updateA(const CEGUI::EventArgs &e);   //Amplitude
+		void updateAE(const CEGUI::EventArgs &e);  //Amplitude Editbox
+		void updateO(const CEGUI::EventArgs &e);   //Octaves
+		void updateOE(const CEGUI::EventArgs &e);  //Octaves Editbox
+		void updateB(const CEGUI::EventArgs &e);   //Update Button 1rst
+		void updateG(const CEGUI::EventArgs &e);   //Gain Button
+		void updateGE(const CEGUI::EventArgs &e);  //Gain Button Editbox
+		void updateS(const CEGUI::EventArgs &e);   //Scales
+		void updateSE(const CEGUI::EventArgs &e);  //Scales Editbox
 		void updateM(const CEGUI::EventArgs &e);
 		void updateNTB(const CEGUI::EventArgs &e);
 		void updateRLT(const CEGUI::EventArgs &e);  //rlt slider
@@ -47,7 +51,7 @@ class FreqAmpOctEventReg{
 		void updateBBB(const CEGUI::EventArgs &e);  //update button 3
 		void updateT(const CEGUI::EventArgs &e);
 		void updateTD(const CEGUI::EventArgs &e);
-		void updateW(const CEGUI::EventArgs &e);
+		void updateW(const CEGUI::EventArgs &e);  //Weight Slider
 		void updateN(const CEGUI::EventArgs &e);
 		void updateFD(const CEGUI::EventArgs &e);
 		void updateD(const CEGUI::EventArgs &e);
@@ -56,6 +60,7 @@ class FreqAmpOctEventReg{
 		void updateMHE(const CEGUI::EventArgs &e);  //mountain height edit box
 		void updateWHS(const CEGUI::EventArgs &e);  //Water height slider
 		void updateWHE(const CEGUI::EventArgs &e);  //Water height edit box
+		void updateTILB(const CEGUI::EventArgs &e);  //TextureItemListBox
 	private:
 		CEGUI::Window *cnewWindow;
 		CEGUI::Window *tcnewWindow;
@@ -65,6 +70,7 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *MarbleWindow;
 		CEGUI::Window *TerrainSettingsWindow;
 		CEGUI::Window *ShowDataWindow;
+		CEGUI::Window *TerrainTexturesWindow;
 		CEGUI::Window *Frequencyslider;
 		CEGUI::Window *FrequencyEditbox;
 		CEGUI::Window *Amplitudeslider;
@@ -96,6 +102,11 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *Shapebox;
 		CEGUI::Window *Sharpbox;
 		CEGUI::Window *NoiseBasisbox;
+		CEGUI::Window *TextureItemListbox;
+		//CEGUI::Window *TextureItemEditbox1;
+		CEGUI::Window *TextureImageWindow;
+		EditboxMap * Textureeditboxmaps; //typedef above. Is used for CEGUI list boxes
+		//CEGUI::OgreRenderer* mRenderer;
 		Ogre::Terrain* cterrain;
 		Ogre::Camera* mCamera;
 		Ogre::Rectangle2D* cmMiniScreen;
@@ -107,14 +118,13 @@ class FreqAmpOctEventReg{
 		void updateNoiseTypesettings();
 };
 
-
-
 FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera, Ogre::Rectangle2D* mMiniScreen){
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("ScaleHeight.log");
 	Ogre::Log* slog = Ogre::LogManager::getSingleton().createLog("Voronoi.log");
 	cterrain = terrain;
 	mCamera = Camera;
 	cmMiniScreen = mMiniScreen;
+	Textureeditboxmaps = new EditboxMap(); 
 	//cnewWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow"); default keep 
         tcnewWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("TerrainWindow");
 	cnewWindow = tcnewWindow->getChild("TerrainEditWindow");
@@ -124,12 +134,17 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	DefaultWindow = tcnewWindow->getChild("DefaultWindow");
 	ShowDataWindow = tcnewWindow->getChild("ShowDataWindow");
 	TerrainSettingsWindow = tcnewWindow->getChild("TerrainSettingsWindow");
+	TerrainTexturesWindow = tcnewWindow->getChild("TerrainTexturesWindow");
+	TextureItemListbox = TerrainTexturesWindow->getChild("TextureItemListbox");
+	//TextureItemEditbox1 = TextureItemListbox->getChild("TextureItemEditbox1"); 
+	TextureImageWindow = TerrainTexturesWindow->getChild("StaticImage");
 	CEGUI::TabControl * tabcontrol = static_cast<CEGUI::TabControl*>(TabControlWindow);
 	tabcontrol->addTab(cnewWindow);
 	tabcontrol->addTab(HydraulicWindow);
 	tabcontrol->addTab(MarbleWindow);
 	tabcontrol->addTab(ShowDataWindow);
 	tabcontrol->addTab(TerrainSettingsWindow);
+	tabcontrol->addTab(TerrainTexturesWindow);
 	Frequencyslider = cnewWindow ->getChild("FrequencySlider");
 	FrequencyEditbox = cnewWindow ->getChild("FreqEditbox");
 	Amplitudeslider = cnewWindow ->getChild("AmplitudeSlider");
@@ -160,6 +175,7 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	Sharpbox = MarbleWindow ->getChild("Sharpbox");
 	Shapebox = MarbleWindow ->getChild("Shapebox");
 	Biasbox = MarbleWindow ->getChild("Biasbox");
+	
 //	std::ostringstream ss5;
 //	ss5 << "Terrain1";
 //	CEGUI::ListboxItem listboxitem = new CEGUI::ListboxItem(ss5.str(), 0);
@@ -170,6 +186,102 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 //	ss5.str(std::string());
 //	ss5 << "Terrain2";
 //	listboxitem2 = new CEGUI::ListboxItem(ss5.str(),1);
+	std::ostringstream ss5;
+	Ogre::TexturePtr texture1 = cterrain->getLayerBlendTexture(cterrain->getLayerBlendTextureIndex(1).first);
+	ss5<< texture1->getName();
+	//TextureItemEditbox1->setText(ss5.str());
+	//textureData * a = new textureData();
+	//std::string textureName = "maTexture";  textureData & textureoutData = *a;	
+	//*textureoutData = {};
+	//if(TerrainTexturesNode::Instance()->getTextureNode(textureName, textureoutData)){
+	textureNodeMap terraintexnds = TerrainTexturesNode::Instance()->getTextureNodes(); //textureNodeMap defined in TerrainTexturesNode.cpp
+	textureNodeMap::iterator i = terraintexnds.begin();  //set by default first texture
+	CEGUI::Listbox* listbox = static_cast<CEGUI::Listbox*>(TextureItemListbox);
+	CEGUI::ListboxTextItem * itemListbox;
+	if( i != terraintexnds.end()){
+		std::string texName = (*i).first;
+		itemListbox = new CEGUI::ListboxTextItem(CEGUI::String(texName), 1);	
+		//TextureItemEditbox1->setText(texName);
+		//(*Textureeditboxmaps)[texName] = TextureItemEditbox1;
+		listbox->addItem(itemListbox); 
+		listbox->setItemSelectState(itemListbox,true); 
+		Ogre::TexturePtr pResource3 = Ogre::TextureManager::getSingleton().getByName(texName);
+		CEGUI::System& ceguiSystem = CEGUI::System::getSingleton();
+		CEGUI::Renderer* gui_renderer(ceguiSystem.getRenderer());
+		CEGUI::Texture& texture = gui_renderer->createTexture("MyCEGUITextureName1");
+		CEGUI::OgreTexture & rendererTexture =  static_cast<CEGUI::OgreTexture&>(texture);
+	
+		rendererTexture.setOgreTexture(pResource3, false);
+		const CEGUI::Rectf rect(CEGUI::Vector2f(0.0f, 0.0f), rendererTexture.getOriginalDataSize());
+		CEGUI::BasicImage* image = (CEGUI::BasicImage*)( &CEGUI::ImageManager::getSingleton().create("BasicImage1", texName));
+   		image->setTexture(&rendererTexture);
+   		image->setArea(rect);
+   		image->setAutoScaled(CEGUI::ASM_Both);
+	//*/
+		TextureImageWindow->setProperty("Image", texName);
+		i++;
+	}
+	int p = 1;
+       ///*
+	while (i != terraintexnds.end()){
+		/*
+		CEGUI::Window *si = CEGUI::WindowManager::getSingleton().createWindow("TaharezLook/Editbox", "RTTWindow");
+		//si->setSize(CEGUI::UVector2(CEGUI::UDim(0.5f, 0), {{0.346846, 128}, {0, 32}}
+		si->setSize(CEGUI::USize(CEGUI::UDim(0.346846f, 128.0f),
+        	                    CEGUI::UDim(0.0f, 32.0f)));
+		//{0.0225225, -2}, {0, 0}
+		si->setPosition(CEGUI::UVector2(CEGUI::UDim(0.0225225f, -2.0f),
+                 	               CEGUI::UDim(0.0f, 0.0f + p*32.0f)));
+		si->setText((*i).first);
+		TextureItemListbox->addChild(si);
+		(*Textureeditboxmaps)[(*i).first] = si;
+		*/
+		Ogre::TexturePtr pResource3 = Ogre::TextureManager::getSingleton().getByName((*i).first);
+		CEGUI::System& ceguiSystem = CEGUI::System::getSingleton();
+		CEGUI::Renderer* gui_renderer(ceguiSystem.getRenderer());
+		std::ostringstream ss5;
+		ss5<<p+1;
+		CEGUI::Texture& texture = gui_renderer->createTexture("MyCEGUITextureName"+ss5.str());
+		CEGUI::OgreTexture & rendererTexture =  static_cast<CEGUI::OgreTexture&>(texture);
+	
+		rendererTexture.setOgreTexture(pResource3, false);
+		const CEGUI::Rectf rect(CEGUI::Vector2f(0.0f, 0.0f), rendererTexture.getOriginalDataSize());
+		CEGUI::BasicImage* image = (CEGUI::BasicImage*)( &CEGUI::ImageManager::getSingleton().create("BasicImage", (*i).first));
+   		image->setTexture(&rendererTexture);
+   		image->setArea(rect);
+   		image->setAutoScaled(CEGUI::ASM_Both);
+	//*/
+		//TextureImageWindow->setProperty("Image", "RTTImage");
+		itemListbox = new CEGUI::ListboxTextItem(CEGUI::String((*i).first), p+1);	
+		listbox->addItem(itemListbox); 
+		i++;
+		p++;
+	}
+	//*/
+        /*
+	Ogre::TexturePtr pResource3 = Ogre::TextureManager::getSingleton().getByName("maTexture3");
+	CEGUI::System& ceguiSystem = CEGUI::System::getSingleton();
+	CEGUI::Renderer* gui_renderer(ceguiSystem.getRenderer());
+	CEGUI::Texture& texture = gui_renderer->createTexture("MyCEGUITextureName");
+	CEGUI::OgreTexture & rendererTexture =  static_cast<CEGUI::OgreTexture&>(texture);
+	//rendererTexture->createEmptyOgreTexture ();
+	rendererTexture.setOgreTexture(pResource3, false);
+	*/
+	//Ogre::RenderTexture *rtex = pResource3->getBuffer()->getRenderTarget();
+	//CEGUI::ImageManager::getSingleton().addFromImageFile ("ImageForTextureImageWindow", "test10a.png");	
+	//CEGUI::DefaultWindow*  textureimagewindow = static_cast<CEGUI::DefaultWindow*>(TextureImageWindow);
+	///*
+	//CEGUI::Texture &guiTex = mRenderer->createTexture("textname", pResource3);
+	///*
+        /*
+	const CEGUI::Rectf rect(CEGUI::Vector2f(0.0f, 0.0f), rendererTexture.getOriginalDataSize());
+	CEGUI::BasicImage* image = (CEGUI::BasicImage*)( &CEGUI::ImageManager::getSingleton().create("BasicImage", "RTTImage"));
+   	image->setTexture(&rendererTexture);
+   	image->setArea(rect);
+   	image->setAutoScaled(CEGUI::ASM_Both);
+	//*/
+	//TextureImageWindow->setProperty("Image", "RTTImage");
+	
 	CEGUI::Slider* WHSlider = static_cast<CEGUI::Slider*>(WaterHslider);
 	WHSlider->setCurrentValue(.25f);
 	CEGUI::Slider* MHSlider = static_cast<CEGUI::Slider*>(MountainHslider);
@@ -298,6 +410,7 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	MountainHEditbox->subscribeEvent(CEGUI::Editbox::EventTextAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateMHE, this));
 	Terrainbox->subscribeEvent(CEGUI::Combobox::EventListSelectionAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateT, this));	//EventDropListDisplayed
         NoiseTypebox->subscribeEvent(CEGUI::Combobox::EventListSelectionAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateNTB, this));
+        TextureItemListbox->subscribeEvent(CEGUI::Listbox::EventSelectionChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateTILB, this));
 	Terrainbox->subscribeEvent(CEGUI::Combobox::EventDropListDisplayed, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateTD, this));
 	 UpdateButton->subscribeEvent(CEGUI::PushButton::EventClicked,
     CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateB, this));
@@ -1030,7 +1143,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 
                          //pmarblebuild (double size, double scale, double frequency, double amplitude, double octaves, int noisebasis,
 				//int noisebasis, int bias, int shape, int sharp)
-			(*vnoisevalsm)[i] = pmarblebuild (513.0f,tc["Scale"]/265.5f, 2.0f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], 
+			(*vnoisevalsm)[i] = pmarblebuild (513.0f,tc["Scale"]/265.5f, 1.0f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], 
                                                            tc["Octaves"], (int)tc["NoiseBasis"] == 10 ? 14 : (int)tc["NoiseBasis"], 
 							   (int)tc["Bias"], (int)tc["Shape"], (int)tc["Sharp"]);
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
@@ -1111,5 +1224,14 @@ void FreqAmpOctEventReg::updateTD(const CEGUI::EventArgs &e){
 	ss5 << "Test update config" << "\n";
 	tlog->logMessage(ss5.str());
 	updateConfig();
+}
+
+void FreqAmpOctEventReg::updateTILB(const CEGUI::EventArgs &e){
+	CEGUI::Listbox * titemlistbox = static_cast<CEGUI::Listbox*>(TextureItemListbox);
+        CEGUI::ListboxItem * ie = titemlistbox->getFirstSelectedItem();
+	std::ostringstream ss5;
+	ss5<<ie->getText();
+	//*/
+	TextureImageWindow->setProperty("Image", ss5.str());
 }
 #endif
