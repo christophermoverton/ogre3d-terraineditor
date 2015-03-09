@@ -1,13 +1,15 @@
 #ifndef __TranslateHeights_CPP
 #define __TranslateHeights_CPP
 #include "ColorizeTerrainMap.cpp"
+#include "TerrainTexturesNode.cpp" 
 class TranslateHeights {
 	public:
 		TranslateHeights(Ogre::Terrain* terrain, Ogre::Rectangle2D* mMiniScreen,Ogre::Camera* mCamera, float translatefactor,
-				 double waterheight, double mountheight);
+				 double waterheight, double mountheight, std::string TextureName);
 		void getVerts(void);
 	private:
 		float ctranslatefactor, cSize, cMaxheight, cMinheight, cmountheight, cwaterheight;
+		std::string cTextureName;
 		Ogre::Terrain* cterrain;
 		Ogre::Rectangle2D* cmMiniScreen;
 		//Ogre::Log* tlog;
@@ -16,12 +18,13 @@ class TranslateHeights {
 };
 
 TranslateHeights::TranslateHeights(Ogre::Terrain* terrain, Ogre::Rectangle2D* mMiniScreen,Ogre::Camera* mCamera, float translatefactor,
-				   double waterheight, double mountheight){
+				   double waterheight, double mountheight, std::string TextureName){
 	//tlog = Ogre::LogManager::getSingleton().getLog("ScaleHeight.log");
 	cterrain = terrain;
 	cmMiniScreen = mMiniScreen;
 	ctranslatefactor = translatefactor;
 	cSize = (float) cterrain->getSize();
+	cTextureName = TextureName;
 	cmountheight = mountheight;
 	cwaterheight = waterheight;
 	getVerts();
@@ -67,18 +70,23 @@ void TranslateHeights::getVerts(void){
 	}
 	cMaxheight = maxheight;
 	cMinheight = minheight;
-	colorizeterrainmap(513.0f, minheight, maxheight, cterrain, cwaterheight, cmountheight);
+	colorizeterrainmap(513.0f, minheight, maxheight, cterrain, cwaterheight, cmountheight, cTextureName);
 	Ogre::TexturePtr pResource = Ogre::TextureManager::getSingleton().getByName("maTexture");
         Ogre::Image imageOgre;
-        imageOgre.load("test10.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	textureNodeMap terraintexnds = TerrainTexturesNode::Instance()->getTextureNodes();
+	std::string * imagename = terraintexnds[cTextureName].imageName;
+        imageOgre.load(*imagename, Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 	pResource->unload();
 	pResource->loadImage(imageOgre);
+	delete &imageOgre;
 	//pResource->reload();
+        /*
 	Ogre::MaterialManager::getSingleton().remove("RttMat");
 	Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 	renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
 	renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture");
 	cmMiniScreen->setMaterial("RttMat");
+	*/
 //	cverts = veccont;
 	//ss5 << "Max Height: "<< cMaxheight << "\n";
 	//ss5 << "Min Height: "<< cMinheight << "\n";

@@ -62,7 +62,7 @@ void ITutorial02::destroyScene(void)
 }
 void getTerrainImage(bool flipX, bool flipY, Ogre::Image& img)
 {
-    img.load("terrain.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    img.load("test6.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
     if (flipX)
         img.flipAroundY();
     if (flipY)
@@ -146,11 +146,13 @@ void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
     Ogre::Image imageOgre2;
     imageOgre2.load("marblediffuse.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
     Ogre::TexturePtr m_texture;
+    Ogre::TexturePtr m_texture2;
+    Ogre::TexturePtr m_texture3;
     Ogre::Image imageOgre3;
     imageOgre3.load("marblenormal.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
                 // Texture creation 1
     m_texture = Ogre::TextureManager::getSingletonPtr()->createManual(
-                "maTexture2",
+                "TerrainNormal",
                 Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
                 Ogre::TEX_TYPE_2D,
                 imageOgre.getWidth(),
@@ -158,7 +160,7 @@ void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
                 0,
                 Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
     m_texture2 = Ogre::TextureManager::getSingletonPtr()->createManual(
-                "maTexture4",
+                "Texture",
                 Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
                 Ogre::TEX_TYPE_2D,
                 imageOgre.getWidth(),
@@ -166,7 +168,7 @@ void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
                 0,
                 Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
     m_texture3 = Ogre::TextureManager::getSingletonPtr()->createManual(
-                "maTexture5",
+                "TextureNormal",
                 Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
                 Ogre::TEX_TYPE_2D,
                 imageOgre.getWidth(),
@@ -174,8 +176,8 @@ void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
                 0,
                 Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
     std::string matexfn("marblediffuse.png"); std::string nmatexfn("marblenormal.png");
-    std::string ntexname("maTexture5"); int ntexid = 2;
-    textureData *texdat = new textureData(std::string("maTexture4"),2,1,0,&matexfn, &ntexname, &ntexid, 0, &nmatexfn);  //found in TerrainTexturesNode.cpp
+    std::string ntexname("TextureNormal"); int ntexid = 2;
+    textureData *texdat = new textureData(std::string("Texture"),2,1,0,&matexfn, &ntexname, &ntexid, 0, &nmatexfn);  //found in TerrainTexturesNode.cpp
     TerrainTexturesNode::Instance()->setTextureNode(*texdat); 
     m_texture->loadImage(imageOgre);
     delete &imageOgre;
@@ -189,12 +191,12 @@ void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
     //defaultimp.layerList[0].textureNames.push_back("maTexture2");
     
     defaultimp.layerList[1].worldSize = 12000;
-    defaultimp.layerList[1].textureNames.push_back("maTexture");//grass_green-01_diffusespecular.dds");
-    defaultimp.layerList[1].textureNames.push_back("maTexture2");
+    defaultimp.layerList[1].textureNames.push_back("Terrain");//grass_green-01_diffusespecular.dds");
+    defaultimp.layerList[1].textureNames.push_back("TerrainNormal");
     ///*
     defaultimp.layerList[2].worldSize = 200;//200;
-    defaultimp.layerList[2].textureNames.push_back("marblediffuse.png");//growth_weirdfungus-03_diffusespecular.dds");
-    defaultimp.layerList[2].textureNames.push_back("marblenormal.png"); 
+    defaultimp.layerList[2].textureNames.push_back("Texture");//growth_weirdfungus-03_diffusespecular.dds");
+    defaultimp.layerList[2].textureNames.push_back("TextureNormal"); 
     //*/
 
       
@@ -302,7 +304,7 @@ void ITutorial02::createScene(void)
                 0,
                 Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
     m_texture2 = Ogre::TextureManager::getSingletonPtr()->createManual(
-                "maTexture3",
+                "Terrain",
                 Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
                 Ogre::TEX_TYPE_2D,
                 imageOgre.getWidth(),
@@ -315,16 +317,16 @@ void ITutorial02::createScene(void)
 	m_texture2->loadImage(imageOgre2);
     delete &imageOgre;
     delete &imageOgre2;
-        renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("maTexture3"); 
+        renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("Terrain"); 
     //using program based Terraintexture node system for tracking terrain textures...
     //independent of Ogre resources and terrain associations.
     std::string matexfn("test10.png"); std::string nmatexfn("test9.png");
-    std::string ntexname("maTexture2"); int ntexid = 2;
+    std::string ntexname("TerrainNormal"); int ntexid = 2;
     /*
         textureData(std::string ntextureName, int ntextureID, int nlayerID,
 		std::string * nimageName, std::string * nnormaltextureName, 
 		int * nnormaltextureID, std::string * nnormalimageName) */
-    textureData *texdat = new textureData(std::string("maTexture3"),1,1,0,&matexfn, &ntexname, &ntexid, 0, &nmatexfn);  //found in TerrainTexturesNode.cpp
+    textureData *texdat = new textureData(std::string("Terrain"),1,1,0,&matexfn, &ntexname, &ntexid, 0, &nmatexfn);  //found in TerrainTexturesNode.cpp
     TerrainTexturesNode::Instance()->setTextureNode(*texdat);  //Application non ogre singleton class...use to register terrain textures..
     configureTerrainDefaults(light);
  

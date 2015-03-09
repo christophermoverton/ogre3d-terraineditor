@@ -38,6 +38,26 @@ SdkTrays.h
 SdkCameraMan.h
 -
 
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BicubicResample.cpp
+iostream
+-
+assert.h
+-
+vector
+-
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildBiLinear.cpp
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildBicubicResample.cpp
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
+BicubicResample.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BicubicResample.cpp
+vector
+-
+
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildFbm.cpp
 stdio.h
 -
@@ -109,6 +129,12 @@ TPoint3.h
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
 Imagestuff.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
+TerrainTexturesNode.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesNode.cpp
+TerrainTexturesSettings.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesSettings.cpp
+string
+-
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorGet.cpp
 
@@ -121,6 +147,8 @@ Imagestuff.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Imagestuff.cpp
 DiamondSquare/DiamondSquare.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare/DiamondSquare.cpp
+TerrainTexturesNode.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesNode.cpp
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Combiner.cpp
 vector
@@ -199,6 +227,8 @@ TranslateHeights.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TranslateHeights.cpp
 TerrainTexturesNode.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesNode.cpp
+TerrainTexturesSettings.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesSettings.cpp
 Combiner.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Combiner.cpp
 Voronoi.cpp
@@ -285,6 +315,14 @@ BumpMap.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BumpMap.cpp
 ColorizeTerrainMap.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorizeTerrainMap.cpp
+BuildBicubicResample.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildBicubicResample.cpp
+BuildBiLinear.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildBiLinear.cpp
+TerrainTexturesNode.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesNode.cpp
+TerrainTexturesSettings.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesSettings.cpp
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Musgrave.cpp
 math.h
@@ -327,6 +365,8 @@ vector
 -
 ColorizeTerrainMap.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorizeTerrainMap.cpp
+TerrainTexturesNode.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesNode.cpp
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TPoint3.h
 
@@ -370,6 +410,10 @@ TerrainStruct.h
 stddef.h
 -
 
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesSettings.cpp
+string
+-
+
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Terrainheightselection.cpp
 iostream
 -
@@ -383,6 +427,8 @@ vector
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TranslateHeights.cpp
 ColorizeTerrainMap.cpp
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ColorizeTerrainMap.cpp
+TerrainTexturesNode.cpp
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesNode.cpp
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi.cpp
 cspline.cpp

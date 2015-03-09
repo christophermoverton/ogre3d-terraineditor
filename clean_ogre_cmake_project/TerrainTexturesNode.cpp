@@ -11,7 +11,7 @@ struct textureData{
     std::string *                imageName;
     std::string *        normaltextureName;
     int *                  normaltextureID;
-    terr::CPointsMap * normalHeightMapData; //base format 513x513
+    terr::CVectorMaps * normalHeightMapData; //base format 513x513
     std::string *          normalimageName;
     /*
     textureData & operator=(const textureData & a){
@@ -71,7 +71,7 @@ struct textureData{
     textureData(std::string ntextureName, int ntextureID, int nlayerID,
 		terr::CPointsMap * nbaseHeightMapData, std::string * nimageName,
 		std::string * nnormaltextureName, int * nnormaltextureID,
-                terr::CPointsMap * nnormalHeightMapData, std::string * nnormalimageName){
+                terr::CVectorMaps * nnormalHeightMapData, std::string * nnormalimageName){
 	textureName 	    =         ntextureName;
 	textureID           =           ntextureID;
 	layerID     	    =             nlayerID;

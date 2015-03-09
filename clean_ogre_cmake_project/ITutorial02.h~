@@ -21,6 +21,7 @@ This source file is part of the
 #include <CEGUI/RendererModules/Ogre/Renderer.h>
 #include <Terrain/OgreTerrain.h>
 #include <Terrain/OgreTerrainGroup.h>
+#include <Terrain/OgreTerrainMaterialGeneratorA.h>
 #include "BaseApplication.h"
 #include <vector>
  

@@ -231,6 +231,9 @@ CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: /usr/local/include/OGRE/Threading/
 
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BLI_noise.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BaseApplication.h
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BicubicResample.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildBiLinear.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildBicubicResample.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildFbm.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildNoise.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: BuildSimplex.cpp
@@ -257,6 +260,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TPoint3.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainFluidSimulation.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainStruct.h
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainTexturesNode.cpp
+CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TerrainTexturesSettings.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Terrainheightselection.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: TranslateHeights.cpp
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: Voronoi.cpp

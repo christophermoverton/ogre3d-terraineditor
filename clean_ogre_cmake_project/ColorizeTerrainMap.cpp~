@@ -4,6 +4,7 @@
 #include "TPoint3.h"
 #include "Imagestuff.cpp"
 #include "DiamondSquare/DiamondSquare.cpp"
+#include "TerrainTexturesNode.cpp"
 /*
 struct color{
 	//v[0]=red, v[1]=green, v[2]=blue
@@ -16,9 +17,10 @@ struct color{
 	}
 };
 */
-void colorizeterrainmap(double size, double texscale, double min, double max, 
-			terr::CPointsMap * heightmap, double waterheight, double mountainheight);
-void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terrain, double waterheight, double mountainheight);
+void colorizeterrainmap(double size, double min, double max, 
+			terr::CPointsMap * heightmap, double waterheight, double mountainheight, std::string TextureName);
+void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terrain, double waterheight, double mountainheight,
+			std::string TextureName);
 /*
 color lerp(color c1, color c2, float value);
 
@@ -36,8 +38,10 @@ color lerp(color c1, color c2, float value){
 	return (tcolor);
 }
 */
-void colorizeterrainmap(double size, double texscale, double min, double max, 
-			terr::CPointsMap * heightmap, double waterheight, double mountainheight){
+void colorizeterrainmap(double size, double min, double max, 
+			terr::CPointsMap * heightmap, double waterheight, double mountainheight, std::string TextureName){
+   textureNodeMap terraintexnds = TerrainTexturesNode::Instance()->getTextureNodes(); //textureNodeMap defined in TerrainTexturesNode.cpp
+   
    float diff = max-min,
 	flood = waterheight,
 	mount = mountainheight;	
@@ -54,17 +58,18 @@ void colorizeterrainmap(double size, double texscale, double min, double max,
 	 waterhigh(0,53,106),
 	 mountlow(167,157,147), //147 167
          mounthigh(216,223,226);  //226 216
-   ImageBuffer buffer(size*texscale);
+   ImageBuffer buffer(size);
    FillColour* fill = new FillColour (&buffer);
    color newcolor(0,0,0);
    for(int x = 0; x<size; x++){
 	for (int y = 0; y<size; y++){
-		for (int k = 0; k < texscale; k++){
+		//for (int k = 0; k < texscale; k++){
 			
-			double subinck = ((double) k)/texscale;
-			for (int l = 0; l < texscale; l++){
-				double subincl = ((double) l)/texscale;
-				terr::Coordpair * coordpair = new terr::Coordpair((double)x+subinck,(double)y+subincl);
+		//	double subinck = ((double) k)/texscale;
+		//	for (int l = 0; l < texscale; l++){
+				//double subincl = ((double) l)/texscale;
+				//terr::Coordpair * coordpair = new terr::Coordpair((double)x+subinck,(double)y+subincl);
+				terr::Coordpair * coordpair = new terr::Coordpair((double)x,(double)y);
 				double height = (*heightmap)[(*coordpair)];
 				//double height = (*heightmap)[terr::Coordpair((double)x, (double)y)];
 				//if this point is below the floodline...
@@ -80,22 +85,33 @@ void colorizeterrainmap(double size, double texscale, double min, double max,
 					newcolor=lerp(landlow,landhigh,(height-flood)/(mount-flood));
 				}
 	    			Ogre::ColourValue col = Ogre::ColourValue(newcolor.v[0]/255.0f,newcolor.v[1]/255.0f,newcolor.v[2]/255.0f);
-	    			fill->setPixl((size_t)(texscale*x+k), (size_t)(texscale*y+l), col);	
-				if (x == size-1 and y == size-1){break;}
-				if (y == size-1){break;}
-			}
-			if (x == size-1 and y == size-1){break;}
-			if (x == size-1){break;}
-		}
+	    			fill->setPixl((size_t)(x), (size_t)(y), col);	
+				//if (x == size-1 and y == size-1){break;}
+				//if (y == size-1){break;}
+			//}
+			//if (x == size-1 and y == size-1){break;}
+			//if (x == size-1){break;}
+		//}
 	}	
    }
-   buffer.saveImage("../media/materials/textures/test10.png");
+   if (!terraintexnds[TextureName].imageName){
+       buffer.saveImage("../media/materials/textures/"+TextureName+".png");
+       std::string imagename = TextureName +".png";
+       terraintexnds[TextureName].imageName = &imagename;
+   }
+   else{
+       buffer.saveImage("../media/materials/textures/"+(*(terraintexnds[TextureName].imageName)));
+
+   //buffer.saveImage("../media/materials/textures/test10.png");
+   }
 }
 
-void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terrain, double waterheight, double mountainheight){
+void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terrain, double waterheight, double mountainheight,
+			std::string TextureName){
    //since this call for terrain data in original size if I add a texscale method on this will likely need to interpolate positions
    //on the terrain map since the a higher scale resolution of such data will not be furnished by the terrain by typical getheight
    //methods.  Generally I think I can solve this using Ogre's interpolation functions for terrain data.
+   textureNodeMap terraintexnds = TerrainTexturesNode::Instance()->getTextureNodes(); //textureNodeMap defined in TerrainTexturesNode.cpp
    float diff = max-min,
 	 //flood=0.25f,//flood level
          //mount=0.85f;//mountain level
@@ -116,9 +132,9 @@ void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terr
 	 waterhigh(0,53,106),
 	 mountlow(167,157,147), //147 167
          mounthigh(216,223,226);  //226 216
-   ImageBuffer buffer(size); ImageBuffer buffer2(size);
+   ImageBuffer buffer(size);// ImageBuffer buffer2(size);
    FillColour* fill =  new FillColour (&buffer); 
-   FillColour* fill2 = new FillColour (&buffer2);
+   //FillColour* fill2 = new FillColour (&buffer2);
    color newcolor(0,0,0);
    for(int x = 0; x<size; x++){
 	for (int y = 0; y<size; y++){
@@ -139,12 +155,22 @@ void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terr
 		}
 	    	Ogre::ColourValue col = Ogre::ColourValue(newcolor.v[0]/255.0f,newcolor.v[1]/255.0f,newcolor.v[2]/255.0f);
 		//diffuse with zero specularity 
-		Ogre::ColourValue col2 = Ogre::ColourValue(newcolor.v[0]/255.0f,newcolor.v[1]/255.0f,newcolor.v[2]/255.0f, 0.0f);  
+		//Ogre::ColourValue col2 = Ogre::ColourValue(newcolor.v[0]/255.0f,newcolor.v[1]/255.0f,newcolor.v[2]/255.0f, 0.0f);  
 	    	fill->setPixl((size_t)x, (size_t)y, col);
 		//fill2->setPixl((size_t)x, (size_t)y, col2);	
 	}
    }
-   buffer.saveImage("../media/materials/textures/test10.png");
-   //buffer2.saveImage("../media/materials/textures/test11.png");
+   //if (!terraintexnds[TextureName].imageName){
+       buffer.saveImage("../media/materials/textures/"+TextureName+".png");
+       //std::string imagename = TextureName +".png";
+       //terraintexnds[TextureName].imageName = &imagename;
+   /*
+   }
+   else{
+       buffer.saveImage("../media/materials/textures/"+(*(terraintexnds[TextureName].imageName)));
+
+   //buffer.saveImage("../media/materials/textures/test10.png");
+   }
+   */
 }
 #endif

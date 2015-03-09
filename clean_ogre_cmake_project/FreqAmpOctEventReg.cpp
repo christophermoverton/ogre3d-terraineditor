@@ -20,7 +20,8 @@
 #include "LoadHeightMap.cpp"
 #include "ScaleHeights.cpp"
 #include "TranslateHeights.cpp"
-#include "TerrainTexturesNode.cpp"  
+#include "TerrainTexturesNode.cpp" 
+#include "TerrainTexturesSettings.cpp" 
 #include "Combiner.cpp"
 #include "Voronoi.cpp"
 #include <map>
@@ -28,6 +29,9 @@
 #include <iostream>
 
 typedef std::map<std::string, CEGUI::Window *> EditboxMap;
+typedef std::map<std::string, float> ConfSets;
+typedef std::map<int,ConfSets> Configs;
+typedef std::map<std::string, Configs> TextureConfigs;
 using namespace std;
 //The following are interchangable configurations...Depth/H, Frequency/Lacunarity
 class FreqAmpOctEventReg{
@@ -51,6 +55,12 @@ class FreqAmpOctEventReg{
 		void updateBBB(const CEGUI::EventArgs &e);  //update button 3
 		void updateT(const CEGUI::EventArgs &e);
 		void updateTD(const CEGUI::EventArgs &e);
+		void updateTES(const CEGUI::EventArgs &e);  //Update Texture Size Slider
+		void updateTEB(const CEGUI::EventArgs &e);  //Update Texture Size Edit Box
+		void updateNS(const CEGUI::EventArgs &e);  //Update Normal Slider
+		void updateNB(const CEGUI::EventArgs &e);  //Update Normal Edit Box
+		void updateWS(const CEGUI::EventArgs &e);  //Update World Size Slider
+		void updateWB(const CEGUI::EventArgs &e);  //Update World Size Edit Box
 		void updateW(const CEGUI::EventArgs &e);  //Weight Slider
 		void updateN(const CEGUI::EventArgs &e);
 		void updateFD(const CEGUI::EventArgs &e);
@@ -103,6 +113,12 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *Sharpbox;
 		CEGUI::Window *NoiseBasisbox;
 		CEGUI::Window *TextureItemListbox;
+		CEGUI::Window *Texturesizeslider;
+		CEGUI::Window *TextureSizeEditbox;
+		CEGUI::Window *Normalslider;  //textures tab normal 
+		CEGUI::Window *NormalEditbox;
+		CEGUI::Window *Worldsizeslider;
+		CEGUI::Window *WorldSizeEditbox;
 		//CEGUI::Window *TextureItemEditbox1;
 		CEGUI::Window *TextureImageWindow;
 		EditboxMap * Textureeditboxmaps; //typedef above. Is used for CEGUI list boxes
@@ -110,12 +126,16 @@ class FreqAmpOctEventReg{
 		Ogre::Terrain* cterrain;
 		Ogre::Camera* mCamera;
 		Ogre::Rectangle2D* cmMiniScreen;
+		Ogre::TerrainGroup* cmTerrainGroup;
 		map<int,CEGUI::String> csel;
-		map<int,map<string, float> > config; 
+		Configs config; 
+		//map<int,map<string, float> > config; 
+		TextureConfigs texconfigs;
 		void addconfig(int nameID);
 		void updateConfig(void);
 		void loadConfig(void);
 		void updateNoiseTypesettings();
+		std::string TextureSelection;
 };
 
 FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera, Ogre::Rectangle2D* mMiniScreen){
@@ -138,6 +158,12 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	TextureItemListbox = TerrainTexturesWindow->getChild("TextureItemListbox");
 	//TextureItemEditbox1 = TextureItemListbox->getChild("TextureItemEditbox1"); 
 	TextureImageWindow = TerrainTexturesWindow->getChild("StaticImage");
+	Texturesizeslider = TerrainTexturesWindow->getChild("TextureSizeSlider");
+	TextureSizeEditbox = TerrainTexturesWindow->getChild("TextureSizeEditbox");
+	Normalslider = TerrainTexturesWindow->getChild("NormalSlider");
+	NormalEditbox = TerrainTexturesWindow->getChild("NormalEditbox");
+	Worldsizeslider = TerrainTexturesWindow->getChild("WorldSizeSlider");
+	WorldSizeEditbox = TerrainTexturesWindow->getChild("WorldSizeEditbox");
 	CEGUI::TabControl * tabcontrol = static_cast<CEGUI::TabControl*>(TabControlWindow);
 	tabcontrol->addTab(cnewWindow);
 	tabcontrol->addTab(HydraulicWindow);
@@ -200,7 +226,9 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	CEGUI::ListboxTextItem * itemListbox;
 	if( i != terraintexnds.end()){
 		std::string texName = (*i).first;
-		itemListbox = new CEGUI::ListboxTextItem(CEGUI::String(texName), 1);	
+		itemListbox = new CEGUI::ListboxTextItem(CEGUI::String(texName), 1);
+		itemListbox->setSelectionColours(CEGUI::Colour(1.0f,.5f,.5f,.5f));
+		//itemListbox->setSelectionBrushImage("MultiListSelectionBrush");	
 		//TextureItemEditbox1->setText(texName);
 		//(*Textureeditboxmaps)[texName] = TextureItemEditbox1;
 		listbox->addItem(itemListbox); 
@@ -252,7 +280,9 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
    		image->setAutoScaled(CEGUI::ASM_Both);
 	//*/
 		//TextureImageWindow->setProperty("Image", "RTTImage");
-		itemListbox = new CEGUI::ListboxTextItem(CEGUI::String((*i).first), p+1);	
+		itemListbox = new CEGUI::ListboxTextItem(CEGUI::String((*i).first), p+1);
+		itemListbox->setSelectionColours(CEGUI::Colour(1.0f,1.0f,1.0f,1.0f));
+		//itemListbox->setSelectionBrushImage("MultiListSelectionBrush");	
 		listbox->addItem(itemListbox); 
 		i++;
 		p++;
@@ -398,6 +428,12 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	GainEditbox->subscribeEvent(CEGUI::Editbox::EventTextAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateGE, this));
 	Scaleslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateS, this));
 	ScaleEditbox->subscribeEvent(CEGUI::Editbox::EventTextAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateSE, this));
+	Texturesizeslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateTES, this));
+	TextureSizeEditbox->subscribeEvent(CEGUI::Editbox::EventTextAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateTEB, this));
+	Normalslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateNS, this));
+	NormalEditbox->subscribeEvent(CEGUI::Editbox::EventTextAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateNB, this));
+	Worldsizeslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateWS, this));
+	WorldSizeEditbox->subscribeEvent(CEGUI::Editbox::EventTextAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateWB, this));
 	Freqdivslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateFD, this));
 	Depthslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateD, this));
 	DepthEditbox->subscribeEvent(CEGUI::Editbox::EventTextAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateDE, this));
@@ -465,7 +501,8 @@ void FreqAmpOctEventReg::updateNoiseTypesettings(){
 	//}     
 }
 void FreqAmpOctEventReg::addconfig(int nameID){
-	map<string, float> settings;
+	ConfSets settings;
+	//map<string, float> settings;
 	settings["Frequency"] = 1.0f/513.0f;
 	settings["Amplitude"] = .5f;
 	settings["Octaves"] = 6.0f;
@@ -481,7 +518,12 @@ void FreqAmpOctEventReg::addconfig(int nameID){
 	settings["Sharp"] = 0.0f;
 	settings["NoiseBasis"] = 0.0f;
 	//settings["Freqfloored"] = 0.0f;
+	ConfSets settings2;
+	settings2["TextureSize"] = 513.0f;
+	settings2["WorldSize"] = 200.0f;
+	settings2["Normal"] = 1.0f;
 	config[nameID] = settings;
+	config[3] = settings2;
 }
 
 void FreqAmpOctEventReg::updateConfig(){
@@ -525,7 +567,14 @@ void FreqAmpOctEventReg::updateConfig(){
 	CEGUI::Combobox* shpcombobox = static_cast<CEGUI::Combobox*>(Sharpbox);
 	CEGUI::ListboxItem* shplitem = shpcombobox->getSelectedItem();
 	float shpnameID = (float)shplitem->getID();
-	map<string, float> settings;
+	CEGUI::Slider* TSizeSlider = static_cast<CEGUI::Slider*>(Texturesizeslider);
+	float tsval = TSizeSlider->getCurrentValue();
+	CEGUI::Slider* NormalSlider = static_cast<CEGUI::Slider*>(Normalslider);
+	float normval = NormalSlider->getCurrentValue();
+	CEGUI::Slider* WorldSizeSlider = static_cast<CEGUI::Slider*>(Worldsizeslider);
+	float wsval = WorldSizeSlider->getCurrentValue();
+	ConfSets settings, settings2;
+	//map<string, float> settings;
 	ss5 << "Test update config" << "\n";
 	ss5 << "Noise type nameID: "<< nameID << "\n";
 	tlog->logMessage(ss5.str());	
@@ -545,6 +594,9 @@ void FreqAmpOctEventReg::updateConfig(){
 	settings["Bias"] = bnameID-1;
 	settings["Shape"] = shnameID-1;
 	settings["Sharp"] = shpnameID-1;
+	settings2["TextureSize"] = tsval;
+	settings2["Normal"] = normval;
+	settings2["WorldSize"] = wsval;
 	ss5 << "Test update config" << "\n";
 	ss5 << "updated noise type: " << nameID-1 << "\n";
 	tlog->logMessage(ss5.str());
@@ -555,6 +607,8 @@ void FreqAmpOctEventReg::updateConfig(){
 	ss5 << "Test update config" << "\n";
 	tlog->logMessage(ss5.str());
 	config[nameid] = settings;
+	config[3] = settings2;
+	texconfigs[TextureSelection] = config;
 	ss5 << "Test update config settings updated" << "\n";
 	tlog->logMessage(ss5.str());
 	
@@ -573,8 +627,11 @@ void FreqAmpOctEventReg::loadConfig(){
 	int nameID = (int)litem->getID();
 	ss5 << "Test load config at name" << "\n";
 	tlog->logMessage(ss5.str());
-	map<string, float> settings = config[nameID];
-	float fval, aval, oval, gval, sval, fdval, mval, wval, nval, dval, nbval, bval, shapeval, sharpval;
+	config = texconfigs[TextureSelection];
+	ConfSets settings = config[nameID];
+	//map<string, float> settings = config[nameID];
+	float fval, aval, oval, gval, sval, fdval, mval, wval, nval, dval, nbval, bval, shapeval, sharpval,
+	      tsval, normval, wsval;
 	fval = settings["Frequency"];
 	aval = settings["Amplitude"];
 	oval = settings["Octaves"];
@@ -589,6 +646,10 @@ void FreqAmpOctEventReg::loadConfig(){
 	bval = settings["Bias"];  
 	shapeval = settings["Shape"];
 	sharpval = settings["Sharp"];
+	ConfSets settings2 = config[3];
+	tsval = settings2["TextureSize"];
+	normval = settings2["Normal"];
+	wsval = settings2["WorldSize"];
 	ss5 << "Test load config" << "\n";
 	tlog->logMessage(ss5.str());
 	CEGUI::Combobox* ncombobox = static_cast<CEGUI::Combobox*>(NoiseTypebox);
@@ -661,6 +722,13 @@ void FreqAmpOctEventReg::loadConfig(){
 
 	ncombobox = static_cast<CEGUI::Combobox*>(Sharpbox);
 	ncombobox->setItemSelectState 	((int)sharpval,true);
+
+	CEGUI::Slider* TsSlider = static_cast<CEGUI::Slider*>(Texturesizeslider);
+	TsSlider->setCurrentValue(tsval);
+	CEGUI::Slider* NormSlider = static_cast<CEGUI::Slider*>(Normalslider);
+	NormSlider->setCurrentValue(normval);
+	CEGUI::Slider* WorldSizeSlider = static_cast<CEGUI::Slider*>(Worldsizeslider);
+	WorldSizeSlider->setCurrentValue(wsval);		
 	//updateConfig();
 	//
         /*
@@ -987,6 +1055,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	terr::T3dCPointsMaps * tnoisevalsm = new terr::T3dCPointsMaps();
 	terr::CPointsMaps * vnoisevalsm    = new terr::CPointsMaps();
 	vector<float> weights(config.size());
+	config = texconfigs[TextureSelection];
 	tnoisevals.resize(config.size()); 
 	ss5 << "Hitting update button!!!!!!!" << "\n";
 	ss5 << "Second terrain noise type:  "<<config[1]["NoiseType"]<< "\n";
@@ -1009,11 +1078,13 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	int i = 0;
 	map<int, map<string,float> >:: iterator miter3;
 	for (miter3 = config.begin(); miter3 != config.end(); miter3++){
+		if (miter3->first == 3) {break;}
 		ss5 << "Starting noise gen loop!!!!!!!" << "\n";
 		ss5 << "NoiseType: " << miter3->second["NoiseType"] << "\n";
 		tlog->logMessage(ss5.str());
-		ss5.str(std::string());		
-		map<string, float> tc = miter3->second;
+		ss5.str(std::string());	
+		ConfSets tc = miter3->second;	
+		//map<string, float> tc = miter3->second;
 		if (tc["Freqdiv"] == 0){tc["Freqdiv"] = 1.0f;}
 		if ((int)tc["NoiseType"] == 0){
 			//float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain = .5f, int imagemap = (int)3.0f
@@ -1173,7 +1244,16 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	float whval = WHSlider->getCurrentValue();
 	CEGUI::Slider* MHSlider = static_cast<CEGUI::Slider*>(MountainHslider);
 	float mhval = MHSlider->getCurrentValue();
-	new LoadHeightMap(cterrain, cmMiniScreen,513.0f*1.0f, cheightmapvaluesm, whval, mhval,2.0f);
+	TerrainTexturesSettings * texsets = new TerrainTexturesSettings();
+	texsets->size = config[3]["TextureSize"];
+	texsets->normal = config[3]["Normal"];
+	texsets->worldsize = config[3]["WorldSize"];
+	texsets->name = TextureSelection;
+	if (TextureSelection == "Terrain"){texsets->layerid = 1;}
+	else{texsets->layerid = 2;}
+	if (TextureSelection == "Terrain"){new LoadHeightMap(cterrain, cmMiniScreen,513.0f*1.0f, cheightmapvaluesm, 
+					 		     whval, mhval,2.0f, true, *texsets);}
+	else{new LoadHeightMap(cterrain, cmMiniScreen,513.0f*1.0f, cheightmapvaluesm, whval, mhval,2.0f, false, *texsets);}
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm, 513.0f);
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, (*tnoisevalsm)[0]);
 }
@@ -1189,7 +1269,7 @@ void FreqAmpOctEventReg::updateBB(const CEGUI::EventArgs &e){
 	//ss5<<val;
 	//mlabel->setText(ss5.str());
 	if (val > 513.0f) {
-		new ScaleHeights(cterrain, cmMiniScreen,mCamera, val, whval, mhval);
+		new ScaleHeights(cterrain, cmMiniScreen,mCamera, val, whval, mhval,TextureSelection);
 	}
 }
 
@@ -1204,7 +1284,7 @@ void FreqAmpOctEventReg::updateBBB(const CEGUI::EventArgs &e){
 	//ss5<<val;
 	//mlabel->setText(ss5.str());
 	//if (val > 513.0f) {
-		new TranslateHeights(cterrain, cmMiniScreen,mCamera, val-6000.0f, whval, mhval);
+		new TranslateHeights(cterrain, cmMiniScreen,mCamera, val-6000.0f, whval, mhval,TextureSelection);
 	//}
 }
 
@@ -1233,5 +1313,78 @@ void FreqAmpOctEventReg::updateTILB(const CEGUI::EventArgs &e){
 	ss5<<ie->getText();
 	//*/
 	TextureImageWindow->setProperty("Image", ss5.str());
+	updateConfig();
+	TextureSelection = ss5.str();
+	loadConfig();
+}
+
+void FreqAmpOctEventReg::updateTES(const CEGUI::EventArgs &e){
+	
+	CEGUI::Slider* TSlider = static_cast<CEGUI::Slider*>(Texturesizeslider);
+	float val = TSlider->getCurrentValue();
+	CEGUI::Editbox* TEbox = static_cast<CEGUI::Editbox*>(TextureSizeEditbox);
+	std::ostringstream ss5;
+	int ival = (int) val;
+        ival = ival/513;
+	ival *= 513;
+	if (ival == 0) {ival = 513;}
+	ss5<<ival;
+	TSlider->setCurrentValue((float)ival);
+	TEbox->setText(ss5.str());
+}
+
+void FreqAmpOctEventReg::updateTEB(const CEGUI::EventArgs &e){
+	
+	CEGUI::Slider* TSlider = static_cast<CEGUI::Slider*>(Texturesizeslider);
+	CEGUI::Editbox* TEbox = static_cast<CEGUI::Editbox*>(TextureSizeEditbox);
+	float val = atof(TEbox->getText().c_str());
+	//float val = FSlider->getCurrentValue();
+	
+	std::ostringstream ss5;
+	int ival = (int) val;
+        ival = ival/513;
+	ival *= 513;
+	if (ival == 0) {ival = 513;}
+	ss5<<ival;
+	TSlider->setCurrentValue((float)ival);
+	TEbox->setText(ss5.str());
+}
+
+void FreqAmpOctEventReg::updateNS(const CEGUI::EventArgs &e){
+	
+	CEGUI::Slider* NSlider = static_cast<CEGUI::Slider*>(Normalslider);
+	float val = NSlider->getCurrentValue();
+	CEGUI::Editbox* Nbox = static_cast<CEGUI::Editbox*>(NormalEditbox);
+	std::ostringstream ss5;
+	ss5<<val;
+	Nbox->setText(ss5.str());
+}
+
+void FreqAmpOctEventReg::updateNB(const CEGUI::EventArgs &e){
+	
+	CEGUI::Slider* NSlider = static_cast<CEGUI::Slider*>(Normalslider);
+	CEGUI::Editbox* Nbox = static_cast<CEGUI::Editbox*>(NormalEditbox);
+	float val = atof(Nbox->getText().c_str());
+	NSlider->setCurrentValue((float)val);
+	
+}
+
+void FreqAmpOctEventReg::updateWS(const CEGUI::EventArgs &e){
+	
+	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Worldsizeslider);
+	float val = WSlider->getCurrentValue();
+	CEGUI::Editbox* Wbox = static_cast<CEGUI::Editbox*>(WorldSizeEditbox);
+	std::ostringstream ss5;
+	ss5<<val;
+	Wbox->setText(ss5.str());
+}
+
+void FreqAmpOctEventReg::updateWB(const CEGUI::EventArgs &e){
+	
+	CEGUI::Slider* WSlider = static_cast<CEGUI::Slider*>(Worldsizeslider);
+	CEGUI::Editbox* Wbox = static_cast<CEGUI::Editbox*>(WorldSizeEditbox);
+	float val = atof(Wbox->getText().c_str());
+	WSlider->setCurrentValue((float)val);
+	
 }
 #endif

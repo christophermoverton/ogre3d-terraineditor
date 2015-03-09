@@ -232,6 +232,9 @@ CMakeFiles/OgreApp.dir/BaseApplication.cpp.o
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BLI_noise.h
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BaseApplication.h
+ /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BicubicResample.cpp
+ /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildBiLinear.cpp
+ /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildBicubicResample.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildFbm.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildNoise.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BuildSimplex.cpp
@@ -258,6 +261,7 @@ CMakeFiles/OgreApp.dir/ITutorial02.cpp.o
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainFluidSimulation.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesNode.cpp
+ /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesSettings.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Terrainheightselection.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TranslateHeights.cpp
  /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Voronoi.cpp

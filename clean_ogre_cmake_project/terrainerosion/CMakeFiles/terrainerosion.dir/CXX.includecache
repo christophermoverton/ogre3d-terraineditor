@@ -6,6 +6,26 @@
 
 #IncludeRegexTransform: 
 
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Math/MathUtil.h
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Math/PerlinNoise.cpp
+PerlinNoise.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Math/PerlinNoise.h
+vector
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Math/vector
+glm/glm.hpp
+-
+glm/gtx/compatibility.hpp
+-
+MathUtil.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Math/MathUtil.h
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Math/PerlinNoise.h
+platform_includes.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Math/platform_includes.h
+vector
+-
+
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Simulation/FluidSimulation.cpp
 FluidSimulation.h
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/terrainerosion/Simulation/FluidSimulation.h

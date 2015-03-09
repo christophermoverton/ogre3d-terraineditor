@@ -536,6 +536,42 @@
             <Window type="TaharezLook/Listbox" name="TextureItemListbox" >
                 <Property name="Area" value="{{0,19},{0,217},{0,285},{0,442}}" />
             </Window>
+            <Window type="TaharezLook/Label" name="Label" >
+                <Property name="Area" value="{{0,238},{0,15},{0,401},{0,47}}" />
+                <Property name="Text" value="Texture Size:" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="AlfiskoSkin/HorizontalSlider" name="TextureSizeSlider" >
+                <Property name="Area" value="{{0,250},{0,50},{0,392},{0,69}}" />
+                <Property name="MaximumValue" value="11000" />
+            </Window>
+            <Window type="TaharezLook/Editbox" name="TextureSizeEditbox" >
+                <Property name="Area" value="{{0.678119,41},{0.130208,-19},{0.618445,169},{0.118056,13}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label2" >
+                <Property name="Area" value="{{0,240},{0,85},{0,403},{0,117}}" />
+                <Property name="Text" value="Normal:" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="TaharezLook/Editbox" name="NormalEditbox" >
+                <Property name="Area" value="{{0.678119,40},{0.130208,52},{0.618445,168},{0.118056,84}}" />
+            </Window>
+            <Window type="AlfiskoSkin/HorizontalSlider" name="NormalSlider" >
+                <Property name="Area" value="{{0,250},{0,125},{0,392},{0,144}}" />
+                <Property name="MaximumValue" value="50" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label3" >
+                <Property name="Area" value="{{0,239},{0,155},{0,402},{0,187}}" />
+                <Property name="Text" value="World Size:" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
+            <Window type="AlfiskoSkin/HorizontalSlider" name="WorldSizeSlider" >
+                <Property name="Area" value="{{0,249},{0,195},{0,391},{0,214}}" />
+                <Property name="MaximumValue" value="12000" />
+            </Window>
+            <Window type="TaharezLook/Editbox" name="WorldSizeEditbox" >
+                <Property name="Area" value="{{0.678119,39},{0.130208,122},{0.618445,167},{0.118056,154}}" />
+            </Window>
         </Window>
     </Window>
 </GUILayout>
