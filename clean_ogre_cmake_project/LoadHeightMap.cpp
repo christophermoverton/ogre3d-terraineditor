@@ -175,12 +175,12 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	//bump(size, 30.0f*513.0f, heightmapvalues);
 	if (modheight){
 		buffer.saveImage("../media/materials/textures/test6.png");
-		bump(1.0f*size, 1.0f, mterrain, texsets);//TextureName);  //originally 3*
+		bump(1.0f*size, 1.0f, mterrain, &texsets);//TextureName);  //originally 3*
 		double max = mterrain->getMaxHeight();
 		double min = mterrain->getMinHeight();
 	//void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terrain, double waterheight, double mountainheight);
 	//colorizeterrainmap(513.0f, texscale,0.0f, 1.0f, heightmapvalues, waterheight, mountainheight);
-		colorizeterrainmap(1.0f*513.0f, min,  max, mterrain, waterheight, mountainheight, TextureName); //originally 6*
+		colorizeterrainmap(1.0f*513.0f, min,  max, mterrain, waterheight, mountainheight, &texsets); //originally 6*
 		
 		
 	}
@@ -199,8 +199,8 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 		else{ 
 			heightmap = heightmapvalues; 
 		}
-		bump(texsize, normal, heightmap, texsets);//TextureName);
-		colorizeterrainmap(texsize, 0.0f,  1.0f, heightmap, waterheight, mountainheight, TextureName);
+		bump(texsize, normal, heightmap, &texsets);//TextureName);
+		colorizeterrainmap(texsize, 0.0f,  1.0f, heightmap, waterheight, mountainheight, &texsets);
 	}
 	if (!modheight){mterrain->setLayerWorldSize(layerid,worldsize);}
 	//Ogre::StringVector * texnames;

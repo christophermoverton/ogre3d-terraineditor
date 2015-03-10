@@ -1,14 +1,16 @@
 #ifndef TerrainTexturesSettings_CPP
 #define TerrainTexturesSettings_CPP
 #include <string>
+#include "TerrainStruct.h"
 
 struct TerrainTexturesSettings
 {
-    double normal, size, maxheight, minheight, alpha, worldsize;
+    double normal, size, maxheight, minheight, alpha, worldsize, texgradscale;
     int layerid;
     std::string name;
+    terr::CVectorMaps normals;
     TerrainTexturesSettings(double nnormal, double nsize, double nmaxheight, double nminheight, double nalpha,
-                            std::string nname, int nid, double nworldsize){
+                            std::string nname, int nid, double nworldsize, double ntexgradscale){
 	normal = nnormal;
 	size = nsize;
 	maxheight = nmaxheight;
@@ -16,7 +18,8 @@ struct TerrainTexturesSettings
 	alpha = nalpha;
 	name = nname;
 	layerid = nid;
-	nworldsize = worldsize;
+	worldsize = nworldsize;
+	texgradscale = ntexgradscale;
     }
     TerrainTexturesSettings(void){
 	normal = 0.0f;
@@ -27,6 +30,7 @@ struct TerrainTexturesSettings
 	name = std::string("");
 	layerid = 0;
 	worldsize = 12000.0f;
+	texgradscale = 0.0f;
     }
 };
 #endif

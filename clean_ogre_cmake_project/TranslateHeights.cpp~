@@ -5,11 +5,12 @@
 class TranslateHeights {
 	public:
 		TranslateHeights(Ogre::Terrain* terrain, Ogre::Rectangle2D* mMiniScreen,Ogre::Camera* mCamera, float translatefactor,
-				 double waterheight, double mountheight, std::string TextureName);
+				 double waterheight, double mountheight, TerrainTexturesSettings texsets);
 		void getVerts(void);
 	private:
 		float ctranslatefactor, cSize, cMaxheight, cMinheight, cmountheight, cwaterheight;
-		std::string cTextureName;
+		//std::string cTextureName;
+		TerrainTexturesSettings ctexsets;
 		Ogre::Terrain* cterrain;
 		Ogre::Rectangle2D* cmMiniScreen;
 		//Ogre::Log* tlog;
@@ -18,13 +19,14 @@ class TranslateHeights {
 };
 
 TranslateHeights::TranslateHeights(Ogre::Terrain* terrain, Ogre::Rectangle2D* mMiniScreen,Ogre::Camera* mCamera, float translatefactor,
-				   double waterheight, double mountheight, std::string TextureName){
+				   double waterheight, double mountheight, TerrainTexturesSettings texsets){
 	//tlog = Ogre::LogManager::getSingleton().getLog("ScaleHeight.log");
 	cterrain = terrain;
 	cmMiniScreen = mMiniScreen;
 	ctranslatefactor = translatefactor;
 	cSize = (float) cterrain->getSize();
-	cTextureName = TextureName;
+	//cTextureName = TextureName;
+	ctexsets = texsets;
 	cmountheight = mountheight;
 	cwaterheight = waterheight;
 	getVerts();
@@ -70,12 +72,13 @@ void TranslateHeights::getVerts(void){
 	}
 	cMaxheight = maxheight;
 	cMinheight = minheight;
-	colorizeterrainmap(513.0f, minheight, maxheight, cterrain, cwaterheight, cmountheight, cTextureName);
+	bump(513.0f, 0.0f, cterrain, &ctexsets);
+	colorizeterrainmap(513.0f, minheight, maxheight, cterrain, cwaterheight, cmountheight, &ctexsets);
 	Ogre::TexturePtr pResource = Ogre::TextureManager::getSingleton().getByName("maTexture");
         Ogre::Image imageOgre;
 	textureNodeMap terraintexnds = TerrainTexturesNode::Instance()->getTextureNodes();
-	std::string * imagename = terraintexnds[cTextureName].imageName;
-        imageOgre.load(*imagename, Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	std::string imagename = TextureName+".png";
+        imageOgre.load(imagename, Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 	pResource->unload();
 	pResource->loadImage(imageOgre);
 	delete &imageOgre;

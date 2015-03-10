@@ -572,6 +572,18 @@
             <Window type="TaharezLook/Editbox" name="WorldSizeEditbox" >
                 <Property name="Area" value="{{0.678119,39},{0.130208,122},{0.618445,167},{0.118056,154}}" />
             </Window>
+            <Window type="AlfiskoSkin/HorizontalSlider" name="TexGradSlider" >
+                <Property name="Area" value="{{0,307},{0,257},{0,423},{0,276}}" />
+                <Property name="MaximumValue" value="50" />
+            </Window>
+            <Window type="TaharezLook/Editbox" name="TexGradEditbox" >
+                <Property name="Area" value="{{0.678119,71},{0.130208,184},{0.618445,199},{0.118056,216}}" />
+            </Window>
+            <Window type="TaharezLook/Label" name="Label4" >
+                <Property name="Area" value="{{0,306},{0,218},{0,412},{0,250}}" />
+                <Property name="Text" value="Tex Gradient:" />
+                <Property name="MaxSize" value="{{1,0},{1,0}}" />
+            </Window>
         </Window>
     </Window>
 </GUILayout>

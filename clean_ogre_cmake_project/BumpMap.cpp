@@ -66,10 +66,10 @@ double lerp(double a0, double a1, double w) {
      return (1.0 - w)*a0 + w*a1;
  }
 
-void bump(double xzScale, double yScale, terr::CPointsMap * heightmap, TerrainTexturesSettings texsets){//std::string TextureName){
+void bump(double xzScale, double yScale, terr::CPointsMap * heightmap, TerrainTexturesSettings * texsets){//std::string TextureName){
     double size = xzScale;
-    double normfac = texsets.normal;
-    std::string TextureName = texsets.name;
+    double normfac = texsets->normal;
+    std::string TextureName = texsets->name;
     ImageBuffer buffer(size);
     ImageBuffer buffr(size);
     FillColour* fill = new FillColour (&buffer);
@@ -96,6 +96,7 @@ void bump(double xzScale, double yScale, terr::CPointsMap * heightmap, TerrainTe
 	    //TPoint3 * vec = new TPoint3(sx*yScale, 0.0f, sy*yScale);  //changing -sx, 2*xzScale mid term ??!
             (*vec) = (*vec).normalize();
             TPoint3 vec2 = (*vec)/2.0f + .5f;
+	    vec2 = vec2.normalize();
 	    (*normal)[terr::Coordpair(x,y)] = vec2;
 	    //(*normal)[terr::Coordpair(x,y)] = TPoint3(lerp((*vec).x, 0, 0.25f), lerp((*vec).y, 1, 0.25f),
 	    //					      lerp((*vec).z, 0, 0.25f));
@@ -127,6 +128,7 @@ void bump(double xzScale, double yScale, terr::CPointsMap * heightmap, TerrainTe
     //if (!terraintexnds[TextureName].normalimageName){
         buffer.saveImage("../media/materials/textures/"+ TextureName+"normal.png");
         buffr.saveImage("../media/materials/textures/"+TextureName+"spec.png");
+     texsets->normals = *normal;
         //terraintexnds[TextureName].normalHeightMapData = normal;
         //std::string nimagename = *normaltexname +".png";
         //terraintexnds[TextureName].normalimageName = &nimagename;
@@ -139,10 +141,10 @@ void bump(double xzScale, double yScale, terr::CPointsMap * heightmap, TerrainTe
     */
 }
 
-void bump(double xzScale, double yScale, Ogre::Terrain* terrain, TerrainTexturesSettings texsets){//std::string TextureName){
+void bump(double xzScale, double yScale, Ogre::Terrain* terrain, TerrainTexturesSettings * texsets){//std::string TextureName){
     double size = xzScale;
-    double normfac = texsets.normal;
-    std::string TextureName = texsets.name;
+    double normfac = texsets->normal;
+    std::string TextureName = texsets->name;
     ImageBuffer buffer(size);
     ImageBuffer buffr(size);
     FillColour* fill = new FillColour (&buffer);
@@ -208,6 +210,7 @@ void bump(double xzScale, double yScale, Ogre::Terrain* terrain, TerrainTextures
         terraintexnds[TextureName].normalHeightMapData = normal;
         std::string nimagename = TextureName +"normal.png";
         terraintexnds[TextureName].normalimageName = &nimagename;
+	texsets->normals = *normal;
     /*
     }
     else{

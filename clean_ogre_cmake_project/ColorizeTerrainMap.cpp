@@ -17,10 +17,22 @@ struct color{
 	}
 };
 */
+double clamp (double val){
+	if (val > 1.0f){
+		return 1.0f;
+	}
+	else if (val < 0.0f){
+		return 0.0f;
+	}
+	else { 
+		return val;
+	}
+}
+
 void colorizeterrainmap(double size, double min, double max, 
-			terr::CPointsMap * heightmap, double waterheight, double mountainheight, std::string TextureName);
+			terr::CPointsMap * heightmap, double waterheight, double mountainheight, TerrainTexturesSettings * texsets);
 void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terrain, double waterheight, double mountainheight,
-			std::string TextureName);
+			TerrainTexturesSettings * texsets);
 /*
 color lerp(color c1, color c2, float value);
 
@@ -39,9 +51,11 @@ color lerp(color c1, color c2, float value){
 }
 */
 void colorizeterrainmap(double size, double min, double max, 
-			terr::CPointsMap * heightmap, double waterheight, double mountainheight, std::string TextureName){
+			terr::CPointsMap * heightmap, double waterheight, double mountainheight, TerrainTexturesSettings * texsets){
    textureNodeMap terraintexnds = TerrainTexturesNode::Instance()->getTextureNodes(); //textureNodeMap defined in TerrainTexturesNode.cpp
-   
+   std::string TextureName = texsets->name;
+   terr::CVectorMaps normal = texsets->normals;
+   double tgscale = texsets->texgradscale;
    float diff = max-min,
 	flood = waterheight,
 	mount = mountainheight;	
@@ -56,7 +70,7 @@ void colorizeterrainmap(double size, double min, double max,
          landhigh(133,182,116),  //116 133
          waterlow(0,0,55),
 	 waterhigh(0,53,106),
-	 mountlow(167,157,147), //147 167
+	 mountlow(127,117,107), //147 167
          mounthigh(216,223,226);  //226 216
    ImageBuffer buffer(size);
    FillColour* fill = new FillColour (&buffer);
@@ -79,10 +93,18 @@ void colorizeterrainmap(double size, double min, double max,
 				//if this is above the mountain line...
 				else if (height>mount){
 					newcolor=lerp(mountlow,mounthigh,(height-mount)/(diff-mount));
+					TPoint3 vec = normal[(*coordpair)];
+					double dw = tgscale*pow(1.0f-(vec.z*vec.z),.5f); //normals weighting when normal is positive z 
+					dw = clamp(dw);
+					newcolor = lerp(newcolor, mountlow, dw);
 				}	
 				//if this is regular land
 				else{
 					newcolor=lerp(landlow,landhigh,(height-flood)/(mount-flood));
+					TPoint3 vec = normal[(*coordpair)];
+					double dw = tgscale*pow(1.0f-(vec.z*vec.z),.5f); //normals weighting when normal is positive z then 0
+					dw = clamp(dw);
+					newcolor = lerp(newcolor,landlow, dw);
 				}
 	    			Ogre::ColourValue col = Ogre::ColourValue(newcolor.v[0]/255.0f,newcolor.v[1]/255.0f,newcolor.v[2]/255.0f);
 	    			fill->setPixl((size_t)(x), (size_t)(y), col);	
@@ -109,12 +131,15 @@ void colorizeterrainmap(double size, double min, double max,
 }
 
 void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terrain, double waterheight, double mountainheight,
-			std::string TextureName){
+			TerrainTexturesSettings * texsets){
    //since this call for terrain data in original size if I add a texscale method on this will likely need to interpolate positions
    //on the terrain map since the a higher scale resolution of such data will not be furnished by the terrain by typical getheight
    //methods.  Generally I think I can solve this using Ogre's interpolation functions for terrain data.
    textureNodeMap terraintexnds = TerrainTexturesNode::Instance()->getTextureNodes(); //textureNodeMap defined in TerrainTexturesNode.cpp
-   float diff = max-min,
+   std::string TextureName = texsets->name;
+   terr::CVectorMaps normal = texsets->normals;
+   double tgscale = texsets->texgradscale;
+   float diff = abs(max-min),
 	 //flood=0.25f,//flood level
          //mount=0.85f;//mountain level
 	flood = waterheight,
@@ -132,7 +157,7 @@ void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terr
          landhigh(133,182,116),  //116 133
          waterlow(0,0,55),
 	 waterhigh(0,53,106),
-	 mountlow(167,157,147), //147 167
+	 mountlow(97,87,67), //147 167
          mounthigh(216,223,226);  //226 216
    ImageBuffer buffer(size);// ImageBuffer buffer2(size);
    FillColour* fill =  new FillColour (&buffer); 
@@ -142,6 +167,7 @@ void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terr
 	for (int y = 0; y<size; y++){
 		double posx = x/size; double posy = y/size;
 		double height = (double)terrain->getHeightAtTerrainPosition(posx,posy);
+		terr::Coordpair * coordpair = new terr::Coordpair((double)x,(double)y);
 		height /= (2*diff); height += .5f;
 		//if this point is below the floodline...
 		if (height<flood) {
@@ -149,11 +175,20 @@ void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terr
 		}
 		//if this is above the mountain line...
 		else if (height>mount){
-			newcolor=lerp(mountlow,mounthigh,(height-mount)/(diff-mount));
+			
+			newcolor=lerp(mountlow,mounthigh,(height-mount)/(diff2-mount));
+			TPoint3 vec = normal[(*coordpair)];
+			double dw = tgscale*pow(1.0f-(vec.z*vec.z),.5f); //normals weighting when normal is positive z then 0 normal weight
+			dw = clamp(dw);
+			newcolor = lerp(newcolor, mountlow, dw);
 		}	
 		//if this is regular land
 		else{
 			newcolor=lerp(landlow,landhigh,(height-flood)/(mount-flood));
+			TPoint3 vec = normal[(*coordpair)];
+			double dw = tgscale*pow(1.0f-(vec.z*vec.z),.5f); //normals weighting when normal is positive z then 0 normal weight
+			dw = clamp(dw);
+			newcolor = lerp(newcolor, landlow, dw);
 		}
 	    	Ogre::ColourValue col = Ogre::ColourValue(newcolor.v[0]/255.0f,newcolor.v[1]/255.0f,newcolor.v[2]/255.0f);
 		//diffuse with zero specularity 

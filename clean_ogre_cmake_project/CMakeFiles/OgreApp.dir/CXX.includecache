@@ -413,6 +413,8 @@ stddef.h
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainTexturesSettings.cpp
 string
 -
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/TerrainStruct.h
 
 /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/Terrainheightselection.cpp
 iostream
