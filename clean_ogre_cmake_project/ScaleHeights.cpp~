@@ -1,3 +1,5 @@
+#ifndef __ScaleHeights_CPP
+#define __ScaleHeights_CPP
 #include <vector>
 #include "ColorizeTerrainMap.cpp"
 #include "TerrainTexturesNode.cpp"
@@ -16,6 +18,7 @@ class ScaleHeights {
 		Ogre::Log* tlog;
 		std::vector<Ogre::Vector3> cverts;
 		void rescaleHeights(void);
+		void updateBlendMap(double alpha, int layerid);
 };
 
 ScaleHeights::ScaleHeights(Ogre::Terrain* terrain, Ogre::Rectangle2D* mMiniScreen,Ogre::Camera* mCamera, float scalefactor,
@@ -107,3 +110,6 @@ void ScaleHeights::getVerts(void){
 	tlog->logMessage(ss5.str());
 	cterrain->update();
 }
+
+
+#endif

@@ -5,12 +5,12 @@
 
 struct TerrainTexturesSettings
 {
-    double normal, size, maxheight, minheight, alpha, worldsize, texgradscale;
+    double normal, size, maxheight, minheight, alpha, worldsize, texgradscale, texalpha;
     int layerid;
     std::string name;
     terr::CVectorMaps normals;
     TerrainTexturesSettings(double nnormal, double nsize, double nmaxheight, double nminheight, double nalpha,
-                            std::string nname, int nid, double nworldsize, double ntexgradscale){
+                            std::string nname, int nid, double nworldsize, double ntexgradscale, double ntexalpha){
 	normal = nnormal;
 	size = nsize;
 	maxheight = nmaxheight;
@@ -20,6 +20,7 @@ struct TerrainTexturesSettings
 	layerid = nid;
 	worldsize = nworldsize;
 	texgradscale = ntexgradscale;
+	texalpha = ntexalpha;
     }
     TerrainTexturesSettings(void){
 	normal = 0.0f;
@@ -31,6 +32,7 @@ struct TerrainTexturesSettings
 	layerid = 0;
 	worldsize = 12000.0f;
 	texgradscale = 0.0f;
+	texalpha = 1.0f;
     }
 };
 #endif
