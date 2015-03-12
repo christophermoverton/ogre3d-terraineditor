@@ -139,6 +139,7 @@ void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terr
    std::string TextureName = texsets->name;
    terr::CVectorMaps normal = texsets->normals;
    double tgscale = texsets->texgradscale;
+   double csize = texsets->size;
    float diff = abs(max-min),
 	 //flood=0.25f,//flood level
          //mount=0.85f;//mountain level
@@ -159,13 +160,13 @@ void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terr
 	 waterhigh(0,53,106),
 	 mountlow(97,87,67), //147 167
          mounthigh(216,223,226);  //226 216
-   ImageBuffer buffer(size);// ImageBuffer buffer2(size);
+   ImageBuffer buffer(csize);// ImageBuffer buffer2(size);
    FillColour* fill =  new FillColour (&buffer); 
    //FillColour* fill2 = new FillColour (&buffer2);
    color newcolor(0,0,0);
-   for(int x = 0; x<size; x++){
-	for (int y = 0; y<size; y++){
-		double posx = x/size; double posy = y/size;
+   for(int x = 0; x<csize; x++){
+	for (int y = 0; y<csize; y++){
+		double posx = x/csize; double posy = y/csize;
 		double height = (double)terrain->getHeightAtTerrainPosition(posx,posy);
 		terr::Coordpair * coordpair = new terr::Coordpair((double)x,(double)y);
 		height /= (2*diff); height += .5f;

@@ -206,7 +206,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 		bump(texsize, normal, heightmap, &texsets);//TextureName);
 		colorizeterrainmap(texsize, 0.0f,  1.0f, heightmap, waterheight, mountainheight, &texsets);
 	}
-	if (!modheight){mterrain->setLayerWorldSize(layerid,worldsize);}
+	
 	//Ogre::StringVector * texnames;
 	//texnames->push_back(Ogre::String("test10.png"));
 	//texnames->push_back(Ogre::String("grass_green-01_normalheight.dds"));
@@ -253,7 +253,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
         	Ogre::Image imageOgre;
         	imageOgre.load(TextureName+".png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 		imageOgre.flipAroundX();
-		imageOgre.resize(6*513,6*513,Ogre::Image::FILTER_BICUBIC);
+		//imageOgre.resize(6*513,6*513,Ogre::Image::FILTER_BICUBIC);
 		pResource->unload();
 		pResource->loadImage(imageOgre);
 	}
@@ -262,7 +262,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
         Ogre::Image imageOgre3;
         imageOgre3.load(TextureName+".png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 	imageOgre3.flipAroundX();
-	if (modheight){imageOgre3.resize(513,513,Ogre::Image::FILTER_BICUBIC);}
+	//if (modheight){imageOgre3.resize(513,513,Ogre::Image::FILTER_BICUBIC);}
 	//else{imageOgre3.resize(texsize,texsize,Ogre::Image::FILTER_BILINEAR);}
 	pResource3->unload();
 	pResource3->loadImage(imageOgre3);
@@ -270,7 +270,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
         Ogre::Image imageOgre2;
         imageOgre2.load(TextureName+"normal.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
 	imageOgre2.flipAroundX();
-	if (modheight){imageOgre2.resize(3*513,3*513,Ogre::Image::FILTER_BICUBIC);}
+	//if (modheight){imageOgre2.resize(3*513,3*513,Ogre::Image::FILTER_BICUBIC);}
 	//else{imageOgre2.resize(texsize,texsize,Ogre::Image::FILTER_BILINEAR);}
 	pResource2->unload();
 	pResource2->loadImage(imageOgre2);
@@ -285,6 +285,7 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	delete &imageOgre2;
 	delete &imageOgre3;
 	if (!modheight){updateBlendMap(alpha, layerid);}
+	if (!modheight){mterrain->setLayerWorldSize(layerid,worldsize);}
 	//pResource->reload();
         /*
 	Ogre::MaterialManager::getSingleton().remove("RttMat");

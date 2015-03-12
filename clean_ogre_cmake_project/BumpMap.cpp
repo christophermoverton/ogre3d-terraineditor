@@ -96,8 +96,7 @@ void bump(double xzScale, double yScale, terr::CPointsMap * heightmap, TerrainTe
 	    //TPoint3 * vec = new TPoint3(sx*yScale, 0.0f, sy*yScale);  //changing -sx, 2*xzScale mid term ??!
             (*vec) = (*vec).normalize();
             TPoint3 vec2 = (*vec)/2.0f + .5f;
-	    vec2 = vec2.normalize();
-	    (*normal)[terr::Coordpair(x,y)] = vec2;
+
 	    //(*normal)[terr::Coordpair(x,y)] = TPoint3(lerp((*vec).x, 0, 0.25f), lerp((*vec).y, 1, 0.25f),
 	    //					      lerp((*vec).z, 0, 0.25f));
 	    //the specialized surface normal is intended for producing the bump map using
@@ -110,6 +109,7 @@ void bump(double xzScale, double yScale, terr::CPointsMap * heightmap, TerrainTe
 	    //Ogre::ColourValue col = Ogre::ColourValue((*normal)[terr::Coordpair(x,y)].x,(*normal)[terr::Coordpair(x,y)].y,
 	    //						(*normal)[terr::Coordpair(x,y)].z, (*heightmap)[terr::Coordpair(x, y)]);
 	    Ogre::ColourValue col = Ogre::ColourValue(vec2.x,vec2.y,vec2.z, (*heightmap)[terr::Coordpair(x, y)]);
+	    (*normal)[terr::Coordpair(x,y)] = *vec;
 	    //col = Ogre::ColourValue(0.0f,0.0f,0.5f, 1.0f);
 	    //compute phong specular intensity
             TPoint3 R = reflection((*L), (*normal)[terr::Coordpair(x,y)]);
@@ -142,7 +142,9 @@ void bump(double xzScale, double yScale, terr::CPointsMap * heightmap, TerrainTe
 }
 
 void bump(double xzScale, double yScale, Ogre::Terrain* terrain, TerrainTexturesSettings * texsets){//std::string TextureName){
-    double size = xzScale;
+    //double size = xzScale;
+    double cxzScale = texsets->size;
+    double size = cxzScale;
     double normfac = texsets->normal;
     std::string TextureName = texsets->name;
     ImageBuffer buffer(size);
@@ -155,10 +157,10 @@ void bump(double xzScale, double yScale, Ogre::Terrain* terrain, TerrainTextures
     //CVectorMaps * bump = new 
     TPoint3 * V = new TPoint3(0.0f,-1.0f,0.0f); TPoint3 * L = new TPoint3(0.55, -0.3, 0.75);
     (*L) = (*L).normalize();
-    double sy, sx; double x0 = xzScale-1; double y0 = xzScale-1;
+    double sy, sx; double x0 = cxzScale-1; double y0 = cxzScale-1;
     double diff = (double)abs(terrain->getMinHeight() - terrain->getMaxHeight());
-    for (int x = 0; x < xzScale; x++){
-	for (int y = 0; y < xzScale; y++){
+    for (int x = 0; x < cxzScale; x++){
+	for (int y = 0; y < cxzScale; y++){
 	    //computing surface normals (forward difference equation) y' ~ delta f (x_i + 1)/( delta (x_i+1 - x_i) = 1) - f(x_i) 
             //gradient is (f'(x), f'(y), f'(z)) = (h(x+1,y)-h(x), constant (shown below), h(x,y+1)-h(y)) 
 	    double posx = x/size; double posy = y/size;
@@ -167,12 +169,12 @@ void bump(double xzScale, double yScale, Ogre::Terrain* terrain, TerrainTextures
 	    double height = (double)terrain->getHeightAtTerrainPosition(posx,posy);
 	    
 	    //double heightx1y = (double)terrain->getHeightAtTerrainPosition(posx,posy);
-	    double sx = ((double)terrain->getHeightAtTerrainPosition(x<xzScale-1 ? posx1p : posx, posy) - 
+	    double sx = ((double)terrain->getHeightAtTerrainPosition(x<cxzScale-1 ? posx1p : posx, posy) - 
 				(double)terrain->getHeightAtTerrainPosition(x == x0 ? posx1m : posx, posy))/diff;
-	    if (x == 0 || x == xzScale - 1){ sx *= 2;}
-	    double sy = ((double)terrain->getHeightAtTerrainPosition(posx, y < xzScale-1 ? posy1p : posy) - 
+	    if (x == 0 || x == cxzScale - 1){ sx *= 2;}
+	    double sy = ((double)terrain->getHeightAtTerrainPosition(posx, y < cxzScale-1 ? posy1p : posy) - 
 				(double)terrain->getHeightAtTerrainPosition(posx, y == y0 ? posy1m : posy))/diff;
-	    if (y == 0 || y == xzScale -1) {sy *= 2;}
+	    if (y == 0 || y == cxzScale -1) {sy *= 2;}
 	    TPoint3 * vec = new TPoint3(-1.0f*normfac*sx, -1.0f*normfac*sy, 0.1f);  //changing -sx, 2*xzScale mid term ??!
             (*vec) = (*vec).normalize();
             TPoint3 vec2 = (*vec)/2.0f + .5f;

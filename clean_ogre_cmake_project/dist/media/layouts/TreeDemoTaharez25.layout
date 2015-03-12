@@ -549,55 +549,63 @@
                 <Property name="Area" value="{{0.678119,41},{0.130208,-19},{0.618445,169},{0.118056,13}}" />
             </Window>
             <Window type="TaharezLook/Label" name="Label2" >
-                <Property name="Area" value="{{0,240},{0,85},{0,403},{0,117}}" />
+                <Property name="Area" value="{{0,240},{0,65},{0,403},{0,97}}" />
                 <Property name="Text" value="Normal:" />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
             </Window>
             <Window type="TaharezLook/Editbox" name="NormalEditbox" >
-                <Property name="Area" value="{{0.678119,40},{0.130208,52},{0.618445,168},{0.118056,84}}" />
+                <Property name="Area" value="{{0.678119,40},{0.130208,27},{0.618445,168},{0.118056,59}}" />
             </Window>
             <Window type="AlfiskoSkin/HorizontalSlider" name="NormalSlider" >
-                <Property name="Area" value="{{0,250},{0,125},{0,392},{0,144}}" />
+                <Property name="Area" value="{{0,250},{0,105},{0,392},{0,124}}" />
                 <Property name="MaximumValue" value="50" />
             </Window>
             <Window type="TaharezLook/Label" name="Label3" >
-                <Property name="Area" value="{{0,239},{0,155},{0,402},{0,187}}" />
+                <Property name="Area" value="{{0,240},{0,120},{0,403},{0,152}}" />
                 <Property name="Text" value="World Size:" />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
             </Window>
             <Window type="AlfiskoSkin/HorizontalSlider" name="WorldSizeSlider" >
-                <Property name="Area" value="{{0,249},{0,195},{0,391},{0,214}}" />
+                <Property name="Area" value="{{0,250},{0,155},{0,392},{0,174}}" />
                 <Property name="MaximumValue" value="12000" />
             </Window>
             <Window type="TaharezLook/Editbox" name="WorldSizeEditbox" >
-                <Property name="Area" value="{{0.678119,39},{0.130208,122},{0.618445,167},{0.118056,154}}" />
+                <Property name="Area" value="{{0.678119,40},{0.130208,82},{0.618445,168},{0.118056,114}}" />
             </Window>
             <Window type="AlfiskoSkin/HorizontalSlider" name="TexGradSlider" >
-                <Property name="Area" value="{{0,307},{0,257},{0,423},{0,276}}" />
+                <Property name="Area" value="{{0,300},{0,210},{0,416},{0,229}}" />
                 <Property name="MaximumValue" value="50" />
             </Window>
             <Window type="TaharezLook/Editbox" name="TexGradEditbox" >
-                <Property name="Area" value="{{0.678119,71},{0.130208,184},{0.618445,199},{0.118056,216}}" />
+                <Property name="Area" value="{{0.678119,65},{0.130208,137},{0.618445,193},{0.118056,169}}" />
             </Window>
             <Window type="TaharezLook/Label" name="Label4" >
-                <Property name="Area" value="{{0,316},{0,218},{0,422},{0,250}}" />
+                <Property name="Area" value="{{0,310},{0,170},{0,416},{0,202}}" />
                 <Property name="Text" value="Tex Gradient:" />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
             </Window>
             <Window type="AlfiskoSkin/HorizontalSlider" name="TexAlphaSlider" >
-                <Property name="Area" value="{{0,306},{0,324},{0,422},{0,343}}" />
+                <Property name="Area" value="{{0,300},{0,265},{0,416},{0,284}}" />
             </Window>
             <Window type="TaharezLook/Editbox" name="TexAlphaEditbox" >
-                <Property name="Area" value="{{0.678119,70},{0.130208,251},{0.618445,198},{0.118056,283}}" />
+                <Property name="Area" value="{{0.678119,65},{0.130208,187},{0.618445,193},{0.118056,219}}" />
             </Window>
             <Window type="TaharezLook/Label" name="Label42" >
-                <Property name="Area" value="{{0,315},{0,285},{0,421},{0,317}}" />
+                <Property name="Area" value="{{0,310},{0,225},{0,416},{0,257}}" />
                 <Property name="Text" value="Tex Alpha:" />
                 <Property name="MaxSize" value="{{1,0},{1,0}}" />
             </Window>
             <Window type="TaharezLook/Button" name="UpdateTexButton" >
                 <Property name="Area" value="{{0,445},{0,352},{0,534},{0,373}}" />
                 <Property name="Text" value="Update" />
+            </Window>
+            <Window type="TaharezLook/Checkbox" name="RepeatCheckbox" >
+                <Property name="Area" value="{{0,301},{0,357},{0,429},{0,389}}" />
+                <Property name="Text" value="Repeatable" />
+            </Window>
+            <Window type="TaharezLook/Checkbox" name="MirrorCheckbox" >
+                <Property name="Area" value="{{0,301},{0,394},{0,429},{0,426}}" />
+                <Property name="Text" value="Mirror XY" />
             </Window>
         </Window>
     </Window>

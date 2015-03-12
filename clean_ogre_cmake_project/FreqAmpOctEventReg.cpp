@@ -129,6 +129,8 @@ class FreqAmpOctEventReg{
 		CEGUI::Window *Texalphaslider;
 		CEGUI::Window *TexAlphaEditbox;
 		CEGUI::Window *UpdateTexButton;
+		CEGUI::Window *RepeatCheckbox;
+		CEGUI::Window *MirrorCheckbox;
 		//CEGUI::Window *TextureItemEditbox1;
 		CEGUI::Window *TextureImageWindow;
 		EditboxMap * Textureeditboxmaps; //typedef above. Is used for CEGUI list boxes
@@ -178,6 +180,8 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	TexGradEditbox = TerrainTexturesWindow->getChild("TexGradEditbox");
 	Texalphaslider = TerrainTexturesWindow->getChild("TexAlphaSlider");
 	TexAlphaEditbox = TerrainTexturesWindow->getChild("TexAlphaEditbox");
+	RepeatCheckbox = TerrainTexturesWindow->getChild("RepeatCheckbox");
+	MirrorCheckbox = TerrainTexturesWindow->getChild("MirrorCheckbox");
 	UpdateTexButton = TerrainTexturesWindow->getChild("UpdateTexButton");
 	CEGUI::TabControl * tabcontrol = static_cast<CEGUI::TabControl*>(TabControlWindow);
 	tabcontrol->addTab(cnewWindow);
@@ -433,6 +437,11 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 	itemCombobox = new CEGUI::ListboxTextItem("Sharper", 3);
 	combobox->addItem(itemCombobox);
 
+	CEGUI::ToggleButton* checkbox = static_cast<CEGUI::ToggleButton*>(RepeatCheckbox);
+	checkbox->setSelected( false );
+	checkbox = static_cast<CEGUI::ToggleButton*>(MirrorCheckbox);
+	checkbox->setSelected( false );
+
 	Frequencyslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateF, this));
 	FrequencyEditbox->subscribeEvent(CEGUI::Editbox::EventTextAccepted, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateFE, this));
 	Amplitudeslider->subscribeEvent(CEGUI::Slider::EventValueChanged, CEGUI::Event::Subscriber(&FreqAmpOctEventReg::updateA, this));
@@ -545,6 +554,8 @@ void FreqAmpOctEventReg::addconfig(int nameID){
 	settings2["Normal"] = 1.0f;
 	settings2["TextureGradient"] = 1.0f;
 	settings2["TextureAlpha"] = 1.0f;
+	settings2["Repeat"] = 0.0f;
+	settings2["Mirror"] = 0.0f;
 	config[nameID] = settings;
 	config[3] = settings2;
 }
@@ -600,6 +611,14 @@ void FreqAmpOctEventReg::updateConfig(){
 	float tgsval = TexGradSlider->getCurrentValue();
 	CEGUI::Slider* TexAlphaSlider = static_cast<CEGUI::Slider*>(Texalphaslider);
 	float tasval = TexAlphaSlider->getCurrentValue();
+	CEGUI::ToggleButton* checkbox = static_cast<CEGUI::ToggleButton*>(RepeatCheckbox);
+	bool valueCheckbox = checkbox->isSelected();
+	CEGUI::ToggleButton* mcheckbox = static_cast<CEGUI::ToggleButton*>(MirrorCheckbox);
+	bool mvalueCheckbox = mcheckbox->isSelected();
+	float checkval = 0.0f;
+	if (valueCheckbox){checkval = 1.0f;}
+	float mcheckval = 0.0f;
+	if (mvalueCheckbox){mcheckval = 1.0f;}
 	ConfSets settings, settings2;
 	//map<string, float> settings;
 	ss5 << "Test update config" << "\n";
@@ -626,6 +645,8 @@ void FreqAmpOctEventReg::updateConfig(){
 	settings2["WorldSize"] = wsval;
 	settings2["TextureGradient"] = tgsval;
 	settings2["TextureAlpha"] = tasval;
+	settings2["Repeat"] = checkval;
+	settings2["Mirror"] = mcheckval;
 	ss5 << "Test update config" << "\n";
 	ss5 << "updated noise type: " << nameID-1 << "\n";
 	tlog->logMessage(ss5.str());
@@ -660,7 +681,7 @@ void FreqAmpOctEventReg::loadConfig(){
 	ConfSets settings = config[nameID];
 	//map<string, float> settings = config[nameID];
 	float fval, aval, oval, gval, sval, fdval, mval, wval, nval, dval, nbval, bval, shapeval, sharpval,
-	      tsval, normval, wsval, tgsval, tasval;
+	      tsval, normval, wsval, tgsval, tasval, checkval, mcheckval;
 	fval = settings["Frequency"];
 	aval = settings["Amplitude"];
 	oval = settings["Octaves"];
@@ -681,6 +702,8 @@ void FreqAmpOctEventReg::loadConfig(){
 	wsval = settings2["WorldSize"];
 	tgsval = settings2["TextureGradient"];
 	tasval = settings2["TextureAlpha"];
+	checkval = settings2["Repeat"];
+	mcheckval = settings2["Mirror"];
 	ss5 << "Test load config" << "\n";
 	tlog->logMessage(ss5.str());
 	CEGUI::Combobox* ncombobox = static_cast<CEGUI::Combobox*>(NoiseTypebox);
@@ -763,7 +786,13 @@ void FreqAmpOctEventReg::loadConfig(){
 	CEGUI::Slider* TexGradSlider = static_cast<CEGUI::Slider*>(Texgradslider);
 	TexGradSlider->setCurrentValue(tgsval);	
 	CEGUI::Slider* TexAlphaSlider = static_cast<CEGUI::Slider*>(Texalphaslider);
-	TexAlphaSlider->setCurrentValue(tasval);		
+	TexAlphaSlider->setCurrentValue(tasval);
+	CEGUI::ToggleButton* checkbox = static_cast<CEGUI::ToggleButton*>(RepeatCheckbox);
+	if ((int)checkval){checkbox->setSelected(true);}
+	else{checkbox->setSelected(false);}	
+	CEGUI::ToggleButton* mcheckbox = static_cast<CEGUI::ToggleButton*>(MirrorCheckbox);
+	if ((int)mcheckval){mcheckbox->setSelected(true);}
+	else{mcheckbox->setSelected(false);}	
 	//updateConfig();
 	//
         /*
@@ -1121,6 +1150,8 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 		ConfSets tc = miter3->second;	
 		//map<string, float> tc = miter3->second;
 		if (tc["Freqdiv"] == 0){tc["Freqdiv"] = 1.0f;}
+		bool repeat = false;
+		if (config[3]["Repeat"] == 1.0f){repeat = true;}
 		if ((int)tc["NoiseType"] == 0){
 			//float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain = .5f, int imagemap = (int)3.0f
 			//PerlinTest* test = new PerlinTest(513.0f, tc["Scale"], 2.0f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], tc["Octaves"], int(3.0f));
@@ -1128,7 +1159,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			//(*tnoisevalsm)[i] = test->getNoisevaluesT();
 			//double size, double scale, double frequency, double amplitude, double octaves, double gain
 			(*vnoisevalsm)[i] = pfbmbuild (513.0f, tc["Scale"], 1.0f, tc["Frequency"]/tc["Freqdiv"], tc["Amplitude"], tc["Octaves"],
-                                                       tc["Gain"]);
+                                                       tc["Gain"], repeat);
 			//(*vnoisevalsm)[i] = pfbmbuild (513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"]);			
 			ss5 << "Hitting update button!!!!!!!" << "\n";
 			tlog->logMessage(ss5.str());
@@ -1147,7 +1178,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			//tnoisevals[i] = test->getHeightMapradial(tc["Scale"]);//->getSimpleHeightMap();
 			//(*tnoisevalsm)[i] = testm->getHeightMapradial();
 			//(*vnoisevalsm)[i] = testm->getHeightMapradial2();
-			(*vnoisevalsm)[i] =  BLI_gNoisebuild(513.0f, tc["Scale"], 1.0f,tc["Sharp"], tc["NoiseBasis"]);
+			(*vnoisevalsm)[i] =  BLI_gNoisebuild(513.0f, tc["Scale"], 1.0f,tc["Sharp"], tc["NoiseBasis"], repeat);
 		}
 		else if ((int)tc["NoiseType"]==2){
 			ss5 << "Simplex" << "\n";
@@ -1198,7 +1229,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			//(*vnoisevalsm)[i] = multiFractalbuild (513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
 			//	tc["Gain"]);
                         (*vnoisevalsm)[i] = mg_MultiFractalbuild(513.0f, tc["Scale"], 1.0f,tc["Depth"], tc["Frequency"], tc["Octaves"],
-								 tc["NoiseBasis"]);
+								 tc["NoiseBasis"], repeat);
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
 		else if ((int)tc["NoiseType"]==6){
@@ -1211,7 +1242,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			//(*vnoisevalsm)[i] = Heterobuild(513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
 			//	tc["Gain"]);
                         (*vnoisevalsm)[i] = mg_HeteroTerrainbuild(513.0f, tc["Scale"], 1.0f,tc["Depth"], tc["Frequency"], 
-						tc["Octaves"], tc["Amplitude"], tc["NoiseBasis"]);
+						tc["Octaves"], tc["Amplitude"], tc["NoiseBasis"], repeat);
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
 		else if ((int)tc["NoiseType"]==7){
@@ -1225,7 +1256,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			//	tc["Gain"]);
 			//terr::CPointsMap mg_HybridMultiFractalbuild(double size, double scale, float H, float lacunarity, float octaves, float offset, float gain, int noisebasis)
 			(*vnoisevalsm)[i] = mg_HybridMultiFractalbuild(513.0f,tc["Scale"], 1.0f,tc["Depth"], tc["Frequency"], 
-						tc["Octaves"], tc["Amplitude"], tc["Gain"], tc["NoiseBasis"]); 
+						tc["Octaves"], tc["Amplitude"], tc["Gain"], tc["NoiseBasis"], repeat); 
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
 		else if ((int)tc["NoiseType"]==8){
@@ -1238,7 +1269,7 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 			//(*vnoisevalsm)[i] = RidgedMultifractalbuild(513.0f, tc["Scale"], tc["Depth"], tc["Frequency"], tc["Octaves"],
 			//	tc["Gain"], tc["Gain"]*2);
 			(*vnoisevalsm)[i] =  mg_RidgedMultiFractalbuild(513.0f,tc["Scale"], 1.0f, tc["Depth"], tc["Frequency"], 
-						tc["Octaves"], tc["Amplitude"], tc["Gain"], tc["NoiseBasis"]); 
+						tc["Octaves"], tc["Amplitude"], tc["Gain"], tc["NoiseBasis"], repeat); 
 			//(*vnoisevalsm)[i] = testm->getHeightMap2();
 		}
 		else if ((int)tc["NoiseType"]==9){
@@ -1270,7 +1301,9 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	Combiner* cmb = new Combiner(nameid);
 	//vector<vector<vector<double> > > heightmapvalues = cmb -> Combine(tnoisevals, weights);
 	//terr::T3dCPointsMap * heightmapvaluesm = cmb->Combine(tnoisevalsm,weights);
-	terr::CPointsMap * cheightmapvaluesm = cmb->Combine(vnoisevalsm,weights);
+	bool mrepeat = false;
+	if (config[3]["Mirror"]==1.0f){mrepeat = true;}
+	terr::CPointsMap * cheightmapvaluesm = cmb->Combine(vnoisevalsm,weights,mrepeat);
 //	PerlinTest* test = new PerlinTest(513.0f,sval, 2.0f, fval,aval,gval, int(3.0f)); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
 //	vector<vector<vector<double> > > heightmapvalues = test->getNoisevalues();
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvalues);
