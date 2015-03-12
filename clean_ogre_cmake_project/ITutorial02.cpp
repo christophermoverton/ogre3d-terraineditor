@@ -80,7 +80,8 @@ void ITutorial02::defineTerrain(long x, long y)
     else
     {
         Ogre::Image img;
-        getTerrainImage(x % 2 != 0, y % 2 != 0, img);
+        //getTerrainImage(x % 2 != 0, y % 2 != 0, img);
+	getTerrainImage(false, false, img);
         mTerrainGroup->defineTerrain(x, y, &img);
 	//mTerrainGroup->defineTerrain(x, y, 0.0f);
         mTerrainsImported = true;
@@ -330,8 +331,8 @@ void ITutorial02::createScene(void)
     TerrainTexturesNode::Instance()->setTextureNode(*texdat);  //Application non ogre singleton class...use to register terrain textures..
     configureTerrainDefaults(light);
  
-    for (long x = 0; x <= 0; ++x)
-        for (long y = 0; y <= 0; ++y)
+    for (long x = 0; x <= 2; ++x)
+        for (long y = 0; y <= 2; ++y)
             defineTerrain(x, y);
  
     // sync load since we want everything in place when we start
@@ -398,7 +399,7 @@ void ITutorial02::createScene(void)
     //Ogre::Vector3 trheight = planeint->getHeight();
     std::ostringstream ss5;
     Ogre::Terrain* cterrain = mTerrainGroup->getTerrain(0,0);
-    FreqAmpOctEventReg* reg =  new FreqAmpOctEventReg(cterrain, mCamera,  mMiniScreen); //registering event handlers
+    FreqAmpOctEventReg* reg =  new FreqAmpOctEventReg(mTerrainGroup, mCamera,  mMiniScreen); //registering event handlers
     FluidErosionDReg *  reg2 = new FluidErosionDReg(cterrain, mCamera,  mMiniScreen); //registering event handlers
     ss5<<"Terrain Size: "<< cterrain->getSize()<<"\n";
     ss5<<"Maximum Height: "<< cterrain->getMaxHeight()<<"\n";

@@ -18,12 +18,13 @@ class LoadHeightMap{
 		LoadHeightMap(Ogre::Terrain* mterrain, Ogre::String filename, float maxheightscale);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vector<vector<vector<double> > > heightmapvalues);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::T3dCPointsMap * heightmapvalues);
-		LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniScreen, 
+		LoadHeightMap(Ogre::TerrainGroup* terraingroup, Ogre::Rectangle2D* mMiniScreen, 
 			      float maxheightscale, terr::CPointsMap * heightmapvalues, double waterheight, 
 			      double mountainheight, double texscale, bool modheight, TerrainTexturesSettings texsets);//std::string TextureName, double texsize, double normal);
 		LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr::T3dCPointsMap * heightmapvalues, float terrsize);
 	private:
 		void updateBlendMap(double alpha, int layerid);
+		Ogre::TerrainGroup* cTerrainGroup;
 		Ogre::Terrain * cmterrain;
 	
 };
@@ -134,11 +135,12 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, vect
 	mterrain->update();
 }
 
-LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniScreen, 
+LoadHeightMap::LoadHeightMap(Ogre::TerrainGroup* terraingroup, Ogre::Rectangle2D* mMiniScreen, 
 			     float maxheightscale, terr::CPointsMap * heightmapvalues, double waterheight, 
 			     double mountainheight,double texscale, bool modheight, TerrainTexturesSettings texsets) {//std::string TextureName ,double texsize = 513.0f, double normal = 1.0f){
         //assumed heightmap values are normalized between [0,1]  will renormalize to [-1,1] and then scale
-        cmterrain = mterrain;   
+        //cmterrain = mterrain;
+	cTerrainGroup = terraingroup; 
     	std::string TextureName = texsets.name;
 	double texsize = texsets.size;
 	double normal = texsets.normal;
@@ -152,13 +154,26 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	double size = 513.0f;
 	ImageBuffer buffer(size);
     	FillColour* fill = new FillColour (&buffer);
-	mterrain->dirty();
 	if (modheight){
+        	Ogre::TerrainGroup::TerrainIterator ti = cTerrainGroup->getTerrainIterator();
+        	while(ti.hasMoreElements())
+        	{
+            		Ogre::Terrain* t = ti.getNext()->instance;
+			t->dirty();
+			for (int i = 0; i < size; i++){
+				for(int j = 0; j < size; j++){
+					terr::Coordpair * hcoord = new terr::Coordpair((double)i, (double)j);
+					double posheight = 2*((*heightmapvalues)[(*hcoord)]-.5f)*maxheightscale;
+					t->setHeightAtPoint((long) hcoord->first, (long) hcoord->second, posheight);
+
+				}
+			}
+			t->dirtyLightmap();
+			t->update();
+		}
 		for (int i = 0; i < size; i++){
-			for(int j = 0; j < size; j++){
+			for (int j = 0; j < size; j++){
 				terr::Coordpair * hcoord = new terr::Coordpair((double)i, (double)j);
-				double posheight = 2*((*heightmapvalues)[(*hcoord)]-.5f)*maxheightscale;
-				mterrain->setHeightAtPoint((long) hcoord->first, (long) hcoord->second, posheight);
 				Ogre::ColourValue col = Ogre::ColourValue((*heightmapvalues)[(*hcoord)],(*heightmapvalues)[(*hcoord)],
 									  (*heightmapvalues)[(*hcoord)]);
 				fill->setPixl((size_t) hcoord->first, (size_t) hcoord->second, col);
@@ -178,13 +193,15 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	
 	//bump(size, 30.0f*513.0f, heightmapvalues);
 	if (modheight){
+		Ogre::TerrainGroup::TerrainIterator ti = cterraingroup->getTerrainIterator();
+		Ogre::Terrain* t = ti.getNext()->instance;
 		buffer.saveImage("../media/materials/textures/test6.png");
-		bump(1.0f*size, 1.0f, mterrain, &texsets);//TextureName);  //originally 3*
-		double max = mterrain->getMaxHeight();
-		double min = mterrain->getMinHeight();
+		bump(1.0f*size, 1.0f, t, &texsets);//TextureName);  //originally 3*
+		double max = t->getMaxHeight();
+		double min = t->getMinHeight();
 	//void colorizeterrainmap(double size, double min, double max, Ogre::Terrain* terrain, double waterheight, double mountainheight);
 	//colorizeterrainmap(513.0f, texscale,0.0f, 1.0f, heightmapvalues, waterheight, mountainheight);
-		colorizeterrainmap(1.0f*513.0f, min,  max, mterrain, waterheight, mountainheight, &texsets); //originally 6*
+		colorizeterrainmap(1.0f*513.0f, min,  max, t, waterheight, mountainheight, &texsets); //originally 6*
 		
 		
 	}
@@ -280,12 +297,17 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, Ogre::Rectangle2D* mMiniSc
 	//texnames->push_back(Ogre::String("grass_green-01_normalheight.dds"));
 	//mterrain->replaceLayer(0,true,12000, texnames);//,texnames);
 	
-	mterrain->dirtyLightmap();
-	mterrain->update();
 	delete &imageOgre2;
 	delete &imageOgre3;
 	if (!modheight){updateBlendMap(alpha, layerid);}
-	if (!modheight){mterrain->setLayerWorldSize(layerid,worldsize);}
+	if (!modheight){
+    		Ogre::TerrainGroup::TerrainIterator ti = cTerrainGroup->getTerrainIterator();
+    		while(ti.hasMoreElements())
+    		{
+			Ogre::Terrain* t = ti.getNext()->instance;
+			t->setLayerWorldSize(layerid,worldsize);
+		}
+	}
 	//pResource->reload();
         /*
 	Ogre::MaterialManager::getSingleton().remove("RttMat");
@@ -351,22 +373,27 @@ LoadHeightMap::LoadHeightMap(Ogre::Terrain* mterrain, float maxheightscale, terr
 }
 
 void LoadHeightMap::updateBlendMap(double alpha, int layerid){
-    Ogre::TerrainLayerBlendMap* blendMap0 = cmterrain->getLayerBlendMap(layerid);
-    float* pBlend0 = blendMap0->getBlendPointer();
-    for (Ogre::uint16 y = 0; y < cmterrain->getLayerBlendMapSize(); ++y)
+    Ogre::TerrainGroup::TerrainIterator ti = cTerrainGroup->getTerrainIterator();
+    while(ti.hasMoreElements())
     {
-        for (Ogre::uint16 x = 0; x < cmterrain->getLayerBlendMapSize(); ++x)
-        {
-            Ogre::Real tx, ty;
+	Ogre::Terrain* t = ti.getNext()->instance;
+    	Ogre::TerrainLayerBlendMap* blendMap0 = t->getLayerBlendMap(layerid);
+    	float* pBlend0 = blendMap0->getBlendPointer();
+    	for (Ogre::uint16 y = 0; y < t->getLayerBlendMapSize(); ++y)
+    	{
+        	for (Ogre::uint16 x = 0; x < t->getLayerBlendMapSize(); ++x)
+        	{
+        	    Ogre::Real tx, ty;
  
-            blendMap0->convertImageToTerrainSpace(x, y, &tx, &ty);
-            Ogre::Real height = cmterrain->getHeightAtTerrainPosition(tx, ty);
-            //Ogre::Real val = (height - minHeight0) / fadeDist0;
-            //val = Ogre::Math::Clamp(val, (Ogre::Real)0, (Ogre::Real)1);
-            *pBlend0++ = alpha; //val;
-        }
+            	    blendMap0->convertImageToTerrainSpace(x, y, &tx, &ty);
+            	    Ogre::Real height = t->getHeightAtTerrainPosition(tx, ty);
+            	    //Ogre::Real val = (height - minHeight0) / fadeDist0;
+            	    //val = Ogre::Math::Clamp(val, (Ogre::Real)0, (Ogre::Real)1);
+            	    *pBlend0++ = alpha; //val;
+        	}
+    	}
+    	blendMap0->dirty();
+    	blendMap0->update();
     }
-    blendMap0->dirty();
-    blendMap0->update();
 }
 #endif

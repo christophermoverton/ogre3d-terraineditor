@@ -36,7 +36,7 @@ using namespace std;
 //The following are interchangable configurations...Depth/H, Frequency/Lacunarity
 class FreqAmpOctEventReg{
 	public:
-		FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera, Ogre::Rectangle2D* mMiniScreen);
+		FreqAmpOctEventReg(Ogre::TerrainGroup* terraingroup, Ogre::Camera* Camera, Ogre::Rectangle2D* mMiniScreen);
 		void updateF(const CEGUI::EventArgs &e);  //Frequency
 		void updateFE(const CEGUI::EventArgs &e);  //Frequency Editbox
 		void updateA(const CEGUI::EventArgs &e);   //Amplitude
@@ -138,7 +138,7 @@ class FreqAmpOctEventReg{
 		Ogre::Terrain* cterrain;
 		Ogre::Camera* mCamera;
 		Ogre::Rectangle2D* cmMiniScreen;
-		Ogre::TerrainGroup* cmTerrainGroup;
+		Ogre::TerrainGroup* cTerrainGroup;
 		map<int,CEGUI::String> csel;
 		Configs config; 
 		//map<int,map<string, float> > config; 
@@ -150,10 +150,11 @@ class FreqAmpOctEventReg{
 		std::string TextureSelection;
 };
 
-FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Camera, Ogre::Rectangle2D* mMiniScreen){
+FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::TerrainGroup* terraingroup, Ogre::Camera* Camera, Ogre::Rectangle2D* mMiniScreen){
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("ScaleHeight.log");
 	Ogre::Log* slog = Ogre::LogManager::getSingleton().createLog("Voronoi.log");
-	cterrain = terrain;
+	cTerrainGroup = terraingroup;
+	//cterrain = terrain;
 	mCamera = Camera;
 	cmMiniScreen = mMiniScreen;
 	Textureeditboxmaps = new EditboxMap(); 
@@ -232,8 +233,8 @@ FreqAmpOctEventReg::FreqAmpOctEventReg(Ogre::Terrain* terrain, Ogre::Camera* Cam
 //	ss5 << "Terrain2";
 //	listboxitem2 = new CEGUI::ListboxItem(ss5.str(),1);
 	std::ostringstream ss5;
-	Ogre::TexturePtr texture1 = cterrain->getLayerBlendTexture(cterrain->getLayerBlendTextureIndex(1).first);
-	ss5<< texture1->getName();
+	//Ogre::TexturePtr texture1 = cterrain->getLayerBlendTexture(cterrain->getLayerBlendTextureIndex(1).first);
+	//ss5<< texture1->getName();
 	//TextureItemEditbox1->setText(ss5.str());
 	//textureData * a = new textureData();
 	//std::string textureName = "maTexture";  textureData & textureoutData = *a;	
@@ -1321,9 +1322,9 @@ void FreqAmpOctEventReg::updateB(const CEGUI::EventArgs &e){
 	texsets->name = TextureSelection;
 	if (TextureSelection == "Terrain"){texsets->layerid = 1;}
 	else{texsets->layerid = 2;}
-	if (TextureSelection == "Terrain"){new LoadHeightMap(cterrain, cmMiniScreen,513.0f*1.0f, cheightmapvaluesm, 
+	if (TextureSelection == "Terrain"){new LoadHeightMap(cTerrainGroup, cmMiniScreen,513.0f*1.0f, cheightmapvaluesm, 
 					 		     whval, mhval,2.0f, true, *texsets);}
-	else{new LoadHeightMap(cterrain, cmMiniScreen,513.0f*1.0f, cheightmapvaluesm, whval, mhval,2.0f, false, *texsets);}
+	else{new LoadHeightMap(cTerrainGroup, cmMiniScreen,513.0f*1.0f, cheightmapvaluesm, whval, mhval,2.0f, false, *texsets);}
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, heightmapvaluesm, 513.0f);
 	//new LoadHeightMap(cterrain, 513.0f*1.0f, (*tnoisevalsm)[0]);
 }
@@ -1348,7 +1349,7 @@ void FreqAmpOctEventReg::updateBB(const CEGUI::EventArgs &e){
 	texsets->name = TextureSelection;
 	texsets->layerid = 1;
 	if (val > 513.0f) {
-		new ScaleHeights(cterrain, cmMiniScreen,mCamera, val, whval, mhval,*texsets);
+		new ScaleHeights(cTerrainGroup, cmMiniScreen,mCamera, val, whval, mhval,*texsets);
 	}
 }
 
@@ -1372,7 +1373,7 @@ void FreqAmpOctEventReg::updateBBB(const CEGUI::EventArgs &e){
 	//ss5<<val;
 	//mlabel->setText(ss5.str());
 	//if (val > 513.0f) {
-		new TranslateHeights(cterrain, cmMiniScreen,mCamera, val-6000.0f, whval, mhval,*texsets);
+		new TranslateHeights(cTerrainGroup, cmMiniScreen,mCamera, val-6000.0f, whval, mhval,*texsets);
 	//}
 }
 
@@ -1385,36 +1386,41 @@ void FreqAmpOctEventReg::updateTBTTN(const CEGUI::EventArgs &e){
 	CEGUI::Slider* MHSlider = static_cast<CEGUI::Slider*>(MountainHslider);
 	float mhval = MHSlider->getCurrentValue();
 	if (TextureSelection != "Terrain"){
-		cterrain->dirty();
-		config = texconfigs[TextureSelection];
+    		Ogre::TerrainGroup::TerrainIterator ti = cTerrainGroup->getTerrainIterator();
+    		while(ti.hasMoreElements())
+    		{
+			Ogre::Terrain* t = ti.getNext()->instance;
+			t->dirty();
+			config = texconfigs[TextureSelection];
 		//TerrainTexturesSettings * texsets = new TerrainTexturesSettings();
 		//texsets->size = config[3]["TextureSize"];
 		//texsets->normal = config[3]["Normal"];
-		double worldsize = config[3]["WorldSize"];
+			double worldsize = config[3]["WorldSize"];
 		//texsets->texgradscale = config[3]["TextureGradient"];
-		double alpha = config[3]["TextureAlpha"];
-		int layerid = 2;
+			double alpha = config[3]["TextureAlpha"];
+			int layerid = 2;
 		//texsets->name = TextureSelection;
 		//texsets->layerid = 2;
-    		Ogre::TerrainLayerBlendMap* blendMap0 = cterrain->getLayerBlendMap(layerid);
-    		float* pBlend0 = blendMap0->getBlendPointer();
-    		for (Ogre::uint16 y = 0; y < cterrain->getLayerBlendMapSize(); ++y)
-    		{
-        		for (Ogre::uint16 x = 0; x < cterrain->getLayerBlendMapSize(); ++x)
-        		{
-            			Ogre::Real tx, ty;
+    			Ogre::TerrainLayerBlendMap* blendMap0 = t->getLayerBlendMap(layerid);
+    			float* pBlend0 = blendMap0->getBlendPointer();
+    			for (Ogre::uint16 y = 0; y < t->getLayerBlendMapSize(); ++y)
+    			{
+        			for (Ogre::uint16 x = 0; x < t->getLayerBlendMapSize(); ++x)
+        			{
+            				Ogre::Real tx, ty;
  
- 		        	blendMap0->convertImageToTerrainSpace(x, y, &tx, &ty);
-            			Ogre::Real height = cterrain->getHeightAtTerrainPosition(tx, ty);
+ 		        		blendMap0->convertImageToTerrainSpace(x, y, &tx, &ty);
+            				Ogre::Real height = t->getHeightAtTerrainPosition(tx, ty);
             			//Ogre::Real val = (height - minHeight0) / fadeDist0;
             			//val = Ogre::Math::Clamp(val, (Ogre::Real)0, (Ogre::Real)1);
-            			*pBlend0++ = alpha; //val;
-        		}
-    		}
-    		blendMap0->dirty();
-    		blendMap0->update();
-		cterrain->setLayerWorldSize(layerid,worldsize);
-		cterrain->update();
+            				*pBlend0++ = alpha; //val;
+        			}
+    			}
+    			blendMap0->dirty();
+    			blendMap0->update();
+			t->setLayerWorldSize(layerid,worldsize);
+			t->update();
+		}
 	}
 }
 
