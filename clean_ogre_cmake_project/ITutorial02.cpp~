@@ -23,6 +23,7 @@ This source file is part of the
 #include <cmath>
 //#include "TextRenderer.cpp"
 #include "Terrainheightselection.cpp"
+#include "TerrainFluidSimulation.cpp"
 #include "cspline.cpp"
 #include "Falloffinterpolate.cpp"
 #include "PlaneIntersection.cpp"
@@ -30,6 +31,13 @@ This source file is part of the
 #include "PerlinTest.cpp"
 #include "LoadHeightMap.cpp"
 #include "FreqAmpOctEventReg.cpp"
+#include "FluidErosionDReg.cpp"
+#include "BuildVoronoi.cpp"
+#include "BuildSimplex.cpp"
+#include "BuildFbm.cpp"
+#include "DiamondSquare.cpp"
+#include "TerrainTexturesNode.cpp"
+#include <vector>
  
 //-------------------------------------------------------------------------------------
 ITutorial02::ITutorial02(void)
@@ -55,7 +63,7 @@ void ITutorial02::destroyScene(void)
 }
 void getTerrainImage(bool flipX, bool flipY, Ogre::Image& img)
 {
-    img.load("terrain.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    img.load("test6.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
     if (flipX)
         img.flipAroundY();
     if (flipY)
@@ -73,43 +81,75 @@ void ITutorial02::defineTerrain(long x, long y)
     else
     {
         Ogre::Image img;
-        getTerrainImage(x % 2 != 0, y % 2 != 0, img);
+        //getTerrainImage(x % 2 != 0, y % 2 != 0, img);
+	getTerrainImage(false, false, img);
         mTerrainGroup->defineTerrain(x, y, &img);
+	//mTerrainGroup->defineTerrain(x, y, 0.0f);
         mTerrainsImported = true;
     } 
 }
 //-------------------------------------------------------------------------------------
-void ITutorial02::initBlendMaps(Ogre::Terrain* terrain)
+void ITutorial02::initBlendMaps(Ogre::Terrain* terrain, int wterrid)
 {
     Ogre::TerrainLayerBlendMap* blendMap0 = terrain->getLayerBlendMap(1);
-    Ogre::TerrainLayerBlendMap* blendMap1 = terrain->getLayerBlendMap(2);
+    Ogre::TerrainLayerBlendMap* blendMap1 = terrain->getLayerBlendMap(5);
+    Ogre::TerrainLayerBlendMap* blendMap2 = terrain->getLayerBlendMap(2);
+    Ogre::TerrainLayerBlendMap* blendMap3 = terrain->getLayerBlendMap(3);
+    Ogre::TerrainLayerBlendMap* blendMap4 = terrain->getLayerBlendMap(4);
     Ogre::Real minHeight0 = 70;
     Ogre::Real fadeDist0 = 40;
     Ogre::Real minHeight1 = 70;
     Ogre::Real fadeDist1 = 15;
     float* pBlend0 = blendMap0->getBlendPointer();
     float* pBlend1 = blendMap1->getBlendPointer();
+    float* pBlend2 = blendMap2->getBlendPointer();
+    float* pBlend3 = blendMap3->getBlendPointer();
+    float* pBlend4 = blendMap4->getBlendPointer();
+    float val1 = 0.0f;  float val2 = 1.0f;
+    std::vector<float> val(4);
+    if (wterrid == 0){
+	val[0] = 1.0f; val[1] = 0.0f; val[2] = 0.0f; val[3] = 0.0f;
+    }
+    else if (wterrid == 1){
+	val[0] = 0.0f; val[1] = 1.0f; val[2] = 0.0f; val[3] = 0.0f;
+    }
+    else if (wterrid == 2){
+	val[0] = 0.0f; val[1] = 0.0f; val[2] = 0.0f; val[3] = 1.0f;
+    }
+    else {
+	val[0] = 0.0f; val[1] = 0.0f; val[2] = 1.0f; val[3] = 0.0f;
+    }
     for (Ogre::uint16 y = 0; y < terrain->getLayerBlendMapSize(); ++y)
     {
         for (Ogre::uint16 x = 0; x < terrain->getLayerBlendMapSize(); ++x)
         {
-            Ogre::Real tx, ty;
+            //Ogre::Real tx, ty;
  
-            blendMap0->convertImageToTerrainSpace(x, y, &tx, &ty);
-            Ogre::Real height = terrain->getHeightAtTerrainPosition(tx, ty);
-            Ogre::Real val = (height - minHeight0) / fadeDist0;
-            val = Ogre::Math::Clamp(val, (Ogre::Real)0, (Ogre::Real)1);
-            *pBlend0++ = val;
- 
-            val = (height - minHeight1) / fadeDist1;
-            val = Ogre::Math::Clamp(val, (Ogre::Real)0, (Ogre::Real)1);
-            *pBlend1++ = val;
+            //blendMap0->convertImageToTerrainSpace(x, y, &tx, &ty);
+            //Ogre::Real height = terrain->getHeightAtTerrainPosition(tx, ty);
+            //Ogre::Real val = (height - minHeight0) / fadeDist0;
+            //val = Ogre::Math::Clamp(val, (Ogre::Real)0, (Ogre::Real)1);
+            *pBlend0++ = val[0]; //val;
+ 	    ///*
+            //val = (height - minHeight1) / fadeDist1;
+            //val = Ogre::Math::Clamp(val, (Ogre::Real)0, (Ogre::Real)1);
+            *pBlend1++ = .2f; //val;
+	    *pBlend2++ = val[1]; 
+	    *pBlend3++ = val[2]; 
+	    *pBlend4++ = val[3];
+	    // */
         }
     }
     blendMap0->dirty();
     blendMap1->dirty();
+    blendMap2->dirty();
+    blendMap3->dirty();
+    blendMap4->dirty(); 
     blendMap0->update();
-    blendMap1->update(); 
+    blendMap1->update();
+    blendMap2->update();
+    blendMap3->update();
+    blendMap4->update();  
 }
 //-------------------------------------------------------------------------------------
 void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
@@ -132,16 +172,164 @@ void ITutorial02::configureTerrainDefaults(Ogre::Light* light)
     defaultimp.minBatchSize = 33;
     defaultimp.maxBatchSize = 65;
     // textures
-    defaultimp.layerList.resize(3);
-    defaultimp.layerList[0].worldSize = 100;
-    defaultimp.layerList[0].textureNames.push_back("dirt_grayrocky_diffusespecular.dds");
-    defaultimp.layerList[0].textureNames.push_back("dirt_grayrocky_normalheight.dds");
-    defaultimp.layerList[1].worldSize = 30;
-    defaultimp.layerList[1].textureNames.push_back("grass_green-01_diffusespecular.dds");
-    defaultimp.layerList[1].textureNames.push_back("grass_green-01_normalheight.dds");
-    defaultimp.layerList[2].worldSize = 200;
-    defaultimp.layerList[2].textureNames.push_back("growth_weirdfungus-03_diffusespecular.dds");
-    defaultimp.layerList[2].textureNames.push_back("growth_weirdfungus-03_normalheight.dds"); 
+    Ogre::Image imageOgre4;
+    imageOgre4.load("test10.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    Ogre::Image imageOgre;
+    imageOgre.load("test9.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    Ogre::Image imageOgre2;
+    imageOgre2.load("marblediffuse.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    Ogre::TexturePtr pResource3 = Ogre::TextureManager::getSingleton().getByName("Terrain");
+    Ogre::TexturePtr m_texture;
+    Ogre::TexturePtr m_texture2;
+    Ogre::TexturePtr m_texture3;
+    Ogre::TexturePtr m_texture4;
+    Ogre::TexturePtr m_texture5;
+    Ogre::TexturePtr m_texture6;
+    Ogre::TexturePtr m_texture7;
+    Ogre::TexturePtr m_texture8;
+    Ogre::TexturePtr m_texture9;
+    Ogre::Image imageOgre3;
+    imageOgre3.load("marblenormal.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+                // Texture creation 1
+    m_texture = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "TerrainNormal",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture2 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "Texture",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture3 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "TextureNormal",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture4 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "Terrain2",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture5 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "Terrain2Normal",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture6 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "Terrain3",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture7 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "Terrain3Normal",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture8 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "Terrain4",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture9 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "Terrain4Normal",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    std::string matexfn("marblediffuse.png"); std::string nmatexfn("marblenormal.png");
+    std::string ntexname("TextureNormal"); int ntexid = 2;
+    textureData *texdat = new textureData(std::string("Texture"),3,1,0,&matexfn, &ntexname, &ntexid, 0, &nmatexfn);  //found in TerrainTexturesNode.cpp
+    TerrainTexturesNode::Instance()->setTextureNode(*texdat); 
+    m_texture->loadImage(imageOgre);
+    m_texture2->loadImage(imageOgre2);
+    delete &imageOgre2;
+    m_texture3->loadImage(imageOgre3);
+    delete &imageOgre3;
+    ///*
+    m_texture5->loadImage(imageOgre);
+    m_texture7->loadImage(imageOgre);
+    m_texture9->loadImage(imageOgre);
+    m_texture4->loadImage(imageOgre4);
+    m_texture6->loadImage(imageOgre4);
+    m_texture8->loadImage(imageOgre4);
+    //*/
+    /*
+    m_texture5->copyToTexture(m_texture);
+    m_texture7->copyToTexture(m_texture);
+    m_texture9->copyToTexture(m_texture);
+    m_texture4->copyToTexture(pResource3);
+    m_texture6->copyToTexture(pResource3);
+    m_texture8->copyToTexture(pResource3);
+    //*/
+    delete &imageOgre;
+    delete &imageOgre4;
+    defaultimp.layerList.resize(6);
+    defaultimp.layerList[0].worldSize = 12000;//100;
+    defaultimp.layerList[0].textureNames.push_back("maTexture");//"dirt_grayrocky_diffusespecular.dds");
+    //defaultimp.layerList[0].textureNames.push_back("maTexture2");
+    
+    defaultimp.layerList[1].worldSize = 12000;
+    defaultimp.layerList[1].textureNames.push_back("Terrain");//grass_green-01_diffusespecular.dds");
+    defaultimp.layerList[1].textureNames.push_back("TerrainNormal");
+    ///*
+    defaultimp.layerList[5].worldSize = 200;//200;
+    defaultimp.layerList[5].textureNames.push_back("Texture");//growth_weirdfungus-03_diffusespecular.dds");
+    defaultimp.layerList[5].textureNames.push_back("TextureNormal");
+
+    defaultimp.layerList[2].worldSize = 12000;
+    defaultimp.layerList[2].textureNames.push_back("Terrain2");//grass_green-01_diffusespecular.dds");
+    defaultimp.layerList[2].textureNames.push_back("Terrain2Normal"); 
+
+    defaultimp.layerList[3].worldSize = 12000;
+    defaultimp.layerList[3].textureNames.push_back("Terrain3");//grass_green-01_diffusespecular.dds");
+    defaultimp.layerList[3].textureNames.push_back("Terrain3Normal");
+
+    defaultimp.layerList[4].worldSize = 12000;
+    defaultimp.layerList[4].textureNames.push_back("Terrain4");//grass_green-01_diffusespecular.dds");
+    defaultimp.layerList[4].textureNames.push_back("Terrain4Normal");
+    //*/
+
+      
+   Ogre::TerrainMaterialGeneratorA::SM2Profile* matProfile = 0;
+
+matProfile =  (Ogre::TerrainMaterialGeneratorA::SM2Profile *) mTerrainGlobals->getDefaultMaterialGenerator()->getActiveProfile();
+      if (matProfile)
+      {
+         matProfile->setGlobalColourMapEnabled(false);
+         matProfile->setLayerSpecularMappingEnabled(false);
+         matProfile->setLayerNormalMappingEnabled(true);
+         matProfile->setLayerParallaxMappingEnabled(false);
+	 matProfile->setReceiveDynamicShadowsEnabled (false); 
+	 matProfile->setReceiveDynamicShadowsDepth(true);
+         matProfile->setLightmapEnabled (false);		
+   }
 } 
 //-------------------------------------------------------------------------------------
 /*
@@ -180,20 +368,24 @@ void ITutorial02::createScene(void)
     //myImageWindow->setProperty("Image","TaharezLook/full_image");
     //myImageWindow->setText("Hello World!");
     //CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->addChild(myImageWindow);
-    CEGUI::Window *newWindow = CEGUI::WindowManager::getSingleton().loadLayoutFromFile("TreeDemoTaharez2.layout");
+    //CEGUI::Window *newWindow = CEGUI::WindowManager::getSingleton().loadLayoutFromFile("TreeDemoTaharez2.layout"); default keep
+    CEGUI::Window *newWindow = CEGUI::WindowManager::getSingleton().loadLayoutFromFile("TreeDemoTaharez25.layout");
+    CEGUI::Window *newWindow2 = CEGUI::WindowManager::getSingleton().loadLayoutFromFile("TreeDemoTaharez23.layout");
     CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->addChild(newWindow);
+    CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->addChild(newWindow2);
     newWindow ->setAlpha(.5);
-    cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
+    newWindow2 ->setAlpha(.5);
+    cMultiLineEditbox = newWindow ->getChild("ShowDataWindow")->getChild("MultiLineEditbox");
     cMultiLineEditbox ->setText("Hello World!");
-    CEGUI::Window *editbox = newWindow ->getChild("Editbox");
-    editbox ->setText("Hello World!");
+    //CEGUI::Window *editbox = newWindow ->getChild("Editbox");
+    //editbox ->setText("Hello World!");
     
     
 // Play with startup Texture Filtering options
 // Note: Pressing T on runtime will discarde those settings
 //  Ogre::MaterialManager::getSingleton().setDefaultTextureFiltering(Ogre::TFO_ANISOTROPIC);
 //  Ogre::MaterialManager::getSingleton().setDefaultAnisotropy(7);
- 
+    
     Ogre::Vector3 lightdir(0.55, -0.3, 0.75);
     lightdir.normalise();
  
@@ -207,14 +399,71 @@ void ITutorial02::createScene(void)
  
     mTerrainGlobals = OGRE_NEW Ogre::TerrainGlobalOptions();
  
-    mTerrainGroup = OGRE_NEW Ogre::TerrainGroup(mSceneMgr, Ogre::Terrain::ALIGN_X_Z, 513, 12000.0f);
+    mTerrainGroup = OGRE_NEW Ogre::TerrainGroup(mSceneMgr, Ogre::Terrain::ALIGN_X_Z, 513, 12000.0f); //513  12000.0f default
     mTerrainGroup->setFilenameConvention(Ogre::String("BasicTutorial3Terrain"), Ogre::String("dat"));
     mTerrainGroup->setOrigin(Ogre::Vector3::ZERO);
- 
+
+    Ogre::Image imageOgre;
+    Ogre::Image imageOgre2;
+    imageOgre.load("test10.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    imageOgre2.load("test10.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    imageOgre2.resize(149,149,Ogre::Image::FILTER_BICUBIC);
+    Ogre::TexturePtr m_texture;
+    Ogre::TexturePtr m_texture2;
+    Ogre::TexturePtr m_texture3;
+
+                // Texture creation 1
+    m_texture = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "maTexture",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture2 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "Terrain",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    m_texture3 = Ogre::TextureManager::getSingletonPtr()->createManual(
+                "Continent",
+                Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME,
+                Ogre::TEX_TYPE_2D,
+                imageOgre.getWidth(),
+                imageOgre.getHeight(),
+                0,
+                Ogre::PF_R8G8B8A8, Ogre::TU_DYNAMIC_WRITE_ONLY_DISCARDABLE);
+    Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+        renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+	m_texture->loadImage(imageOgre);
+	m_texture2->loadImage(imageOgre2);
+    Ogre::Image img;
+    img.load("test6.png", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+	m_texture3->loadImage(img);
+    delete &imageOgre;
+    delete &imageOgre2;
+    delete &img;
+        renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState("Terrain"); 
+    //using program based Terraintexture node system for tracking terrain textures...
+    //independent of Ogre resources and terrain associations.
+    std::string matexfn("test10.png"); std::string nmatexfn("test9.png");
+    std::string ntexname("TerrainNormal"); int ntexid = 2;
+    /*
+        textureData(std::string ntextureName, int ntextureID, int nlayerID,
+		std::string * nimageName, std::string * nnormaltextureName, 
+		int * nnormaltextureID, std::string * nnormalimageName) */
+    textureData *texdat = new textureData(std::string("Terrain"),1,1,0,&matexfn, &ntexname, &ntexid, 0, &nmatexfn);  //found in TerrainTexturesNode.cpp
+    TerrainTexturesNode::Instance()->setTextureNode(*texdat);  //Application non ogre singleton class...use to register terrain textures..
+    textureData *texdat2 = new textureData(std::string("Continent"),2,1,0,&matexfn, &ntexname, &ntexid, 0, &nmatexfn);  //found in TerrainTexturesNode.cpp
+    TerrainTexturesNode::Instance()->setTextureNode(*texdat2);  //Application non ogre singleton class...use to register terrain textures..
     configureTerrainDefaults(light);
  
-    for (long x = 0; x <= 0; ++x)
-        for (long y = 0; y <= 0; ++y)
+    for (long x = 0; x <= 2; ++x)
+        for (long y = 0; y <= 2; ++y)
             defineTerrain(x, y);
  
     // sync load since we want everything in place when we start
@@ -222,11 +471,24 @@ void ITutorial02::createScene(void)
  
     if (mTerrainsImported)
     {
-        Ogre::TerrainGroup::TerrainIterator ti = mTerrainGroup->getTerrainIterator();
-        while(ti.hasMoreElements())
-        {
-            Ogre::Terrain* t = ti.getNext()->instance;
-            initBlendMaps(t);
+        //Ogre::TerrainGroup::TerrainIterator ti = mTerrainGroup->getTerrainIterator();
+	int cnt = 0;
+//        while(ti.hasMoreElements())
+//        {
+	for (int g = 0; g<3; g++){
+	   for(int h = 0; h<3; h++){
+	     Ogre::Terrain* t = mTerrainGroup->getTerrain(g,h);
+             //Ogre::Terrain* t = ti.getNext()->instance;
+	     int bind;
+	     if ((cnt % 6) > 2){   //or 2*world row slot length
+		 bind = (cnt % 2)+2;
+	     }
+	     else{
+		 bind = (cnt) % 2;
+	     }
+             initBlendMaps(t,bind);
+	     cnt ++;
+	  }
         }
     }
  
@@ -242,6 +504,34 @@ void ITutorial02::createScene(void)
  
     //mSceneMgr->setSkyDome(true, "Examples/CloudySky", 5, 8, 500);
     mSceneMgr->setSkyPlane(true, plane, "Examples/CloudyNoonSkyBox", 500, 20, true, 0.5, 150, 150);
+
+    // adding miniscreen lower right corner
+    mMiniScreen = new Ogre::Rectangle2D(true);
+    mMiniScreen->setCorners(0.5f, -0.25f, 1.0f, -1.0f);
+    mMiniScreen->setBoundingBox(Ogre::AxisAlignedBox::BOX_INFINITE);
+
+    Ogre::SceneNode* miniScreenNode = mSceneMgr->getRootSceneNode()->createChildSceneNode("MiniScreenNode");
+    miniScreenNode->attachObject(mMiniScreen);
+    // done adding miniscreen
+
+    //add material to miniscreen
+/*
+    Ogre::MaterialPtr renderMaterial = Ogre::MaterialManager::getSingleton().create("RttMat", Ogre::ResourceGroupManager::DEFAULT_RESOURCE_GROUP_NAME);
+    renderMaterial->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+    Ogre::TextureUnitState* lTextureUnit = renderMaterial->getTechnique(0)->getPass(0)->createTextureUnitState();
+    lTextureUnit->setTextureName("test6.png", Ogre::TEX_TYPE_2D);
+    lTextureUnit->setTextureCoordSet(0);
+    mMiniScreen->setMaterial("RttMat");
+*/
+
+	
+
+        //lTextureUnit->setTextureName("test6.png", Ogre::TEX_TYPE_2D);
+        //lTextureUnit->setTextureCoordSet(0);
+        mMiniScreen->setMaterial("RttMat");
+    //lTextureUnit->addListener(this);
+    // finished material add
+
     Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("test.log");
     tlog->logMessage("blahblah");
     std::vector<double> twopoints(2);
@@ -253,14 +543,15 @@ void ITutorial02::createScene(void)
     //Ogre::Vector3 trheight = planeint->getHeight();
     std::ostringstream ss5;
     Ogre::Terrain* cterrain = mTerrainGroup->getTerrain(0,0);
-    FreqAmpOctEventReg* reg = new FreqAmpOctEventReg(cterrain, mCamera); //registering event handlers
+    FreqAmpOctEventReg* reg =  new FreqAmpOctEventReg(mTerrainGroup, mCamera,  mMiniScreen); //registering event handlers
+    FluidErosionDReg *  reg2 = new FluidErosionDReg(cterrain, mCamera,  mMiniScreen); //registering event handlers
     ss5<<"Terrain Size: "<< cterrain->getSize()<<"\n";
     ss5<<"Maximum Height: "<< cterrain->getMaxHeight()<<"\n";
     ss5<<"World Size: " << cterrain->getWorldSize()<<"\n";
     for (int i=0; i<250; i++ ){
 	for (int j=0; j<250; j++){
 	   ss5 << "Terrain position("<<i<<","<<j<<")"<<cterrain->getHeightAtPoint(i,j)<<"\n" ;
-	   cterrain->setHeightAtPoint(i,j,cterrain->getHeightAtPoint(i,j)+100);
+	   //cterrain->setHeightAtPoint(i,j,cterrain->getHeightAtPoint(i,j)+100);
 	}
     }
     ss5 <<"Get terrain position (30.5,30.5): "<<cterrain->getHeightAtPoint(30.5,30.5)<<"\n";
@@ -282,8 +573,13 @@ void ITutorial02::createScene(void)
     //ImageBuffer buffer(256);
     //FillColour (&buffer).setColour(Ogre::ColourValue(0.0f, 1.0f, 1.0f)).process();
     //buffer.saveImage("test1.png");
-    PerlinTest* test = new PerlinTest(513.0f,20.0f, 2.0f,0.001949318f, .90f, 7.0f, (int)3.0f); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
-    new LoadHeightMap(cterrain, Ogre::String("test2.png"), 3.0f);
+    //PerlinTest* test = new PerlinTest(1026.0f,20.0f, 2.0f,0.001949318f, .90f, 7.0f, (int)3.0f); //keep by default third arg 2.0f..don't tweak won't work for higher or lower vals
+    //new LoadHeightMap(cterrain, Ogre::String("test3.png"), 3.0f);
+    //new BuildVoronoi();
+    //new BuildSimplex();
+    //new BuildFbm();
+    //new DiamondSquare();
+    //new TerrainFluidSimulation(cterrain, mMiniScreen,false);//(cterrain);
     //CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
     //cMultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
 }
@@ -441,7 +737,7 @@ bool ITutorial02::mouseMoved(const OIS::MouseEvent &arg)
             //mouse ray origin has no clear corresponding points bounded over the terrain.
             float theight = mTerrainGroup->getHeightAtWorldPosition (ovec);
 	 CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
-         CEGUI::Window *MultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
+         CEGUI::Window *MultiLineEditbox = newWindow ->getChild("ShowDataWindow")->getChild("MultiLineEditbox");
          //MultiLineEditbox ->setText("Hello World!");
          
 	//MultiLineEditbox ->setText(ss.str());
@@ -568,16 +864,62 @@ CEGUI::MouseButton convertButton(OIS::MouseButtonID buttonID)
     }
 }
 
+CEGUI::Key::Scan convertKey(const OIS::KeyEvent& arg)
+{
+    switch (arg.key)
+    {
+    case OIS::KC_C:
+        return CEGUI::Key::C;
+ 
+    case OIS::KC_D:
+        return CEGUI::Key::D;
+ 
+    case OIS::KC_1:
+        return CEGUI::Key::One;
+    case OIS::KC_2:
+	return CEGUI::Key::Two;
+    case OIS::KC_3:
+        return CEGUI::Key::Three;
+    case OIS::KC_4:
+	return CEGUI::Key::Four;
+    case OIS::KC_5:
+        return CEGUI::Key::Five;
+    case OIS::KC_6:
+	return CEGUI::Key::Six;
+    case OIS::KC_7:
+        return CEGUI::Key::Seven;
+    case OIS::KC_8:
+	return CEGUI::Key::Eight; 
+    case OIS::KC_9:
+	return CEGUI::Key::Nine; 
+    case OIS::KC_0:
+	return CEGUI::Key::Zero; 
+    case OIS::KC_BACK:
+	return CEGUI::Key::Backspace; 
+    case OIS::KC_PERIOD:
+	return CEGUI::Key::Period; 
+    case OIS::KC_DECIMAL:
+	return CEGUI::Key::Decimal;
+    case OIS::KC_LEFT:
+	return CEGUI::Key::ArrowLeft; 
+    case OIS::KC_RIGHT:
+	return CEGUI::Key::ArrowRight;  
+    default:
+        return CEGUI::Key::Unknown;
+    }
+}
+
 bool ITutorial02::mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id)
 {
 // Left mouse button down
         if (id == OIS::MB_Left)
         {
 	CEGUI::System::getSingleton().getDefaultGUIContext().injectMouseButtonDown(convertButton(id));
-	CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
-	
+	//CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
+        CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("TerrainWindow");
+	CEGUI::Window *newWindow2 = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("FluidErosionWindow");
 	CEGUI::Vector2<float> mousePos = CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().getPosition();
-	if (newWindow->isHit(mousePos)){ 
+	if (newWindow->isHit(mousePos) or newWindow2->isHit(mousePos)){ 
 	return true;
 	}
 	//float posx = mousePos.d_x/float(arg.state.width);
@@ -605,7 +947,7 @@ bool ITutorial02::mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id
             //mouse ray origin has no clear corresponding points bounded over the terrain.
             float theight = mTerrainGroup->getHeightAtWorldPosition (ovec);
 //	 CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("DemoWindow");
-         CEGUI::Window *MultiLineEditbox = newWindow ->getChild("MultiLineEditbox");
+         CEGUI::Window *MultiLineEditbox = newWindow ->getChild("ShowDataWindow")->getChild("MultiLineEditbox");
          //MultiLineEditbox ->setText("Hello World!");
          
 	//MultiLineEditbox ->setText(ss.str());
@@ -709,6 +1051,8 @@ bool ITutorial02::mousePressed(const OIS::MouseEvent &arg, OIS::MouseButtonID id
 
 return true;
 }
+
+//need keyboard input injection virtual bool CEGUI::InjectedInputReceiver::injectKeyUp	(	Key::Scan 	scan_code	)	
 bool ITutorial02::mouseReleased(const OIS::MouseEvent &arg, OIS::MouseButtonID id)
 {
 // Left mouse button up
@@ -729,6 +1073,18 @@ return true;
 
 bool ITutorial02::keyPressed(const OIS::KeyEvent& arg)
 {
+	//CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyDown(convertKey(arg));
+	CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyDown((CEGUI::Key::Scan)arg.key);
+	CEGUI::System::getSingleton().getDefaultGUIContext().injectChar(arg.text);	
+        //first prevent key entry while the mouse is hovering over cegui window.
+        CEGUI::Window *newWindow = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("TerrainWindow");
+	CEGUI::Window *newWindow2 = CEGUI::System::getSingleton().getDefaultGUIContext().getRootWindow()->getChild("FluidErosionWindow");
+	CEGUI::Vector2<float> mousePos = CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().getPosition();
+        if (arg.key != OIS::KC_ESCAPE){
+		if (newWindow->isHit(mousePos) or newWindow2->isHit(mousePos)){ 
+		return true;
+		}
+        }
 	//check and see if the spacebar was hit, and this will switch which mesh is spawned
 	if(arg.key == OIS::KC_SPACE)
 	{

@@ -21,6 +21,7 @@ This source file is part of the
 #include <CEGUI/RendererModules/Ogre/Renderer.h>
 #include <Terrain/OgreTerrain.h>
 #include <Terrain/OgreTerrainGroup.h>
+#include <Terrain/OgreTerrainMaterialGeneratorA.h>
 #include "BaseApplication.h"
 #include <vector>
  
@@ -44,7 +45,7 @@ private:
     double falloffwidth;
  
     void defineTerrain(long x, long y);
-    void initBlendMaps(Ogre::Terrain* terrain);
+    void initBlendMaps(Ogre::Terrain* terrain, int wterrid);
     void configureTerrainDefaults(Ogre::Light* light);
 public:
     ITutorial02(void);
@@ -74,7 +75,7 @@ protected:
     CEGUI::OgreRenderer* mGUIRenderer;
     //CEGUI::Renderer *mGUIRenderer;		// CEGUI renderer
     float mRotateSpeed;		
- 
+    Ogre::Rectangle2D* mMiniScreen; 
  
 };
  

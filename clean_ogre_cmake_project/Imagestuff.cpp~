@@ -76,7 +76,7 @@ ImageBuffer::ImageBuffer(unsigned int width_height)
 }
 
 ImageBuffer::ImageBuffer(Ogre::uchar* Pixels, unsigned int width_height)
-   : mPixels(pixels), mWidth(width_height), mHeight(width_height)
+   : mPixels(Pixels), mWidth(width_height), mHeight(width_height)
 {
 /*
    mPixels = new Ogre::uchar[mWidth * mHeight * 4];
@@ -100,19 +100,19 @@ void ImageBuffer::setPixel(size_t x, size_t y, Ogre::ColourValue colour)
 }
 
 Ogre::ColourValue ImageBuffer::getPixel(size_t x, size_t y){
-   float red = (float) mPixels[y * mWidth * 4 + x * 4 + 3];  //= (Ogre::uchar)(red * 255.0f);
-   float green = (float) mPixels[y * mWidth * 4 + x * 4 + 2];// = (Ogre::uchar)(green * 255.0f);
-   float blue = (float) mPixels[y * mWidth * 4 + x * 4 + 1]; // = (Ogre::uchar)(blue * 255.0f);
-   float alpha = (float) mPixels[y * mWidth * 4 + x * 4 + 0];// = (Ogre::uchar)(alpha * 255.0f);
+   float red = (float) mPixels[y * mWidth * 4 + x * 4 + 0];  //= (Ogre::uchar)(red * 255.0f);
+   float green = (float) mPixels[y * mWidth * 4 + x * 4 + 1];// = (Ogre::uchar)(green * 255.0f);
+   float blue = (float) mPixels[y * mWidth * 4 + x * 4 + 2]; // = (Ogre::uchar)(blue * 255.0f);
+   float alpha = (float) mPixels[y * mWidth * 4 + x * 4 + 3];// = (Ogre::uchar)(alpha * 255.0f);
    return Ogre::ColourValue(red,green,blue,alpha);;
 }
 
 void ImageBuffer::setPixel(size_t x, size_t y, Ogre::Real red, Ogre::Real green, Ogre::Real blue, Ogre::Real alpha)
 {
-   mPixels[y * mWidth * 4 + x * 4 + 3] = (Ogre::uchar)(red * 255.0f);
-   mPixels[y * mWidth * 4 + x * 4 + 2] = (Ogre::uchar)(green * 255.0f);
-   mPixels[y * mWidth * 4 + x * 4 + 1] = (Ogre::uchar)(blue * 255.0f);
-   mPixels[y * mWidth * 4 + x * 4 + 0] = (Ogre::uchar)(alpha * 255.0f);
+   mPixels[y * mWidth * 4 + x * 4 + 0] = (Ogre::uchar)(red * 255.0f);
+   mPixels[y * mWidth * 4 + x * 4 + 1] = (Ogre::uchar)(green * 255.0f);
+   mPixels[y * mWidth * 4 + x * 4 + 2] = (Ogre::uchar)(blue * 255.0f);
+   mPixels[y * mWidth * 4 + x * 4 + 3] = (Ogre::uchar)(alpha * 255.0f);
 }
 
 void ImageBuffer::saveImage(Ogre::String filename)

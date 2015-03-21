@@ -1,5 +1,7 @@
 #ifndef __PerlinGenerator_CPP
 #define __PerlinGenerator_CPP
+#include "TerrainStruct.h"
+#include "TPoint3.h"
 #include "Perlin.cpp"
 #include <vector>
 using namespace std;
@@ -11,6 +13,7 @@ class PerlinGenerator{
 		PerlinGenerator(float size, float scale, float zdepth, float frequency ,float amplitude,float octaves, float gain);
 		vector<vector<double> > getNoisevalues(void);
 		vector<vector<vector<double> > > getNoisevalues3d(void);
+		terr::T3dCPointsMap getNoisevalues3dT(void);
 	private:  
 		double cscale;
 		// 513 x 513 
@@ -19,6 +22,7 @@ class PerlinGenerator{
 		double zdepth;
 		vector<vector<double> > cnoisevals;
 		vector<vector<vector<double> > > cnoisevals3d;
+		terr::T3dCPointsMap * tcnoisevals3d;
 		vector<vector<vector<vector<double> > > > cnoisepartials;				
 };
 
@@ -111,6 +115,7 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth){
 	cscale = (double)scale;
 	int maxnode = ((int)size)/(int)scale + 2;
 	Perlin* perlina = new Perlin(maxnode, maxnode, (int)zdepth);
+	
 /*
 	std::ostringstream ss5;
 	ss5<< "Test2" << "\n";
@@ -207,9 +212,10 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth){
 	//cnoisepartials = noisepartials;		
 }
 
-PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float frequency, float amplitude, float octaves=6, float gain = 1.5f){
+PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float frequency, float amplitude, float octaves=6, float gain = .5f){
 	//frequency is typically a number ranging inside the set (0,1].
 	//default size = 513
+	tcnoisevals3d = new terr::T3dCPointsMap(); 
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().getLog("Perlin.log");
 	csize = (double)size;
 	cscale = (double)scale; //could be values likely ranging from 1.0f to size
@@ -228,7 +234,7 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float fr
 	ss5<< "MaxNode: "<< maxnode << "\n";
 	tlog->logMessage(ss5.str());
 */
-	double maxval = (double)0.0f, minval = (double)0.0f;
+	double maxval = (double)0.0f, minval = (double)100000000.0f;
 	vector<vector<vector<double> > > noiseval((int)size);
 	vector<vector<vector<vector<double> > > > noisepartials((int)size);
 	//vector<float> retval(4); 
@@ -253,11 +259,11 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float fr
 			//implementing Fbm here
 			double val = (double)0;
 //			float frequency = 1.0f/((float)maxnode-1.0f);
-			double frequency = cfreq;
+			double freq = cfreq;
 			double lacunarity = 2.0f; //ranges from (1.8715 to 2.1042) in dealing with artifacts
 //			float gain = 1.5f; //standard .5
 //			float amplitude = gain;
-			double amplitude = camp;
+			double amp = camp;
 			double initval = 0.0f;
 			double dx = 0.0f;
 			double dy = 0.0f;
@@ -270,14 +276,14 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float fr
 				ss5<< "pos fbm: " << x*frequency << ","<< y*frequency <<"\n";
 				tlog->logMessage(ss5.str());				
 */
-				initval = perlina->getNoiseValue(x * frequency, y * frequency, z*frequency);
-				partvalx = perlina->get3dNoisePartials()[0];
-				partvaly = perlina->get3dNoisePartials()[1];
-				dx += partvalx;
-				dy += partvaly;
-			        val += perlina->getNoiseValue(x * frequency, y * frequency, z*frequency) * amplitude/(1+dx*dx+dy*dy);         
-        			frequency *= lacunarity;
-        			amplitude *= gain;
+				//initval = perlina->getNoiseValue(x * frequency, y * frequency, z*frequency);
+				//partvalx = perlina->get3dNoisePartials()[0];
+				//partvaly = perlina->get3dNoisePartials()[1];
+				//dx += partvalx;
+				//dy += partvaly;
+			        val += perlina->getNoiseValue(x * freq, y * freq, z*freq) * amp;//(1+dx*dx+dy*dy);         
+        			freq *= lacunarity;
+        			amp *= gain;
 			}
 			//float val = perlina->getNoiseValue(x,y,z);
 			
@@ -337,7 +343,10 @@ PerlinGenerator::PerlinGenerator(float size, float scale, float zdepth, float fr
 		for(int j = 0; j < size; j++){
 		   for(int k = 0; k < (int)zdepth-1; k++){
 			//noiseval[i][j][k] = (noiseval[i][j][k]/scaleceiling)/2 + .5;
+			TPoint3 * coord = new TPoint3(i,j,k);
 			noiseval[i][j][k] = (noiseval[i][j][k]/scaleceiling);
+			(*tcnoisevals3d)[coord] = (noiseval[i][j][k]/scaleceiling);
+			
 		   }
 		}
 	}
@@ -352,6 +361,10 @@ vector<vector<double> > PerlinGenerator::getNoisevalues(){
 
 vector<vector<vector<double> > > PerlinGenerator::getNoisevalues3d(){
 	return cnoisevals3d;
+}
+
+terr::T3dCPointsMap PerlinGenerator::getNoisevalues3dT(){
+	return (*tcnoisevals3d);
 }
 
 #endif

@@ -42,10 +42,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -103,9 +103,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -149,6 +149,71 @@ OgreApp/fast:
 OgreApp/preinstall:
 	$(MAKE) -f CMakeFiles/OgreApp.dir/build.make CMakeFiles/OgreApp.dir/preinstall
 .PHONY : OgreApp/preinstall
+
+#=============================================================================
+# Target rules for targets named Voronoi
+
+# Build rule for target.
+Voronoi: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Voronoi
+.PHONY : Voronoi
+
+# fast build rule for target.
+Voronoi/fast:
+	$(MAKE) -f Voronoi/CMakeFiles/Voronoi.dir/build.make Voronoi/CMakeFiles/Voronoi.dir/build
+.PHONY : Voronoi/fast
+
+#=============================================================================
+# Target rules for targets named Simplex
+
+# Build rule for target.
+Simplex: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Simplex
+.PHONY : Simplex
+
+# fast build rule for target.
+Simplex/fast:
+	$(MAKE) -f Simplex/CMakeFiles/Simplex.dir/build.make Simplex/CMakeFiles/Simplex.dir/build
+.PHONY : Simplex/fast
+
+#=============================================================================
+# Target rules for targets named libfbm
+
+# Build rule for target.
+libfbm: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 libfbm
+.PHONY : libfbm
+
+# fast build rule for target.
+libfbm/fast:
+	$(MAKE) -f libfbm/CMakeFiles/libfbm.dir/build.make libfbm/CMakeFiles/libfbm.dir/build
+.PHONY : libfbm/fast
+
+#=============================================================================
+# Target rules for targets named DiamondSquare
+
+# Build rule for target.
+DiamondSquare: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 DiamondSquare
+.PHONY : DiamondSquare
+
+# fast build rule for target.
+DiamondSquare/fast:
+	$(MAKE) -f DiamondSquare/CMakeFiles/DiamondSquare.dir/build.make DiamondSquare/CMakeFiles/DiamondSquare.dir/build
+.PHONY : DiamondSquare/fast
+
+#=============================================================================
+# Target rules for targets named terrainerosion
+
+# Build rule for target.
+terrainerosion: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 terrainerosion
+.PHONY : terrainerosion
+
+# fast build rule for target.
+terrainerosion/fast:
+	$(MAKE) -f terrainerosion/CMakeFiles/terrainerosion.dir/build.make terrainerosion/CMakeFiles/terrainerosion.dir/build
+.PHONY : terrainerosion/fast
 
 BaseApplication.o: BaseApplication.cpp.o
 .PHONY : BaseApplication.o
@@ -210,6 +275,11 @@ help:
 	@echo "... install/local"
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
+	@echo "... Voronoi"
+	@echo "... Simplex"
+	@echo "... libfbm"
+	@echo "... DiamondSquare"
+	@echo "... terrainerosion"
 	@echo "... BaseApplication.o"
 	@echo "... BaseApplication.i"
 	@echo "... BaseApplication.s"

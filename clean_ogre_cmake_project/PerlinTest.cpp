@@ -1,18 +1,32 @@
 #ifndef __PerlinTest_CPP
 #define __PerlinTest_CPP
-
+#include "TerrainStruct.h"
 #include "PerlinGenerator.cpp"
 #include "ColorGet.cpp"
 #include "Imagestuff.cpp"
 #include <vector>
+
+/*
+This is likely going to get downgraded as a deprecated class since implementation of perlin.cpp doesn't seem
+to jive so well with fBm...at least in terms of fractalization, or in other words seems to reproduce the 
+same set of noise with higher octave as opposed to increases fractal depth(resolution) or very poorly accomplishes
+that.
+*/
 class PerlinTest{
 	public:
 		PerlinTest(float size, float scale);
 		PerlinTest(float size, float scale, float zdepth);
 		PerlinTest(float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain, int imagemap);
 		vector<vector<vector<double> > > getNoisevalues();
+		terr::T3dCPointsMap *            getNoisevaluesT();  //likely to reformulate this since coordinate pointer addressing
+								     //is not the best for coorindate value searching on the same 
+								     //map.  Likely it may be better to re write with template 
+								     //class??
+		terr::CPointsMap                getNoisevaluesV();  //alternate to coordinate pointer addressing
 	private:
-		vector<vector<vector<double> > > cnoisevals;		
+		vector<vector<vector<double> > > cnoisevals;
+		terr::T3dCPointsMap             tcnoisevals;
+		terr::CPointsMap    *            vcnoisevals;		
 };
 
 PerlinTest::PerlinTest(float size, float scale){
@@ -67,15 +81,17 @@ PerlinTest::PerlinTest(float size, float scale, float zdepth){
 	buffer.saveImage("test2.png");
 }
 
-PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain = 1.5f, int imagemap = (int)3.0f){
+PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, float amplitude, float octaves, float gain = .5f, int imagemap = (int)3.0f){
 	Ogre::Log* tlog = Ogre::LogManager::getSingleton().createLog("Perlin.log");
 	std::ostringstream ss5, filename;
 	ss5<< "Test" << "\n";
 	tlog->logMessage(ss5.str());
+	vcnoisevals = new terr::CPointsMap(); 
 	PerlinGenerator* pgen = new PerlinGenerator(size, scale, zdepth, frequency, amplitude, octaves, gain);
 	//ss5<<"Test2 " <<"\n";
 	//tlog->logMessage(ss5.str());
 	vector<vector<vector<double> > > noisevals = pgen->getNoisevalues3d();
+	tcnoisevals = pgen->getNoisevalues3dT();
 	cnoisevals = noisevals;
 	ImageBuffer buffer(size);
     	FillColour* fill = new FillColour (&buffer);
@@ -86,9 +102,11 @@ PerlinTest::PerlinTest(float size, float scale, float zdepth, float frequency, f
 		for (int j = 0; j<size; j++){
 		   for(int k = 0; k<(int)zdepth-1;k++){
 			//ss5<<"Color value: "<<noisevals[i][j]<<"\n";
-			ColorGet* cget = new ColorGet(noisevals[i][j][k]);
-			Ogre::ColourValue acol = cget->getCol();
-			//Ogre::ColourValue col = Ogre::ColourValue(noisevals[i][j][k],noisevals[i][j][k],noisevals[i][j][k]);
+			//ColorGet* cget = new ColorGet(noisevals[i][j][k]);
+			//Ogre::ColourValue acol = cget->getCol();
+			Ogre::ColourValue acol = Ogre::ColourValue(noisevals[i][j][k],noisevals[i][j][k],noisevals[i][j][k]);
+			terr::Coordpair * coordpair = new terr::Coordpair(i,j);
+			(*vcnoisevals)[(*coordpair)] = noisevals[i][j][k];
 			fill->setPixl((size_t)i, (size_t)j, acol);
 		   }
 		}
@@ -102,4 +120,11 @@ vector<vector<vector<double> > > PerlinTest::getNoisevalues(){
 	return cnoisevals;
 }
 
+terr::T3dCPointsMap * PerlinTest::getNoisevaluesT(){
+	return & tcnoisevals;
+}
+
+terr::CPointsMap  PerlinTest::getNoisevaluesV(){
+	return  (*vcnoisevals);
+}
 #endif

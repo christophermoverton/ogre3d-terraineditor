@@ -15,6 +15,8 @@ using MathNet.Numerics.LinearAlgebra.Double;
 namespace linearalgpckg
 {
 */
+#ifndef __cspline_CPP
+#define __cspline_CPP
 #include <vector>
 #include <OgreMatrix4.h>
 #include <OgreVector4.h>
@@ -280,3 +282,4 @@ using namespace std;
 //	}
 //}
 
+#endif

@@ -38,10 +38,10 @@ EQUALS = =
 CMAKE_EDIT_COMMAND = /usr/bin/cmake-gui
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_SOURCE_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project
+CMAKE_BINARY_DIR = /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project
 
 # Include any dependencies generated for this target.
 include CMakeFiles/OgreApp.dir/depend.make
@@ -54,17 +54,17 @@ include CMakeFiles/OgreApp.dir/flags.make
 
 CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: CMakeFiles/OgreApp.dir/flags.make
 CMakeFiles/OgreApp.dir/BaseApplication.cpp.o: BaseApplication.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OgreApp.dir/BaseApplication.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OgreApp.dir/BaseApplication.cpp.o -c /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BaseApplication.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OgreApp.dir/BaseApplication.cpp.o -c /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BaseApplication.cpp
 
 CMakeFiles/OgreApp.dir/BaseApplication.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OgreApp.dir/BaseApplication.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BaseApplication.cpp > CMakeFiles/OgreApp.dir/BaseApplication.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BaseApplication.cpp > CMakeFiles/OgreApp.dir/BaseApplication.cpp.i
 
 CMakeFiles/OgreApp.dir/BaseApplication.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OgreApp.dir/BaseApplication.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/BaseApplication.cpp -o CMakeFiles/OgreApp.dir/BaseApplication.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/BaseApplication.cpp -o CMakeFiles/OgreApp.dir/BaseApplication.cpp.s
 
 CMakeFiles/OgreApp.dir/BaseApplication.cpp.o.requires:
 .PHONY : CMakeFiles/OgreApp.dir/BaseApplication.cpp.o.requires
@@ -77,17 +77,17 @@ CMakeFiles/OgreApp.dir/BaseApplication.cpp.o.provides.build: CMakeFiles/OgreApp.
 
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: CMakeFiles/OgreApp.dir/flags.make
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o: ITutorial02.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/OgreApp.dir/ITutorial02.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OgreApp.dir/ITutorial02.cpp.o -c /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ITutorial02.cpp
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/OgreApp.dir/ITutorial02.cpp.o -c /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ITutorial02.cpp
 
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/OgreApp.dir/ITutorial02.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ITutorial02.cpp > CMakeFiles/OgreApp.dir/ITutorial02.cpp.i
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ITutorial02.cpp > CMakeFiles/OgreApp.dir/ITutorial02.cpp.i
 
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/OgreApp.dir/ITutorial02.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/ITutorial02.cpp -o CMakeFiles/OgreApp.dir/ITutorial02.cpp.s
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/ITutorial02.cpp -o CMakeFiles/OgreApp.dir/ITutorial02.cpp.s
 
 CMakeFiles/OgreApp.dir/ITutorial02.cpp.o.requires:
 .PHONY : CMakeFiles/OgreApp.dir/ITutorial02.cpp.o.requires
@@ -121,6 +121,12 @@ dist/bin/OgreApp: /usr/lib/x86_64-linux-gnu/libOIS.so
 dist/bin/OgreApp: /usr/local/lib/libOgreOverlay.so
 dist/bin/OgreApp: /usr/local/lib/libCEGUIBase-0.so
 dist/bin/OgreApp: /usr/local/lib/libCEGUIOgreRenderer-0.so
+dist/bin/OgreApp: Voronoi/libVoronoi.a
+dist/bin/OgreApp: Simplex/libSimplex.a
+dist/bin/OgreApp: libfbm/liblibfbm.a
+dist/bin/OgreApp: DiamondSquare/libDiamondSquare.a
+dist/bin/OgreApp: terrainerosion/libterrainerosion.a
+dist/bin/OgreApp: /usr/local/lib/libfftw3.a
 dist/bin/OgreApp: CMakeFiles/OgreApp.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable dist/bin/OgreApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OgreApp.dir/link.txt --verbose=$(VERBOSE)
@@ -152,6 +158,12 @@ CMakeFiles/CMakeRelink.dir/OgreApp: /usr/lib/x86_64-linux-gnu/libOIS.so
 CMakeFiles/CMakeRelink.dir/OgreApp: /usr/local/lib/libOgreOverlay.so
 CMakeFiles/CMakeRelink.dir/OgreApp: /usr/local/lib/libCEGUIBase-0.so
 CMakeFiles/CMakeRelink.dir/OgreApp: /usr/local/lib/libCEGUIOgreRenderer-0.so
+CMakeFiles/CMakeRelink.dir/OgreApp: Voronoi/libVoronoi.a
+CMakeFiles/CMakeRelink.dir/OgreApp: Simplex/libSimplex.a
+CMakeFiles/CMakeRelink.dir/OgreApp: libfbm/liblibfbm.a
+CMakeFiles/CMakeRelink.dir/OgreApp: DiamondSquare/libDiamondSquare.a
+CMakeFiles/CMakeRelink.dir/OgreApp: terrainerosion/libterrainerosion.a
+CMakeFiles/CMakeRelink.dir/OgreApp: /usr/local/lib/libfftw3.a
 CMakeFiles/CMakeRelink.dir/OgreApp: CMakeFiles/OgreApp.dir/relink.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable CMakeFiles/CMakeRelink.dir/OgreApp"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/OgreApp.dir/relink.txt --verbose=$(VERBOSE)
@@ -169,6 +181,6 @@ CMakeFiles/OgreApp.dir/clean:
 .PHONY : CMakeFiles/OgreApp.dir/clean
 
 CMakeFiles/OgreApp.dir/depend:
-	cd /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor/clean_ogre_cmake_project/CMakeFiles/OgreApp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project /home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/CMakeFiles/OgreApp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/OgreApp.dir/depend
 
