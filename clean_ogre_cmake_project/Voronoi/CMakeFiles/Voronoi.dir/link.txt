@@ -1,0 +1,2 @@
+/usr/bin/ar cr libVoronoi.a  CMakeFiles/Voronoi.dir/Voronoi.cpp.o CMakeFiles/Voronoi.dir/VParabola.cpp.o
+/usr/bin/ranlib libVoronoi.a

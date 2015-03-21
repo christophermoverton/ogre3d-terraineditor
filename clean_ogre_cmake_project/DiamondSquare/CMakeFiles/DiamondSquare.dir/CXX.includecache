@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare/DiamondSquare.cpp
+cstdlib
+-
+iostream
+-
+fstream
+-
+string
+-
+cmath
+-
+ctime
+-
+TerrainStruct.h
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare/TerrainStruct.h
+vector
+-
+
+/home/strangequark2/ogre3d-terraineditor2/clean_ogre_cmake_project/DiamondSquare/TerrainStruct.h
+list
+-
+queue
+-
+set
+-
+functional
+-
+vector
+-
+map
+-
+utility
+-
+

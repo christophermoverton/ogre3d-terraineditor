@@ -1,0 +1,2 @@
+/usr/bin/ar cr liblibfbm.a  CMakeFiles/libfbm.dir/libfbm.cpp.o CMakeFiles/libfbm.dir/SFMT.c.o
+/usr/bin/ranlib liblibfbm.a

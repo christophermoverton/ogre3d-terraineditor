@@ -1,0 +1,2 @@
+/usr/bin/ar cr libterrainerosion.a  CMakeFiles/terrainerosion.dir/Simulation/FluidSimulation.cpp.o CMakeFiles/terrainerosion.dir/Math/PerlinNoise.cpp.o
+/usr/bin/ranlib libterrainerosion.a

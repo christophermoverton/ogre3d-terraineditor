@@ -1,0 +1,2 @@
+/usr/bin/ar cr libDiamondSquare.a  CMakeFiles/DiamondSquare.dir/DiamondSquare.cpp.o
+/usr/bin/ranlib libDiamondSquare.a

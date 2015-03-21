@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<GUILayout >
+    <Window Type="DefaultWindow" Name="Root" >
+        <Property Name="Text" >1</Property>
+        <Property Name="InheritsAlpha" Value="False" />
+        <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+        <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
+        <Window Type="DefaultWindow" Name="TabPane2" >
+            <Property Name="Font" Value="Commonwealth-10" />
+            <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+            <Property Name="UnifiedAreaRect" Value="{{0.72875,0},{0.7185,0},{0.97875,0},{0.9685,0}}" />
+            <Window Type="TaharezLook/StaticText" Name="StaticTextPage2" >
+                <Property Name="Font" Value="Commonwealth-10" />
+                <Property Name="Text" >In Page 2:</Property>
+                <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.06,0},{0.226667,0},{0.415,0},{0.476667,0}}" />
+            </Window>
+            <Window Type="TaharezLook/Editbox" Name="EditBoxPage2" >
+                <Property Name="Font" Value="Commonwealth-10" />
+                <Property Name="MaxTextLength" Value="1073741823" />
+                <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.420001,0},{0.22,0},{0.99,0},{0.47,0}}" />
+            </Window>
+        </Window>
+        <Window Type="TaharezLook/FrameWindow" Name="winTabControl" >
+            <Property Name="Text" >Tab Control Window</Property>
+            <Property Name="TitlebarFont" Value="Commonwealth-10" />
+            <Property Name="CaptionColour" Value="00FFFFFF" />
+            <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+            <Property Name="TitlebarEnabled" Value="True" />
+            <Property Name="UnifiedAreaRect" Value="{{0.695627,0},{0.2725,0},{0.993122,0},{0.704167,0}}" />
+            <Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseTarget" />
+            <Window Type="TaharezLook/TabControl" Name="TabControl" >
+                <Property Name="TabHeight" Value="{0,0}" />
+                <Property Name="TabTextPadding" Value="{0,0}" />
+                <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.088566,0},{0.174378,0},{0.931404,0},{0.804637,0}}" />
+            </Window>
+            <Window Type="TaharezLook/Button" Name="btnOk" >
+                <Property Name="Text" >Ok</Property>
+                <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.128412,0},{0.841464,0},{0.365583,0},{0.926003,0}}" />
+                <Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+            </Window>
+            <Window Type="TaharezLook/Button" Name="btnCancel" >
+                <Property Name="Text" >Cancel</Property>
+                <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.400429,0},{0.841464,0},{0.637601,0},{0.926003,0}}" />
+                <Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+            </Window>
+            <Window Type="TaharezLook/Button" Name="btnApply" >
+                <Property Name="Text" >Apply</Property>
+                <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.668224,0},{0.843977,0},{0.905394,0},{0.928516,0}}" />
+                <Property Name="MouseCursorImage" Value="set:TaharezLook image:MouseArrow" />
+            </Window>
+        </Window>
+        <Window Type="DefaultWindow" Name="TabPane1" >
+            <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+            <Property Name="ClippedByParent" Value="False" />
+            <Property Name="UnifiedAreaRect" Value="{{0.72875,0},{0.012178,0},{0.97875,0},{0.262178,0}}" />
+            <Window Type="TaharezLook/StaticText" Name="StaticTextPage1" >
+                <Property Name="Text" >In Page 1:</Property>
+                <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.06,0},{0.226667,0},{0.415,0},{0.476667,0}}" />
+            </Window>
+            <Window Type="TaharezLook/Editbox" Name="EditBoxPage1" >
+                <Property Name="MaxTextLength" Value="1073741823" />
+                <Property Name="UnifiedMaxSize" Value="{{1,0},{1,0}}" />
+                <Property Name="UnifiedAreaRect" Value="{{0.420001,0},{0.22,0},{0.99,0},{0.47,0}}" />
+            </Window>
+        </Window>
+
+    </Window>
+</GUILayout>
